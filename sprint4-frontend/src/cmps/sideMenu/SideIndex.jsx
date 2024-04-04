@@ -37,6 +37,7 @@ export function SideIndex() {
         }
     }
 
+    //* EDIT = Update --> with Modal
     async function onUpdateStation(station) {
         console.log("🚀 ~ onUpdateStation ~ station:", station)
 
@@ -69,9 +70,11 @@ export function SideIndex() {
 
     return (
         <div className="SideIndex">
-            <h3>Your Library</h3>
-            <main>
+            <div className="side-index-top-bar flex">
+                <h3>Your Library</h3>
                 <button onClick={onAddStation}>+</button>
+            </div>
+            <main>
 
                 <SideList stations={stations} onRemoveStation={onRemoveStation}
                     onUpdateStation={onUpdateStation} />
