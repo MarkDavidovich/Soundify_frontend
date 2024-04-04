@@ -12,21 +12,15 @@
 @import "basics/forms";
 
 
-// Views
-@import "views/AboutUs";
+// Pages
+// @import "views/AboutUs";
 @import "views/HomePage";
-@import "views/CarIndex";
-@import "views/ReviewIndex";
+// @import "views/CarIndex";
+@import "views/ThemesPage";
 @import "views/UserDetails";
 
 // Components
 @import "cmps/AppHeader";
 @import "cmps/AppFooter";
 @import "cmps/UserMsg";
-@import "cmps/ShoppingCart";
-
-
-
-
-
-
+@import "cmps/SideBar";

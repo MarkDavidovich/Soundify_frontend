@@ -4,6 +4,9 @@ import React from 'react'
 
 export function ThemesPage() {
   return (
-    <div>ThemesPage</div>
+    <section className="main-view">
+      <div>ThemesPage</div>
+    </section>
+
   )
 }

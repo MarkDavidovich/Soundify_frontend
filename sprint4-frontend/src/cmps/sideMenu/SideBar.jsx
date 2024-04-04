@@ -10,7 +10,7 @@ import { StationIndex } from './StationIndex'
 export function SideBar() {
   return (
     <>
-      <div>SideBar</div>
+      <div className="side-bar">SideBar</div>
       <StationIndex />
     </>
   )

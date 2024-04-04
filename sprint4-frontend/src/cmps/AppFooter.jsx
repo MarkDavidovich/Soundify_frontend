@@ -7,9 +7,9 @@ import { UserMsg } from './UserMsg.jsx'
 
 export function AppFooter() {
 
-    return (
-        <footer className="app-footer">
-          Footer
-        </footer>
-    )
+  return (
+    <footer className="footer">
+      Footer
+    </footer>
+  )
 }
