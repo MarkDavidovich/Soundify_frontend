@@ -27,7 +27,6 @@ export async function loadStations() {
 
     try {
         const { filterBy } = store.getState().stationModule
-        console.log("🚀 ~ loadStations ~ filterBy:", filterBy)
 
         const stations = await stationService.query(filterBy)
         console.log('Stations from DB:', stations)
@@ -79,8 +78,6 @@ export function updateStation(station) {
 }
 
 export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
-    console.log("🚀 ~ setStationFilter ~ filterBy:", filterBy)
-
     store.dispatch({ type: SET_FILTER, filterBy })
     return Promise.resolve(filterBy)
 }
