@@ -251,7 +251,7 @@ const sLoseYourself = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213238/curtainCallTheHits_facvzm.jpg',
     addedBy: 'Haim',
     duration: '5:23',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 
 
@@ -264,7 +264,7 @@ const sCalifornication = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213235/californication_bxp3ar.jpg',
     addedBy: 'Haim',
     duration: '5:21',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 
 const sHypnotize = {
@@ -276,7 +276,7 @@ const sHypnotize = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213242/lifeAfterDeath_zwsll3.jpg',
     addedBy: 'Haim',
     duration: '3:50',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 const sCenturies = {
     id: utilService.makeId(),
@@ -287,7 +287,7 @@ const sCenturies = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213236/centuries_kuef65.jpg',
     addedBy: 'Haim',
     duration: '3:46',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 
 const sNumbEncore = {
@@ -299,7 +299,7 @@ const sNumbEncore = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213237/collisionCourse_x5ox3e.jpg',
     addedBy: 'Haim',
     duration: '3:25',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 
 const sHighHopes = {
@@ -311,7 +311,7 @@ const sHighHopes = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213246/prayForTheWicked_zu7dz3.jpg',
     addedBy: 'Haim',
     duration: '3:12',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 
 const sHereWithoutYou = {
@@ -323,7 +323,7 @@ const sHereWithoutYou = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213231/awayFromTheSun_diug2z.jpg',
     addedBy: 'Haim',
     duration: '3:55',
-    addedAt: utilService.randomPastTime(),
+    // addedAt: utilService.randomAddedTime(),
 }
 
 function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = [], createdBy = '', tags = []) {
@@ -336,7 +336,7 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
         likedByUsers,
         imgUrl,
         createdBy,
-        createdAt: utilService.randomPastTime()
+        createdAt: utilService.randomAddedTime()
     }
 }
 

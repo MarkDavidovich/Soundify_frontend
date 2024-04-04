@@ -3,7 +3,7 @@ export const utilService = {
     makeLorem,
     getRandomIntInclusive,
     debounce,
-    randomPastTime,
+    randomAddedTime,
     saveToStorage,
     loadFromStorage
 }
@@ -36,7 +36,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-function randomPastTime() {
+function randomAddedTime() {
     const HOUR = 1000 * 60 * 60
     const DAY = 1000 * 60 * 60 * 24
     const WEEK = 1000 * 60 * 60 * 24 * 7
