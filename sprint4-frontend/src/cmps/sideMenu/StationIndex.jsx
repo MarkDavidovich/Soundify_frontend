@@ -65,7 +65,7 @@ export function StationIndex() {
     // }
 
     return (
-        <div>
+        <div className="stationIndex">
             <h3>Your Library</h3>
             <main>
                 <button onClick={onAddStation}>+</button>

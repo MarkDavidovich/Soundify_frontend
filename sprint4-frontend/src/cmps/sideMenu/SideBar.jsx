@@ -10,8 +10,9 @@ import { StationIndex } from './StationIndex'
 export function SideBar() {
   return (
     <>
-      <div className="side-bar">SideBar</div>
-      <StationIndex />
+      <div className="side-bar flex column">SideBar
+        <StationIndex />
+      </div>
     </>
   )
 }
