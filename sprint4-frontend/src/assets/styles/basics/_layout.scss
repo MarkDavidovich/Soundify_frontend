@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: auto 1fr;
     grid-template-rows: 1fr auto;
+    gap: 8px;
 
     grid-template-areas:
         "side-bar main-view"

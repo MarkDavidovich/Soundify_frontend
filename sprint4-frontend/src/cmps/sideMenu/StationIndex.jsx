@@ -71,11 +71,11 @@ export function StationIndex() {
                 <button onClick={onAddStation}>+</button>
 
                 {/* ! Move preview to other cmp  */}
+                <StationPreview />
                 <ul className="station-list">
                     {stations.map(station =>
                         <li className="station-preview" key={station._id}>
                             <h4>{station.name}</h4>
-                            <h1>⛐</h1>
                             {/* <p>Price: <span>${station.price.toLocaleString()}</span></p> */}
                             {/* <p>Owner: <span>{station.owner && station.owner.fullname}</span></p> */}
                             {/* {shouldShowActionBtns(station) && <div>
