@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { PortalWithState } from 'react-portal'
+
+
 import { loadStations, addStation, updateStation, removeStation, setStationFilter } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { userService } from '../../services/user.service.js'
 import { stationService } from '../../services/station.service.js'
 
 import { SideFilter } from './SideFilter.jsx'
@@ -13,8 +15,6 @@ export function SideIndex() {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const filterBy = useSelector(storeState => storeState.stationModule.filterBy)
-    const [, setFilterBy] = useState(stationService.getEmptyFilterBy())
-    console.log("🚀 ~ SideIndex ~ filterBy:", filterBy)
 
     useEffect(() => {
         loadStations()
@@ -31,7 +31,8 @@ export function SideIndex() {
 
     async function onAddStation() {
         const station = stationService.getEmptyStation()
-        // switch to form
+
+        //! Switch to Modal + Form
         station.name = prompt('Station Name?')
         try {
             const savedStation = await addStation(station)
@@ -41,7 +42,7 @@ export function SideIndex() {
         }
     }
 
-    //* EDIT = Update --> with Modal
+    //! EDIT = Update --> with Modal
     async function onUpdateStation(station) {
         console.log("🚀 ~ onUpdateStation ~ station:", station)
 
@@ -65,7 +66,6 @@ export function SideIndex() {
     }
 
     function onSetFilter(filterBy) {
-        console.log("🚀 ~SideIndex - onSetFilter ~ filterBy:", filterBy)
         setStationFilter(filterBy)
     }
 
@@ -77,11 +77,28 @@ export function SideIndex() {
     // }
 
     return (
-        <div className="SideIndex">
+        <div className="side-index">
             <div className="side-index-top-bar flex">
                 <h3>Your Library</h3>
                 <button onClick={onAddStation}>+</button>
             </div>
+
+            <PortalWithState closeOnOutsideClick closeOnEsc>
+                {({ openPortal, closePortal, isOpen, portal }) => (
+                    <>
+                        <button onClick={openPortal}>
+                            Open Portal
+                        </button>
+                        {portal(
+                            <p>
+                                This is more advanced Portal. It handles its own state.{' '}
+                                <button onClick={closePortal}>Close me!</button>, hit ESC or
+                                click outside of me.
+                            </p>
+                        )}
+                    </>
+                )}
+            </PortalWithState>
 
             <SideFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <main>
@@ -93,3 +110,6 @@ export function SideIndex() {
         </div>
     )
 }
+
+
+
