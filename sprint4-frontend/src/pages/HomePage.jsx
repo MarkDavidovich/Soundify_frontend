@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { CHANGE_COUNT } from '../store/user.reducer'
+import { CHANGE_COUNT } from '../store/reducers/user.reducer'
 
 
 export function HomePage() {
@@ -23,7 +23,7 @@ export function HomePage() {
                     changeCount(10)
                 }}>+10</button>
             </h2 >
-            <img src={'img/vite.svg'} style={{width: '100px'}} />
+            <img src={'img/vite.svg'} style={{ width: '100px' }} />
         </section >
     )
 }
