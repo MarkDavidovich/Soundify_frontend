@@ -74,6 +74,20 @@
                 gap: 8px;
             }
         }
+
+        .progress-bar-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            .input-bar {
+                width: 80%;
+            }
+        }
+
+
+
+
     }
 
     .player-extra-controls {
@@ -82,7 +96,6 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-end;
-        //! WHY WON'T IT JUSTIFY?!!!
         width: 25%;
         flex: 1;
 
@@ -94,9 +107,49 @@
         .volume-controls {
             display: flex;
 
-            .input-bar {
+            .volume-bar {
                 display: flex;
+                align-items: center;
             }
         }
     }
+
+    .input-bar {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 3px;
+        background: #b3b3b3;
+        outline: none;
+        border-radius: 3px;
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 12px;
+            width: 12px;
+            background: #fff;
+            border-radius: 50%;
+            border: 0;
+            cursor: pointer;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
+        }
+
+
+
+        ::-webkit-slider-thumb:hover {
+            background: #2e8b57;
+        }
+
+
+
+
+    }
+
+    .following-bar {
+        height: 3px;
+        border-radius: 3px;
+        background-color: #fff;
+        // background-color: #1db954;
+    }
+
 }

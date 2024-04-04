@@ -17,7 +17,9 @@ export function AppFooter() {
     const [isMuted, setIsMuted] = useState(false)
     const [loop, setLoop] = useState(false)
     const [shuffle, setShuffle] = useState(false)
-    const [currentTime, setCurrentTime] = useState(0)
+    const [progress, setProgress] = useState(0)
+    const [duration, setDuration] = useState(0)
+    //! NEED TO ADD A NEW FUNCTION TO SEEK
     const [isLiked, setIsLiked] = useState()
 
     function handleVolumeChange(ev) {
@@ -31,12 +33,15 @@ export function AppFooter() {
         togglePlaying(isPlaying)
     }
 
+    function handleProgress({ played }) {
+        setProgress(played)
+    }
+
     return (
         <footer className="app-footer">
             <div className="song-details-container">
                 <SongPreview />
             </div>
-
             <div className='controls-main-container'>
                 <div className='player-controls-main'>
                     <div className="player-controls-left">
@@ -60,9 +65,24 @@ export function AppFooter() {
                         </button>
                     </div>
                 </div>
-                <div className='progress-bar'>
-                    ___THIS___IS____THE____PROGRESS___BAR__:D____
+                <div className="following-bar" style={{ width: `${progress * 100}%` }}></div>
+                <div className='progress-bar-container'>
+                    <label htmlFor="progressRange"></label>
+                    <input
+                        className='input-bar'
+                        type='range'
+                        id='progressRange'
+                        name='progressRange'
+                        min='0'
+                        max='1'
+                        step='0.005'
+                        value={progress}
+                        onChange={handleProgress}
+                    // style={{ '--progress-bar-duration': progress }}
+                    />
+
                 </div>
+
             </div>
             <div className="player-extra-controls">
                 <button className="playing-view-btn">▶️</button>
@@ -111,6 +131,7 @@ export function AppFooter() {
                 volume={volume}
                 muted={isMuted}
                 loop={loop}
+                onProgress={handleProgress}
             />
         </footer>
     )
