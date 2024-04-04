@@ -2,15 +2,13 @@
     margin: 0;
     padding: 0;
     grid-area: footer;
-    // bottom: 0;
     background-color: #111;
     color: $clr4;
-    // min-width: 300px;
 
     display: flex;
-    flex-direction: row;
+    align-items: center;
 
-    .current-song-details {
+    .song-details-container {
         min-width: 180px;
         padding-inline-start: 8px;
         width: 30%;
@@ -18,11 +16,76 @@
         flex-direction: row;
         justify-content: flex-start;
 
-        .song-img {
-            width: 56px;
-            background-position: 50%;
-            background-size: contain;
-        }
+        .song-details {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
 
+            .song-img {
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+                width: 56px;
+                height: 56px;
+                background-position: 50%;
+                background-size: contain;
+            }
+
+            .title-artist-container {
+                margin-inline: 8px;
+            }
+
+            .song-like {
+                margin-inline: 5px;
+            }
+        }
+    }
+
+    .controls-main-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 45%;
+
+        .player-controls-main {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+
+            .player-controls-left {
+                display: flex;
+                justify-content: flex-end;
+                flex: 1;
+                gap: 8px;
+
+                .shuffle-btn {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            .player-controls-right {
+                display: flex;
+                justify-content: flex-start;
+                flex: 1;
+                gap: 8px;
+            }
+        }
+    }
+
+    .player-extra-controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        //! WHY WON'T IT JUSTIFY?!!!
+        width: 25%;
+
+        button {
+            padding: 0;
+            margin: 3px;
+        }
     }
 }

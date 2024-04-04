@@ -33,31 +33,65 @@ export function AppFooter() {
 
     return (
         <footer className="app-footer">
-            <div className="current-song-details">
+            <div className="song-details-container">
                 <SongPreview />
             </div>
 
-            <div className="player-controls-left">
-                <button className="shuffle-btn" onClick={() => {
-                    setShuffle(!shuffle)
-                    console.log("shuffle:", shuffle)
-                }}>shuffle
-                </button>
-                <button className="prev-song-btn">{"<"}</button>
+            <div className='controls-main-container'>
+                <div className='player-controls-main'>
+                    <div className="player-controls-left">
+                        <button className="shuffle-btn" onClick={() => {
+                            setShuffle(!shuffle)
+                            console.log("shuffle:", shuffle)
+                        }}>shuffle
+                        </button>
+                        <button className="prev-song-btn">{"<"}</button>
+                    </div>
+
+                    <button className="play-btn" onClick={() => play()}>play</button>
+
+                    <div className="player-controls-right">
+
+                        <button className="next-song-btn">{">"}</button>
+                        <button className="loop-btn" onClick={() => {
+                            setLoop(!loop)
+                            console.log("loop:", loop)
+                        }}>loop
+                        </button>
+                    </div>
+                </div>
+                <div className='progress-bar'>
+                    ___THIS___IS____THE____PROGRESS___BAR__:D____
+                </div>
             </div>
-
-            <button className="play-btn" onClick={() => play()}>play</button>
-
-            <div className="player-controls-right">
-
-                <button className="next-song-btn">{">"}</button>
-                <button className="loop-btn" onClick={() => {
-                    setLoop(!loop)
-                    console.log("loop:", loop)
-                }}>loop
+            <div className="player-extra-controls">
+                <button className="playing-view-btn">▶️</button>
+                <button className="lyrics-btn">🎤</button>
+                <button className="queue-btn">📃</button>
+                <button className="connect-device-btn">🖥️</button>
+                {/* Check if muted to show icon (isMuted)*/}
+                <button className="mute-btn" onClick={() => {
+                    setIsMuted(!isMuted)
+                    console.log("mute:", isMuted)
+                }}>🔇
                 </button>
+                <div className="volume-bar">
+                    <label htmlFor="volumeRange"></label>
+                    <input
+                        className='input-bar'
+                        type='range'
+                        id='volumeRange'
+                        name='volumeRange'
+                        min='0'
+                        max='1'
+                        step='0.05'
+                        value={volume}
+                        onChange={handleVolumeChange}
+                    />
+                </div>
+                <button className="mini-player-btn">MP</button>
+                <button className="full-screen-btn">FS</button>
             </div>
-
             <ReactPlayer
                 className="react-player"
                 // ref={playerRef}
@@ -76,34 +110,6 @@ export function AppFooter() {
                 muted={isMuted}
                 loop={loop}
             />
-
-            <div className="player-extra-controls">
-                <button className="playing-view-btn">now playing view</button>
-                <button className="queue-btn">queue</button>
-                <button className="connect-device-btn">connect to a device</button>
-                {/* Check if muted to show icon (isMuted)*/}
-                <button className="mute-btn" onClick={() => {
-                    setIsMuted(!isMuted)
-                    console.log("mute:", isMuted)
-                }}>mute
-                </button>
-                <div className="volume-bar">
-                    <label htmlFor="volumeRange"></label>
-                    <input
-                        className='input-bar'
-                        type='range'
-                        id='volumeRange'
-                        name='volumeRange'
-                        min='0'
-                        max='1'
-                        step='0.05'
-                        value={volume}
-                        onChange={handleVolumeChange}
-                    />
-                </div>
-                <button className="mini-player-btn">mini player</button>
-                <button className="full-screen-btn">full screen</button>
-            </div>
         </footer>
     )
 }
