@@ -1,4 +1,6 @@
 import { HomePage } from './pages/HomePage.jsx'
+import { ThemesPage } from './pages/ThemesPage.jsx'
+import { StationsPage } from './pages/StationsPage.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
 import { CarIndex } from './pages/CarIndex.jsx'
 import { ReviewIndex } from './pages/ReviewIndex.jsx'
@@ -10,33 +12,39 @@ const routes = [
     {
         path: '/',
         component: <HomePage />,
-        label: 'Home 🏠',
+        label: 'Home',
     },
     {
-        path: 'car',
-        component: <CarIndex />,
-        label: 'Cars'
+        path: 'search',
+        component: <ThemesPage />,
+        label: 'Search'
     },
-    {
-        path: 'review',
-        component: <ReviewIndex />,
-        label: 'Reviews'
-    },
-    {
-        path: 'chat',
-        component: <ChatApp />,
-        label: 'Chat'
-    },
-    {
-        path: 'about',
-        component: <AboutUs />,
-        label: 'About us'
-    },
-    {
-        path: 'admin',
-        component: <AdminApp />,
-        label: 'Admin Only'
-    }
+    // {
+    //     path: 'stations',
+    //     component: <StationsPage />,
+    //     label: 'Stations'
+    // },
+
+    // {
+    //     path: 'review',
+    //     component: <ReviewIndex />,
+    //     label: 'Reviews'
+    // },
+    // {
+    //     path: 'chat',
+    //     component: <ChatApp />,
+    //     label: 'Chat'
+    // },
+    // {
+    //     path: 'about',
+    //     component: <AboutUs />,
+    //     label: 'About us'
+    // },
+    // {
+    //     path: 'admin',
+    //     component: <AdminApp />,
+    //     label: 'Admin Only'
+    // }
 ]
 
 export default routes
