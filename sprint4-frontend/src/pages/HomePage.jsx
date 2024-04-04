@@ -13,7 +13,7 @@ export function HomePage() {
     }
 
     return (
-        <section>
+        <section className="main-view">
             <h2>
                 Count {count}
                 <button onClick={() => {
