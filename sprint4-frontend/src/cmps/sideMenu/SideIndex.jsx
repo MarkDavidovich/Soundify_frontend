@@ -87,11 +87,13 @@ export function SideIndex() {
 
                 {/* Maybe for right click modal */}
                 <SideAddStationModal />
+
+
                 <button onClick={onAddStation}>+</button>
 
 
             </div>
-          
+
 
 
             <SideFilter filterBy={filterBy} onSetFilter={onSetFilter} />

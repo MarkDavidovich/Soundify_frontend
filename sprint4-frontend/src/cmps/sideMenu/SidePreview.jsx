@@ -1,6 +1,10 @@
 //SHOWS THE STATIONS, ARTISTS IN A LIST
+import { useState } from "react"
+import { UpdateStation } from "./UpdateStation"
 
 export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
+
+    const [isOnUpdate, setIsOnUpdate] = useState(false)
 
     //! Switch to Right Click
     function handleRemoveClick(ev) {
@@ -8,11 +12,12 @@ export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
         onRemoveStation(station._id)
     }
 
-    //! Switch to Right Click
+    // //! Switch to Right Click
     function handleUpdateClick(ev) {
         ev.preventDefault()
 
-        onUpdateStation(station)
+        // onUpdateStation(station)
+        setIsOnUpdate(true)
     }
 
     return (
@@ -20,7 +25,20 @@ export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
             <span>{station.name}</span>
             <button className="btn" onClick={handleRemoveClick}>X</button>
+
+            {isOnUpdate && (
+                <UpdateStation
+                    station={station}
+                    onUpdateStation={(updatedStation) => {
+                        onUpdateStation(updatedStation)
+                        setIsOnUpdate(false)
+                    }}
+                    setIsOnUpdate={setIsOnUpdate}
+                />
+            )}
             <button className="btn" onClick={handleUpdateClick}>Update</button>
+
+
         </div>
     )
 }

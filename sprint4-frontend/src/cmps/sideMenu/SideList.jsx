@@ -32,6 +32,4 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         }
 
     </div>
-
-
 }

@@ -70,7 +70,28 @@ async function addStationMsg(stationId, txt) {
 function getEmptyStation() {
     return {
         name: '',
+        desc: '',
         songs: [],
+        imgUrl: '',
+    }
+}
+
+
+function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = []) {
+    return {
+        _id: utilService.makeId(),
+        name,
+        tags: [],
+        desc,
+        songs,
+        likedByUsers,
+        imgUrl,
+        createdBy: {
+            _id: utilService.makeId(),
+            fullname: '',
+            imgUrl: 'https://robohash.org/userrobohash'
+        },
+        createdAt: utilService.randomAddedTime()
     }
 }
 
@@ -326,24 +347,6 @@ const sHereWithoutYou = {
     addedBy: 'Haim',
     duration: '3:55',
     addedAt: utilService.randomAddedTime(),
-}
-
-function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = []) {
-    return {
-        _id: utilService.makeId(),
-        name,
-        tags: [],
-        desc,
-        songs,
-        likedByUsers,
-        imgUrl,
-        createdBy: {
-            _id: utilService.makeId(),
-            fullname: '',
-            imgUrl: 'https://robohash.org/userrobohash'
-        },
-        createdAt: utilService.randomAddedTime()
-    }
 }
 
 function _createStations() {
