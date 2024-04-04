@@ -1,8 +1,6 @@
 import { HomePage } from './pages/HomePage.jsx'
 import { ThemesPage } from './pages/ThemesPage.jsx'
-import { StationsPage } from './pages/StationsPage.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
-import { StationIndex } from './cmps/sideMenu/StationIndex.jsx'
 import { ReviewIndex } from './pages/ReviewIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
