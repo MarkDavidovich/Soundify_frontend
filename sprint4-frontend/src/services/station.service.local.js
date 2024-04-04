@@ -384,6 +384,40 @@ function _createStations() {
                 ],
                 'Soundify',
                 ['Made For You']),
+
+            _createStation('Nostalgia mix',
+                "actually the same as our favorite songs, just for the demodata!",
+                'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712236367/Station%20images/nostalgiaMix_lpz3zb.jpg',
+                [
+                    sInTheEnd,
+                    sMrBlueSky,
+                    sNowThatTheMagicHasGone,
+                    sDreamOn,
+                    sHaveYouEverSeenTheRain,
+                    sStop,
+                    sThisLove,
+                    sSmoothCriminal,
+                    sBeatIt,
+                    sJohnnyBGoode,
+                    sEnglishmanInNewYork,
+                    sSultansOfSwing,
+                    sHighwayToHell,
+                    sBohemianRhapsody,
+                    sLoseYourself,
+                    sCalifornication,
+                    sHypnotize,
+                    sCenturies,
+                    sNumbEncore,
+                    sHighHopes,
+                    sHereWithoutYou
+                ],
+                [
+                    'mark.davidovich@gmail.com',
+                    'haim321@gmail.com',
+                    'nadavzivyon@gmail.com'
+                ],
+                'Soundify',
+                ['Made For You']),
         ]
     }
 
