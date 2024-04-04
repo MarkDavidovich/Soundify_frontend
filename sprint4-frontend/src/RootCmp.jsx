@@ -12,8 +12,8 @@ export function RootCmp() {
 
     return (
         <div className="main-layout">
-            <AppHeader />
-            <SideBar/>
+            {/* <AppHeader /> */}
+            <SideBar />
             <main>
                 <Routes>
                     {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
