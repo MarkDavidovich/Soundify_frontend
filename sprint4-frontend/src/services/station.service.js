@@ -18,7 +18,7 @@ export const stationService = {
 window.cs = stationService
 
 
-async function query(filterBy = { txt: '', artisit:'' }) {
+async function query(filterBy = { txt: '', artisit: '' }) {
     return httpService.get(STORAGE_KEY, filterBy)
 }
 
@@ -41,7 +41,7 @@ async function save(station) {
 }
 
 async function addStationMsg(stationId, txt) {
-    const savedMsg = await httpService.post(`station/${stationId}/msg`, {txt})
+    const savedMsg = await httpService.post(`station/${stationId}/msg`, { txt })
     return savedMsg
 }
 
