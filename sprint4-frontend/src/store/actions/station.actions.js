@@ -1,7 +1,7 @@
 import { stationService } from '../../services/station.service.local.js'
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { ADD_STATION, REMOVE_STATION, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from './station.reducer.js'
+import { ADD_STATION, REMOVE_STATION, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from '../reducers/station.reducer.js'
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -24,9 +24,10 @@ export function getActionUpdateStation(station) {
 }
 
 export async function loadStations() {
+    console.log('hello')
     try {
         const stations = await stationService.query()
-        console.log('Stationss from DB:', stations)
+        console.log('Stations from DB:', stations)
         store.dispatch({
             type: SET_STATIONS,
             stations

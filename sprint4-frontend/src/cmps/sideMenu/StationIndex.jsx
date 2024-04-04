@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { loadStations, addStation, updateStation, removeStation, addToStationt } from '../store/station.actions.js'
+import { loadStations, addStation, updateStation, removeStation } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { userService } from '../../services/user.service.js'
@@ -11,6 +11,7 @@ export function StationIndex() {
     const stations = useSelector(storeState => storeState.stationModule.stations)
 
     useEffect(() => {
+        console.log('hello')
         loadStations()
     }, [])
 
@@ -44,12 +45,6 @@ export function StationIndex() {
         } catch (err) {
             showErrorMsg('Cannot update station')
         }
-    }
-
-    function onAddToStationt(station) {
-        // console.log(`Adding ${station.vendor} to Stationt`)
-        addToStationt(station)
-        showSuccessMsg('Added to Stationt')
     }
 
     function onAddStationMsg(station) {

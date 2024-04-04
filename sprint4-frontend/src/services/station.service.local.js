@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'station'
+const STORAGE_KEY = 'stationDB'
 
 export const stationService = {
     query,
@@ -12,11 +12,13 @@ export const stationService = {
     remove,
     getEmptyStation,
     addStationMsg
+
 }
 window.cs = stationService
 
+_createStations()
 
-async function query(filterBy = { txt: '', artisit: '' }) {
+async function query(filterBy = { txt: '', artist: '' }) {
     var stations = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
@@ -83,7 +85,7 @@ const sInTheEnd = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712210330/hybridTheory_n01sbz.jpg',
     addedBy: 'Mark',
     duration: '3:36',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sMrBlueSky = {
@@ -95,7 +97,7 @@ const sMrBlueSky = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213244/outOfTheBlue_zgpyqa.jpg',
     addedBy: 'Mark',
     duration: '5:03',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sNowThatTheMagicHasGone = {
@@ -107,7 +109,7 @@ const sNowThatTheMagicHasGone = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213243/nightCalls_bhryqs.jpg',
     addedBy: 'Mark',
     duration: '4:38',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 
@@ -120,7 +122,7 @@ const sDreamOn = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213231/aerosmith_u1kfhd.jpg',
     addedBy: 'Mark',
     duration: '4:29',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sHaveYouEverSeenTheRain = {
@@ -132,7 +134,7 @@ const sHaveYouEverSeenTheRain = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213245/pendulum_qngzkr.jpg',
     addedBy: 'Mark',
     duration: '2:45',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sStop = {
@@ -144,7 +146,7 @@ const sStop = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213249/stop_l49xr5.jpg',
     addedBy: 'Mark',
     duration: '4:55',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sThisLove = {
@@ -156,7 +158,7 @@ const sThisLove = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213251/songsAboutJane_vuisvs.jpg',
     addedBy: 'Mark',
     duration: '3:25',
-    //addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sSmoothCriminal = {
@@ -168,7 +170,7 @@ const sSmoothCriminal = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213248/smoothCriminal_aqp0fp.jpg',
     addedBy: 'Nadav',
     duration: '4:00',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sBeatIt = {
@@ -180,7 +182,7 @@ const sBeatIt = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213232/beatIt_xwjtyf.jpg',
     addedBy: 'Nadav',
     duration: '4:18',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sJohnnyBGoode = {
@@ -192,7 +194,7 @@ const sJohnnyBGoode = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213233/berryIsOnTop_dsuhck.jpg',
     addedBy: 'Nadav',
     duration: '2:42',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 const sEnglishmanInNewYork = {
     id: utilService.makeId(),
@@ -203,7 +205,7 @@ const sEnglishmanInNewYork = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213239/englishManInNewYork_imuuuy.jpg',
     addedBy: 'Nadav',
     duration: '4:27',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sSultansOfSwing = {
@@ -215,7 +217,7 @@ const sSultansOfSwing = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213250/sultansOfSwing_xxaukv.jpg',
     addedBy: 'Nadav',
     duration: '4:26',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sHighwayToHell = {
@@ -227,7 +229,7 @@ const sHighwayToHell = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213240/highwayToHell_mfhfnl.jpg',
     addedBy: 'Nadav',
     duration: '3:27',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sBohemianRhapsody = {
@@ -239,7 +241,7 @@ const sBohemianRhapsody = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213235/boemianRhapsody_o8lf17.jpg',
     addedBy: 'Nadav',
     duration: '5:59',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sLoseYourself = {
@@ -251,7 +253,7 @@ const sLoseYourself = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213238/curtainCallTheHits_facvzm.jpg',
     addedBy: 'Haim',
     duration: '5:23',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 
@@ -264,7 +266,7 @@ const sCalifornication = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213235/californication_bxp3ar.jpg',
     addedBy: 'Haim',
     duration: '5:21',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sHypnotize = {
@@ -276,7 +278,7 @@ const sHypnotize = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213242/lifeAfterDeath_zwsll3.jpg',
     addedBy: 'Haim',
     duration: '3:50',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 const sCenturies = {
     id: utilService.makeId(),
@@ -287,7 +289,7 @@ const sCenturies = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213236/centuries_kuef65.jpg',
     addedBy: 'Haim',
     duration: '3:46',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sNumbEncore = {
@@ -299,7 +301,7 @@ const sNumbEncore = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213237/collisionCourse_x5ox3e.jpg',
     addedBy: 'Haim',
     duration: '3:25',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sHighHopes = {
@@ -311,7 +313,7 @@ const sHighHopes = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213246/prayForTheWicked_zu7dz3.jpg',
     addedBy: 'Haim',
     duration: '3:12',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
 const sHereWithoutYou = {
@@ -323,57 +325,68 @@ const sHereWithoutYou = {
     imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213231/awayFromTheSun_diug2z.jpg',
     addedBy: 'Haim',
     duration: '3:55',
-    // addedAt: utilService.randomAddedTime(),
+    addedAt: utilService.randomAddedTime(),
 }
 
-function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = [], createdBy = '', tags = []) {
+function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = []) {
     return {
         _id: utilService.makeId(),
         name,
-        tags,
+        tags: [],
         desc,
         songs,
         likedByUsers,
         imgUrl,
-        createdBy,
+        createdBy: {
+            _id: utilService.makeId(),
+            fullname: '',
+            imgUrl: 'https://robohash.org/userrobohash'
+        },
         createdAt: utilService.randomAddedTime()
     }
 }
 
 function _createStations() {
-    return [
-        _createStation('Our Favorites',
-            "our favorite songs!",
-            'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/liked-songs-300_kljhls.png',
-            [
-                sInTheEnd,
-                sMrBlueSky,
-                sNowThatTheMagicHasGone,
-                sDreamOn,
-                sHaveYouEverSeenTheRain,
-                sStop,
-                sThisLove,
-                sSmoothCriminal,
-                sBeatIt,
-                sJohnnyBGoode,
-                sEnglishmanInNewYork,
-                sSultansOfSwing,
-                sHighwayToHell,
-                sBohemianRhapsody,
-                sLoseYourself,
-                sCalifornication,
-                sHypnotize,
-                sCenturies,
-                sNumbEncore,
-                sHighHopes,
-                sHereWithoutYou
-            ],
-            [
-                'mark.davidovich@gmail.com',
-                'haim321@gmail.com',
-                'nadavzivyon@gmail.com'
-            ],
-            'Soundify',
-            ['Made For You']),
-    ]
+
+    let stations = utilService.loadFromStorage(STORAGE_KEY, stations)
+
+    if (!stations || !stations.length) {
+        stations = [
+            _createStation('Our Favorites',
+                "our favorite songs!",
+                'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/liked-songs-300_kljhls.png',
+                [
+                    sInTheEnd,
+                    sMrBlueSky,
+                    sNowThatTheMagicHasGone,
+                    sDreamOn,
+                    sHaveYouEverSeenTheRain,
+                    sStop,
+                    sThisLove,
+                    sSmoothCriminal,
+                    sBeatIt,
+                    sJohnnyBGoode,
+                    sEnglishmanInNewYork,
+                    sSultansOfSwing,
+                    sHighwayToHell,
+                    sBohemianRhapsody,
+                    sLoseYourself,
+                    sCalifornication,
+                    sHypnotize,
+                    sCenturies,
+                    sNumbEncore,
+                    sHighHopes,
+                    sHereWithoutYou
+                ],
+                [
+                    'mark.davidovich@gmail.com',
+                    'haim321@gmail.com',
+                    'nadavzivyon@gmail.com'
+                ],
+                'Soundify',
+                ['Made For You']),
+        ]
+    }
+
+    utilService.saveToStorage(STORAGE_KEY, stations)
 }
