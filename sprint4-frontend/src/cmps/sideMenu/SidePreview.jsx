@@ -3,12 +3,13 @@
 export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
     console.log('preview', station)
 
+    //! Switch to Right Click
     function handleRemoveClick(ev) {
         ev.preventDefault()
-
         onRemoveStation(station._id)
     }
 
+    //! Switch to Right Click
     function handleUpdateClick(ev) {
         ev.preventDefault()
 
@@ -17,7 +18,7 @@ export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
 
     return (
         <div className="side-preview flex">
-            <img src={station.imgUrl} alt={station.name} />
+            <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
             <span>{station.name}</span>
             <button className="btn" onClick={handleRemoveClick}>X</button>
             <button className="btn" onClick={handleUpdateClick}>Update</button>

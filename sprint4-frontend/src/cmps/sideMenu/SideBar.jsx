@@ -2,7 +2,6 @@
 
 //! Link to HomePage
 //! Link to ThemesPage
-//! Render the  StationIndex ---> StationList
 
 import React from 'react'
 import { SideIndex } from './SideIndex'
