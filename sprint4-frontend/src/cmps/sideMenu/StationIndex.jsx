@@ -70,18 +70,18 @@ export function StationIndex() {
             <main>
                 <button onClick={onAddStation}>+</button>
 
-                //! Move preview to other cmp //
+                {/* ! Move preview to other cmp  */}
                 <ul className="station-list">
                     {stations.map(station =>
                         <li className="station-preview" key={station._id}>
                             <h4>{station.name}</h4>
                             <h1>⛐</h1>
-                            <p>Price: <span>${station.price.toLocaleString()}</span></p>
-                            <p>Owner: <span>{station.owner && station.owner.fullname}</span></p>
-                            {shouldShowActionBtns(station) && <div>
+                            {/* <p>Price: <span>${station.price.toLocaleString()}</span></p> */}
+                            {/* <p>Owner: <span>{station.owner && station.owner.fullname}</span></p> */}
+                            {/* {shouldShowActionBtns(station) && <div>
                                 <button onClick={() => { onRemoveStation(station._id) }}>x</button>
                                 <button onClick={() => { onUpdateStation(station) }}>Edit</button>
-                            </div>}
+                            </div>} */}
 
                             <button onClick={() => { onAddStationMsg(station) }}>Add station msg</button>
                             <button className="buy" onClick={() => { onAddToStationt(station) }}>Add to stationt</button>

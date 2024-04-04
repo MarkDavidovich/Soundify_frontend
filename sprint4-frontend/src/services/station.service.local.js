@@ -16,7 +16,6 @@ export const stationService = {
 }
 window.cs = stationService
 
-_createStations()
 
 async function query(filterBy = { txt: '', artist: '' }) {
     var stations = await storageService.query(STORAGE_KEY)
@@ -348,10 +347,10 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
 
 function _createStations() {
 
-    let stations = utilService.loadFromStorage(STORAGE_KEY, stations)
+    let stations = utilService.loadFromStorage(STORAGE_KEY)
 
     if (!stations || !stations.length) {
-        stations = [
+         stations = [
             _createStation('Our Favorites',
                 "our favorite songs!",
                 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/liked-songs-300_kljhls.png',
@@ -389,4 +388,8 @@ function _createStations() {
     }
 
     utilService.saveToStorage(STORAGE_KEY, stations)
+
+    return stations
 }
+
+_createStations()
