@@ -82,6 +82,7 @@ export function SideIndex() {
                 <h3>Your Library</h3>
                 <button onClick={onAddStation}>+</button>
             </div>
+          
 
             <PortalWithState closeOnOutsideClick closeOnEsc>
                 {({ openPortal, closePortal, isOpen, portal }) => (

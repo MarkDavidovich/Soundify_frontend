@@ -10,6 +10,11 @@ export function SideBar() {
     return (
         <>
             <div className="side-bar flex column">SideBar
+                <div className="actions-btns">
+                    <button className="home-btn btn">
+                        <img className="home-btn" src="./public/icons/home-icon.png" title="home page" alt="" />
+                    </button>
+                </div>
                 <SideIndex />
             </div>
         </>
