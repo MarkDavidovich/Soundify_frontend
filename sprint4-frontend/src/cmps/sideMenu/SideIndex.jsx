@@ -5,9 +5,9 @@ import { loadStations, addStation, updateStation, removeStation } from '../../st
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { userService } from '../../services/user.service.js'
 import { stationService } from '../../services/station.service.js'
-import { StationPreview } from './StationPreview.jsx'
 
-export function StationIndex() {
+import { SideList } from './SideList.jsx'
+export function SideIndex() {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
 
@@ -28,7 +28,7 @@ export function StationIndex() {
     async function onAddStation() {
         const station = stationService.getEmptyStation()
         // switch to form
-        station.vendor = prompt('Vendor?')
+        station.name = prompt('Station Name?')
         try {
             const savedStation = await addStation(station)
             showSuccessMsg(`Station added (id: ${savedStation._id})`)
@@ -38,11 +38,13 @@ export function StationIndex() {
     }
 
     async function onUpdateStation(station) {
-        const price = +prompt('New price?')
-        const stationToSave = { ...station, price }
+        console.log("🚀 ~ onUpdateStation ~ station:", station)
+
+        const name = prompt('New name?')
+        const stationToSave = { ...station, name }
         try {
             const savedStation = await updateStation(stationToSave)
-            showSuccessMsg(`Station updated, new price: ${savedStation.price}`)
+            showSuccessMsg(`Station updated, new name: ${savedStation.name}`)
         } catch (err) {
             showErrorMsg('Cannot update station')
         }
@@ -66,29 +68,14 @@ export function StationIndex() {
     // }
 
     return (
-        <div className="stationIndex">
+        <div className="SideIndex">
             <h3>Your Library</h3>
             <main>
                 <button onClick={onAddStation}>+</button>
 
-                {/* ! Move preview to other cmp  */}
-                <StationPreview />
-                <ul className="station-list">
-                    {stations.map(station =>
-                        <li className="station-preview" key={station._id}>
-                            <h4>{station.name}</h4>
-                            {/* <p>Price: <span>${station.price.toLocaleString()}</span></p> */}
-                            {/* <p>Owner: <span>{station.owner && station.owner.fullname}</span></p> */}
-                            {/* {shouldShowActionBtns(station) && <div>
-                                <button onClick={() => { onRemoveStation(station._id) }}>x</button>
-                                <button onClick={() => { onUpdateStation(station) }}>Edit</button>
-                            </div>} */}
+                <SideList stations={stations} onRemoveStation={onRemoveStation}
+                    onUpdateStation={onUpdateStation} />
 
-                            <button onClick={() => { onAddStationMsg(station) }}>Add station msg</button>
-                            <button className="buy" onClick={() => { onAddToStationt(station) }}>Add to stationt</button>
-                        </li>)
-                    }
-                </ul>
             </main>
         </div>
     )

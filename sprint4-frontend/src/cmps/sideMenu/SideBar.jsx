@@ -5,13 +5,13 @@
 //! Render the  StationIndex ---> StationList
 
 import React from 'react'
-import { StationIndex } from './StationIndex'
+import { SideIndex } from './SideIndex'
 
 export function SideBar() {
   return (
     <>
       <div className="side-bar flex column">SideBar
-        <StationIndex />
+        <SideIndex />
       </div>
     </>
   )
