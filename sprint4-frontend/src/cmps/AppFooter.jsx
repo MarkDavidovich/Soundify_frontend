@@ -70,24 +70,26 @@ export function AppFooter() {
                 <button className="queue-btn">📃</button>
                 <button className="connect-device-btn">🖥️</button>
                 {/* Check if muted to show icon (isMuted)*/}
-                <button className="mute-btn" onClick={() => {
-                    setIsMuted(!isMuted)
-                    console.log("mute:", isMuted)
-                }}>🔇
-                </button>
-                <div className="volume-bar">
-                    <label htmlFor="volumeRange"></label>
-                    <input
-                        className='input-bar'
-                        type='range'
-                        id='volumeRange'
-                        name='volumeRange'
-                        min='0'
-                        max='1'
-                        step='0.05'
-                        value={volume}
-                        onChange={handleVolumeChange}
-                    />
+                <div className='volume-controls'>
+                    <button className="mute-btn" onClick={() => {
+                        setIsMuted(!isMuted)
+                        console.log("mute:", isMuted)
+                    }}>🔇
+                    </button>
+                    <div className="volume-bar">
+                        <label htmlFor="volumeRange"></label>
+                        <input
+                            className='input-bar'
+                            type='range'
+                            id='volumeRange'
+                            name='volumeRange'
+                            min='0'
+                            max='1'
+                            step='0.05'
+                            value={volume}
+                            onChange={handleVolumeChange}
+                        />
+                    </div>
                 </div>
                 <button className="mini-player-btn">MP</button>
                 <button className="full-screen-btn">FS</button>
