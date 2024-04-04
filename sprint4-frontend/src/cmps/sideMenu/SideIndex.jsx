@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { PortalWithState } from 'react-portal'
 
+import { Dropdown } from '@mui/base/Dropdown'
+import { Menu } from '@mui/base/Menu'
+import { MenuButton as BaseMenuButton } from '@mui/base/MenuButton'
+import { MenuItem as BaseMenuItem, menuItemClasses } from '@mui/base/MenuItem';
 
 import { loadStations, addStation, updateStation, removeStation, setStationFilter } from '../../store/actions/station.actions.js'
 
@@ -10,6 +13,7 @@ import { stationService } from '../../services/station.service.js'
 
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
+import { SideAddStationModal } from './SideAddStationModal.jsx'
 
 export function SideIndex() {
 
@@ -78,28 +82,17 @@ export function SideIndex() {
 
     return (
         <div className="side-index">
-            <div className="side-index-top-bar flex">
+            <div className="top-bar flex">
                 <h3>Your Library</h3>
+
+                {/* Maybe for right click modal */}
+                <SideAddStationModal />
                 <button onClick={onAddStation}>+</button>
+
+
             </div>
           
 
-            <PortalWithState closeOnOutsideClick closeOnEsc>
-                {({ openPortal, closePortal, isOpen, portal }) => (
-                    <>
-                        <button onClick={openPortal}>
-                            Open Portal
-                        </button>
-                        {portal(
-                            <p>
-                                This is more advanced Portal. It handles its own state.{' '}
-                                <button onClick={closePortal}>Close me!</button>, hit ESC or
-                                click outside of me.
-                            </p>
-                        )}
-                    </>
-                )}
-            </PortalWithState>
 
             <SideFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <main>
