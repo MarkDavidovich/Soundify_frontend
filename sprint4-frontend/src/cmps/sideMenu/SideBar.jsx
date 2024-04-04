@@ -8,11 +8,11 @@ import React from 'react'
 import { SideIndex } from './SideIndex'
 
 export function SideBar() {
-  return (
-    <>
-      <div className="side-bar flex column">SideBar
-        <SideIndex />
-      </div>
-    </>
-  )
+    return (
+        <>
+            <div className="side-bar flex column">SideBar
+                <SideIndex />
+            </div>
+        </>
+    )
 }
