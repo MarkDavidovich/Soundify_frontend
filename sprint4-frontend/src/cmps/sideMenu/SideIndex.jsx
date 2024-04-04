@@ -1,20 +1,24 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { loadStations, addStation, updateStation, removeStation } from '../../store/actions/station.actions.js'
+import { loadStations, addStation, updateStation, removeStation, setStationFilter } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { userService } from '../../services/user.service.js'
 import { stationService } from '../../services/station.service.js'
 
+import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
+
 export function SideIndex() {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
+    const filterBy = useSelector(storeState => storeState.stationModule.filterBy)
+    const [, setFilterBy] = useState(stationService.getEmptyFilterBy())
+    console.log("🚀 ~ SideIndex ~ filterBy:", filterBy)
 
     useEffect(() => {
-        console.log('hello')
         loadStations()
-    }, [])
+    }, [filterBy])
 
     async function onRemoveStation(stationId) {
         try {
@@ -58,7 +62,11 @@ export function SideIndex() {
         } catch (err) {
             showErrorMsg('Cannot update station')
         }
+    }
 
+    function onSetFilter(filterBy) {
+        console.log("🚀 ~SideIndex - onSetFilter ~ filterBy:", filterBy)
+        setStationFilter(filterBy)
     }
 
     // function shouldShowActionBtns(station) {
@@ -74,6 +82,8 @@ export function SideIndex() {
                 <h3>Your Library</h3>
                 <button onClick={onAddStation}>+</button>
             </div>
+
+            <SideFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <main>
 
                 <SideList stations={stations} onRemoveStation={onRemoveStation}

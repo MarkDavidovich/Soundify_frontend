@@ -11,6 +11,7 @@ export const stationService = {
     save,
     remove,
     getEmptyStation,
+    getEmptyFilterBy,
     addStationMsg
 
 }
@@ -18,14 +19,14 @@ window.cs = stationService
 
 
 async function query(filterBy = { txt: '', artist: '' }) {
+    console.log("🚀 ~ query ~ filterBy:", filterBy)
+
     var stations = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         stations = stations.filter(station => regex.test(station.name) || regex.test(station.artist))
     }
-    // if (filterBy.price) {
-    //     stations = stations.filter(station => station.price <= filterBy.price)
-    // }
+
     return stations
 }
 
@@ -427,3 +428,8 @@ function _createStations() {
 }
 
 _createStations()
+
+function getEmptyFilterBy() {
+    return { txt: '' }
+}
+

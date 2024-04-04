@@ -1,7 +1,6 @@
 //SHOWS THE STATIONS, ARTISTS IN A LIST
 
 export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
-    console.log('preview', station)
 
     //! Switch to Right Click
     function handleRemoveClick(ev) {

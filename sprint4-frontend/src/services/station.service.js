@@ -13,6 +13,7 @@ export const stationService = {
     save,
     remove,
     getEmptyStation,
+    getEmptyFilterBy,
     addStationMsg
 }
 window.cs = stationService
@@ -51,6 +52,10 @@ function getEmptyStation() {
         name: '',
         songs: [],
     }
+}
+
+function getEmptyFilterBy() {
+    return { txt: '' }
 }
 
 
