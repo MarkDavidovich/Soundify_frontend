@@ -353,7 +353,7 @@ function _createStations() {
          stations = [
             _createStation('Our Favorites',
                 "our favorite songs!",
-                'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/liked-songs-300_kljhls.png',
+                'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/Station%20images/liked-songs-300_kljhls.png',
                 [
                     sInTheEnd,
                     sMrBlueSky,

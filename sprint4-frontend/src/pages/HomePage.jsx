@@ -1,20 +1,32 @@
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { CHANGE_COUNT } from '../store/reducers/user.reducer'
+import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
+import { loadStations } from '../store/actions/station.actions'
+import { showErrorMsg } from '../services/event-bus.service'
+
+import { StationList } from '../cmps/StationList'
+
 
 
 export function HomePage() {
-    const dispatch = useDispatch()
-    const count = useSelector(storeState => storeState.userModule.count)
+    const stations = useSelector(storeState => storeState.stationModule.stations)
 
-    function changeCount(diff) {
-        console.log('Changing count by:', diff)
-        dispatch({ type: CHANGE_COUNT, diff })
-    }
+
+    useEffect(() => {
+        loadStations()
+            .catch(err => {
+                showErrorMsg('cannot load stations')
+            })
+    }, [])
 
     return (
         <section className="main-view">
-          
+
+            <StationList
+                stations={stations} />
+
+
         </section >
     )
 }
