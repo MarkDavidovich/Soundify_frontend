@@ -5,6 +5,7 @@ import { loadStations, addStation, updateStation, removeStation } from '../../st
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { userService } from '../../services/user.service.js'
 import { stationService } from '../../services/station.service.js'
+import { StationPreview } from './StationPreview.jsx'
 
 export function StationIndex() {
 
@@ -65,17 +66,17 @@ export function StationIndex() {
     // }
 
     return (
-        <div>
+        <div className="stationIndex">
             <h3>Your Library</h3>
             <main>
                 <button onClick={onAddStation}>+</button>
 
                 {/* ! Move preview to other cmp  */}
+                <StationPreview />
                 <ul className="station-list">
                     {stations.map(station =>
                         <li className="station-preview" key={station._id}>
                             <h4>{station.name}</h4>
-                            <h1>⛐</h1>
                             {/* <p>Price: <span>${station.price.toLocaleString()}</span></p> */}
                             {/* <p>Owner: <span>{station.owner && station.owner.fullname}</span></p> */}
                             {/* {shouldShowActionBtns(station) && <div>
