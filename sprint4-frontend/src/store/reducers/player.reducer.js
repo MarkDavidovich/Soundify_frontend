@@ -4,7 +4,7 @@ export const SET_CURR_STATION = 'SET_CURR_STATION'
 export const IS_PLAYING = 'IS_PLAYING'
 
 const initialState = {
-  currSong: 'https://www.youtube.com/watch?v=kPBzTxZQG5Q',
+  currSong: '',
   currStation: {},
   isPlaying: false,
 }
@@ -26,4 +26,4 @@ export function playerReducer(state = initialState, action) {
   }
   console.log('State:', newState)
   return newState
-}
+}\

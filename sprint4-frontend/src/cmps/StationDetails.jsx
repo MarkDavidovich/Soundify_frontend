@@ -1,15 +1,24 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
+import { useDispatch, useSelector } from "react-redux"
+
+
+
 
 import { stationService } from "../services/station.service.local"
+import { getActionIsPlaying} from "../store/actions/player.actions"
 
 
 export function StationDetails() {
 
     const params = useParams()
     const navigate = useNavigate()
+    const dispatch =useDispatch()
     const [currStation, setCurrStation] = useState(null)
+    let currSong = useSelector(storeState => storeState.playerModule.currSong)
+    console.log("🚀 ~ file: StationDetails.jsx:20 ~ StationDetails ~ currSong:", currSong)
+
 
     useEffect(() => {
         const { id } = params
@@ -38,7 +47,13 @@ export function StationDetails() {
         return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
     }
 
-    console.log("🚀 ~ file: StationDetails.jsx:43 ~ StationDetails ~ currStation:", currStation)
+ 
+
+    function handleSongClick  (song) {
+        currSong= song
+        console.log("🚀 ~ file: StationDetails.jsx:54 ~ handleSongClick ~ currSong:", currSong)
+    }
+
 
     if (!currStation) return <h4>loading...</h4>
 
@@ -72,17 +87,23 @@ export function StationDetails() {
                     <div className="hash">#</div>
                     <span className="title">Title</span>
                     <span className="album">Album</span>
+                    <span className="album">⏲</span>
                 </div>
                 <ul>
                     {currStation.songs.map((song, idx) => (
-                        <li className="clean-list" key={song.id}>
-                            <img className="song-img" src={song.imgUrl} alt="" />
-                            <div>Title: {song.title}</div>
-                            <div>Artist: {song.artist}</div>
-                            <div>Album: {song.album}</div>
-                        </li>
+                        <>
+                            <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
+                            <li className="clean-list" key={song.id}>
+                                <img className="song-img" src={song.imgUrl} alt="" />
+                                <div>Title: {song.title}</div>
+                                <div>Artist: {song.artist}</div>
+                                <div>Album: {song.album}</div>
+                            </li>
+                        </>
                     ))}
+
                 </ul>
+
             </div>
         </div>
     )
