@@ -21,31 +21,32 @@ export function StationDetails() {
             .catch(() => {
                 showErrorMsg('Had issues loading station')
             })
-    }, [currStation])
+    }, [params])
 
     function calcStationDuration(songs) {
         let totalDurationInSeconds = 0
-    
+
         songs.forEach(song => {
             const [minutes, seconds] = song.duration.split(':')
-    
+
             totalDurationInSeconds += parseInt(minutes, 10) * 60 + parseInt(seconds, 10)
         });
-    
+
         const totalMinutes = Math.floor(totalDurationInSeconds / 60)
         const totalSeconds = totalDurationInSeconds % 60
-    
+
         return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
     }
-    
+
     console.log("🚀 ~ file: StationDetails.jsx:43 ~ StationDetails ~ currStation:", currStation)
 
-    // let StationDuration = calcStationDuration(currStation.songs)
-    
-
-
-
     if (!currStation) return <h4>loading...</h4>
+
+    let StationDuration = calcStationDuration(currStation.songs)
+
+
+
+
     // const { _id, name, songs, imgUrl } = currStation
     return (
         <div className="station-details flex">
@@ -55,23 +56,23 @@ export function StationDetails() {
                     <span className="playlist">Playlist</span>
                     <h1>{currStation.name}</h1>
                     <div className="user-info">
-                    <div className="created-by">{currStation.createdBy.fullname}</div>
-                    <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
+                        <div className="created-by">{currStation.createdBy.fullname}</div>
+                        <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
                     </div>
                     <div className="info-songs">
-                        <span>{currStation.songs.length} Songs, </span>
+                        <span>{currStation.songs.length} Songs, {StationDuration}</span>
                     </div>
                 </div>
                 <div className="menu-station">
-                        <button className="play-btn btn"><span>⏯</span></button>
-                        <button className="opt-btn btn"><span>...</span></button>
-                        <button className="display-station-btn btn"><span>List</span>🍔</button>
-                    </div>
-                    <div className="heading-station">
-                        <div className="hash">#</div>
-                        <span className="title">Title</span>
-                        <span className="album">Album</span>
-                    </div>
+                    <button className="play-btn btn"><span>⏯</span></button>
+                    <button className="opt-btn btn"><span>...</span></button>
+                    <button className="display-station-btn btn"><span>List</span>🍔</button>
+                </div>
+                <div className="heading-station">
+                    <div className="hash">#</div>
+                    <span className="title">Title</span>
+                    <span className="album">Album</span>
+                </div>
                 <ul>
                     {currStation.songs.map((song, idx) => (
                         <li className="clean-list" key={song.id}>
