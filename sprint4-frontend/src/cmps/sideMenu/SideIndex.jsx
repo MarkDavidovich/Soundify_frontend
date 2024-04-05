@@ -104,13 +104,13 @@ export function SideIndex() {
                             </path>
                         }
                     </svg>
-                    <span>Your Library</span>
+                    <span className="library">Your Library</span>
                 </button>
 
                 {/* Maybe for right click modal */}
                 {/* <SideAddStationModal /> */}
 
-                <button onClick={onAddStation}><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                <button className="add-btn" onClick={onAddStation}><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
                     <path className="plus-icon" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z" fill="#b3b3af">
                     </path>
                 </svg></button>
@@ -119,7 +119,7 @@ export function SideIndex() {
             <SideSort />
 
             <div className="search-library flex">
-                <button className="btn" onClick={onToggleFilter}>
+                <button className="search-btn" onClick={onToggleFilter}>
                     <svg role="img" height="16" width="16" aria-hidden="true" className="Svg-sc-ytk21e-0 haNxPq mOLTJ2mxkzHJj6Y9_na_" viewBox="0 0 16 16" data-encore-id="icon"><path d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0  1 .25 7z" fill="#FFFFFF"></path></svg>
                 </button>
 

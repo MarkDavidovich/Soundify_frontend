@@ -5,6 +5,7 @@
     .actions-btns {
         display: flex;
         flex-direction: column;
+        border-radius: $border-rad1;
         background-color: $clr8;
         height: 112px;
         padding: $padding-1
@@ -23,6 +24,9 @@
 
             span {
                 text-decoration: none;
+                color: $clr2;
+                font-size: $font-size-16;
+
             }
         }
     }

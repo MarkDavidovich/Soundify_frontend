@@ -40,9 +40,7 @@ export function SideBar() {
                                 </svg>
 
                             </button>
-                            <span>
-                                Home
-                            </span>
+                            <span>Home</span>
 
                         </div>
                     </Link>
