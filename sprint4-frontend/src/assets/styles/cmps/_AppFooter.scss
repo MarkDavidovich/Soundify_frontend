@@ -29,29 +29,33 @@
 
                 .shuffle-btn {
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
 
                     &:hover {
                         path {
                             fill: white;
                         }
                     }
-
-                    // &::after {
-                    //     background-color: currentcolor;
-                    //     border-radius: 50%;
-                    //     bottom: 0;
-                    //     content: "";
-                    //     display: block;
-                    //     height: 4px;
-                    //     left: 50%;
-                    //     position: absolute;
-                    //     -webkit-transform: translateX(-50%);
-                    //     transform: translateX(-50%);
-                    //     width: 4px;
-                    // }
                 }
+
+                .prev-song-btn {
+                    display: flex;
+
+                    &:hover {
+                        path {
+                            fill: white;
+                        }
+                    }
+                }
+            }
+
+            .play-btn {
+                display: flex;
+                align-items: center;
+                background-color: white;
+                height: 32px;
+                width: 32px;
+                color: black;
+                border-radius: 32px;
             }
 
             .player-controls-right {
@@ -59,6 +63,28 @@
                 justify-content: flex-start;
                 flex: 1;
                 gap: 8px;
+
+                .next-song-btn {
+                    display: flex;
+
+                    &:hover {
+                        path {
+                            fill: white;
+                        }
+                    }
+                }
+
+                .loop-btn {
+                    width: 16px;
+                    height: 16px;
+                    display: flex;
+
+                    &:hover {
+                        path {
+                            fill: white;
+                        }
+                    }
+                }
             }
         }
 
@@ -105,6 +131,18 @@
 
         .volume-controls {
             display: flex;
+
+            .mute-btn {
+                display: flex;
+
+                &:hover {
+                    path {
+                        fill: white;
+                    }
+                }
+            }
+
+
 
             .volume-bar {
                 display: flex;

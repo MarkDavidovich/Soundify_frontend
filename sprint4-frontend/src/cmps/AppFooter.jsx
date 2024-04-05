@@ -84,9 +84,14 @@ export function AppFooter() {
 
     function handleMute() {
         console.log('mute clicked!')
-        if (isMuted) {
+        if (volume === 0 && isMuted) {
+            console.log('volume 0 and muted')
+            setVolume(0.5)
+        } else if (isMuted) {
+            console.log('only muted')
             setVolume(volumeSnapshot)
         } else {
+            console.log('taking volume snapshot and set volume to 0')
             setVolumeSnapshot(volume)
             setVolume(0)
         }
@@ -116,20 +121,47 @@ export function AppFooter() {
                                 />
                             </svg>
                         </button>
-                        <button className="prev-song-btn">{"<"}</button>
+                        <button className="prev-song-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
+                                    fill="#b3b3b3"
+                                    stroke='#b3b3b3'>
+                                </path>
+                            </svg>
+                        </button>
                     </div>
 
                     <button className="play-btn" onClick={() => {
                         play()
-                    }}>play</button>
+                    }}>
+                        <svg width="16" height="16" viewBox="0 0 16 16" ><path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+
+                        >
+                        </path>
+                        </svg>
+                    </button>
 
                     <div className="player-controls-right">
 
-                        <button className="next-song-btn">{">"}</button>
+                        <button className="next-song-btn">
+                            <svg width="16" height="16" viewBox="0 0 16 16" >
+                                <path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
+                                    fill="#b3b3b3"
+                                    stroke='#b3b3b3'>
+                                </path>
+                            </svg>
+                        </button>
                         <button className="loop-btn" onClick={() => {
                             setLoop(!loop)
                             console.log("loop:", loop)
-                        }}>loop
+                        }}>
+                            <svg width="16" height="16" viewBox="0 0 16 16" >
+                                <path d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v5a3.75 3.75 0 0 1-3.75 3.75H9.81l1.018 1.018a.75.75 0 1 1-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 1 1 1.06 1.06L9.811 12h2.439a2.25 2.25 0 0 0 2.25-2.25v-5a2.25 2.25 0 0 0-2.25-2.25h-8.5A2.25 2.25 0 0 0 1.5 4.75v5A2.25 2.25 0 0 0 3.75 12H5v1.5H3.75A3.75 3.75 0 0 1 0 9.75v-5z"
+                                    fill="#b3b3b3"
+                                    stroke='#b3b3b3'
+                                >
+                                </path>
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -156,13 +188,64 @@ export function AppFooter() {
                 </div>
             </div>
             <div className="player-extra-controls">
-                <button className="playing-view-btn">▶️</button>
+                {/* <button className="playing-view-btn">▶️</button>
                 <button className="lyrics-btn">🎤</button>
                 <button className="queue-btn">📃</button>
-                <button className="connect-device-btn">🖥️</button>
-                {/* Check if muted to show icon (isMuted)*/}
+                <button className="connect-device-btn">🖥️</button> */}
+
                 <div className='volume-controls'>
-                    <button className="mute-btn" onClick={() => handleMute()}>🔇
+                    <button className="mute-btn" onClick={() => handleMute()}>
+                        {isMuted || volume === 0 ? (
+                            <svg width="16" height="16" viewBox="0 0 16 16" >
+                                <path d="M13.86 5.47a.75.75 0 0 0-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 0 0 8.8 6.53L10.269 8l-1.47 1.47a.75.75 0 1 0 1.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 0 0 1.06-1.06L12.39 8l1.47-1.47a.75.75 0 0 0 0-1.06z"
+                                    fill="black"
+                                    stroke="black"
+                                >
+                                </path>
+                                <svg width="16" height="16" viewBox="0 0 16 16" >
+                                    <path d="M13.86 5.47a.75.75 0 0 0-1.061 0l-1.47 1.47-1.47-1.47A.75.75 0 0 0 8.8 6.53L10.269 8l-1.47 1.47a.75.75 0 1 0 1.06 1.06l1.47-1.47 1.47 1.47a.75.75 0 0 0 1.06-1.06L12.39 8l1.47-1.47a.75.75 0 0 0 0-1.06z"
+                                        fill="#b3b3b3"
+                                        stroke="#b3b3b3"
+                                    >
+                                    </path>
+                                    <path d="M10.116 1.5A.75.75 0 0 0 8.991.85l-6.925 4a3.642 3.642 0 0 0-1.33 4.967 3.639 3.639 0 0 0 1.33 1.332l6.925 4a.75.75 0 0 0 1.125-.649v-1.906a4.73 4.73 0 0 1-1.5-.694v1.3L2.817 9.852a2.141 2.141 0 0 1-.781-2.92c.187-.324.456-.594.78-.782l5.8-3.35v1.3c.45-.313.956-.55 1.5-.694V1.5z"
+                                        fill="#b3b3b3"
+                                        stroke="#b3b3b3"
+                                    >
+                                    </path>
+                                </svg>
+                            </svg>
+                        ) : volume < 0.33 ? (
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"
+                                    fill="#b3b3b3"
+                                    stroke="#b3b3b3"
+                                >
+                                </path>
+                            </svg>
+                        ) : volume < 0.65 ? (
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 6.087a4.502 4.502 0 0 0 0-8.474v1.65a2.999 2.999 0 0 1 0 5.175v1.649z"
+                                    fill="#b3b3b3"
+                                    stroke="#b3b3b3"
+                                >
+                                </path>
+                            </svg>
+                        ) : (
+                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                <path d="M9.741.85a.75.75 0 0 1 .375.65v13a.75.75 0 0 1-1.125.65l-6.925-4a3.642 3.642 0 0 1-1.33-4.967 3.639 3.639 0 0 1 1.33-1.332l6.925-4a.75.75 0 0 1 .75 0zm-6.924 5.3a2.139 2.139 0 0 0 0 3.7l5.8 3.35V2.8l-5.8 3.35zm8.683 4.29V5.56a2.75 2.75 0 0 1 0 4.88z"
+                                    fill="#b3b3b3"
+                                    stroke="#b3b3b3"
+                                >
+                                </path>
+                                <path d="M11.5 13.614a5.752 5.752 0 0 0 0-11.228v1.55a4.252 4.252 0 0 1 0 8.127v1.55z"
+                                    fill="#b3b3b3"
+                                    stroke="#b3b3b3"
+                                >
+                                </path>
+                            </svg>
+                        )}
+
                     </button>
                     <div className="volume-bar">
                         <label htmlFor="volumeRange"></label>
