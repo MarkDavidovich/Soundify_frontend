@@ -3,10 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useDispatch, useSelector } from "react-redux"
 
-
 import { stationService } from "../services/station.service.local"
-import { getActionCurrSong, getActionIsPlaying, togglePlaying } from "../store/actions/player.actions"
-
+import { getActionCurrSong, togglePlaying } from "../store/actions/player.actions"
 
 export function StationDetails() {
 
@@ -15,7 +13,6 @@ export function StationDetails() {
     const dispatch = useDispatch()
     const [currStation, setCurrStation] = useState(null)
     let isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
-
 
     useEffect(() => {
         const { id } = params
@@ -44,22 +41,31 @@ export function StationDetails() {
         return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
     }
 
-
-
-
     function handleSongClick(song) {
         dispatch(getActionCurrSong(song))
-            togglePlaying(false)
-    
+        togglePlaying(false)
     }
 
+    function formatAddedTime(addedTime) {
+        const diff = Date.now() - addedTime;
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        if (days === 0) {
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            if (hours === 0) {
+                const minutes = Math.floor(diff / (1000 * 60));
+                return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
+            } else {
+                return `${hours} hour${hours === 1 ? '' : 's'} ago`
+            }
+        } else if (days === 1) {
+            return 'Yesterday';
+        } else {
+            return `${days} day${days === 1 ? '' : 's'} ago`
+        }
+    }
 
     if (!currStation) return <h4>loading...</h4>
-
     let StationDuration = calcStationDuration(currStation.songs)
-
-
-
 
     // const { _id, name, songs, imgUrl } = currStation
     return (
@@ -86,18 +92,25 @@ export function StationDetails() {
                     <div className="hash">#</div>
                     <span className="title">Title</span>
                     <span className="album">Album</span>
+                    <span className="date">Date added</span>
                     <span className="album">⏲</span>
                 </div>
                 <ul>
                     {currStation.songs.map((song, idx) => (
                         <>
-                            <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
-                            <li className="clean-list" key={song.id}>
+                            <div className="song-preview">
+                                <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
                                 <img className="song-img" src={song.imgUrl} alt="" />
-                                <div>Title: {song.title}</div>
-                                <div>Artist: {song.artist}</div>
-                                <div>Album: {song.album}</div>
-                            </li>
+                                <li className="clean-list" key={song.id}>
+                                    <div className="song-info">
+                                        <div className="song-title" title={song.title}> {song.title}</div>
+                                        <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
+                                    </div>
+                                    <a className="song-album" href="#" title={song.album}> {song.album}</a>
+                                    <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
+
+                                </li>
+                            </div>
                         </>
                     ))}
 
