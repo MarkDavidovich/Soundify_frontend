@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { SideIndex } from './SideIndex'
+import { Link } from 'react-router-dom'
 
 export function SideBar() {
 
@@ -22,7 +23,7 @@ export function SideBar() {
         <>
             <div className="side-bar flex column">  
                 <div className="actions-btns">
-                    <div className="home-btn-container" onClick={handleHomeButtonClick}>
+                 <Link to="/">   <div className="home-btn-container" onClick={handleHomeButtonClick}>
                         <button className="home-btn btn" >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +44,7 @@ export function SideBar() {
                         </span>
                        
                     </div>
+                    </Link>
 
                     <div className="search-btn-container" onClick={handleSearchButtonClick}>
                         <button >
