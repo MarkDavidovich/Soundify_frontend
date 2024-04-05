@@ -44,7 +44,9 @@ async function save(station) {
         savedStation = await storageService.put(STORAGE_KEY, station)
     } else {
         // Later, owner is set by the backend
-        station.owner = userService.getLoggedinUser()
+        // station.owner = userService.getLoggedinUser()
+        console.log("🚀 ~ service -- save-new ~ station:", station)
+
         savedStation = await storageService.post(STORAGE_KEY, station)
     }
     return savedStation
@@ -68,10 +70,19 @@ async function addStationMsg(stationId, txt) {
 
 function getEmptyStation() {
     return {
+        _id: '',
         name: '',
+        tags: [],
         desc: '',
         songs: [],
+        likedByUsers: [],
         imgUrl: '',
+        createdBy: {
+            _id: '',
+            fullname: '',
+            imgUrl: 'https://robohash.org/userrobohash'
+        },
+        createdAt: '',
     }
 }
 
@@ -107,7 +118,6 @@ const sInTheEnd = {
     duration: '3:36',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sMrBlueSky = {
     id: utilService.makeId(),
     title: 'Mr. Blue Sky',
@@ -119,7 +129,6 @@ const sMrBlueSky = {
     duration: '5:03',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sNowThatTheMagicHasGone = {
     id: utilService.makeId(),
     title: 'Now That the Magic Has Gone',
@@ -131,8 +140,6 @@ const sNowThatTheMagicHasGone = {
     duration: '4:38',
     addedAt: utilService.randomAddedTime(),
 }
-
-
 const sDreamOn = {
     id: utilService.makeId(),
     title: 'Dream On',
@@ -144,7 +151,6 @@ const sDreamOn = {
     duration: '4:29',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sHaveYouEverSeenTheRain = {
     id: utilService.makeId(),
     title: 'Have You Ever Seen The Rain',
@@ -156,7 +162,6 @@ const sHaveYouEverSeenTheRain = {
     duration: '2:45',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sStop = {
     id: utilService.makeId(),
     title: 'Stop!',
@@ -168,7 +173,6 @@ const sStop = {
     duration: '4:55',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sThisLove = {
     id: utilService.makeId(),
     title: 'This Love',
@@ -180,7 +184,6 @@ const sThisLove = {
     duration: '3:25',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sSmoothCriminal = {
     id: utilService.makeId(),
     title: 'Smooth Criminal',
@@ -192,7 +195,6 @@ const sSmoothCriminal = {
     duration: '4:00',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sBeatIt = {
     id: utilService.makeId(),
     title: 'Beat It',
@@ -204,7 +206,6 @@ const sBeatIt = {
     duration: '4:18',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sJohnnyBGoode = {
     id: utilService.makeId(),
     title: 'Johnny B. Goode',
@@ -227,7 +228,6 @@ const sEnglishmanInNewYork = {
     duration: '4:27',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sSultansOfSwing = {
     id: utilService.makeId(),
     title: 'Sultans Of Swing',
@@ -239,7 +239,6 @@ const sSultansOfSwing = {
     duration: '4:26',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sHighwayToHell = {
     id: utilService.makeId(),
     title: 'Highway to Hell',
@@ -251,7 +250,6 @@ const sHighwayToHell = {
     duration: '3:27',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sBohemianRhapsody = {
     id: utilService.makeId(),
     title: 'Bohemian Rhapsody',
@@ -263,7 +261,6 @@ const sBohemianRhapsody = {
     duration: '5:59',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sLoseYourself = {
     id: utilService.makeId(),
     title: 'Lose Yourself',
@@ -275,8 +272,6 @@ const sLoseYourself = {
     duration: '5:23',
     addedAt: utilService.randomAddedTime(),
 }
-
-
 const sCalifornication = {
     id: utilService.makeId(),
     title: 'Californication',
@@ -288,7 +283,6 @@ const sCalifornication = {
     duration: '5:21',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sHypnotize = {
     id: utilService.makeId(),
     title: 'Hypnotize',
@@ -311,7 +305,6 @@ const sCenturies = {
     duration: '3:46',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sNumbEncore = {
     id: utilService.makeId(),
     title: 'Numb / Encore',
@@ -323,7 +316,6 @@ const sNumbEncore = {
     duration: '3:25',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sHighHopes = {
     id: utilService.makeId(),
     title: 'High Hopes',
@@ -335,7 +327,6 @@ const sHighHopes = {
     duration: '3:12',
     addedAt: utilService.randomAddedTime(),
 }
-
 const sHereWithoutYou = {
     id: utilService.makeId(),
     title: 'Here Without You',

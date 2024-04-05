@@ -24,15 +24,6 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         }
     }, [handleContextMenuClose])
 
-
-    function handleContextMenuOpen(stationId) {
-        setOpenContextMenuStationId(stationId)
-    }
-
-    function handleContextMenuClose() {
-        setOpenContextMenuStationId(null)
-    }
-
     function handleContextMenuOpen(stationId, mouseX, mouseY) {
         setOpenContextMenuStationId(stationId)
         setContextMenuPosition({ mouseX, mouseY })
