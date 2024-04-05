@@ -4,6 +4,7 @@ import { AboutUs } from './pages/AboutUs.jsx'
 import { ReviewIndex } from './pages/ReviewIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
+import { StationDetails } from './cmps/StationDetails.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -17,6 +18,12 @@ const routes = [
         component: <ThemesPage />,
         label: 'Search'
     },
+    {
+        path: '/station/:id',
+        component: <StationDetails />,
+        label: 'Details'
+    },
+
     // {
     //     path: 'stations',
     //     component: <StationsPage />,

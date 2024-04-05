@@ -6,6 +6,7 @@ import { loadStations } from '../store/actions/station.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 
 import { StationList } from '../cmps/StationList'
+import { StationDetails } from '../cmps/StationDetails'
 
 
 
@@ -25,6 +26,7 @@ export function HomePage() {
 
             <StationList
                 stations={stations} />
+                <StationDetails/>
 
 
         </section >

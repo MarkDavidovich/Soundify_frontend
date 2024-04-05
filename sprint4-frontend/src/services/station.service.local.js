@@ -87,7 +87,7 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
         imgUrl,
         createdBy: {
             _id: utilService.makeId(),
-            fullname: '',
+            fullname: 'Guest',
             imgUrl: 'https://robohash.org/userrobohash'
         },
         createdAt: utilService.randomAddedTime()
