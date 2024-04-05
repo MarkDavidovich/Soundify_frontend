@@ -4,6 +4,7 @@
     grid-template-columns: 391px 1fr; // according pic in pixel p
     grid-template-rows: 1fr auto;
     gap: 8px;
+    padding: 8px;
 
     grid-template-areas:
         "side-bar main-view"

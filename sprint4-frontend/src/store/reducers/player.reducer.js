@@ -2,6 +2,8 @@
 export const SET_CURR_SONG = 'SET_CURR_SONG'
 export const SET_CURR_STATION = 'SET_CURR_STATION'
 export const IS_PLAYING = 'IS_PLAYING'
+export const SET_NEXT_SONG = 'SET_NEXT_SONG'
+export const SET_PREV_SONG = 'SET_PREV_SONG'
 
 const initialState = {
   currSong: {},
@@ -23,7 +25,14 @@ export function playerReducer(state = initialState, action) {
       newState = { ...state, isPlaying: action.isPlaying }
       break
     default:
+    case SET_NEXT_SONG:
+      newState = { ...state, nextSong: action.nextSong }
+      break
+    case SET_PREV_SONG:
+      newState = { ...state, prevSong: action.prevSong }
+      break
   }
+
   console.log('State:', newState)
   return newState
 }
