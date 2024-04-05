@@ -8,40 +8,6 @@
     align-items: center;
     height: 72px;
 
-    .song-details-container {
-        min-width: 180px;
-        padding-inline-start: 8px;
-        width: 30%;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        flex: 1;
-
-        .song-details {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            line-height: 1em;
-
-            .song-img {
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-                width: 56px;
-                height: 56px;
-                background-position: 50%;
-                background-size: contain;
-            }
-
-            .title-artist-container {
-                margin-inline: 8px;
-            }
-
-            .song-like {
-                margin-inline: 5px;
-            }
-        }
-    }
-
     .controls-main-container {
         display: flex;
         flex-direction: column;
@@ -65,6 +31,26 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
+
+                    &:hover {
+                        path {
+                            fill: white;
+                        }
+                    }
+
+                    // &::after {
+                    //     background-color: currentcolor;
+                    //     border-radius: 50%;
+                    //     bottom: 0;
+                    //     content: "";
+                    //     display: block;
+                    //     height: 4px;
+                    //     left: 50%;
+                    //     position: absolute;
+                    //     -webkit-transform: translateX(-50%);
+                    //     transform: translateX(-50%);
+                    //     width: 4px;
+                    // }
                 }
             }
 

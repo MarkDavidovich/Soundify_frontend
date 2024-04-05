@@ -1,24 +1,29 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-export function SongPreview(song, isPlaying, currSong) {
+export function SongPreview() {
+
+  const currSong = useSelector(storeState => storeState.playerModule.currSong)
+
   return (
-    <div className='song-details'>
-      <img className='song-img' src='https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213231/Station%20images/awayFromTheSun_diug2z.jpg' />
-      <div className='title-artist-container'>
-        <div className='song-title' >
-          {/* LINK TO PLAYLIST */}
-          song title
-        </div>
-        <div className='artist-name'>
-          {/* LINK TO ARTIST */}
-          artist
-        </div>
+    currSong && (
+      <div className='song-details'>
+        <img className='song-img' src={currSong.imgUrl} />
+        <div className='title-artist-container'>
+          <div className='song-title' >
+            {/* LINK TO PLAYLIST */}
+            {currSong.title}
+          </div>
+          <div className='artist-name'>
+            {/* LINK TO ARTIST */}
+            {currSong.artist}
+          </div>
 
+        </div>
+        <button className='song-like'>
+          {/* ADD TO LIKED SONGS STATION */}
+          (+)
+        </button>
       </div>
-      <button className='song-like'>
-        {/* ADD TO LIKED SONGS STATION */}
-        (✔)
-      </button>
-    </div>
-  )
+    ))
 }
