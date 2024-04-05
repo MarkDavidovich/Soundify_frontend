@@ -60,6 +60,7 @@ export function AppFooter() {
     function handleVolumeChange(ev) {
         const newVolume = parseFloat(ev.target.value)
         setVolume(newVolume)
+        setVolumeSnapshot(volume)
     }
 
     function handleEnd() {
@@ -84,15 +85,12 @@ export function AppFooter() {
     function handleMute() {
         console.log('mute clicked!')
         if (isMuted) {
-            setIsMuted(!isMuted)
+            setVolume(volumeSnapshot)
+        } else {
             setVolumeSnapshot(volume)
             setVolume(0)
-            console.log('MUTED')
-        } else {
-            setIsMuted(!isMuted)
-            setVolume(volumeSnapshot)
-            console.log('UNMUTED')
         }
+        setIsMuted(!isMuted)
     }
 
     useEffect(() => {
