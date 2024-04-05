@@ -1,6 +1,6 @@
 .main-layout {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 420px 1fr;
     grid-template-rows: 1fr auto;
     gap: 8px;
 
@@ -15,9 +15,14 @@
     //         grid-column: 1 /-1;
     //     }
 
+    @include for-narrow-layout {
+        grid-template-columns:
+            72px minmax(1fr, $mobile-breakpoint);
+    }
+
     // @include for-narrow-layout {
     //     grid-template-columns:
-    //         minmax(20px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
+    //         minmax(72px, 1fr) minmax(auto, $mobile-breakpoint) minmax(20px, 1fr);
     // }
 
     // @include for-normal-layout {

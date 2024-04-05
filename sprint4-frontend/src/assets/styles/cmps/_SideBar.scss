@@ -1,17 +1,19 @@
 .side-bar {
     grid-area: side-bar;
 
-    .actions-btns{
+    .actions-btns {
         display: flex;
         flex-direction: column;
+        background-color: $clr8;
     }
 
-    .search-btn-container, .home-btn-container {
+    .search-btn-container,
+    .home-btn-container {
         display: flex;
-        align-items: center; 
+        align-items: center;
     }
 
-    span{
+    span {
         font-size: 1rem;
     }
 }
