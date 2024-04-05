@@ -4,19 +4,17 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useDispatch, useSelector } from "react-redux"
 
 
-
-
 import { stationService } from "../services/station.service.local"
-import { getActionCurrSong, getActionIsPlaying} from "../store/actions/player.actions"
+import { getActionCurrSong, getActionIsPlaying, togglePlaying } from "../store/actions/player.actions"
 
 
 export function StationDetails() {
 
     const params = useParams()
     const navigate = useNavigate()
-    const dispatch =useDispatch()
+    const dispatch = useDispatch()
     const [currStation, setCurrStation] = useState(null)
-    const currSong = useSelector(storeState => storeState.playerModule.currSong)
+    let isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
 
     useEffect(() => {
@@ -46,11 +44,13 @@ export function StationDetails() {
         return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
     }
 
- 
 
-    function handleSongClick  (song) {
+
+
+    function handleSongClick(song) {
         dispatch(getActionCurrSong(song))
-
+            togglePlaying(false)
+    
     }
 
 
