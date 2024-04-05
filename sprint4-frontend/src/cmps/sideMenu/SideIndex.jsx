@@ -14,6 +14,7 @@ import { stationService } from '../../services/station.service.local.js'
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideAddStationModal } from './SideAddStationModal.jsx'
+import 'animate.css';
 
 
 
@@ -109,7 +110,7 @@ export function SideIndex() {
                 </button>
                 {toggleFilter &&
 
-                    <SideFilter className="animate__fadeInLeft" filterBy={filterBy} onSetFilter={onSetFilter} />
+                    <SideFilter className="animate__animated animate__fadeInLeft" filterBy={filterBy} onSetFilter={onSetFilter} />
                 }
             </div>
             <main>
