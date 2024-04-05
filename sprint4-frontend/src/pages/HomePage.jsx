@@ -26,7 +26,6 @@ export function HomePage() {
 
             <StationList
                 stations={stations} />
-                <StationDetails/>
 
 
         </section >
