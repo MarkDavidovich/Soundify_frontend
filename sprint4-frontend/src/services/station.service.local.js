@@ -210,7 +210,7 @@ const sJohnnyBGoode = {
     artist: 'Chuck Berry',
     album: 'Berry Is On Top',
     url: 'https://www.youtube.com/watch?v=Uf4rxCB4lys',
-    imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213233/berryIsOnTop_dsuhck.jpg',
+    imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213233/Station%20images/berryIsOnTop_dsuhck.jpg',
     addedBy: 'Nadav',
     duration: '2:42',
     addedAt: utilService.randomAddedTime(),

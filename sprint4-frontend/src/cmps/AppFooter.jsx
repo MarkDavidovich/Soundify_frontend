@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { UserMsg } from './UserMsg.jsx'
@@ -7,6 +7,7 @@ import ReactPlayer from 'react-player'
 import { togglePlaying, setCurrSong } from '../store/actions/player.actions.js'
 
 export function AppFooter() {
+
     // const stations = useSelector(storeState => storeState.stationModule.stations)
 
     const currSong = useSelector(storeState => storeState.playerModule.currSong)
@@ -20,8 +21,10 @@ export function AppFooter() {
     const [shuffle, setShuffle] = useState(false)
 
     const [progress, setProgress] = useState(0)
-    const [duration, setDuration] = useState(0)
-    const [remainder, setRemainder] = useState(0)
+    const [currSongTime, setCurrSongTime] = useState(0)
+    const [totalSongTime, setTotalSongTime] = useState(0)
+    const [currSongRemainder, setCurrSongRemainder] = useState(0)
+    const [showRemainder, setShowRemainder] = useState(false)
 
     const [isLiked, setIsLiked] = useState()
 
@@ -38,8 +41,8 @@ export function AppFooter() {
         setProgress(state.playedSeconds)
 
         const totalDuration = playerRef.current ? playerRef.current.getDuration() : 0
-        setDuration(state.playedSeconds)
-        setRemainder(totalDuration)
+        setCurrSongTime(state.playedSeconds)
+        setTotalSongTime(totalDuration)
     }
 
     function handleSeek(ev) {
@@ -71,6 +74,10 @@ export function AppFooter() {
 
         return `${minutes}:${formattedSeconds.split('.')[0]}`
     }
+
+    useEffect(() => {
+        setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
+    }, [currSongTime, totalSongTime])
 
     return (
         <footer className="app-footer">
@@ -105,7 +112,7 @@ export function AppFooter() {
                 </div>
                 <div className='progress-bar-container'>
                     {/* <div className="following-bar" style={{ width: `${ progress * 100 / 2 }% ` }}></div> */}
-                    <span className='song-duration'>{formatTime(duration)}</span>
+                    <span className='song-duration'>{formatTime(currSongTime)}</span>
                     <input
                         className='input-bar'
                         type='range'
@@ -117,7 +124,12 @@ export function AppFooter() {
                         value={progress}
                         onChange={handleSeek}
                     />
-                    <span className='song-remainder'>{formatTime(remainder)}</span>
+                    <span className='song-duration' onClick={() => {
+                        setShowRemainder(!showRemainder)
+                        setCurrSongRemainder(totalSongTime - currSongTime)
+                    }}>
+                        {showRemainder ? '-' + formatTime(currSongRemainder) : formatTime(totalSongTime)}
+                    </span>
                 </div>
             </div>
             <div className="player-extra-controls">
