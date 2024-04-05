@@ -1,9 +1,17 @@
 .side-bar {
     grid-area: side-bar;
 
-    .home-btn{
-        width: 20px;
-        height: 20px;
-       color: white;
+    .actions-btns{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .search-btn-container, .home-btn-container {
+        display: flex;
+        align-items: center; 
+    }
+
+    span{
+        font-size: 1rem;
     }
 }
