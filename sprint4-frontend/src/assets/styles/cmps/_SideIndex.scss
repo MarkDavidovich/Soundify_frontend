@@ -1,6 +1,24 @@
 .side-index {
+    background-color: $clr8;
 
     .top-bar {
         justify-content: space-between;
+        width: 420px;
+
+        .btn {
+            align-items: center;
+            width: 142px;
+            height: 40px;
+            padding: 4px 8px;
+            border-radius: 20%;
+            font-size: rem(16px);
+
+            span {
+                margin-left: 5px;
+            }
+        }
     }
+
+
+
 }
