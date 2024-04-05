@@ -53,9 +53,9 @@ export async function removeStation(stationId) {
 }
 
 export async function addStation(station) {
+
     try {
         const savedStation = await stationService.save(station)
-        console.log('Added station', savedStation)
         store.dispatch(getActionAddStation(savedStation))
         return savedStation
     } catch (err) {
@@ -104,3 +104,4 @@ export function onRemoveStationOptimistic(stationId) {
             })
         })
 }
+

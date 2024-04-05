@@ -9,7 +9,7 @@ import { MenuItem as BaseMenuItem, menuItemClasses } from '@mui/base/MenuItem';
 import { loadStations, addStation, updateStation, removeStation, setStationFilter } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { stationService } from '../../services/station.service.js'
+import { stationService } from '../../services/station.service.local.js'
 
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
@@ -36,8 +36,10 @@ export function SideIndex() {
     async function onAddStation() {
         const station = stationService.getEmptyStation()
 
-        //! Switch to Modal + Form
-        station.name = prompt('Station Name?')
+        let stationNum = stations.length + 1
+        const newStationName = `My Playlist #${stationNum}`
+        station.name = newStationName
+
         try {
             const savedStation = await addStation(station)
             showSuccessMsg(`Station added (id: ${savedStation._id})`)
@@ -46,7 +48,6 @@ export function SideIndex() {
         }
     }
 
-    //! EDIT = Update --> with Modal
     async function onUpdateStation(station) {
 
         const stationToSave = { ...station }
@@ -86,13 +87,8 @@ export function SideIndex() {
                 {/* Maybe for right click modal */}
                 <SideAddStationModal />
 
-
                 <button onClick={onAddStation}>+</button>
-
-
             </div>
-
-
 
             <SideFilter filterBy={filterBy} onSetFilter={onSetFilter} />
             <main>

@@ -82,20 +82,23 @@
             width: 100%;
             align-items: center;
             gap: 8px;
+            font-size: $font-size-12;
+
 
             .input-bar {
                 width: 80%;
             }
 
             .song-duration {
-                margin-block: 0;
+                min-width: 40px;
+                text-align: right;
             }
 
             .song-remainder {
-                margin-block: 0;
+                min-width: 40px;
+                text-align: left;
             }
         }
-
     }
 
     .player-extra-controls {
