@@ -35,7 +35,7 @@ export async function togglePlaying(isPlaying) {
 
 export async function setCurrSong(song) {
   try {
-    localStorage.setItem("lastSong", song.id)
+    localStorage.setItem("currSong", song.id)
     store.dispatch(getActionCurrSong(song))
     return song
   } catch (err) {

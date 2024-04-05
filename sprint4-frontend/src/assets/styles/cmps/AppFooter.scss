@@ -21,6 +21,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            line-height: 1em;
 
             .song-img {
                 border-top-left-radius: 5px;
@@ -85,9 +86,6 @@
             }
         }
 
-
-
-
     }
 
     .player-extra-controls {
@@ -134,18 +132,15 @@
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .5);
         }
 
-
-
         ::-webkit-slider-thumb:hover {
             background: #2e8b57;
         }
-
-
-
-
     }
 
     .following-bar {
+        align-self: center;
+        position: absolute;
+        left: 31vw;
         height: 3px;
         border-radius: 3px;
         background-color: #fff;
