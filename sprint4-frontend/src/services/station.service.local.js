@@ -74,7 +74,7 @@ function getEmptyStation() {
         desc: '',
         songs: [],
         likedByUsers: [],
-        imgUrl: '',
+        imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
         createdBy: {
             _id: '',
             fullname: '',
