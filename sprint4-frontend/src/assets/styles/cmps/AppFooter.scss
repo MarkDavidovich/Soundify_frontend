@@ -92,11 +92,13 @@
             .song-duration {
                 min-width: 40px;
                 text-align: right;
+                cursor: context-menu
             }
 
             .song-remainder {
                 min-width: 40px;
                 text-align: left;
+                cursor: context-menu
             }
         }
     }
