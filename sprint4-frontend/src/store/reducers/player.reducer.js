@@ -26,4 +26,4 @@ export function playerReducer(state = initialState, action) {
   }
   console.log('State:', newState)
   return newState
-}\
+}

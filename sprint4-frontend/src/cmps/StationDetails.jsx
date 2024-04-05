@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 
 import { stationService } from "../services/station.service.local"
-import { getActionIsPlaying} from "../store/actions/player.actions"
+import { getActionCurrSong, getActionIsPlaying} from "../store/actions/player.actions"
 
 
 export function StationDetails() {
@@ -16,8 +16,7 @@ export function StationDetails() {
     const navigate = useNavigate()
     const dispatch =useDispatch()
     const [currStation, setCurrStation] = useState(null)
-    let currSong = useSelector(storeState => storeState.playerModule.currSong)
-    console.log("🚀 ~ file: StationDetails.jsx:20 ~ StationDetails ~ currSong:", currSong)
+    const currSong = useSelector(storeState => storeState.playerModule.currSong)
 
 
     useEffect(() => {
@@ -50,8 +49,8 @@ export function StationDetails() {
  
 
     function handleSongClick  (song) {
-        currSong= song
-        console.log("🚀 ~ file: StationDetails.jsx:54 ~ handleSongClick ~ currSong:", currSong)
+        dispatch(getActionCurrSong(song))
+
     }
 
 
