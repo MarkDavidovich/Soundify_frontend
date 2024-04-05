@@ -1,48 +1,78 @@
 //SHOWS THE STATIONS, ARTISTS IN A LIST
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { UpdateStation } from "./UpdateStation"
 
-export function SidePreview({ station, onRemoveStation, onUpdateStation, onTriggerUpdate }) {
+export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, onContextMenuClose, contextMenuPosition }) {
 
-    // const [isOnUpdate, setIsOnUpdate] = useState(false)
+    const [contextMenu, setContextMenu] = useState(null)
 
-    //! Switch to Right Click
+    // useEffect(() => {
+    //     function closeMenu(event) {
+    //         handleContextMenuClose()
+    //     }
+    //     window.addEventListener('click', closeMenu)
+    //     return () => window.removeEventListener('click', closeMenu)
+
+    // }, [onContextMenuClose])
+
+    function handleContextMenu(ev) {
+        ev.preventDefault()
+        /*setContextMenu(
+            contextMenu === null
+                ? { mouseX: ev.clientX - 2, mouseY: ev.clientY - 4 }
+                : null
+        ) */
+        onContextMenuOpen(station._id, ev.clientX - 2, ev.clientY - 4)
+    }
+
+    function handleClose() {
+        setContextMenu(null);
+    }
+
     function handleRemoveClick(ev) {
         ev.preventDefault()
         onRemoveStation(station._id)
+        handleClose();
     }
 
-    // //! Switch to Right Click
-    function handleUpdateClick(ev) {
-        ev.preventDefault()
-
-        // onUpdateStation(station)
-        setIsOnUpdate(true)
-    }
+    // // //! Switch to Right Click
+    // function handleUpdateClick(ev) {
+    //     ev.preventDefault()
+    //     setIsOnUpdate(true)
+    // }
 
     return (
-        <div className="side-preview flex">
+        <div className="side-preview flex" onContextMenu={handleContextMenu}>
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
             <span>{station.name}</span>
-            <button className="btn" onClick={handleRemoveClick}>X</button>
-            <button className="btn" onClick={() => onTriggerUpdate()}>Update</button>
 
-            {/* {isOnUpdate && (
-                <UpdateStation
-                    station={station}
-                    onUpdateStation={(updatedStation) => {
-                        onUpdateStation(updatedStation)
-                        setIsOnUpdate(false)
+            {isContextMenuOpen && (
+                <div
+                    className="context-menu"
+                    style={{
+                        position: "absolute",
+                        // Adjust these values for correct positioning
+                        top: `${contextMenuPosition.mouseY}px`,
+                        left: `${contextMenuPosition.mouseX}px`,
                     }}
-                    setIsOnUpdate={setIsOnUpdate}
-                />
-            )} */}
-            {/* <button className="btn" onClick={handleUpdateClick}>Update</button> */}
+                >
+                    <ul className="menu-list clean-list">
+                        <li onClick={() => { onTriggerUpdate() }}>Edit</li>
+                        <li onClick={(ev) => { handleRemoveClick(ev) }}>Delete</li>
+                    </ul>
+                </div>
+            )}
 
+            {/* <button className="btn" onClick={handleRemoveClick}>X</button>
+                    <button className="btn" onClick={() => onTriggerUpdate()}>Update</button> */}
 
         </div>
     )
 }
+
+
+
+
 
 /*
 _id: utilService.makeId(),
@@ -58,3 +88,21 @@ createdBy: {
     imgUrl: 'https://robohash.org/userrobohash'
 },
 createdAt: utilService.randomAddedTime() ! */
+
+
+
+// {contextMenu !== null && (
+//     <div
+//         style={{
+//             position: "absolute",
+//             top: `${contextMenu.mouseY}px`,
+//             left: `${contextMenu.mouseX}px`,
+//         }}
+//         className="context-menu"
+//     >
+//         <ul className="menu-list clean-list">
+//             <li onClick={() => { onTriggerUpdate(); handleClose() }}>Edit</li>
+//             <li onClick={(ev) => { handleRemoveClick(ev); handleClose() }}>Delete</li>
+//         </ul>
+//     </div>
+// )}

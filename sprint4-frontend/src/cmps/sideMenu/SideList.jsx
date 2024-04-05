@@ -3,13 +3,45 @@
 import { Link } from 'react-router-dom'
 import { SidePreview } from './SidePreview.jsx'
 import { UpdateStation } from './UpdateStation.jsx'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
     const [isOnUpdate, setIsOnUpdate] = useState(false)
-    const [selectedStation, setSelectedStation] = useState(null);
+    const [selectedStation, setSelectedStation] = useState(null)
+    const [openContextMenuStationId, setOpenContextMenuStationId] = useState(null)
+    const [contextMenuPosition, setContextMenuPosition] = useState({ mouseX: null, mouseY: null })
+
+    useEffect(() => {
+        const closeMenu = (event) => {
+            handleContextMenuClose()
+        }
+
+        document.addEventListener('click', closeMenu);
+        return () => {
+            document.removeEventListener('click', closeMenu)
+        }
+    }, [handleContextMenuClose])
+
+
+    function handleContextMenuOpen(stationId) {
+        setOpenContextMenuStationId(stationId)
+    }
+
+    function handleContextMenuClose() {
+        setOpenContextMenuStationId(null)
+    }
+
+    function handleContextMenuOpen(stationId, mouseX, mouseY) {
+        setOpenContextMenuStationId(stationId)
+        setContextMenuPosition({ mouseX, mouseY })
+    }
+
+    function handleContextMenuClose() {
+        setOpenContextMenuStationId(null);
+        setContextMenuPosition({ mouseX: null, mouseY: null })
+    }
 
     function handleUpdateClick(station) {
         setSelectedStation(station)
@@ -17,8 +49,6 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     }
 
     function handleStationUpdate(updatedStation) {
-        console.log("🚀 ~ handleStationUpdate ~ updatedStation:", updatedStation)
-
         onUpdateStation(updatedStation)
         setIsOnUpdate(false)
     }
@@ -31,7 +61,11 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
                     <SidePreview station={station}
                         onRemoveStation={onRemoveStation}
-                        // onUpdateStation={onUpdateStation} 
+                        onContextMenuOpen={handleContextMenuOpen}
+                        onContextMenuClose={handleContextMenuClose}
+                        isContextMenuOpen={openContextMenuStationId === station._id}
+                        contextMenuPosition={contextMenuPosition}
+
                         onTriggerUpdate={() => handleUpdateClick(station)} />
                 </Link>
             </article>
@@ -40,7 +74,6 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         {isOnUpdate && (
             <UpdateStation
                 station={selectedStation}
-                // onUpdateStation={handleStationUpdate}
                 handleStationUpdate={handleStationUpdate}
                 setIsOnUpdate={setIsOnUpdate}
             />
