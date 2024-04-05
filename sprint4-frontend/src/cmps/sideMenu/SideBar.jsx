@@ -21,33 +21,34 @@ export function SideBar() {
 
     return (
         <>
-            <div className="side-bar flex column">  
+            <div className="side-bar flex column">
                 <div className="actions-btns">
-                 <Link to="/">   <div className="home-btn-container" onClick={handleHomeButtonClick}>
-                        <button className="home-btn btn" >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                style={{ width: "24px", height: "24px" }}
-                            >
-                                <path className='fill-home' d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732l-7.5-4.33z"
-                                    fill={isWhiteFill ? "none" : "white"}
-                                    stroke="#ffffff"
-                                    strokeWidth="1"
+                    <Link className="home-link" to="/">
+                        <div className="home-btn-container" onClick={handleHomeButtonClick}>
+                            <button className="home-btn btn" >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    style={{ width: "24px", height: "24px" }}
                                 >
-                                </path>
-                            </svg>
-                        
-                        </button>
-                        <span>
-                            Home
-                        </span>
-                       
-                    </div>
+                                    <path className='fill-home' d="M13.5 1.515a3 3 0 0 0-3 0L3 5.845a2 2 0 0 0-1 1.732V21a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-6h4v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V7.577a2 2 0 0 0-1-1.732l-7.5-4.33z"
+                                        fill={isWhiteFill ? "none" : "white"}
+                                        stroke="#ffffff"
+                                        strokeWidth="1"
+                                    >
+                                    </path>
+                                </svg>
+
+                            </button>
+                            <span>
+                                Home
+                            </span>
+
+                        </div>
                     </Link>
 
                     <div className="search-btn-container" onClick={handleSearchButtonClick}>
-                        <button >
+                        <button className="search-btn">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -66,9 +67,7 @@ export function SideBar() {
                             </svg>
 
                         </button>
-                        <span>
-                            Search
-                        </span>
+                        <span className="span-search">Search</span>
                     </div>
                 </div>
                 <SideIndex />

@@ -1,19 +1,46 @@
 .side-bar {
     grid-area: side-bar;
+    gap: 8px;
 
     .actions-btns {
         display: flex;
         flex-direction: column;
         background-color: $clr8;
+        height: 112px;
+        padding: $padding-1
     }
 
-    .search-btn-container,
-    .home-btn-container {
+    .home-link {
+        text-decoration: none;
+
+        .home-btn-container {
+            display: flex;
+            align-items: center;
+
+            .home-btn {
+                background-color: $clr8;
+            }
+
+            span {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .search-btn-container {
         display: flex;
         align-items: center;
+
+        .search-btn {
+            background-color: $clr8;
+
+        }
+
+        span.span-search {
+            font-size: 1rem;
+            background-color: $clr8;
+        }
     }
 
-    span {
-        font-size: 1rem;
-    }
+
 }
