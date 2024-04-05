@@ -4,7 +4,7 @@ export const SET_CURR_STATION = 'SET_CURR_STATION'
 export const IS_PLAYING = 'IS_PLAYING'
 
 const initialState = {
-  currSong: '',
+  currSong: {},
   currStation: {},
   isPlaying: false,
 }

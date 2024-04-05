@@ -14,12 +14,16 @@ export function AppFooter() {
     const currStation = useSelector(storeState => storeState.playerModule.currStation)
     const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
+    // Volume states
     const [volume, setVolume] = useState(0.5)
+    const [volumeSnapshot, setVolumeSnapshot] = useState(0.5)
     //! need to make it so the volume goes back to where it was after mute sets it to 0
     const [isMuted, setIsMuted] = useState(false)
+
     const [loop, setLoop] = useState(false)
     const [shuffle, setShuffle] = useState(false)
 
+    // Time states
     const [progress, setProgress] = useState(0)
     const [currSongTime, setCurrSongTime] = useState(0)
     const [totalSongTime, setTotalSongTime] = useState(0)
@@ -32,8 +36,10 @@ export function AppFooter() {
 
 
     function play() {
+        console.log(currSong)
         if (!currSong) return
         togglePlaying(isPlaying)
+
     }
 
     function handleProgress(state) {
@@ -75,6 +81,20 @@ export function AppFooter() {
         return `${minutes}:${formattedSeconds.split('.')[0]}`
     }
 
+    function handleMute() {
+        console.log('mute clicked!')
+        if (isMuted) {
+            setIsMuted(!isMuted)
+            setVolumeSnapshot(volume)
+            setVolume(0)
+            console.log('MUTED')
+        } else {
+            setIsMuted(!isMuted)
+            setVolume(volumeSnapshot)
+            console.log('UNMUTED')
+        }
+    }
+
     useEffect(() => {
         setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
     }, [currSongTime, totalSongTime])
@@ -97,7 +117,6 @@ export function AppFooter() {
 
                     <button className="play-btn" onClick={() => {
                         play()
-                        console.log(playerRef.current.getDuration())
                     }}>play</button>
 
                     <div className="player-controls-right">
@@ -124,7 +143,7 @@ export function AppFooter() {
                         value={progress}
                         onChange={handleSeek}
                     />
-                    <span className='song-duration' onClick={() => {
+                    <span className='song-remainder' onClick={() => {
                         setShowRemainder(!showRemainder)
                         setCurrSongRemainder(totalSongTime - currSongTime)
                     }}>
@@ -139,10 +158,7 @@ export function AppFooter() {
                 <button className="connect-device-btn">🖥️</button>
                 {/* Check if muted to show icon (isMuted)*/}
                 <div className='volume-controls'>
-                    <button className="mute-btn" onClick={() => {
-                        setIsMuted(!isMuted)
-                        console.log("mute:", isMuted)
-                    }}>🔇
+                    <button className="mute-btn" onClick={() => handleMute()}>🔇
                     </button>
                     <div className="volume-bar">
                         <label htmlFor="volumeRange"></label>
@@ -165,7 +181,7 @@ export function AppFooter() {
             <ReactPlayer
                 className="react-player"
                 ref={playerRef}
-                url={currSong}
+                url={currSong.url}
                 config={{
                     youtube: {
                         playerVars: {
