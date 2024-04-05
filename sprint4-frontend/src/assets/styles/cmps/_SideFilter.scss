@@ -1,0 +1,26 @@
+.search-library {
+
+    margin-left: 10px;
+
+
+    button.search-btn {
+
+        &:hover {
+            background-color: $clr9;
+
+        }
+    }
+
+    input {
+        background-color: $clr9;
+        color: $clr2;
+        width: 148px;
+        height: 16px;
+        font-size: em(10px);
+        padding: 8px 8px 8px 5px;
+
+        border: none;
+        outline: none;
+        height: 25px;
+    }
+}

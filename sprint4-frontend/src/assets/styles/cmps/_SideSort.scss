@@ -3,6 +3,10 @@
     margin-left: 3px;
     height: 37px;
 
+    p:first-child {
+        margin-left: 15px;
+    }
+
     p {
         padding: 4px 12px;
         font-size: $font-size-14;
