@@ -1,7 +1,3 @@
-//MAIN SIDEBAR CMP, WILL CONTAIN THE OTHER CMPS
-
-//! Link to HomePage
-//! Link to ThemesPage
 
 import React, { useState } from 'react'
 import { SideIndex } from './SideIndex'
@@ -14,18 +10,20 @@ export function SideBar() {
 
     const handleHomeButtonClick = () => {
         setIsWhiteFill(prevState => !prevState)
+        setToggleSvgSearch(false)
     }
 
     const handleSearchButtonClick = () => {
+        setIsWhiteFill(true)
         setToggleSvgSearch(prevState => !prevState)
     }
 
     return (
         <>
-            <div className="side-bar flex column">SideBar
+            <div className="side-bar flex column">  
                 <div className="actions-btns">
-                    <div className="home-btn-container">
-                        <button className="home-btn btn" onClick={handleHomeButtonClick}>
+                    <div className="home-btn-container" onClick={handleHomeButtonClick}>
+                        <button className="home-btn btn" >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
@@ -38,15 +36,16 @@ export function SideBar() {
                                 >
                                 </path>
                             </svg>
-
+                        
                         </button>
                         <span>
                             Home
                         </span>
+                       
                     </div>
 
-                    <div className="search-btn-container">
-                        <button onClick={handleSearchButtonClick}>
+                    <div className="search-btn-container" onClick={handleSearchButtonClick}>
+                        <button >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
