@@ -78,11 +78,21 @@
 
         .progress-bar-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             width: 100%;
+            align-items: center;
+            gap: 8px;
 
             .input-bar {
                 width: 80%;
+            }
+
+            .song-duration {
+                margin-block: 0;
+            }
+
+            .song-remainder {
+                margin-block: 0;
             }
         }
 

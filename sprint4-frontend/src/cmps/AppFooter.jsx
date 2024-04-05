@@ -23,7 +23,6 @@ export function AppFooter() {
     const [duration, setDuration] = useState(0)
     const [remainder, setRemainder] = useState(0)
 
-    //! NEED TO ADD A NEW FUNCTION TO SEEK
     const [isLiked, setIsLiked] = useState()
 
     const playerRef = useRef(null) //ref for the reactplayer cmp
@@ -64,6 +63,14 @@ export function AppFooter() {
         } //else change song to the next one
     }
 
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60)
+        const remainingSeconds = seconds % 60
+        const roundedSeconds = Math.round(remainingSeconds * 100) / 100
+        const formattedSeconds = roundedSeconds === 0 ? '00' : roundedSeconds.toFixed(2).padStart(5, '0')
+
+        return `${minutes}:${formattedSeconds.split('.')[0]}`
+    }
 
     return (
         <footer className="app-footer">
@@ -97,9 +104,8 @@ export function AppFooter() {
                     </div>
                 </div>
                 <div className='progress-bar-container'>
-                    {/* <div className="following-bar" style={{ width: `${progress * 100 / 2}%` }}></div> */}
-                    <span>{duration.toFixed(2)}</span>
-                    <label htmlFor="progressRange"></label>
+                    {/* <div className="following-bar" style={{ width: `${ progress * 100 / 2 }% ` }}></div> */}
+                    <span className='song-duration'>{formatTime(duration)}</span>
                     <input
                         className='input-bar'
                         type='range'
@@ -111,7 +117,7 @@ export function AppFooter() {
                         value={progress}
                         onChange={handleSeek}
                     />
-                    <span>{remainder}</span>
+                    <span className='song-remainder'>{formatTime(remainder)}</span>
                 </div>
             </div>
             <div className="player-extra-controls">
