@@ -36,14 +36,9 @@ export function SideIndex() {
     async function onAddStation() {
         const station = stationService.getEmptyStation()
 
-        let stationNum
-        if (!stations.length) stationNum = 1
-        else stationNum = 1 + stations.length++
-
+        let stationNum = stations.length + 1
         const newStationName = `My Playlist #${stationNum}`
-
         station.name = newStationName
-        console.log("🚀 ~ onAddStation ~ station:", station)
 
         try {
             const savedStation = await addStation(station)
