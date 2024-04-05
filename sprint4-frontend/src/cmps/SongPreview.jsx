@@ -6,7 +6,7 @@ export function SongPreview() {
   const currSong = useSelector(storeState => storeState.playerModule.currSong)
 
   return (
-    currSong && (
+    currSong.title && (
       <div className='song-details'>
         <img className='song-img' src={currSong.imgUrl} />
         <div className='title-artist-container'>
@@ -31,4 +31,3 @@ export function SongPreview() {
     ))
 }
 
-//! WHY IS THE + STILL RENDERING????????
