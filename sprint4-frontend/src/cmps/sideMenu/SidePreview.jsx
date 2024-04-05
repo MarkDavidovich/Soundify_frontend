@@ -2,9 +2,9 @@
 import { useState } from "react"
 import { UpdateStation } from "./UpdateStation"
 
-export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
+export function SidePreview({ station, onRemoveStation, onUpdateStation, onTriggerUpdate }) {
 
-    const [isOnUpdate, setIsOnUpdate] = useState(false)
+    // const [isOnUpdate, setIsOnUpdate] = useState(false)
 
     //! Switch to Right Click
     function handleRemoveClick(ev) {
@@ -25,8 +25,9 @@ export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
             <span>{station.name}</span>
             <button className="btn" onClick={handleRemoveClick}>X</button>
+            <button className="btn" onClick={() => onTriggerUpdate()}>Update</button>
 
-            {isOnUpdate && (
+            {/* {isOnUpdate && (
                 <UpdateStation
                     station={station}
                     onUpdateStation={(updatedStation) => {
@@ -35,8 +36,8 @@ export function SidePreview({ station, onRemoveStation, onUpdateStation }) {
                     }}
                     setIsOnUpdate={setIsOnUpdate}
                 />
-            )}
-            <button className="btn" onClick={handleUpdateClick}>Update</button>
+            )} */}
+            {/* <button className="btn" onClick={handleUpdateClick}>Update</button> */}
 
 
         </div>

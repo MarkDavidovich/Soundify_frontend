@@ -19,7 +19,6 @@ window.cs = stationService
 
 
 async function query(filterBy = { txt: '', artist: '' }) {
-    console.log("🚀 ~ query ~ filterBy:", filterBy)
 
     var stations = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {

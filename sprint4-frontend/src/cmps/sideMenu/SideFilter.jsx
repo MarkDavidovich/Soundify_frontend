@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react"
 import { utilService } from "../../services/util.service"
 
 export function SideFilter({ filterBy, onSetFilter }) {
-    console.log("🚀 ~ SideFilter ~ filterBy:", filterBy)
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
     onSetFilter = useRef(utilService.debounce(onSetFilter, 300))
@@ -14,7 +13,6 @@ export function SideFilter({ filterBy, onSetFilter }) {
     function handleChange({ target }) {
         const field = target.name
         const value = target.value
-        console.log("🚀 ~ handleChange ~ value:", value)
 
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }

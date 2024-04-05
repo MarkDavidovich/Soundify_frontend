@@ -48,10 +48,8 @@ export function SideIndex() {
 
     //! EDIT = Update --> with Modal
     async function onUpdateStation(station) {
-        console.log("🚀 ~ onUpdateStation ~ station:", station)
 
-        const name = prompt('New name?')
-        const stationToSave = { ...station, name }
+        const stationToSave = { ...station }
         try {
             const savedStation = await updateStation(stationToSave)
             showSuccessMsg(`Station updated, new name: ${savedStation.name}`)

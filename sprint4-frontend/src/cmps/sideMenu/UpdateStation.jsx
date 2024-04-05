@@ -3,20 +3,27 @@ import { stationService } from "../../services/station.service.local";
 
 import TextField from '@mui/material/TextField';
 
-export function UpdateStation({ station, setIsOnUpdate, onUpdateStation }) {
+export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleStationUpdate }) {
+
 
     const [stationToUpdate, setStationToUpdate] = useState(station)
 
-    function handleChange({ target }) {
-        const field = target.name
-        const value = target.value
+    function handleChange(ev) {
+        // ev.preventDefault()
+        ev.stopPropagation()
+        const field = ev.target.name
+        const value = ev.target.value
 
         setStationToUpdate(prevUpdate => ({ ...prevUpdate, [field]: value }))
     }
 
     function handleSubmit(ev) {
         ev.preventDefault()
-        onUpdateStation(stationToUpdate)
+        ev.stopPropagation()
+
+        console.log("🚀 ~ handleSubmit ~ stationToUpdate:", stationToUpdate)
+
+        handleStationUpdate(stationToUpdate)
         closeModal()
     }
 
@@ -24,11 +31,15 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation }) {
         setIsOnUpdate(false)
     }
 
-    const { name, desc, imgUrl } = stationToUpdate
+    function handleModalClick(ev) {
+        ev.stopPropagation()
+    }
+
+    // const { name, desc, imgUrl } = stationToUpdate
 
     return (
-        <div className="update-modal-overlay">
-            <div className="update-modal" onClick={(ev) => ev.stopPropagation()}>
+        <div className="update-modal-overlay" onClick={closeModal}>
+            <div className="update-modal" onClick={handleModalClick}>
                 <form className="modal-content" onSubmit={handleSubmit}>
                     <h3>Edit details</h3>
                     <button className="btn" onClick={closeModal}>x</button>
@@ -38,7 +49,7 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation }) {
                             type="text"
                             id="txt"
                             label="Name"
-                            name="txt"
+                            name="name"
                             value={stationToUpdate.name}
                             onChange={handleChange}
                         />
@@ -46,13 +57,13 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation }) {
                             type="text"
                             id="txt"
                             label="Description"
-                            name="txt"
+                            name="desc"
                             value={stationToUpdate.desc}
                             onChange={handleChange}
                         />
 
                     </div>
-                    <button className="btn" type="submit">Save</button>
+                    <button className="btn" type="submit"></button>
 
                 </form>
                 <p className="disclaimer">By proceeding, you agree to give Soundify access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
