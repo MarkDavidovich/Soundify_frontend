@@ -1,5 +1,8 @@
 .main-view {
     grid-area: main-view;
+    background-color: $clr8;
+    border-radius: 7px;
+    padding-inline: 4px;
 
     .home-btn {
         width: 22px;

@@ -81,16 +81,18 @@
 
 
             .input-bar {
-                width: 80%;
+                width: 85%;
             }
 
             .song-duration {
+                margin-top: 4px;
                 min-width: 40px;
                 text-align: right;
                 cursor: context-menu
             }
 
             .song-remainder {
+                margin-top: 4px;
                 min-width: 40px;
                 text-align: left;
                 cursor: context-menu

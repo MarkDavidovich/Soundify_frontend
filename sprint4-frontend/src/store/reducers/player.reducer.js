@@ -9,14 +9,13 @@ const initialState = {
   currSong: {},
   currStation: {},
   isPlaying: false,
-  nextSong: '',
-  prevSong: '',
+  nextSong: null,
+  prevSong: null,
 }
 
 export function playerReducer(state = initialState, action) {
   var newState = state
   switch (action.type) {
-
     case SET_CURR_SONG:
       newState = { ...state, currSong: action.currSong }
       break
@@ -26,13 +25,14 @@ export function playerReducer(state = initialState, action) {
     case IS_PLAYING:
       newState = { ...state, isPlaying: action.isPlaying }
       break
-    default:
     case SET_NEXT_SONG:
       newState = { ...state, nextSong: action.nextSong }
       break
     case SET_PREV_SONG:
       newState = { ...state, prevSong: action.prevSong }
       break
+    default:
+      return state
   }
 
   console.log('State:', newState)

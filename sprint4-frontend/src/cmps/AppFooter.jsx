@@ -36,11 +36,9 @@ export function AppFooter() {
 
     const playerRef = useRef(null) //ref for the reactplayer cmp
 
-
     function play() {
         if (!currSong) return
         togglePlaying(isPlaying)
-
     }
 
     function handleProgress(state) {

@@ -23,7 +23,12 @@ export function HomePage() {
 
     return (
         <section className="main-view">
-
+            <pre>
+                HEADER HERE
+            </pre>
+            <pre>
+                RECENTLY PLAYED
+            </pre>
             <StationList
                 stations={stations} />
 
