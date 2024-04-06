@@ -34,6 +34,7 @@
     .context-menu {
         width: 240px;
         height: 40px;
+        z-index: 100;
 
         .menu-list {
             display: flex;
@@ -41,7 +42,6 @@
             text-decoration: none;
             color: $clr2;
             background-color: $clr11;
-
 
             button.edit-btn {
                 background-color: $clr11;
