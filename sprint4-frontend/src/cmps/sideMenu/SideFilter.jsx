@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react"
 import { utilService } from "../../services/util.service"
-import TextField from '@mui/material/TextField';
 
 
 export function SideFilter({ filterBy, onSetFilter }) {
@@ -24,15 +23,6 @@ export function SideFilter({ filterBy, onSetFilter }) {
 
             <form className="side-search-library">
 
-                {/* <TextField
-                    // id="filled-search"
-                    type="text"
-                    // variant="filled"
-                    name="txt"
-                    value={filterByToEdit.txt}
-                    onChange={handleChange}
-                    placeholder="Search in your library"
-                /> */}
                 <input
                     type="text"
                     name="txt"

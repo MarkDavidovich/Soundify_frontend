@@ -15,23 +15,13 @@
         .add-btn {
             @include btn($type: regular);
             width: 12px;
-            // background-color: $clr8;
-            // padding: 8px 8px;
-            // margin-left: em(16px);
 
             svg {
                 margin-right: 7px;
             }
-
-            // &:hover {
-            //     path {
-            //         fill: $clr2;
-            //     }
-            // }
         }
 
         .your-library {
-
             @include btn($type: regular);
             align-items: center;
             width: 142px;
@@ -47,7 +37,6 @@
                 width: 112px;
                 font-weight: bold;
             }
-
         }
     }
 

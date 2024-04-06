@@ -1,14 +1,18 @@
 .search-library {
 
+    height: 34px;
     margin-left: 10px;
+    align-items: center;
 
+    button.search-btn.close {
+        @include btn($type: regular);
+        margin-right: 0;
+    }
 
-    button.search-btn {
-
-        &:hover {
-            background-color: $clr9;
-
-        }
+    button.search-btn.open {
+        @include btn($type: regular);
+        background-color: $clr9;
+        margin-right: 0;
     }
 
     input {
@@ -16,11 +20,11 @@
         color: $clr2;
         width: 148px;
         height: 16px;
-        font-size: em(10px);
+        font-size: em(13px);
         padding: 8px 8px 8px 5px;
 
         border: none;
         outline: none;
-        height: 25px;
+        height: 31px;
     }
 }
