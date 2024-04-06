@@ -89,37 +89,45 @@ export function StationDetails() {
 
                 </div>
                 <div className="menu-station">
-                    <button className="play-btn btn"><span>⏯</span></button>
+                    <button className="play-btn btn"><span>
+                        <svg width="16" height="16" viewBox="0 0 16 16" >
+                            <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                            >
+                            </path>
+                        </svg>
+                    </span></button>
                     <button className="opt-btn btn"><span>...</span></button>
                     <button className="display-station-btn btn"><span>List</span>🍔</button>
                 </div>
-                <div className="heading-station">
-                    <div className="hash">#</div>
-                    <span className="title">Title</span>
-                    <span className="album">Album</span>
-                    <span className="date">Date added</span>
-                    <span className="album">⏲</span>
+                <div className="songs-details-container">
+                    <div className="heading-station">
+                        <div className="hash">#</div>
+                        <span className="title">Title</span>
+                        <span className="album">Album</span>
+                        <span className="date">Date added</span>
+                        <span className="duration">⏲</span>
+                    </div>
+                    <ul>
+                        {currStation.songs.map((song, idx) => (
+                            <>
+                                <div className="song-preview">
+                                    <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
+                                    <img className="song-img" src={song.imgUrl} alt="" />
+                                    <li className="clean-list" key={song.id}>
+                                        <div className="song-info">
+                                            <div className="song-title" title={song.title}> {song.title}</div>
+                                            <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
+                                        </div>
+                                        <a className="song-album" href="#" title={song.album}> {song.album}</a>
+                                        <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
+
+                                    </li>
+                                </div>
+                            </>
+                        ))}
+
+                    </ul>
                 </div>
-                <ul>
-                    {currStation.songs.map((song, idx) => (
-                        <>
-                            <div className="song-preview">
-                                <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
-                                <img className="song-img" src={song.imgUrl} alt="" />
-                                <li className="clean-list" key={song.id}>
-                                    <div className="song-info">
-                                        <div className="song-title" title={song.title}> {song.title}</div>
-                                        <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
-                                    </div>
-                                    <a className="song-album" href="#" title={song.album}> {song.album}</a>
-                                    <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-
-                                </li>
-                            </div>
-                        </>
-                    ))}
-
-                </ul>
 
             </div>
         </div>

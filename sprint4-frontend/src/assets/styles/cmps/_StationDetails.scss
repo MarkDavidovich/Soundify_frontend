@@ -31,7 +31,7 @@
         font-size: 6rem;
     }
 
-    .user-img{
+    .user-img {
         background-color: aqua;
         border-radius: 50%;
         margin-right: em(4px);
@@ -39,10 +39,10 @@
 
     }
 
-    .user-info{
+    .user-info {
         align-items: center;
 
-        span{
+        span {
             font-size: $font-size-14;
             font-family: circular-light;
 
@@ -55,9 +55,54 @@
 
     }
 
-    .created-by{
+    .created-by {
         font-size: $font-size-14;
         font-family: circular-bold;
     }
+
+    .play-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #1ed760;
+        height: em(56px);
+        width: em(56px);
+        color: black;
+        border-radius: 32px;
+    }
+
+    .songs-details-container {
+        display: grid;
+        gap: 16px;
+      
+        grid-template-columns:
+            16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
+    
+        grid-template-areas:
+            "idx title album date d";
+    
+        .hash {
+            grid-area: idx; 
+        }
+    
+        .title {
+            grid-area: title; 
+        }
+    
+        .album {
+            grid-area: album;
+        }
+    
+        .date {
+            grid-area: date;
+        }
+    
+        .duration {
+            grid-area: d;
+        }
+    }
+
+    
+
 
 }
