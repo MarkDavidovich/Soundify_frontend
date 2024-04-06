@@ -6,11 +6,13 @@ export const ADD_STATION = 'ADD_STATION'
 export const UPDATE_STATION = 'UPDATE_STATION'
 export const UNDO_REMOVE_STATION = 'UNDO_REMOVE_STATION'
 export const SET_FILTER = 'SET_FILTER'
+export const SET_SORT = 'SET_SORT'
 
 const initialState = {
     stations: [],
     lastRemovedStation: null,
     filterBy: stationService.getEmptyFilterBy(),
+    sortBy: stationService.getDefaultSort(),
 }
 
 export function stationReducer(state = initialState, action) {
@@ -45,6 +47,11 @@ export function stationReducer(state = initialState, action) {
 
         case SET_FILTER:
             return { ...state, filterBy: action.filterBy }
+
+        case SET_SORT:
+            return {
+                ...state, sortBy: { ...state.sortBy, ...action.sortBy }
+            }
 
         default:
     }

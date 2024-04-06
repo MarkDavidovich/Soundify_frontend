@@ -2,7 +2,7 @@ import 'animate.css';
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import { loadStations, addStation, updateStation, removeStation, setStationFilter } from '../../store/actions/station.actions.js'
+import { loadStations, addStation, updateStation, removeStation, setStationFilter, setStationSort } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { stationService } from '../../services/station.service.local.js'
@@ -17,12 +17,13 @@ export function SideIndex() {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const filterBy = useSelector(storeState => storeState.stationModule.filterBy)
+    const sortBy = useSelector(storeState => storeState.stationModule.sortBy)
     const [toggleFilter, setToggleFilter] = useState(false)
     const [toggleLibrary, setToggleLibrary] = useState(false)
 
     useEffect(() => {
         loadStations()
-    }, [filterBy])
+    }, [filterBy, sortBy])
 
     async function onRemoveStation(stationId) {
         try {
@@ -73,10 +74,13 @@ export function SideIndex() {
         setStationFilter(filterBy)
     }
 
+    function onSetSort(sortBy) {
+        setStationSort(sortBy)
+    }
+
     function onToggleLibrary() {
         setToggleLibrary(!toggleLibrary)
     }
-    console.log("🚀 ~ onToggleLibrary ~ toggleLibrary:", toggleLibrary)
 
     function onToggleFilter() {
         setToggleFilter(!toggleFilter)
@@ -124,7 +128,7 @@ export function SideIndex() {
                 </svg></button>
             </div>
 
-            <SideSort />
+            <SideSort sortBy={sortBy} onSetSort={onSetSort} />
 
             <div className="search-library flex">
                 <button className={setSearchClass()} onClick={onToggleFilter}>
@@ -137,12 +141,10 @@ export function SideIndex() {
                     <SideFilter className={"animate__animated animate__fadeInLeft"} filterBy={filterBy} onSetFilter={onSetFilter} />
                 }
             </div>
-            {/* <main> */}
 
             <SideList stations={stations} onRemoveStation={onRemoveStation}
                 onUpdateStation={onUpdateStation} />
 
-            {/* </main> */}
         </div>
     )
 }

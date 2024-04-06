@@ -1,7 +1,7 @@
 import { stationService } from '../../services/station.service.local.js'
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from '../reducers/station.reducer.js'
+import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_SORT, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from '../reducers/station.reducer.js'
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -26,9 +26,11 @@ export function getActionUpdateStation(station) {
 export async function loadStations() {
 
     try {
-        const { filterBy } = store.getState().stationModule
+        // const { filterBy } = store.getState().stationModule
+        const filterBy = store.getState().stationModule.filterBy
+        const sortBy = store.getState().stationModule.sortBy
 
-        const stations = await stationService.query(filterBy)
+        const stations = await stationService.query(filterBy, sortBy)
         console.log('Stations from DB:', stations)
         store.dispatch({
             type: SET_STATIONS,
@@ -81,6 +83,13 @@ export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
     store.dispatch({ type: SET_FILTER, filterBy })
     return Promise.resolve(filterBy)
 }
+
+export function setStationSort(sortBy) {
+    console.log("🚀 ~ setStationSort ~ sortBy:", sortBy)
+
+    store.dispatch({ type: SET_SORT, sortBy })
+}
+
 
 
 // Demo for Optimistic Mutation 

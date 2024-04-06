@@ -12,13 +12,14 @@ export const stationService = {
     remove,
     getEmptyStation,
     getEmptyFilterBy,
+    getDefaultSort,
     addStationMsg
 
 }
 window.cs = stationService
 
 
-async function query(filterBy = { txt: '', artist: '' }) {
+async function query(filterBy = {}, sortBy = {}) {
 
     var stations = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
@@ -26,7 +27,19 @@ async function query(filterBy = { txt: '', artist: '' }) {
         stations = stations.filter(station => regex.test(station.name) || regex.test(station.artist))
     }
 
+    if (sortBy.by) {
+
+        if (sortBy.by === 'station') {
+            stations.sort((station1, station2) => -1 * station2.name.localeCompare(station1.name))
+        }
+
+        // if (sortBy.by === 'artist') {
+        //     stations.sort((artist1, artist2) => 1 * artist1.name.localeCompare(artist2.name))
+        // }
+    }
+
     return stations
+
 }
 
 function getById(stationId) {
@@ -422,5 +435,9 @@ _createStations()
 
 function getEmptyFilterBy() {
     return { txt: '' }
+}
+
+function getDefaultSort() {
+    return { by: '' }
 }
 
