@@ -72,37 +72,73 @@
     }
 
     .songs-details-container {
-        display: grid;
-        gap: 16px;
-      
-        grid-template-columns:
-            16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
-    
-        grid-template-areas:
-            "idx title album date d";
-    
-        .hash {
-            grid-area: idx; 
+
+        .heading-station {
+            display: grid;
+            gap: 16px;
+
+            grid-template-columns:
+                16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
+
+            grid-template-areas:
+                "idx title album date d";
+
+            .hash {
+                grid-area: idx;
+            }
+
+            .title {
+                grid-area: title;
+            }
+
+            .album {
+                grid-area: album;
+            }
+
+            .date {
+                grid-area: date;
+            }
+
+            .duration {
+                grid-area: d;
+            }
         }
-    
-        .title {
-            grid-area: title; 
+
+        ul {
+            padding: 0;
+
         }
-    
-        .album {
-            grid-area: album;
-        }
-    
-        .date {
-            grid-area: date;
-        }
-    
-        .duration {
-            grid-area: d;
+
+        .song-preview {
+            display: grid;
+            gap: 16px;
+
+            grid-template-columns:
+                16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
+
+            grid-template-areas:
+                "idx title album date d";
+
+            .song-num {
+                grid-area: idx;
+            }
+
+            .song-info {
+                display: flex;
+                grid-area: title;
+            }
+
+            .song-album {
+                grid-area: album;
+            }
+
+            .song-added-time {
+                grid-area: date;
+            }
+
+            .song-duration {
+                grid-area: d;
+            }
         }
     }
-
-    
-
-
 }

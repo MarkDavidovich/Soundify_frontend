@@ -4,7 +4,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { UserMsg } from './UserMsg.jsx'
 import { SongPreview } from './SongPreview.jsx'
 import ReactPlayer from 'react-player'
-import { togglePlaying, setNextSong, setPrevSong } from '../store/actions/player.actions.js'
+import { togglePlaying, setCurrSong, setNextSong, setPrevSong } from '../store/actions/player.actions.js'
 
 export function AppFooter() {
 
@@ -19,7 +19,6 @@ export function AppFooter() {
     // Volume states
     const [volume, setVolume] = useState(0.5)
     const [volumeSnapshot, setVolumeSnapshot] = useState(0.5)
-    //! need to fix the behavior when user clicks on mute after volume is on 0
     const [isMuted, setIsMuted] = useState(false)
 
     // Playback states
@@ -33,13 +32,13 @@ export function AppFooter() {
     const [currSongRemainder, setCurrSongRemainder] = useState(0)
     const [showRemainder, setShowRemainder] = useState(false)
 
-    const [isLiked, setIsLiked] = useState()
+    // const [isLiked, setIsLiked] = useState()
 
     const playerRef = useRef(null) //ref for the reactplayer cmp
 
 
     function play() {
-        console.log(currSong)
+        console.log('currSong:', currSong)
         if (!currSong) return
         togglePlaying(isPlaying)
 
@@ -107,7 +106,7 @@ export function AppFooter() {
     function goToNextSong() {
         if (!currSong.title) return
 
-        setCurrSong(prevSong)
+        setCurrSong(nextSong)
         updateCurrSongPosition('next')
     }
 
@@ -148,7 +147,7 @@ export function AppFooter() {
                                 />
                             </svg>
                         </button>
-                        <button className="prev-song-btn" onClick={() => goToPrevSong}>
+                        <button className="prev-song-btn" onClick={() => goToPrevSong()}>
                             <svg width="16" height="16" viewBox="0 0 16 16">
                                 <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
                                     fill="#b3b3b3"
@@ -169,7 +168,7 @@ export function AppFooter() {
 
                     <div className="player-controls-right">
 
-                        <button className="next-song-btn" onClick={() => goToNextSong}>
+                        <button className="next-song-btn" onClick={() => goToNextSong()}>
                             <svg width="16" height="16" viewBox="0 0 16 16" >
                                 <path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
                                     fill="#b3b3b3"

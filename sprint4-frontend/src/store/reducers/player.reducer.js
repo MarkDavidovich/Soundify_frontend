@@ -9,7 +9,8 @@ const initialState = {
   currSong: {},
   currStation: {},
   isPlaying: false,
-
+  nextSong: null,
+  prevSong: null,
 }
 
 export function playerReducer(state = initialState, action) {

@@ -110,17 +110,17 @@ export function StationDetails() {
                     <ul>
                         {currStation.songs.map((song, idx) => (
                             <>
-                                <div className="song-preview">
-                                    <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
-                                    <img className="song-img" src={song.imgUrl} alt="" />
-                                    <li className="clean-list" key={song.id}>
+                                <div className="song-preview-container">
+                                    <li className="song-preview clean-list" key={song.id}>
+                                        <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
                                         <div className="song-info">
+                                            <img className="song-img" src={song.imgUrl} alt="" />
                                             <div className="song-title" title={song.title}> {song.title}</div>
                                             <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
                                         </div>
                                         <a className="song-album" href="#" title={song.album}> {song.album}</a>
                                         <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-
+                                        <div className="song-duration">{song.duration}</div>
                                     </li>
                                 </div>
                             </>
