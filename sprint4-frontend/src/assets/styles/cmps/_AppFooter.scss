@@ -47,6 +47,11 @@
                 width: 32px;
                 color: black;
                 border-radius: 32px;
+                transition: transform 0.1s;
+
+                &:hover {
+                    transform: scale(1.08);
+                }
             }
 
             .player-controls-right {
