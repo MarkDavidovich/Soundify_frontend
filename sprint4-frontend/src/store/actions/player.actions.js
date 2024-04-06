@@ -40,7 +40,9 @@ export function getActionPrevSong(prevSong) {
 export async function setNextSong(song, station) {
   try {
     const songIdx = station.songs.findIndex(s => s.id === song.id)
+    console.log('setNextSong func, song.id:', song.id)
     const nextSong = (songIdx + 1 < station.songs.length) ? station.songs[songIdx + 1] : station.songs[0]
+    console.log('setNextSong func, nextSong', nextSong)
     store.dispatch(getActionNextSong(nextSong))
     return nextSong
   } catch (err) {
@@ -54,6 +56,7 @@ export async function setPrevSong(song, station) {
     const songIdx = station.songs.findIndex(s => s.id === song.id)
     const prevSong = (songIdx - 1 < 0) ? station.songs[station.songs.length - 1] : station.songs[songIdx - 1]
     store.dispatch(getActionPrevSong(prevSong))
+    console.log('setPrevSong func, prevSong', prevSong)
     return prevSong
   } catch (err) {
     console.log('cannot change song', err)
@@ -72,6 +75,7 @@ export async function togglePlaying(isPlaying) {
 }
 
 export async function setCurrSong(song) {
+  console.log("🚀 ~ setCurrSong ~ song:", song)
   try {
     localStorage.setItem("currSong", song.id)
     store.dispatch(getActionCurrSong(song))
@@ -83,6 +87,7 @@ export async function setCurrSong(song) {
 }
 
 export async function setCurrStation(station) {
+  console.log("🚀 ~ setCurrStation ~ station:", station)
   try {
     store.dispatch(getActionCurrStation(station))
     return station

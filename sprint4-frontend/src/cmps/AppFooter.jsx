@@ -38,7 +38,6 @@ export function AppFooter() {
 
 
     function play() {
-        console.log('currSong:', currSong)
         if (!currSong) return
         togglePlaying(isPlaying)
 
@@ -97,16 +96,14 @@ export function AppFooter() {
     }
 
     function goToPrevSong() {
-        if (!currSong.title) return
+        if (!currSong.title || !currStation._id) return
 
-        setCurrSong(prevSong)
         updateCurrSongPosition('prev')
     }
 
     function goToNextSong() {
-        if (!currSong.title) return
+        if (!currSong.title || !currStation._id) return
 
-        setCurrSong(nextSong)
         updateCurrSongPosition('next')
     }
 
@@ -115,18 +112,20 @@ export function AppFooter() {
             setCurrSong(prevSong)
             setNextSong(prevSong, currStation)
             setPrevSong(prevSong, currStation)
+            console.log('prevSong:', prevSong)
         }
 
-        else {
+        else if (mode === 'next') {
             setCurrSong(nextSong)
             setNextSong(nextSong, currStation)
             setPrevSong(nextSong, currStation)
+            console.log('nextSong:', nextSong)
         }
     }
 
     useEffect(() => {
         setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
-    }, [currSongTime, totalSongTime])
+    }, [currSongTime, totalSongTime, currSong])
 
     return (
         <footer className="app-footer">
@@ -147,7 +146,7 @@ export function AppFooter() {
                                 />
                             </svg>
                         </button>
-                        <button className="prev-song-btn" onClick={() => goToPrevSong()}>
+                        <button className="prev-song-btn" onClick={goToPrevSong}>
                             <svg width="16" height="16" viewBox="0 0 16 16">
                                 <path d="M3.3 1a.7.7 0 0 1 .7.7v5.15l9.95-5.744a.7.7 0 0 1 1.05.606v12.575a.7.7 0 0 1-1.05.607L4 9.149V14.3a.7.7 0 0 1-.7.7H1.7a.7.7 0 0 1-.7-.7V1.7a.7.7 0 0 1 .7-.7h1.6z"
                                     fill="#b3b3b3"
@@ -157,9 +156,7 @@ export function AppFooter() {
                         </button>
                     </div>
 
-                    <button className="play-btn" onClick={() => {
-                        play()
-                    }}>
+                    <button className="play-btn" onClick={play}>
                         {isPlaying ? (<svg width="17" height="17" viewBox="0 0 16 16">
                             <path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"
                             >
@@ -171,12 +168,11 @@ export function AppFooter() {
                         </svg>)
                         }
 
-
                     </button>
 
                     <div className="player-controls-right">
 
-                        <button className="next-song-btn" onClick={() => goToNextSong()}>
+                        <button className="next-song-btn" onClick={goToNextSong}>
                             <svg width="16" height="16" viewBox="0 0 16 16" >
                                 <path d="M12.7 1a.7.7 0 0 0-.7.7v5.15L2.05 1.107A.7.7 0 0 0 1 1.712v12.575a.7.7 0 0 0 1.05.607L12 9.149V14.3a.7.7 0 0 0 .7.7h1.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-1.6z"
                                     fill="#b3b3b3"
