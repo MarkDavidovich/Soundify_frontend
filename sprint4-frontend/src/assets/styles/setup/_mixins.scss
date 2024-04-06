@@ -28,31 +28,87 @@
 @mixin aspect-ratio($width, $height) {
     position: relative;
     overflow: hidden;
+
     &::before {
-      display: block;
-      content: "";
-      width: 100%;
-      padding-top: calc(($height / $width) * 100%);
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: calc(($height / $width) * 100%);
     }
-    > * {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+
+    >* {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
-  
-    > img {
-      height: 100%;
-      object-fit: cover;
+
+    >img {
+        height: 100%;
+        object-fit: cover;
     }
-  }
-  
-  // Mixin for removing hover efects on iphone screen
-  @mixin hover-supported {    
+}
+
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
     @media not all and (pointer: coarse) {
         &:hover {
             @content;
         }
     }
-  }
+}
+
+// Buttons
+@mixin btn($type: regular, $bg: $clr8) {
+    // display: inline-flex;
+    // align-items: center;
+    // text-decoration: none;
+    // text-transform: uppercase;
+    color: $clr3;
+    // padding: $padding;
+    // line-height: 1.25;
+    // font-size: em(14px);
+    font-family: circular-light, sans-serif;
+    // font-variation-settings: "wght" 430;
+    border: none;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+
+    @if $type ==regular {
+        background-color: $bg;
+        color: $clr3;
+        transition: 0.3s;
+
+        &:hover {
+            color: $clr2;
+
+            path {
+                fill: $clr2;
+                transition: 0.3s;
+            }
+
+        }
+    }
+
+    @else if $type ==dark {
+        background-color: $clr2;
+        color: $clr3;
+
+        &:hover {
+            background-color: $clr1;
+            color: $clr3;
+        }
+    }
+
+    @else if $type ==light {
+        background-color: $clr3;
+        color: $clr2;
+
+        &:hover {
+            background-color: $clr1;
+            color: $clr3;
+        }
+    }
+}

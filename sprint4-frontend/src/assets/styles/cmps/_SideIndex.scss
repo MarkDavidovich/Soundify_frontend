@@ -13,7 +13,9 @@
         padding: $padding-8-16;
 
         .add-btn {
-            background-color: $clr8;
+            @include btn($type: regular);
+            width: 12px;
+            // background-color: $clr8;
             // padding: 8px 8px;
             // margin-left: em(16px);
 
@@ -21,41 +23,29 @@
                 margin-right: 7px;
             }
 
-            &:hover {
-                path {
-                    fill: $clr2;
-                }
-            }
+            // &:hover {
+            //     path {
+            //         fill: $clr2;
+            //     }
+            // }
         }
 
-        button.btn {
+        .your-library {
+
+            @include btn($type: regular);
             align-items: center;
             width: 142px;
             height: 40px;
             padding: 4px 8px;
             border-radius: 20%;
             font-size: rem(16px);
-            background-color: $clr8;
-            color: $clr3;
+
             margin-right: 176px;
 
-            &:hover {
-                color: $clr2;
-
-                path {
-                    fill: $clr2;
-                }
-            }
-
             span.library {
+                @include btn($type: regular);
                 width: 112px;
-                color: $clr3;
-                margin-left: 16px;
-
-                &:hover {
-                    color: $clr2;
-                }
-
+                font-weight: bold;
             }
 
         }

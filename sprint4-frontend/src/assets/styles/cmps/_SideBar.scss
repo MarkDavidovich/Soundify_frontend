@@ -8,43 +8,89 @@
         border-radius: $border-rad1;
         background-color: $clr8;
         height: 112px;
-        padding: $padding-1
-    }
+        padding: $padding-1;
 
-    .home-link {
-        text-decoration: none;
+        .home-link {
+            text-decoration: none;
+            color: $clr3;
 
-        .home-btn-container {
+            &:hover {
+                color: $clr2;
+                transition: 0.6s;
+            }
+
+
+            .home-btn-container {
+                display: flex;
+                align-items: center;
+                // @include btn($type: regular);
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                path {
+                    stroke: $clr3;
+                    stroke: width 2px;
+
+                }
+
+                &:hover {
+                    path {
+                        stroke: $clr2;
+                        transition: 0.6s;
+                    }
+                }
+
+                .home-btn {
+                    background-color: $clr8;
+                    text-decoration: none;
+                }
+
+                span {
+                    text-decoration: none;
+                    font-size: $font-size-16;
+                }
+
+            }
+        }
+
+        .search-btn-container {
             display: flex;
             align-items: center;
+            @include btn($type: regular);
 
-            .home-btn {
+            svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            path {
+                stroke: $clr3;
+                stroke: width 2px;
+
+            }
+
+            &:hover {
+                path {
+                    stroke: $clr2;
+                    transition: 0.6s;
+                }
+            }
+
+            .search-btn {
                 background-color: $clr8;
             }
 
-            span {
-                text-decoration: none;
-                color: $clr2;
-                font-size: $font-size-16;
-
+            span.span-search {
+                font-size: 1rem;
+                background-color: $clr8;
             }
         }
     }
 
-    .search-btn-container {
-        display: flex;
-        align-items: center;
 
-        .search-btn {
-            background-color: $clr8;
-
-        }
-
-        span.span-search {
-            font-size: 1rem;
-            background-color: $clr8;
-        }
-    }
 
 
 }

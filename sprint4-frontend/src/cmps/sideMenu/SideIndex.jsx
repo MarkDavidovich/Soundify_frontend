@@ -93,7 +93,7 @@ export function SideIndex() {
     return (
         <div className="side-index">
             <div className="top-bar flex">
-                <button className="btn flex" onClick={onToggleLibrary}>
+                <button className="your-library flex" onClick={onToggleLibrary}>
                     <svg role="img" height="24" width="24" aria-hidden="true" viewBox="0 0 24 24" data-encore-id="icon" class="Svg-sc-ytk21e-0 haNxPq">
 
                         <path
