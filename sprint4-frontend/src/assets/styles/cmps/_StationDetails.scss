@@ -2,12 +2,11 @@
 
     max-height: calc(100vh - 115px);
     overflow-y: hidden;
-    opacity: 0.8;
-    transition: opacity 1s;
+    background-color: $clr8;
+    border-radius: $border-rad1;
 
     &:hover {
         overflow-y: auto;
-        ;
     }
 
     &::-webkit-scrollbar {
@@ -23,7 +22,6 @@
         background: #888;
         height: 10px;
     }
-
 
     &::-webkit-scrollbar-thumb:hover {
         background: #555;
@@ -107,7 +105,7 @@
 
     .songs-details-container {
 
-   
+
 
         .heading-station {
             display: grid;
