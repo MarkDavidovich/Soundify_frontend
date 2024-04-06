@@ -28,7 +28,10 @@
                 gap: 8px;
 
                 .shuffle-btn {
+                    position: relative;
                     @include btn($type: generalPlayerBtn);
+
+
                 }
 
                 .prev-song-btn {
@@ -57,6 +60,7 @@
                 }
 
                 .loop-btn {
+                    position: relative;
                     @include btn($type: generalPlayerBtn);
                 }
             }
@@ -64,7 +68,7 @@
 
         .progress-bar-container {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
             width: 100%;
             align-items: center;
             gap: 8px;
@@ -77,13 +81,13 @@
 
             .song-duration {
                 min-width: 40px;
-                text-align: left;
+                text-align: right;
                 cursor: context-menu
             }
 
             .song-remainder {
                 min-width: 40px;
-                text-align: right;
+                text-align: left;
                 cursor: context-menu
             }
         }
@@ -115,8 +119,6 @@
                     }
                 }
             }
-
-
 
             .volume-bar {
                 display: flex;
@@ -163,6 +165,21 @@
     .active {
         path {
             fill: #1ed760;
+            stroke: #1ed760;
         }
+    }
+
+    .loop-btn.active::after,
+    .shuffle-btn.active::after {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 4px;
+        background-color: #1ed760;
+        position: absolute;
+        border-radius: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        left: 50%;
     }
 }
