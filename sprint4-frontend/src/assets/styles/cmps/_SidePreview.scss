@@ -1,6 +1,20 @@
-.side-preview {
+.side-preview-line {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: "img station";
+    gap: 8px;
+    margin-bottom: 8px;
+    margin-left: 10px;
+
     img.side-preview-img {
+        grid-area: img;
         width: em(48px);
         height: em(48px);
+    }
+
+    span.station-name {
+        grid-area: station;
+        text-decoration: none;
+        color: $clr2;
     }
 }

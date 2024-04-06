@@ -1,7 +1,10 @@
 import { useState } from "react"
 import { UpdateStation } from "./UpdateStation"
+import { getActionCurrStation } from "../../store/actions/player.actions"
+import { useDispatch } from 'react-redux'
 
 export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, onContextMenuClose, contextMenuPosition }) {
+    const dispatch = useDispatch()
 
     const [contextMenu, setContextMenu] = useState(null)
 
@@ -11,19 +14,23 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     function handleClose() {
-        setContextMenu(null);
+        setContextMenu(null)
     }
 
     function handleRemoveClick(ev) {
         ev.preventDefault()
         onRemoveStation(station._id)
-        handleClose();
+        handleClose()
+    }
+
+    function handleStationClick(station) {
+        dispatch(getActionCurrStation(station))
     }
 
     return (
-        <div className="side-preview flex" onContextMenu={handleContextMenu}>
+        <div className="side-preview-line" onContextMenu={handleContextMenu} onClick={() => { handleStationClick(station) }}>
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
-            <span>{station.name}</span>
+            <span className="station-name">{station.name}</span>
 
             {isContextMenuOpen && (
                 <div
@@ -43,7 +50,6 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
         </div>
     )
 }
-
 
 
 
