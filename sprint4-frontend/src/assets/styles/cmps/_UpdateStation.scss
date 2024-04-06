@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 
     .update-modal {
         flex-direction: column;
@@ -19,6 +20,7 @@
         .modal-content {
             background-color: $clr11;
             box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+            padding: 24px 24px 24px 24px;
 
             .modal-top {
                 display: flex;
@@ -69,32 +71,67 @@
 
                 .station-name {
                     grid-area: title;
-                    background-color: $clr12;
-                    color: $clr2;
+                    width: 280px;
+                    justify-self: end;
+
                     border: none;
                     outline: none;
                     border-radius: 5px;
                     padding: 0 12px;
+                    margin-right: 10px;
+
+                    background-color: $clr12;
+                    color: $clr2;
                 }
 
                 .station-desc {
                     grid-area: desc;
-                    background-color: $clr12;
-                    color: $clr3;
+                    width: 280px;
+                    justify-self: end;
+
                     border: none;
                     outline: none;
                     border-radius: 5px;
                     padding: 0 12px;
+                    margin-right: 10px;
+
+                    background-color: $clr12;
+                    color: $clr3;
                 }
 
                 .station-img {
                     grid-area: img;
-                    background-color: $clr13
+                    background-color: $clr13;
+                    width: 180px;
+                    height: 180px;
+
+                    .image-upload-btn {
+                        display: hidden;
+                    }
+
+                    img.image-preview {
+                        width: 180px;
+                    }
+
+                    .file-upload {
+                        margin: 20px 0;
+
+                        .file-upload-label {
+                            display: block;
+                            margin-bottom: 10px;
+                        }
+
+                        input[type="file"] {
+                            width: 180px;
+                            height: 180px;
+                        }
+                    }
                 }
 
                 .disclaimer {
                     grid-area: discla;
                     font-size: $font-size-12;
+                    font-weight: bold;
                 }
 
                 button.save-btn {
@@ -107,6 +144,7 @@
                     font-weight: bold;
                     font-size: em(16px);
                     margin-top: 3px;
+                    margin-right: 10px;
                     place-self: end;
                     align-self: center;
                 }

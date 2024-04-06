@@ -11,6 +11,7 @@ import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideAddStationModal } from './SideAddStationModal.jsx'
 import { SideSort } from './SideSort.jsx'
+import { Navigate } from 'react-router';
 
 export function SideIndex() {
 
@@ -27,6 +28,7 @@ export function SideIndex() {
         try {
             await removeStation(stationId)
             showSuccessMsg('Station removed')
+            Navigate('/')
         } catch (err) {
             showErrorMsg('Cannot remove station')
         }

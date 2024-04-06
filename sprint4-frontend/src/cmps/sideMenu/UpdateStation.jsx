@@ -5,8 +5,8 @@ import TextField from '@mui/material/TextField';
 
 export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleStationUpdate }) {
 
-
     const [stationToUpdate, setStationToUpdate] = useState(station)
+    const [imagePreview, setImagePreview] = useState(null)
 
     function handleChange(ev) {
         // ev.preventDefault()
@@ -15,15 +15,28 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
         const value = ev.target.value
 
         setStationToUpdate(prevUpdate => ({ ...prevUpdate, [field]: value }))
+        setImagePreview(URL.createObjectURL(file))
+    }
+
+    function handleFileChange(ev) {
+        const file = ev.target.files[0]
+        if (file) {
+            const filePreviewUrl = URL.createObjectURL(file)
+            setImagePreview(filePreviewUrl)
+
+            setStationToUpdate(prevUpdate => ({ ...prevUpdate, imgUrl: file }))
+        }
     }
 
     function handleSubmit(ev) {
         ev.preventDefault()
         ev.stopPropagation()
 
-        console.log("🚀 ~ handleSubmit ~ stationToUpdate:", stationToUpdate)
+        const formData = new FormData()
+        formData.append('image', stationToUpdate.imageFile)
 
         handleStationUpdate(stationToUpdate)
+
         closeModal()
     }
 
@@ -35,7 +48,7 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
         ev.stopPropagation()
     }
 
-    // const { name, desc, imgUrl } = stationToUpdate
+    console.log("🚀 ~ UpdateStation ~ stationToUpdate:", stationToUpdate)
 
     return (
         <div className="update-modal-overlay" onClick={closeModal}>
@@ -50,24 +63,6 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
                         </button>
                     </div>
                     <div className="content-container grid">
-
-                        {/* <TextField className="station-name"
-                            type="text"
-                            id="txt"
-                            label="Name"
-                            name="name"
-                            value={stationToUpdate.name}
-                            onChange={handleChange}
-                        /> */}
-
-                        {/* <TextField className="station-desc"
-                            type="text"
-                            id="txt"
-                            label="Description"
-                            name="desc"
-                            value={stationToUpdate.desc}
-                            onChange={handleChange}
-                        /> */}
 
                         <input className="station-name"
                             type="text"
@@ -87,14 +82,19 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
                             onChange={handleChange}
                         />
 
-                        <div className="station-img"
-                            type="text"
-                            id="txt"
-                            label="Image"
-                            name="img"
-                        // value={stationToUpdate.desc}
-                        // onChange={handleChange}
-                        />
+                        <div className="station-img">
+                            {imagePreview && <img src={imagePreview} alt="Preview" className="image-preview" />}
+
+                            <label htmlFor="image-upload" className="image-upload-btn">
+                                Upload Image
+                            </label>
+                            <input
+                                type="file"
+                                id="image-upload"
+                                name="image"
+                                accept="image/*"
+                                onChange={handleFileChange} hidden />
+                        </div>
 
                         <p className="disclaimer">By proceeding, you agree to give Soundify access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
 
