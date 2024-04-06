@@ -1,0 +1,14 @@
+.side-list {
+
+    .side-preview-container {
+        &:hover {
+            background-color: $clr10;
+        }
+
+        a.link.clicked {
+            text-decoration: none;
+            background-color: $clr11;
+        }
+    }
+
+}

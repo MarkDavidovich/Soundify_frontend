@@ -13,6 +13,8 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     const [openContextMenuStationId, setOpenContextMenuStationId] = useState(null)
     const [contextMenuPosition, setContextMenuPosition] = useState({ mouseX: null, mouseY: null })
 
+    const [toggleLink, setToggleLink] = useState(false)
+
     useEffect(() => {
         const closeMenu = (event) => {
             handleContextMenuClose()
@@ -44,11 +46,22 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         setIsOnUpdate(false)
     }
 
+    function onSetToggleLink() {
+        setToggleLink(!toggleLink)
+    }
+
+    function setLinkClass() {
+        if (!toggleLink) return 'link'
+        else return 'link clicked'
+    }
+
     return <div className="side-list">
 
         {stations.map(station => (
             <article className="side-preview-container" key={station._id}>
-                <Link className="link" to={`/station/${station._id}`}>
+                <Link className={setLinkClass()}
+                    onClick={onSetToggleLink}
+                    to={`/station/${station._id}`}>
 
                     <SidePreview station={station}
                         onRemoveStation={onRemoveStation}

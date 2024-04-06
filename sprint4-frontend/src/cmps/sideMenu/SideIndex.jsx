@@ -135,12 +135,12 @@ export function SideIndex() {
                     <SideFilter className={"animate__animated animate__fadeInLeft"} filterBy={filterBy} onSetFilter={onSetFilter} />
                 }
             </div>
-            <main>
+            {/* <main> */}
 
-                <SideList stations={stations} onRemoveStation={onRemoveStation}
-                    onUpdateStation={onUpdateStation} />
+            <SideList stations={stations} onRemoveStation={onRemoveStation}
+                onUpdateStation={onUpdateStation} />
 
-            </main>
+            {/* </main> */}
         </div>
     )
 }

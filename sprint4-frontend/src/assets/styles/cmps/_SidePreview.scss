@@ -12,9 +12,84 @@
         height: em(48px);
     }
 
-    span.station-name {
+    .station-preview-details {
+        display: flex;
+        flex-direction: column;
         grid-area: station;
         text-decoration: none;
         color: $clr2;
+
+        span.station-name {
+            // grid-area: station;
+            // text-decoration: none;
+            // color: $clr2;
+        }
+
+        span.station-created {
+            font-size: em(14px);
+            color: $clr3;
+        }
     }
+
+    .context-menu {
+        width: 240px;
+        height: 40px;
+
+        .menu-list {
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: $clr2;
+            background-color: $clr11;
+
+
+            button.edit-btn {
+                background-color: $clr11;
+
+                &:hover {
+                    background-color: $clr9;
+
+                }
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 10px;
+
+                    path {
+                        stroke: $clr3;
+                    }
+                }
+
+            }
+
+            hr {
+                width: 240px;
+                color: $clr12;
+            }
+
+            .delete-btn {
+                background-color: $clr11;
+
+                &:hover {
+                    background-color: $clr9;
+
+                }
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 10px;
+
+                    path {
+                        stroke: $clr3;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
 }
