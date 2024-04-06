@@ -71,17 +71,22 @@ export function StationDetails() {
     return (
         <div className="station-details flex">
             <div className="station-data-container">
-                <div className="info-station">
-                    <img className="station-img" src={currStation.imgUrl} alt="" />
-                    <span className="playlist">Playlist</span>
-                    <h1>{currStation.name}</h1>
-                    <div className="user-info">
-                        <div className="created-by">{currStation.createdBy.fullname}</div>
-                        <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
+                <div className="info-station flex">
+                    <div className="station-img-container">
+                        <img className="station-img" src={currStation.imgUrl} alt="" />
                     </div>
-                    <div className="info-songs">
-                        <span>{currStation.songs.length} Songs, {StationDuration}</span>
+                    <div className="text-station">
+                        <span className="playlist">Playlist</span>
+                        <h1 className="title-station">{currStation.name}</h1>
+                        <div className="user-info flex">
+                            <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
+                            <div className="created-by">{currStation.createdBy.fullname} • </div>
+                            <div className="info-songs">
+                                <span> {currStation.songs.length}  Songs, {StationDuration}</span>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div className="menu-station">
                     <button className="play-btn btn"><span>⏯</span></button>
