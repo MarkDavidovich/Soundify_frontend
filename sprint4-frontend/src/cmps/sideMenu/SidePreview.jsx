@@ -21,9 +21,9 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     return (
-        <div className="side-preview flex" onContextMenu={handleContextMenu}>
+        <div className="side-preview-line" onContextMenu={handleContextMenu}>
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
-            <span>{station.name}</span>
+            <span className="station-name">{station.name}</span>
 
             {isContextMenuOpen && (
                 <div
