@@ -176,7 +176,7 @@ export function AppFooter() {
                                 </path>
                             </svg>
                         </button>
-                        <button className="loop-btn" onClick={() => {
+                        <button className={'loop-btn' + (loop ? ' active' : '')} onClick={() => {
                             setLoop(!loop)
                             console.log("loop:", loop)
                         }}>
