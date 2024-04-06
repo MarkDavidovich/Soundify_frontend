@@ -39,13 +39,37 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
 
     return (
         <div className="update-modal-overlay" onClick={closeModal}>
-            <div className="update-modal" onClick={handleModalClick}>
+            <div className="update-modal flex" onClick={handleModalClick}>
                 <form className="modal-content" onSubmit={handleSubmit}>
-                    <h3>Edit details</h3>
-                    <button className="btn" onClick={closeModal}>x</button>
-                    <div className="input-container grid">
+                    <div className="modal-top">
+                        <h3>Edit details</h3>
+                        <button className="close-btn" onClick={closeModal}>
+                            <svg data-encore-id="icon" role="img" aria-label="Close" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 kcUFwU">
+                                <path d="M2.47 2.47a.75.75 0 0 1 1.06 0L8 6.94l4.47-4.47a.75.75 0 1 1 1.06 1.06L9.06 8l4.47 4.47a.75.75 0 1 1-1.06 1.06L8 9.06l-4.47 4.47a.75.75 0 0 1-1.06-1.06L6.94 8 2.47 3.53a.75.75 0 0 1 0-1.06Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div className="content-container grid">
 
-                        <TextField className="station-name"
+                        {/* <TextField className="station-name"
+                            type="text"
+                            id="txt"
+                            label="Name"
+                            name="name"
+                            value={stationToUpdate.name}
+                            onChange={handleChange}
+                        /> */}
+
+                        {/* <TextField className="station-desc"
+                            type="text"
+                            id="txt"
+                            label="Description"
+                            name="desc"
+                            value={stationToUpdate.desc}
+                            onChange={handleChange}
+                        /> */}
+
+                        <input className="station-name"
                             type="text"
                             id="txt"
                             label="Name"
@@ -53,7 +77,8 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
                             value={stationToUpdate.name}
                             onChange={handleChange}
                         />
-                        <TextField className="station-desc"
+
+                        <input className="station-desc"
                             type="text"
                             id="txt"
                             label="Description"
@@ -62,11 +87,21 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
                             onChange={handleChange}
                         />
 
+                        <div className="station-img"
+                            type="text"
+                            id="txt"
+                            label="Image"
+                            name="img"
+                        // value={stationToUpdate.desc}
+                        // onChange={handleChange}
+                        />
+
+                        <p className="disclaimer">By proceeding, you agree to give Soundify access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
+
+                        <button className="save-btn" type="submit">Save</button>
                     </div>
-                    <button className="btn" type="submit"></button>
 
                 </form>
-                <p className="disclaimer">By proceeding, you agree to give Soundify access to the image you choose to upload. Please make sure you have the right to upload the image.</p>
             </div>
 
         </div>

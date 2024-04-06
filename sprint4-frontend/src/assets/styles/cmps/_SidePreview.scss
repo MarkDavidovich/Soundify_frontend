@@ -57,6 +57,7 @@
                     margin-right: 10px;
 
                     path {
+                        fill: $clr3;
                         stroke: $clr3;
                     }
                 }
@@ -74,7 +75,6 @@
 
                 &:hover {
                     background-color: $clr9;
-
                 }
 
                 svg {
@@ -83,6 +83,7 @@
                     margin-right: 10px;
 
                     path {
+                        fill: $clr3;
                         stroke: $clr3;
                     }
                 }

@@ -1,5 +1,116 @@
 .update-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
 
+    .update-modal {
+        flex-direction: column;
+        width: 524px;
+        min-height: 384px;
+        background-color: $clr11;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+
+        .modal-content {
+            background-color: $clr11;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+
+            .modal-top {
+                display: flex;
+                justify-content: space-between;
+                width: 490px;
+                background-color: $clr11;
+                margin: 0px;
+                align-items: center;
+
+                h3 {
+                    font-size: 24px;
+                    height: 24px;
+                    font-weight: bold;
+                    margin: 0;
+                }
+
+                .close-btn {
+                    background-color: $clr11;
+
+                    svg {
+                        width: 16px;
+                        height: 16px;
+                    }
+
+                    path {
+                        stroke: $clr3;
+                        fill: $clr3;
+                        stroke: width 1px;
+
+                    }
+                }
+            }
+
+
+            .content-container {
+                display: grid;
+                width: 490px;
+                grid-template-columns: 180px minmax(1fr, 280px);
+                grid-template-rows: 32px 132px 32px 34px;
+                gap: 16px;
+
+                grid-template-areas:
+                    "img title"
+                    "img desc"
+                    ". save"
+                    "discla discla";
+
+
+                .station-name {
+                    grid-area: title;
+                    background-color: $clr12;
+                    color: $clr2;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 0 12px;
+                }
+
+                .station-desc {
+                    grid-area: desc;
+                    background-color: $clr12;
+                    color: $clr3;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 0 12px;
+                }
+
+                .station-img {
+                    grid-area: img;
+                    background-color: $clr13
+                }
+
+                .disclaimer {
+                    grid-area: discla;
+                    font-size: $font-size-12;
+                }
+
+                button.save-btn {
+                    grid-area: save;
+                    width: 99px;
+                    height: 48px;
+                    border-radius: 24px;
+                    background-color: white;
+                    color: black;
+                    font-weight: bold;
+                    font-size: em(16px);
+                    margin-top: 3px;
+                    place-self: end;
+                    align-self: center;
+                }
+            }
+        }
+    }
 }

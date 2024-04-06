@@ -24,7 +24,7 @@ export function StationDetails() {
             .catch(() => {
                 showErrorMsg('Had issues loading station')
             })
-    }, [params])
+    }, [params, currStation])
 
     function calcStationDuration(songs) {
         let totalDurationInSeconds = 0
