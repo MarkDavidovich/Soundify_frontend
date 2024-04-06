@@ -63,9 +63,10 @@
 
             }
 
-            hr {
-                width: 240px;
-                color: $clr12;
+            .horizontal-line {
+                height: 2px;
+                width: 100%;
+                background-color: $clr12;
             }
 
             .delete-btn {
