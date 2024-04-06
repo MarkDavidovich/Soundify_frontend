@@ -28,23 +28,11 @@
                 gap: 8px;
 
                 .shuffle-btn {
-                    display: flex;
-
-                    &:hover {
-                        path {
-                            fill: white;
-                        }
-                    }
+                    @include btn($type: generalPlayerBtn);
                 }
 
                 .prev-song-btn {
-                    display: flex;
-
-                    &:hover {
-                        path {
-                            fill: white;
-                        }
-                    }
+                    @include btn($type: generalPlayerBtn);
                 }
             }
 
@@ -65,23 +53,11 @@
                 gap: 8px;
 
                 .next-song-btn {
-                    display: flex;
-
-                    &:hover {
-                        path {
-                            fill: white;
-                        }
-                    }
+                    @include btn($type: generalPlayerBtn);
                 }
 
                 .loop-btn {
-                    display: flex;
-
-                    &:hover {
-                        path {
-                            fill: white;
-                        }
-                    }
+                    @include btn($type: generalPlayerBtn);
                 }
             }
         }

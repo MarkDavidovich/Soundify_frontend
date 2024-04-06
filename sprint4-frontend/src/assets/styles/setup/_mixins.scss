@@ -111,4 +111,16 @@
             color: $clr3;
         }
     }
+
+    @else if $type ==generalPlayerBtn {
+        display: flex;
+
+        &:hover {
+            path {
+                filter: brightness(140%)
+            }
+        }
+    }
+
+
 }
