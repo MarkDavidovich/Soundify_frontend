@@ -108,7 +108,10 @@
 
 
         .heading-station {
+            background-color: #1a1a1a;
             display: grid;
+            position: sticky;
+            top: 0;
             gap: 16px;
 
             grid-template-columns:
