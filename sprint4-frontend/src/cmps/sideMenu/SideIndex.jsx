@@ -2,7 +2,6 @@ import 'animate.css';
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-
 import { loadStations, addStation, updateStation, removeStation, setStationFilter } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
@@ -11,7 +10,7 @@ import { stationService } from '../../services/station.service.local.js'
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideAddStationModal } from './SideAddStationModal.jsx'
-import { SideSort } from './SideSort.jsx';
+import { SideSort } from './SideSort.jsx'
 
 export function SideIndex() {
 

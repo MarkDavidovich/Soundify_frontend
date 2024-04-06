@@ -8,7 +8,6 @@ export function SideBar() {
     const [isWhiteFill, setIsWhiteFill] = useState(true)
     const [toggleSvgSearch, setToggleSvgSearch] = useState(false)
 
-
     const handleHomeButtonClick = () => {
         setIsWhiteFill(prevState => !prevState)
         setToggleSvgSearch(false)

@@ -33,7 +33,7 @@ export function StationDetails() {
             const [minutes, seconds] = song.duration.split(':')
 
             totalDurationInSeconds += parseInt(minutes, 10) * 60 + parseInt(seconds, 10)
-        });
+        })
 
         const totalMinutes = Math.floor(totalDurationInSeconds / 60)
         const totalSeconds = totalDurationInSeconds % 60
