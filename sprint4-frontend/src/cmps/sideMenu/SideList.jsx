@@ -47,7 +47,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     return <div className="side-list">
 
         {stations.map(station => (
-            <article className="side-preview" key={station._id}>
+            <article className="side-preview-container" key={station._id}>
                 <Link className="link" to={`/station/${station._id}`}>
 
                     <SidePreview station={station}
