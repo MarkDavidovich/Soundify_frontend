@@ -101,14 +101,14 @@ export function StationDetails() {
                 </div>
                 <div className="songs-details-container">
                     <div className="heading-station">
-                        <div className="hash">#</div>
+                        <span className="hash">#</span>
                         <span className="title">Title</span>
                         <span className="album">Album</span>
                         <span className="date">Date added</span>
                         <span className="duration">
-                            <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill='white' strokeWidth='0.3' stroke="white"></path>
+                            <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill='#a7a7a7' strokeWidth='0.3' stroke="#a7a7a7"></path>
                                 <path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z"
-                                    stroke="white" strokeWidth='0.3' fill='white'>
+                                    stroke="#a7a7a7" strokeWidth='0.3' fill='#a7a7a7'>
                                 </path></svg>
                         </span>
                     </div>
@@ -117,11 +117,13 @@ export function StationDetails() {
                             <>
                                 <div className="song-preview-container">
                                     <li className="song-preview clean-list" key={song.id}>
-                                        <div className="song-num" onClick={() => handleSongClick(song)}>{idx + 1}</div>
+                                        <div className="song-num flex" onClick={() => handleSongClick(song)}>{idx + 1}</div>
                                         <div className="song-info">
                                             <img className="song-img" src={song.imgUrl} alt="" />
+                                            <div className="station-title-artist flex">
                                             <div className="song-title" title={song.title}> {song.title}</div>
                                             <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
+                                            </div>
                                         </div>
                                         <a className="song-album" href="#" title={song.album}> {song.album}</a>
                                         <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
