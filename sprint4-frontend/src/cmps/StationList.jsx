@@ -1,5 +1,5 @@
-import { togglePlaying } from "../store/actions/player.actions";
-import { StationPreview } from "./StationPreview";
+import { togglePlaying } from "../store/actions/player.actions"
+import { StationPreview } from "./StationPreview"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'

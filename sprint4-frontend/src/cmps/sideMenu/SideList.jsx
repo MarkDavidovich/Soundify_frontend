@@ -3,8 +3,7 @@
 import { Link } from 'react-router-dom'
 import { SidePreview } from './SidePreview.jsx'
 import { UpdateStation } from './UpdateStation.jsx'
-import { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react'
 
 export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
@@ -20,7 +19,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
             handleContextMenuClose()
         }
 
-        document.addEventListener('click', closeMenu);
+        document.addEventListener('click', closeMenu)
         return () => {
             document.removeEventListener('click', closeMenu)
         }
@@ -32,7 +31,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     }
 
     function handleContextMenuClose() {
-        setOpenContextMenuStationId(null);
+        setOpenContextMenuStationId(null)
         setContextMenuPosition({ mouseX: null, mouseY: null })
     }
 

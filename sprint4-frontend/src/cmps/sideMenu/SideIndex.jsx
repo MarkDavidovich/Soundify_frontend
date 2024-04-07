@@ -11,7 +11,7 @@ import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideAddStationModal } from './SideAddStationModal.jsx'
 import { SideSort } from './SideSort.jsx'
-import { Navigate } from 'react-router';
+import { Navigate } from 'react-router'
 
 export function SideIndex() {
 

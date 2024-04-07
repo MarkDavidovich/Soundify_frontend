@@ -69,39 +69,3 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
         </div >
     )
 }
-
-
-
-
-/*
-_id: utilService.makeId(),
-name,
-tags: [],
-desc,
-songs,
-likedByUsers,
-imgUrl,
-createdBy: {
-    _id: utilService.makeId(),
-    fullname: '',
-    imgUrl: 'https://robohash.org/userrobohash'
-},
-createdAt: utilService.randomAddedTime() ! */
-
-
-
-// {contextMenu !== null && (
-//     <div
-//         style={{
-//             position: "absolute",
-//             top: `${contextMenu.mouseY}px`,
-//             left: `${contextMenu.mouseX}px`,
-//         }}
-//         className="context-menu"
-//     >
-//         <ul className="menu-list clean-list">
-//             <li onClick={() => { onTriggerUpdate(); handleClose() }}>Edit</li>
-//             <li onClick={(ev) => { handleRemoveClick(ev); handleClose() }}>Delete</li>
-//         </ul>
-//     </div>
-// )}
