@@ -19,7 +19,7 @@ export async function getSongs(term) {
     }
 
     /* 
-    videoCategoryId=10: specific category -> ID 10 refers to "Music".
+    videoCategoryId=10: specific category -> ID 10 refers to 'Music'.
     
     videoDuration=medium: search only videos of medium length.
     

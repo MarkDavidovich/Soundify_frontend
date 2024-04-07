@@ -1,23 +1,24 @@
 .side-index {
     background-color: $clr8;
 
-    width: 391px;
+    // width: 391px;
     border-radius: $border-rad1;
 
     .top-bar {
         justify-content: space-between;
-        width: 388px;
         height: 48px;
-        padding: 4px 15px;
         align-items: center;
         padding: $padding-8-16;
+        margin-bottom: 8px;
 
         .add-btn {
             @include btn($type: regular);
-            width: 12px;
+            // width: 12px;
+            padding: 0;
+            margin: 0;
 
             svg {
-                margin-right: 7px;
+                // margin-right: 7px;
             }
         }
 
@@ -30,18 +31,19 @@
             border-radius: 20%;
             font-size: rem(16px);
 
-            margin-right: 176px;
+            // margin-right: 176px;
 
             span.library {
                 @include btn($type: regular);
                 width: 112px;
                 font-weight: bold;
+                margin-left: 12px;
             }
         }
     }
 
     .search-library {
-        margin-bottom: 8px;
+        margin-bottom: 13px;
 
         .search-btn {
             background-color: $clr8;

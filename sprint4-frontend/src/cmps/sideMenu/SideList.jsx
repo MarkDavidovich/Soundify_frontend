@@ -83,12 +83,3 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         )}
     </div>
 }
-
-
-//  {shouldShowActionBtns(station) && <div>
-//             <button onClick={() => { onRemoveStation(station._id) }}>x</button>
-//             <button onClick={() => { onUpdateStation(station) }}>Edit</button>
-//         </div>}
-
-// <button onClick={() => { onAddStationMsg(station) }}>Add station msg</button>
-//         <button className="buy" onClick={() => { onAddToStationt(station) }}>Add to stationt</button> 

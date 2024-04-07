@@ -1,6 +1,6 @@
 .side-sort-container {
 
-    margin-left: 3px;
+    margin: 0 0 10px 3px;
     height: 37px;
 
     .btn:first-child {
@@ -13,6 +13,7 @@
         padding: 4px 12px;
         font-size: $font-size-14;
         background-color: $clr11;
+        margin-right: 12px;
 
         &:hover {
             background-color: $clr12;
@@ -25,10 +26,11 @@
         height: 32px;
         border-radius: 15px;
         padding: 4px 12px;
+        margin-right: 12px;
     }
 
     .btn-clicked:first-child {
         margin-left: 15px;
-
+        margin-right: 12px;
     }
 }
