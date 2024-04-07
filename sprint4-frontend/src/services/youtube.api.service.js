@@ -11,11 +11,11 @@ const BASE_URL = 'https://www.googleapis.com/youtube/v3'
 
 
 export async function getSongs(term) {
-    const termSongsMap = utilService.loadFromStorage(STORAGE_KEY) || {}
-    if (termSongsMap[term]) {
+    const songsMap = utilService.loadFromStorage(STORAGE_KEY) || {}
+    if (songsMap[term]) {
 
         console.log('Loading from Storage')
-        return Promise.resolve(termSongsMap[term])
+        return Promise.resolve(songsMap[term])
     }
 
     /* 
@@ -74,8 +74,8 @@ export async function getSongs(term) {
             }
         })
 
-        termSongsMap[term] = songs
-        utilService.saveToStorage(STORAGE_KEY, termSongsMap)
+        songsMap[term] = songs
+        utilService.saveToStorage(STORAGE_KEY, songsMap)
 
         return songs
 
@@ -106,7 +106,6 @@ function cleanTitle(title) {
         /HD/gi,
         /lyrics/gi,
         /video clip/gi,
-
     ]
 
     let cleanedTitle = title

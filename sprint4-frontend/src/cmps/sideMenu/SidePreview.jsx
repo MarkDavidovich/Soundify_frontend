@@ -3,7 +3,7 @@ import { UpdateStation } from "./UpdateStation"
 import { getActionCurrStationIdx } from "../../store/actions/player.actions"
 import { useDispatch } from 'react-redux'
 
-export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, onContextMenuClose, contextMenuPosition }) {
+export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
     const dispatch = useDispatch()
 
     const [contextMenu, setContextMenu] = useState(null)

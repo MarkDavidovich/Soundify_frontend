@@ -10,12 +10,6 @@
         "side-bar main-view"
         "footer footer";
 
-    // >* {
-    //     grid-column: 2;
-
-    //     &.full {
-    //         grid-column: 1 /-1;
-    //     }
 
     @include for-narrow-layout {
         grid-template-columns:
@@ -39,8 +33,8 @@
 }
 
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 20px;
-}
+// .card-grid {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+//     grid-gap: 20px;
+// }
