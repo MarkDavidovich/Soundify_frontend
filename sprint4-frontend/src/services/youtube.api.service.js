@@ -69,6 +69,7 @@ export async function getSongs(term) {
                 artists: video.snippet.channelTitle,
                 url: `https://www.youtube.com/watch?v=${video.id.videoId}`,
                 imgUrl: video.snippet.thumbnails.default.url,
+                isLiked: false,
                 duration: details ? convertDuration(details.contentDetails.duration) : 'Unknown'
             }
         })
