@@ -87,7 +87,7 @@ export function StationDetails() {
     return (
         <div className="station-details flex">
             <div className="station-data-container">
-                <div className="info-station flex" style={{ background: backgroundColor }}>
+            <div className="info-station flex" style={{ background: `linear-gradient(transparent 0, rgba(0, 0, 0, 0.5) 100%), ${backgroundColor}` }}>
                     <div className="station-img-container">
                         <img className="station-img" src={currStation.imgUrl} alt="" />
                     </div>
