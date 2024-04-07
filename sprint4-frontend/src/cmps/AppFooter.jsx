@@ -1,20 +1,17 @@
 import { useState, useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import { UserMsg } from './UserMsg.jsx'
 import { SongPreview } from './SongPreview.jsx'
 import ReactPlayer from 'react-player'
-import { togglePlaying, setCurrSong, setNextSong, setPrevSong } from '../store/actions/player.actions.js'
+import { togglePlaying, getActionCurrSongIdx } from '../store/actions/player.actions.js'
+import { useDispatch } from 'react-redux'
 
 export function AppFooter() {
 
     // global states
-    const currSong = useSelector(storeState => storeState.playerModule.currSong)
-    const currStation = useSelector(storeState => storeState.playerModule.currStation)
+    const stations = useSelector(storeState => storeState.stationModule.stations)
+    const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
+    const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
     const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
-
-    const nextSong = useSelector(storeState => storeState.playerModule.nextSong)
-    const prevSong = useSelector(storeState => storeState.playerModule.prevSong)
 
     // Volume states
     const [volume, setVolume] = useState(0.5)
@@ -33,6 +30,11 @@ export function AppFooter() {
     const [showRemainder, setShowRemainder] = useState(false)
 
     // const [isLiked, setIsLiked] = useState()
+
+    const dispatch = useDispatch()
+    const currStation = stations[currStationIdx]
+    const currSong = currStation?.songs[currSongIdx]
+
 
     const playerRef = useRef(null) //ref for the reactplayer cmp
 
@@ -95,41 +97,60 @@ export function AppFooter() {
 
     function goToPrevSong() {
         if (!currSong.title || !currStation._id) return
+        const stationLen = currStation.songs.length
+        console.log('station length:', stationLen)
 
-        updateCurrSongPosition('prev')
+        if (currSongIdx > 0) {
+            const prevSong = currStation.songs[currSongIdx - 1]
+            // updateCurrSongPosition('prev')
+            dispatch(getActionCurrSongIdx(currSongIdx - 1))
+        } else {
+            setProgress(0)
+            playerRef.current.seekTo(0)
+        }
     }
 
     function goToNextSong() {
         if (!currSong.title || !currStation._id) return
-
-        updateCurrSongPosition('next')
-    }
-
-    function updateCurrSongPosition(mode) {
-        if (mode === 'prev') {
-            setCurrSong(prevSong)
-            setNextSong(prevSong, currStation)
-            setPrevSong(prevSong, currStation)
-            console.log('prevSong:', prevSong)
-        }
-
-        else if (mode === 'next') {
-            setCurrSong(nextSong)
-            setNextSong(nextSong, currStation)
-            setPrevSong(nextSong, currStation)
-            console.log('nextSong:', nextSong)
+        const nextSongIdx = currSongIdx + 1
+        if (nextSongIdx < currStation.songs.length) {
+            // updateCurrSongPosition('next')
+            dispatch(getActionCurrSongIdx(nextSongIdx))
         }
     }
+
+    // function updateCurrSongPosition(mode) {
+    //     if (mode === 'prev') {
+    //         console.log('previous song')
+    //         console.log(prevSong)
+    //         // setCurrSongIdx(prevSong)
+    //         // setNextSong(prevSong, currStation)
+    //         // setPrevSong(prevSong, currStation)
+    //         // console.log('prevSong:', prevSong)
+    //     }
+
+    //     else if (mode === 'next') {
+    //         console.log('next song')
+    //         console.log(nextSong)
+    //         // setCurrSongIdx(nextSong)
+    //         // setNextSong(nextSong, currStation)
+    //         // setPrevSong(nextSong, currStation)
+    //         // console.log('nextSong:', nextSong)
+    //     }
+    // }
 
     useEffect(() => {
         setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
-    }, [currSongTime, totalSongTime, currSong])
+    }, [currSongTime, totalSongTime])
+
+    if (!currSong) return <div>loading...</div>
 
     return (
         <footer className="app-footer">
-            <div className="song-details-container">
-                <SongPreview />
-            </div>
+            {currSong && <div className="song-details-container">
+                <SongPreview
+                    currSong={currSong} />
+            </div>}
             <div className='controls-main-container'>
                 <div className='player-controls-main'>
                     <div className="player-controls-left">
