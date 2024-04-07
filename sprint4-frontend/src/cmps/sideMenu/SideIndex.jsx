@@ -9,7 +9,6 @@ import { stationService } from '../../services/station.service.local.js'
 
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
-import { SideAddStationModal } from './SideAddStationModal.jsx'
 import { SideSort } from './SideSort.jsx'
 import { Navigate } from 'react-router'
 
@@ -91,14 +90,6 @@ export function SideIndex() {
         if (!toggleFilter) return 'search-btn close'
         else return 'search-btn open'
     }
-
-
-    // function shouldShowActionBtns(station) {
-    //     const user = userService.getLoggedinUser()
-    //     if (!user) return false
-    //     if (user.isAdmin) return true
-    //     return station.owner?._id === user._id
-    // }
 
     return (
         <div className="side-index">
