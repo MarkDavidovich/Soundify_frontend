@@ -23,26 +23,25 @@ export function ThemesPage() {
   }
 
 
-
   return (
     <section className="main-view">
       <div>ThemesPage</div>
 
       <SearchSongs searchSongs={searchSongs} />
 
-      <ul className="song-list">
+      <div className="song-list">
         {songs?.map(song =>
-          <li className="song-preview" key={song.id}>
+          <div className="song-preview" key={song.id}>
             <h4>Title: {song.title}</h4>
             <h4>artist: {song.artist}</h4>
             <h4>url: {song.url}</h4>
-            <h4>imgUrl: {song.imgUrl}</h4>
+            <img src={song.imgUrl}></img>
             <h4>duration: {song.duration}</h4>
 
 
-          </li>)
+          </div>)
         }
-      </ul>
+      </div>
 
     </section>
 

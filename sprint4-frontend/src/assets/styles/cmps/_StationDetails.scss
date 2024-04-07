@@ -1,5 +1,4 @@
 .station-details {
-
     max-height: calc(100vh - 115px);
     overflow-y: hidden;
     background-color: $clr8;
@@ -41,6 +40,10 @@
         opacity: 1;
     }
 
+  
+   
+    
+
     .station-img {
         width: 100%;
         height: auto;
@@ -78,23 +81,22 @@
     .title-station {
         font-family: circular-bold, sans-serif;
         font-size: 6rem;
+        margin: 0;
     }
 
     .user-img {
         background-color: aqua;
         border-radius: 50%;
         margin-right: em(4px);
-
-
     }
 
     .user-info {
         align-items: center;
+        margin-bottom: em(18px);
 
         span {
             font-size: $font-size-14;
             font-family: circular-light;
-
         }
     }
 
@@ -114,6 +116,13 @@
         font-family: circular-bold;
     }
 
+    .menu-station {
+
+        &>* {
+            background: none;
+        }
+    }
+
     .play-btn {
         display: flex;
         align-items: center;
@@ -125,9 +134,15 @@
         border-radius: 32px;
     }
 
+    .options {
+        background: none;
+        opacity: 0;
+    }
+
+
     .songs-details-container {
-
-
+        // padding: 0 1rem;
+        padding: 0 em(24px) 0 em(24px);
 
         .heading-station {
             background-color: #1a1a1a;
@@ -172,18 +187,20 @@
         }
 
         .song-preview {
-
             margin-bottom: em(5px);
             display: grid;
             gap: 16px;
             align-items: center;
             transition: background-color 0.3s ease;
 
-
             &:hover {
                 // background-color:#b3b3b3 ;
                 // opacity: 0.3;
                 background-color: hsla(0, 0%, 100%, .3);
+
+                .options {
+                    opacity: 1;
+                }
 
                 a {
                     color: $clr6;
@@ -214,9 +231,10 @@
             }
 
             .song-duration {
-                grid-area: d;
+
                 color: $clr14;
             }
+
         }
     }
 }

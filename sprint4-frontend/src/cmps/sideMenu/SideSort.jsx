@@ -12,15 +12,6 @@ export function SideSort({ sortBy, onSetSort }) {
         onSetSort(updatedSort)
     }
 
-    // function onSetToggleClick() {
-    //     setToggleClick(!toggleClick)
-    // }
-
-    // function setBtnClass() {
-    //     if (!toggleClick) return 'btn'
-    //     else return 'btn-clicked'
-    // }
-
     function getBtnClass(by) {
         return selectedSort === by ? 'btn-clicked' : 'btn'
     }

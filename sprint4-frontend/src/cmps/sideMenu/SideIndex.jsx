@@ -9,7 +9,6 @@ import { stationService } from '../../services/station.service.local.js'
 
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
-import { SideAddStationModal } from './SideAddStationModal.jsx'
 import { SideSort } from './SideSort.jsx'
 import { Navigate } from 'react-router'
 
@@ -61,14 +60,14 @@ export function SideIndex() {
         }
     }
 
-    function onAddStationMsg(station) {
-        console.log(`TODO Adding msg to station`)
-        try {
-            showSuccessMsg(`Station msg added, it now has: ${3}`)
-        } catch (err) {
-            showErrorMsg('Cannot update station')
-        }
-    }
+    // function onAddStationMsg(station) {
+    //     console.log(`TODO Adding msg to station`)
+    //     try {
+    //         showSuccessMsg(`Station msg added, it now has: ${3}`)
+    //     } catch (err) {
+    //         showErrorMsg('Cannot update station')
+    //     }
+    // }
 
     function onSetFilter(filterBy) {
         setStationFilter(filterBy)
@@ -92,14 +91,6 @@ export function SideIndex() {
         else return 'search-btn open'
     }
 
-
-    // function shouldShowActionBtns(station) {
-    //     const user = userService.getLoggedinUser()
-    //     if (!user) return false
-    //     if (user.isAdmin) return true
-    //     return station.owner?._id === user._id
-    // }
-
     return (
         <div className="side-index">
             <div className="top-bar flex">
@@ -119,10 +110,7 @@ export function SideIndex() {
                     <span className="library">Your Library</span>
                 </button>
 
-                {/* Maybe for right click modal */}
-                {/* <SideAddStationModal /> */}
-
-                <button className="add-btn" onClick={onAddStation}><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                <button className="add-btn" style={{ backgroundColor: "#121212" }} onClick={onAddStation}><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
                     <path className="plus-icon" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z" fill="#b3b3af">
                     </path>
                 </svg></button>

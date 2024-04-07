@@ -1,6 +1,5 @@
 
 export function StationPreview({ station }) {
-    
 
     return (
         <article className="station-preview" >
@@ -8,8 +7,8 @@ export function StationPreview({ station }) {
                 <img className="station-img" src={station.imgUrl} alt={`${station.name}`} />
             </div>
             <div className="station-content">
-                <h3 className="toy-name">{station.name}</h3>
-                <h5 className="toy-desc">{station.desc}</h5>
+                <h3 className="station-name">{station.name}</h3>
+                <h5 className="station-desc">{station.desc}</h5>
             </div>
         </article>
     )
