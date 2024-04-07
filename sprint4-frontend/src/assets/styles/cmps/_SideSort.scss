@@ -3,12 +3,32 @@
     margin-left: 3px;
     height: 37px;
 
-    p:first-child {
+    .btn:first-child {
         margin-left: 15px;
     }
 
-    p {
+    .btn {
+        height: 32px;
+        border-radius: 15px;
         padding: 4px 12px;
         font-size: $font-size-14;
+        background-color: $clr11;
+
+        &:hover {
+            background-color: $clr12;
+        }
+    }
+
+    .btn-clicked {
+        color: $clr1;
+        background-color: $clr2;
+        height: 32px;
+        border-radius: 15px;
+        padding: 4px 12px;
+    }
+
+    .btn-clicked:first-child {
+        margin-left: 15px;
+
     }
 }

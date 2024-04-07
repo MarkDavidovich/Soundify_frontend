@@ -1,18 +1,26 @@
 .search-library {
 
     height: 34px;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-left: 9px;
     align-items: center;
+
 
     button.search-btn.close {
         @include btn($type: regular);
         margin-right: 0;
+        border-radius: 25px;
+
+        &:hover {
+            background-color: $clr13;
+        }
     }
 
     button.search-btn.open {
         @include btn($type: regular);
         background-color: $clr9;
         margin-right: 0;
+        // border-radius: 20px;
     }
 
     input {

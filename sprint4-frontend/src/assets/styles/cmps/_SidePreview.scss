@@ -3,13 +3,14 @@
     grid-template-columns: auto 1fr;
     grid-template-areas: "img station";
     gap: 8px;
-    margin-bottom: 8px;
-    margin-left: 10px;
+    margin-bottom: 15px;
+    margin-left: 14px;
 
     img.side-preview-img {
         grid-area: img;
         width: em(48px);
         height: em(48px);
+        border-radius: 5px;
     }
 
     .station-preview-details {
