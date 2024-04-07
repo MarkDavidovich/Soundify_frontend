@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { FastAverageColor } from 'fast-average-color'
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { stationService } from "../services/station.service.local"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
+import { updateStation } from "../store/actions/station.actions"
+
 
 export function StationDetails() {
   const params = useParams()
@@ -91,14 +93,25 @@ export function StationDetails() {
   }
 
   async function onDragEnd(result) {
-    if (!result.destination) return
+    console.log("🚀 ~ file: StationDetails.jsx:96 ~ onDragEnd ~ result:", result)
     const { source, destination } = result
-    const copiedItems = [...currStation.songs]
-    const [removed] = copiedItems.splice(source.index, 1)
-    copiedItems.splice(destination.index, 0, removed)
-    const updatedStation = { ...currStation, songs: copiedItems }
-  }
+    
+    if (!destination) return
 
+    const copiedSongs = [...currStation.songs]
+    const [removed] = copiedSongs.splice(source.index, 1)
+    copiedSongs.splice(destination.index, 0, removed)
+    const updatedStation = { ...currStation, songs: copiedSongs }
+
+    try {
+      await updateStation(updatedStation)
+      console.error('Station updated successfully')
+
+      updateStation(updatedStation)
+    } catch (err) {
+      console.error('Failed to update station:', err)
+    }
+  }
   if (!currStation) return <h4>loading...</h4>
   let StationDuration = calcStationDuration(currStation.songs)
 
