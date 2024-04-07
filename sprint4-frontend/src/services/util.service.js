@@ -5,7 +5,10 @@ export const utilService = {
     debounce,
     randomAddedTime,
     saveToStorage,
-    loadFromStorage
+    loadFromStorage,
+    shuffleArray,
+    createIndexArray,
+    shuffleArray,
 }
 
 function makeId(length = 6) {
@@ -62,3 +65,14 @@ function loadFromStorage(key) {
     return (data) ? JSON.parse(data) : undefined
 }
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function createIndexArray(n) {
+    return Array.from({ length: n }, (_, i) => i);
+}
