@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import { FastAverageColor } from 'fast-average-color'
+
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -11,11 +13,25 @@ export function StationDetails() {
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const [currStation, setCurrStation] = useState(null)
-    let isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
+    const currStation = useSelector(storeState => storeState.playerModule.currStation)
+    const [backgroundColor, setBackgroundColor] = useState('')
+    const [textColor, setTextColor] = useState('')
 
+    async function extractColor(stationImgUrl, setBackgroundColor, setTextColor) {
+        const fac = new FastAverageColor()
+        try {
+            const color = await fac.getColorAsync(stationImgUrl)
+            setBackgroundColor(color.hex);
+            setTextColor(color.isDark ? '#fff' : '#000')
+        } catch (error) {
+            console.error('Error extracting color:', error)
+            // Handle error (e.g., fallback color)
+        }
+    }
     useEffect(() => {
         const { id } = params
+        extractColor(currStation.imgUrl, setBackgroundColor, setTextColor)
+
         stationService.getById(id)
             .then(station => {
                 if (!station) return navigate('/')
@@ -71,7 +87,7 @@ export function StationDetails() {
     return (
         <div className="station-details flex">
             <div className="station-data-container">
-                <div className="info-station flex">
+                <div className="info-station flex" style={{ background: backgroundColor }}>
                     <div className="station-img-container">
                         <img className="station-img" src={currStation.imgUrl} alt="" />
                     </div>

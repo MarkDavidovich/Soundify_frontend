@@ -1,5 +1,6 @@
 
 export function StationPreview({ station }) {
+    
 
     return (
         <article className="station-preview" >

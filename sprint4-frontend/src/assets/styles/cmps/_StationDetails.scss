@@ -135,15 +135,13 @@
             top: 0;
             gap: 16px;
 
-            span{
+            span {
                 color: $clr14;
             }
 
-            grid-template-columns:
-                16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
+            grid-template-columns: 16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
 
-            grid-template-areas:
-                "idx title album date d";
+            grid-template-areas: "idx title album date d";
 
             .hash {
                 grid-area: idx;
