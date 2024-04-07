@@ -85,8 +85,6 @@ export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
 }
 
 export function setStationSort(sortBy) {
-    console.log("🚀 ~ setStationSort ~ sortBy:", sortBy)
-
     store.dispatch({ type: SET_SORT, sortBy })
 }
 

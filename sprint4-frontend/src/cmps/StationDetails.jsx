@@ -16,6 +16,7 @@ export function StationDetails() {
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [textColor, setTextColor] = useState('')
+  console.log('song list:', currStation?.songs)
 
   async function extractColor(stationImgUrl, setBackgroundColor, setTextColor) {
     const fac = new FastAverageColor()
@@ -31,7 +32,7 @@ export function StationDetails() {
   useEffect(() => {
     const { id } = params
     if (!id) return
-    // extractColor(currStation.imgUrl, setBackgroundColor, setTextColor)
+    extractColor(currStation?.imgUrl, setBackgroundColor, setTextColor)
 
     setCurrStation(id)
 
@@ -40,16 +41,17 @@ export function StationDetails() {
   async function setCurrStation(id) {
     try {
       const idx = await stationService.getIdxById(id)
+      console.log("🚀 ~ setCurrStation ~ idx:", idx)
       setCurrStationIdx(idx)
     }
     catch (err) {
       showErrorMsg('Had issues loading station')
-      console.log('had issues loading station', err)
+      console.log('Had issues loading station', err)
       return navigate('/')
     }
   }
+
   function calcStationDuration(songs) {
-    console.log('songs:', songs)
     let totalDurationInSeconds = 0
 
     songs.forEach(song => {
@@ -65,7 +67,6 @@ export function StationDetails() {
   }
 
   function handleSongClick(songIdx) {
-    console.log("currStation.songs:", currStation.songs)
     dispatch(getActionCurrSongIdx(songIdx))
     togglePlaying(!true)
   }
@@ -92,11 +93,10 @@ export function StationDetails() {
   async function onDragEnd(result) {
     if (!result.destination) return
     const { source, destination } = result
-    const copiedItems = [...mycurrStation.songs]
+    const copiedItems = [...currStation.songs]
     const [removed] = copiedItems.splice(source.index, 1)
     copiedItems.splice(destination.index, 0, removed)
-    // const updatedStation = { ...mycurrStation, songs: copiedItems }
-   
+    const updatedStation = { ...currStation, songs: copiedItems }
   }
 
   if (!currStation) return <h4>loading...</h4>
