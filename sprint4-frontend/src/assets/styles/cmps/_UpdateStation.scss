@@ -16,6 +16,7 @@
         min-height: 384px;
         background-color: $clr11;
         box-shadow: 0 4px 4px rgba(0, 0, 0, .3);
+        border-radius: 5px;
 
         .modal-content {
             background-color: $clr11;
@@ -31,6 +32,7 @@
                 align-items: center;
 
                 h3 {
+                    font-family: circular-bold;
                     font-size: 24px;
                     height: 24px;
                     font-weight: bold;
@@ -60,7 +62,7 @@
                 width: 490px;
                 grid-template-columns: 180px minmax(1fr, 280px);
                 grid-template-rows: 32px 132px 32px 34px;
-                gap: 16px;
+                grid-gap: 16px;
 
                 grid-template-areas:
                     "img title"
@@ -69,9 +71,11 @@
                     "discla discla";
 
 
+
                 .station-name {
                     grid-area: title;
                     width: 280px;
+                    height: 40px;
                     justify-self: end;
 
                     border: none;
@@ -87,13 +91,15 @@
                 .station-desc {
                     grid-area: desc;
                     width: 280px;
+                    height: 124px;
                     justify-self: end;
 
                     border: none;
                     outline: none;
                     border-radius: 5px;
                     padding: 0 12px;
-                    margin-right: 10px;
+                    margin: 10px 10px 10px 0;
+                    // margin-right: 10px;
 
                     background-color: $clr12;
                     color: $clr3;
@@ -104,9 +110,31 @@
                     background-color: $clr13;
                     width: 180px;
                     height: 180px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
 
                     .image-upload-btn {
-                        display: hidden;
+
+                        .svg-hover-txt {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                        }
+
+                        svg {
+                            width: 48px;
+                            height: 48px;
+
+                            path {
+                                fill: $clr3;
+                            }
+                        }
+
+                        .image-upload-img {
+                            width: 100%;
+                        }
                     }
 
                     img.image-preview {
@@ -143,7 +171,7 @@
                     color: black;
                     font-weight: bold;
                     font-size: em(16px);
-                    margin-top: 3px;
+                    margin-top: 10px;
                     margin-right: 10px;
                     place-self: end;
                     align-self: center;
