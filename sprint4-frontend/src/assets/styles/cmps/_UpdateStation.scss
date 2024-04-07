@@ -175,6 +175,11 @@
                     margin-right: 10px;
                     place-self: end;
                     align-self: center;
+
+                    &:hover {
+                        transition: scale 1.01;
+                        scale: 1.05;
+                    }
                 }
             }
         }
