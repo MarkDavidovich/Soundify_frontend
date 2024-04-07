@@ -54,9 +54,11 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         else return 'link clicked'
     }
 
+    const filteredStations = stations.filter(station => !(station._id === 'liked-songs' && station.songs.length === 0))
+
     return <div className="side-list">
 
-        {stations.map(station => (
+        {filteredStations.map(station => (
             <article className="side-preview-container" key={station._id}>
                 <Link className={setLinkClass()}
                     onClick={onSetToggleLink}
@@ -73,6 +75,26 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
                 </Link>
             </article>
         ))}
+
+        {stations.some(station => station._id === 'liked-songs' && station.songs.length > 0) && (
+            <article className="side-preview-container" key="liked-songs">
+                <Link
+                    className={setLinkClass()}
+                    onClick={onSetToggleLink}
+                    to={`/station/liked-songs`}
+                >
+                    <SidePreview
+                        station={stations.find(station => station._id === 'liked-songs')}
+                        onRemoveStation={onRemoveStation}
+                        onContextMenuOpen={handleContextMenuOpen}
+                        onContextMenuClose={handleContextMenuClose}
+                        isContextMenuOpen={openContextMenuStationId === 'liked-songs'}
+                        contextMenuPosition={contextMenuPosition}
+                        onTriggerUpdate={() => handleUpdateClick(station)}
+                    />
+                </Link>
+            </article>
+        )}
 
         {isOnUpdate && (
             <UpdateStation

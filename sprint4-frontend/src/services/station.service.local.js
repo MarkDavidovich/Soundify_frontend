@@ -19,8 +19,8 @@ export const stationService = {
 window.cs = stationService
 
 async function query(filterBy = {}, sortBy = {}) {
-
     var stations = await storageService.query(STORAGE_KEY)
+
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
         stations = stations.filter(station => regex.test(station.name) || regex.test(station.artist))
@@ -127,6 +127,24 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
     }
 }
 
+function createEmptyLikedSongsPlaylist() {
+    return {
+        _id: 'liked-songs',
+        name: 'Liked Songs',
+        tags: [],
+        desc: 'Playlist of liked songs',
+        songs: [],
+        likedByUsers: [],
+        imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
+        createdBy: {
+            _id: '',
+            fullname: 'Guest',
+            imgUrl: 'https://robohash.org/userrobohash'
+        },
+        createdAt: '',
+    }
+}
+
 //DEMODATA
 
 const sInTheEnd = {
@@ -139,6 +157,7 @@ const sInTheEnd = {
     addedBy: 'Mark',
     duration: '3:36',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sMrBlueSky = {
     id: utilService.makeId(),
@@ -150,6 +169,7 @@ const sMrBlueSky = {
     addedBy: 'Mark',
     duration: '5:03',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sNowThatTheMagicHasGone = {
     id: utilService.makeId(),
@@ -161,6 +181,7 @@ const sNowThatTheMagicHasGone = {
     addedBy: 'Mark',
     duration: '4:38',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sDreamOn = {
     id: utilService.makeId(),
@@ -172,6 +193,7 @@ const sDreamOn = {
     addedBy: 'Mark',
     duration: '4:29',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sHaveYouEverSeenTheRain = {
     id: utilService.makeId(),
@@ -183,6 +205,7 @@ const sHaveYouEverSeenTheRain = {
     addedBy: 'Mark',
     duration: '2:45',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sStop = {
     id: utilService.makeId(),
@@ -194,6 +217,7 @@ const sStop = {
     addedBy: 'Mark',
     duration: '4:55',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sThisLove = {
     id: utilService.makeId(),
@@ -205,6 +229,7 @@ const sThisLove = {
     addedBy: 'Mark',
     duration: '3:25',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sSmoothCriminal = {
     id: utilService.makeId(),
@@ -216,6 +241,7 @@ const sSmoothCriminal = {
     addedBy: 'Nadav',
     duration: '4:00',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sBeatIt = {
     id: utilService.makeId(),
@@ -227,6 +253,7 @@ const sBeatIt = {
     addedBy: 'Nadav',
     duration: '4:18',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sJohnnyBGoode = {
     id: utilService.makeId(),
@@ -238,6 +265,7 @@ const sJohnnyBGoode = {
     addedBy: 'Nadav',
     duration: '2:42',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sEnglishmanInNewYork = {
     id: utilService.makeId(),
@@ -249,6 +277,7 @@ const sEnglishmanInNewYork = {
     addedBy: 'Nadav',
     duration: '4:27',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sSultansOfSwing = {
     id: utilService.makeId(),
@@ -260,6 +289,7 @@ const sSultansOfSwing = {
     addedBy: 'Nadav',
     duration: '4:26',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sHighwayToHell = {
     id: utilService.makeId(),
@@ -271,6 +301,7 @@ const sHighwayToHell = {
     addedBy: 'Nadav',
     duration: '3:27',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sBohemianRhapsody = {
     id: utilService.makeId(),
@@ -282,6 +313,7 @@ const sBohemianRhapsody = {
     addedBy: 'Nadav',
     duration: '5:59',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sLoseYourself = {
     id: utilService.makeId(),
@@ -293,6 +325,7 @@ const sLoseYourself = {
     addedBy: 'Haim',
     duration: '5:23',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sCalifornication = {
     id: utilService.makeId(),
@@ -304,6 +337,7 @@ const sCalifornication = {
     addedBy: 'Haim',
     duration: '5:21',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sHypnotize = {
     id: utilService.makeId(),
@@ -315,6 +349,7 @@ const sHypnotize = {
     addedBy: 'Haim',
     duration: '3:50',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sCenturies = {
     id: utilService.makeId(),
@@ -326,6 +361,7 @@ const sCenturies = {
     addedBy: 'Haim',
     duration: '3:46',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sNumbEncore = {
     id: utilService.makeId(),
@@ -337,6 +373,7 @@ const sNumbEncore = {
     addedBy: 'Haim',
     duration: '3:25',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sHighHopes = {
     id: utilService.makeId(),
@@ -348,6 +385,7 @@ const sHighHopes = {
     addedBy: 'Haim',
     duration: '3:12',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 const sHereWithoutYou = {
     id: utilService.makeId(),
@@ -359,6 +397,7 @@ const sHereWithoutYou = {
     addedBy: 'Haim',
     duration: '3:55',
     addedAt: utilService.randomAddedTime(),
+    isLiked: false,
 }
 
 function _createStations() {
@@ -366,7 +405,10 @@ function _createStations() {
     let stations = utilService.loadFromStorage(STORAGE_KEY)
 
     if (!stations || !stations.length) {
+
         stations = [
+
+
             _createStation('Our Favorites',
                 "our favorite songs!",
                 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/Station%20images/liked-songs-300_kljhls.png',
@@ -434,6 +476,7 @@ function _createStations() {
                 ],
                 'Soundify',
                 ['Made For You']),
+            createEmptyLikedSongsPlaylist(),
         ]
     }
 

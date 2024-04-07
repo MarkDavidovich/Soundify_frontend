@@ -1,7 +1,7 @@
 import { stationService } from '../../services/station.service.local.js'
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_SORT, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from '../reducers/station.reducer.js'
+import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_SORT, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION, ADD_TO_LIKED_SONGS } from '../reducers/station.reducer.js'
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -20,6 +20,13 @@ export function getActionUpdateStation(station) {
     return {
         type: UPDATE_STATION,
         station
+    }
+}
+
+export function AddToLikedSongs(song) {
+    return {
+        type: ADD_TO_LIKED_SONGS,
+        song
     }
 }
 

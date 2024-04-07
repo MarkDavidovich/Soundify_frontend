@@ -17,12 +17,6 @@ export function StationList({ stations }) {
       togglePlaying(true)
       return
     }
-
-    if (!song) song = station.songs[0]
-    setCurrStation(station)
-    setCurrSong(song)
-    setNextSong(song, station)
-    setPrevSong(song, station)
   }
 
   function handleStationClick(station) {

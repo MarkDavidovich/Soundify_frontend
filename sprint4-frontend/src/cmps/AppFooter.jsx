@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player'
 import { togglePlaying, getActionCurrSongIdx } from '../store/actions/player.actions.js'
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service.js'
+import { AddToLikedSongs } from '../store/actions/station.actions.js'
 
 export function AppFooter() {
 
@@ -13,6 +14,7 @@ export function AppFooter() {
     const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
     const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
     const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
+
 
     // Volume states
     const [volume, setVolume] = useState(0.5)
@@ -37,6 +39,8 @@ export function AppFooter() {
     const currStation = stations[currStationIdx]
     const currSong = currStation?.songs[currSongIdx]
     let shuffledSongIndices = []
+    const likedSongsStation = stations.find(station => station._id === 'liked-songs')
+
     const playerRef = useRef(null) //ref for the reactplayer cmp
 
     function play() {
@@ -136,17 +140,22 @@ export function AppFooter() {
         dispatch(getActionCurrSongIdx(nextSongIdx))
     }
 
+    function handleSongLike(song) {
+        dispatch(AddToLikedSongs(song))
+    }
+
     useEffect(() => {
         setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
     }, [currSongTime, totalSongTime])
 
-    if (!currSong) return <div>loading...</div>
+    if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
 
     return (
         <footer className="app-footer">
             {currSong && <div className="song-details-container">
                 <SongPreview
-                    currSong={currSong} />
+                    currSong={currSong}
+                    handleSongLike={handleSongLike} />
             </div>}
             <div className='controls-main-container'>
                 <div className='player-controls-main'>
