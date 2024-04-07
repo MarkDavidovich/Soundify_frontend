@@ -13,11 +13,10 @@ export const stationService = {
     getEmptyStation,
     getEmptyFilterBy,
     getDefaultSort,
-    addStationMsg
-
+    addStationMsg,
+    getIdxById,
 }
 window.cs = stationService
-
 
 async function query(filterBy = {}, sortBy = {}) {
 
@@ -44,6 +43,18 @@ async function query(filterBy = {}, sortBy = {}) {
 
 function getById(stationId) {
     return storageService.get(STORAGE_KEY, stationId)
+}
+
+async function getIdxById(id) {
+    try {
+        const stations = await query()
+        const idx = stations.findIndex(station => station._id === id)
+        if (idx === -1) return new Error('could not find index in stations')
+        return idx
+    }
+    catch (err) {
+        console.log('could not get station idx', err)
+    }
 }
 
 async function remove(stationId) {

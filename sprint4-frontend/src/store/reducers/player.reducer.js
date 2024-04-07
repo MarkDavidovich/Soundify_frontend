@@ -1,35 +1,25 @@
 
-export const SET_CURR_SONG = 'SET_CURR_SONG'
-export const SET_CURR_STATION = 'SET_CURR_STATION'
+export const SET_CURR_SONG_IDX = 'SET_CURR_SONG_IDX'
+export const SET_CURR_STATION_IDX = 'SET_CURR_STATION_IDX'
 export const IS_PLAYING = 'IS_PLAYING'
-export const SET_NEXT_SONG = 'SET_NEXT_SONG'
-export const SET_PREV_SONG = 'SET_PREV_SONG'
 
 const initialState = {
-  currSong: {},
-  currStation: {},
+  currSongIdx: 0,
+  currStationIdx: 0,
   isPlaying: false,
-  nextSong: null,
-  prevSong: null,
 }
 
 export function playerReducer(state = initialState, action) {
   var newState = state
   switch (action.type) {
-    case SET_CURR_SONG:
-      newState = { ...state, currSong: action.currSong }
+    case SET_CURR_SONG_IDX:
+      newState = { ...state, currSongIdx: action.currSongIdx }
       break
-    case SET_CURR_STATION:
-      newState = { ...state, currStation: action.currStation }
+    case SET_CURR_STATION_IDX:
+      newState = { ...state, currStationIdx: action.currStationIdx }
       break
     case IS_PLAYING:
       newState = { ...state, isPlaying: action.isPlaying }
-      break
-    case SET_NEXT_SONG:
-      newState = { ...state, nextSong: action.nextSong }
-      break
-    case SET_PREV_SONG:
-      newState = { ...state, prevSong: action.prevSong }
       break
     default:
       return state

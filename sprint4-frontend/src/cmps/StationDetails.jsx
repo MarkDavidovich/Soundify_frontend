@@ -6,14 +6,15 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useDispatch, useSelector } from "react-redux"
 
 import { stationService } from "../services/station.service.local"
-import { getActionCurrSong, togglePlaying } from "../store/actions/player.actions"
+import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 
 export function StationDetails() {
-
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const currStation = useSelector(storeState => storeState.playerModule.currStation)
+
+    const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
+    console.log("🚀 ~ StationDetails ~ currStation:", currStation)
     const [backgroundColor, setBackgroundColor] = useState('')
     const [textColor, setTextColor] = useState('')
 
@@ -30,19 +31,26 @@ export function StationDetails() {
     }
     useEffect(() => {
         const { id } = params
-        extractColor(currStation.imgUrl, setBackgroundColor, setTextColor)
+        if (!id) return
+        // extractColor(currStation.imgUrl, setBackgroundColor, setTextColor)
 
-        stationService.getById(id)
-            .then(station => {
-                if (!station) return navigate('/')
-                setCurrStation(station)
-            })
-            .catch(() => {
-                showErrorMsg('Had issues loading station')
-            })
+        setCurrStation(id)
+
     }, [params, currStation])
 
+    async function setCurrStation(id) {
+        try {
+            const idx = await stationService.getIdxById(id)
+            setCurrStationIdx(idx)
+        }
+        catch (err) {
+            showErrorMsg('Had issues loading station')
+            console.log('had issues loading station', err)
+            return navigate('/')
+        }
+    }
     function calcStationDuration(songs) {
+        console.log('songs:', songs)
         let totalDurationInSeconds = 0
 
         songs.forEach(song => {
@@ -57,10 +65,14 @@ export function StationDetails() {
         return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
     }
 
-    function handleSongClick(song) {
-        dispatch(getActionCurrSong(song))
-        togglePlaying(false)
+    function handleSongClick(songIdx) {
+        // console.log("🚀 ~ handleSongClick ~ song:", song)
+        console.log("currStation.songs:", currStation.songs)
+        console.log("🚀 ~ handleSongClick ~ songIdx:", songIdx)
+        dispatch(getActionCurrSongIdx(songIdx))
+        togglePlaying(!true)
     }
+
 
     function formatAddedTime(addedTime) {
         const diff = Date.now() - addedTime;
@@ -133,12 +145,12 @@ export function StationDetails() {
                             <>
                                 <div className="song-preview-container">
                                     <li className="song-preview clean-list" key={song.id}>
-                                        <div className="song-num flex" onClick={() => handleSongClick(song)}>{idx + 1}</div>
+                                        <div className="song-num flex" onClick={() => handleSongClick(idx)}>{idx + 1}</div>
                                         <div className="song-info">
                                             <img className="song-img" src={song.imgUrl} alt="" />
                                             <div className="station-title-artist flex">
-                                            <div className="song-title" title={song.title}> {song.title}</div>
-                                            <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
+                                                <div className="song-title" title={song.title}> {song.title}</div>
+                                                <a className="song-artist" href="#" title={song.artist}>{song.artist}</a>
                                             </div>
                                         </div>
                                         <a className="song-album" href="#" title={song.album}> {song.album}</a>

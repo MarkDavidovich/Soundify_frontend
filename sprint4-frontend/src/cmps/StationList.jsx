@@ -3,7 +3,7 @@ import { StationPreview } from "./StationPreview";
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { getActionCurrStation } from '../../src/store/actions/player.actions'
+import { getActionCurrStationIdx } from '../../src/store/actions/player.actions'
 
 export function StationList({ stations }) {
   const dispatch = useDispatch()
@@ -26,7 +26,7 @@ export function StationList({ stations }) {
   }
 
   function handleStationClick(station) {
-    dispatch(getActionCurrStation(station))
+    dispatch(getActionCurrStationIdx(station))
   }
 
   if (!stations) return <div>LOADING STATIONS...</div>

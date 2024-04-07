@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { UpdateStation } from "./UpdateStation"
-import { getActionCurrStation } from "../../store/actions/player.actions"
+import { getActionCurrStationIdx } from "../../store/actions/player.actions"
 import { useDispatch } from 'react-redux'
 
 export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, onContextMenuClose, contextMenuPosition }) {
@@ -24,7 +24,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     function handleStationClick(station) {
-        dispatch(getActionCurrStation(station))
+        dispatch(getActionCurrStationIdx(station))
     }
 
     return (
