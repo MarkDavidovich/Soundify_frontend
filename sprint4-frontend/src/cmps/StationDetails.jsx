@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { FastAverageColor } from 'fast-average-color'
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useDispatch, useSelector } from "react-redux"
 
 import { stationService } from "../services/station.service.local"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
+
 
 export function StationDetails() {
     const params = useParams()
@@ -97,6 +101,9 @@ export function StationDetails() {
 
     // const { _id, name, songs, imgUrl } = currStation
     return (
+      <DragDropContext onDragEnd={this.onDragEnd}>
+      <Droppable droppableId="droppable">
+        {(provided, snapshot) => (
         <div className="station-details flex">
             <div className="station-data-container">
             <div className="info-station flex" style={{ background: `linear-gradient(transparent 0, rgba(0, 0, 0, 0.5) 100%), ${backgroundColor}` }}>
