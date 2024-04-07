@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { FastAverageColor } from 'fast-average-color'
-
-import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { useDispatch, useSelector } from "react-redux"
 
-import { stationService } from "../services/station.service.local"
-import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
+import { FastAverageColor } from 'fast-average-color'
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
+
+import { showErrorMsg } from "../services/event-bus.service"
+import { stationService } from "../services/station.service.local"
 import { updateStation } from "../store/actions/station.actions"
+import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
+import { SongActionModal } from "./songActionModal"
 
 
 export function StationDetails() {
@@ -17,24 +18,22 @@ export function StationDetails() {
   const dispatch = useDispatch()
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
-  const [textColor, setTextColor] = useState('')
-  console.log('song list:', currStation?.songs)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  async function extractColor(stationImgUrl, setBackgroundColor, setTextColor) {
+  async function extractColor(stationImgUrl, setBackgroundColor) {
     const fac = new FastAverageColor()
     try {
       const color = await fac.getColorAsync(stationImgUrl)
-      setBackgroundColor(color.hex);
-      setTextColor(color.isDark ? '#fff' : '#000')
+      setBackgroundColor(color.hex)
     } catch (error) {
       console.error('Error extracting color:', error)
-      // Handle error (e.g., fallback color)
     }
   }
+  
   useEffect(() => {
     const { id } = params
     if (!id) return
-    extractColor(currStation?.imgUrl, setBackgroundColor, setTextColor)
+    extractColor(currStation?.imgUrl, setBackgroundColor)
 
     setCurrStation(id)
 
@@ -43,12 +42,11 @@ export function StationDetails() {
   async function setCurrStation(id) {
     try {
       const idx = await stationService.getIdxById(id)
-      console.log("🚀 ~ setCurrStation ~ idx:", idx)
       setCurrStationIdx(idx)
     }
     catch (err) {
       showErrorMsg('Had issues loading station')
-      console.log('Had issues loading station', err)
+      console.error('Had issues loading station', err)
       return navigate('/')
     }
   }
@@ -73,7 +71,6 @@ export function StationDetails() {
     togglePlaying(!true)
   }
 
-
   function formatAddedTime(addedTime) {
     const diff = Date.now() - addedTime;
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -93,9 +90,8 @@ export function StationDetails() {
   }
 
   async function onDragEnd(result) {
-    console.log("🚀 ~ file: StationDetails.jsx:96 ~ onDragEnd ~ result:", result)
     const { source, destination } = result
-    
+
     if (!destination) return
 
     const copiedSongs = [...currStation.songs]
@@ -115,7 +111,6 @@ export function StationDetails() {
   if (!currStation) return <h4>loading...</h4>
   let StationDuration = calcStationDuration(currStation.songs)
 
-  // const { _id, name, songs, imgUrl } = currStation
   return (
     <div className="station-details flex">
       <div className="station-data-container">
@@ -135,7 +130,7 @@ export function StationDetails() {
             </div>
           </div>
         </div>
-        <div className="menu-station">
+        <div className="menu-station flex">
           <button className="play-btn btn"><span>
             <svg width="16" height="16" viewBox="0 0 16 16" >
               <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
@@ -158,6 +153,7 @@ export function StationDetails() {
             <Droppable droppableId="station-droppable">
               {(provided) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef}>
+
                   {currStation.songs.map((song, idx) => (
                     <Draggable draggableId={song.id} key={song.id} index={idx}>
                       {(providedDraggable) => (
@@ -185,7 +181,16 @@ export function StationDetails() {
                             {song.album}
                           </a>
                           <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-                          <div className="song-duration">{song.duration}</div>
+                          <div className="song-duration">{song.duration}<button className="options">...</button>
+                          </div>
+                          {isModalOpen && (
+                            <div className="modal">
+                              <div className="modal-content">
+                                <span className="close" onClick={handleModalClose}>X</span>
+                                <SongActionModal />
+                              </div>
+                            </div>
+                          )}
                         </li>
                       )}
                     </Draggable>
