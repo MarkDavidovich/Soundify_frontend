@@ -16,22 +16,20 @@
         width: 45%;
 
         .player-controls-main {
+            margin-top: 4px;
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 16px;
+            gap: 4px;
 
             .player-controls-left {
                 display: flex;
                 justify-content: flex-end;
-                flex: 1;
-                gap: 8px;
+                // gap: 8px;
 
                 .shuffle-btn {
                     position: relative;
                     @include btn($type: generalPlayerBtn);
-
-
                 }
 
                 .prev-song-btn {
@@ -57,8 +55,7 @@
             .player-controls-right {
                 display: flex;
                 justify-content: flex-start;
-                flex: 1;
-                gap: 8px;
+                // gap: 8px;
 
                 .next-song-btn {
                     @include btn($type: generalPlayerBtn);
@@ -72,8 +69,9 @@
         }
 
         .progress-bar-container {
+            margin-top: 5px;
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             width: 100%;
             align-items: center;
             gap: 8px;
@@ -81,18 +79,19 @@
 
 
             .input-bar {
-                width: 85%;
+                width: 73%;
+                margin-bottom: 8px;
             }
 
             .song-duration {
-                margin-top: 4px;
+                margin-left: 47px;
                 min-width: 40px;
                 text-align: right;
                 cursor: context-menu
             }
 
             .song-remainder {
-                margin-top: 4px;
+                margin-right: 47px;
                 min-width: 40px;
                 text-align: left;
                 cursor: context-menu
@@ -137,10 +136,10 @@
     .input-bar {
         -webkit-appearance: none;
         appearance: none;
-        height: 3px;
+        height: 4px;
         background: #b3b3b3;
         outline: none;
-        border-radius: 3px;
+        border-radius: 4px;
 
         &::-webkit-slider-thumb {
             -webkit-appearance: none;

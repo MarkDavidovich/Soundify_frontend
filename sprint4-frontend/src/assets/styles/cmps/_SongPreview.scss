@@ -23,7 +23,8 @@
     }
 
     .title-artist-container {
-      margin-inline: 8px;
+      margin-inline: 16px;
+      margin-top: 12px;
 
       .song-title {
         font-size: $font-size-14;
@@ -36,8 +37,8 @@
       }
     }
 
-    // .song-like {
-    //   margin-inline: 5px;
-    // }
+    .song-like {
+      margin-top: 13px;
+    }
   }
 }
