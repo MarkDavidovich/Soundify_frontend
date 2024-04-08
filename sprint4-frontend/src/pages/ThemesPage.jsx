@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { SearchSongs } from '../cmps/SearchSongs'
 import { getSongs } from '../services/youtube.api.service'
 
-export function ThemesPage() {
+export function ThemesPage({onSongSelect}) {
 
   const [songs, setSongs] = useState(null)
 
@@ -22,6 +22,10 @@ export function ThemesPage() {
     }
   }
 
+  function handleSongSelect(song) {
+    onSongSelect(song)
+  }
+
 
   return (
     <section className="main-view">
@@ -37,7 +41,7 @@ export function ThemesPage() {
             <h4>url: {song.url}</h4>
             <img src={song.imgUrl}></img>
             <h4>duration: {song.duration}</h4>
-
+            <button onClick={() => handleSongSelect(song)}>Select Song</button>
 
           </div>)
         }
