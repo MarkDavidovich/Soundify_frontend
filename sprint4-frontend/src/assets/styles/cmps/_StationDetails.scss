@@ -3,6 +3,7 @@
     overflow-y: hidden;
     background-color: $clr8;
     border-radius: $border-rad1;
+    --background-noise: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=");
 
     a {
         color: $clr14;
@@ -40,9 +41,42 @@
         opacity: 1;
     }
 
-  
-   
-    
+
+    .info-station {
+        position: relative;
+        background: linear-gradient(transparent 0, rgba(0, 0, 0, .5) 100%), var(--background-noise);
+        background-color: var(--bg-color);
+
+        > *:not(::before) {
+            position: relative;
+        }
+
+        // &::before {
+        //     content: "";
+        //     display: block;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     width: 100%;
+        //     height: 100%;
+        //     pointer-events: none;
+        // }
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 232px;
+            transform: translateY(100%);
+            background-image: linear-gradient(rgba(0, 0, 0, .6) 0, $clr8 100%), var(--background-noise);
+            background-color: var(--bg-color);
+        }
+
+    }
+
 
     .station-img {
         width: 100%;
@@ -143,6 +177,7 @@
     .songs-details-container {
         // padding: 0 1rem;
         padding: 0 em(24px) 0 em(24px);
+        position: relative;
 
         .heading-station {
             background-color: #1a1a1a;
@@ -209,7 +244,7 @@
 
             .dragging {
                 pointer-events: none;
-              }
+            }
 
             grid-template-columns: 16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);
 

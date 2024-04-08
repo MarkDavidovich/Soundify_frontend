@@ -71,6 +71,8 @@ export async function updateStation(station) {
     try {
         const savedStation = await stationService.save(station)
         store.dispatch(getActionUpdateStation(savedStation))
+        console.log("🚀 ~ file: station.actions.js:79 ~ updateStation ~ savedStation:", savedStation)
+
         return savedStation
     } catch (err) {
         console.log('Cannot save station', err)
@@ -86,7 +88,6 @@ export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
 export function setStationSort(sortBy) {
     store.dispatch({ type: SET_SORT, sortBy })
 }
-
 
 
 // Demo for Optimistic Mutation 

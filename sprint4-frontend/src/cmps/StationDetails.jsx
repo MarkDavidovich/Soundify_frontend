@@ -6,7 +6,7 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { stationService } from "../services/station.service.local"
-import { getActionUpdateStation} from "../store/actions/station.actions"
+import { getActionUpdateStation } from "../store/actions/station.actions"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
 
@@ -14,7 +14,7 @@ export function StationDetails() {
   const params = useParams()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  
+
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -24,6 +24,7 @@ export function StationDetails() {
     try {
       const color = await fac.getColorAsync(stationImgUrl)
       setBackgroundColor(color.hex)
+      document.body.style.setProperty('--bg-color', 'purple')
     } catch (error) {
       console.error('Error extracting color:', error)
     }
@@ -98,16 +99,16 @@ export function StationDetails() {
     const updatedStation = { ...currStation, songs: copiedSongs }
 
     try {
-      await dispatch(getActionUpdateStation(updatedStation)) 
-
+      await dispatch(getActionUpdateStation(updatedStation))
       showSuccessMsg('Station updated successfully')
+
     } catch (err) {
       console.error('Failed to update station:', err)
     }
   }
 
   if (!currStation) return <h4>loading...</h4>
-  let StationDuration = calcStationDuration(currStation.songs)
+  let stationDuration = calcStationDuration(currStation.songs)
 
   return (
     <div className="station-details flex">
@@ -123,7 +124,7 @@ export function StationDetails() {
               <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
               <div className="created-by">{currStation.createdBy.fullname} • </div>
               <div className="info-songs">
-                <span>{currStation.songs.length} Songs, {StationDuration}</span>
+                <span>{currStation.songs.length} Songs, {stationDuration}</span>
               </div>
             </div>
           </div>
@@ -150,15 +151,15 @@ export function StationDetails() {
 
           <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
             <Droppable droppableId="station-droppable">
-              {(provided,snapshot) => (
+              {(provided, snapshot) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef}>
 
                   {currStation.songs.map((song, idx) => (
                     <Draggable draggableId={song.id} key={song.id} index={idx}>
                       {(providedDraggable) => (
                         <li
-                        className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''}`}
-                        ref={providedDraggable.innerRef}
+                          className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''}`}
+                          ref={providedDraggable.innerRef}
                           {...providedDraggable.draggableProps}
                           {...providedDraggable.dragHandleProps}
                         >
@@ -180,13 +181,16 @@ export function StationDetails() {
                             {song.album}
                           </a>
                           <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-                          <div className="song-duration">{song.duration}<button className="options">...</button>
+                          <div className="song-duration">{song.duration}<button className="options" onClick={()=>setIsModalOpen(true)} >...</button>
                           </div>
                           {isModalOpen && (
                             <div className="modal">
                               <div className="modal-content">
-                                <span className="close" onClick={handleModalClose}>X</span>
-                                <SongActionModal />
+                                {/* <span className="close" onClick={handleModalClose}>X</span> */}
+                                <SongActionModal
+                                  song={song} 
+                                  currStation={currStation}
+                                  />
                               </div>
                             </div>
                           )}

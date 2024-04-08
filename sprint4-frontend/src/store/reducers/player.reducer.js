@@ -2,6 +2,7 @@
 export const SET_CURR_SONG_IDX = 'SET_CURR_SONG_IDX'
 export const SET_CURR_STATION_IDX = 'SET_CURR_STATION_IDX'
 export const IS_PLAYING = 'IS_PLAYING'
+export const REMOVE_SONG_FROM_STATION = 'REMOVE_SONG_FROM_STATION'
 
 const initialState = {
   currSongIdx: 0,
@@ -18,6 +19,7 @@ export function playerReducer(state = initialState, action) {
     case SET_CURR_STATION_IDX:
       newState = { ...state, currStationIdx: action.currStationIdx }
       break
+
     case IS_PLAYING:
       newState = { ...state, isPlaying: action.isPlaying }
       break
