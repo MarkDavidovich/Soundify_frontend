@@ -102,7 +102,7 @@ function getEmptyStation() {
         createdBy: {
             _id: '',
             fullname: 'Guest', // Add || LoggedIn user
-            imgUrl: 'https://robohash.org/userrobohash'
+            imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
         },
         createdAt: '',
     }
@@ -121,13 +121,13 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
         createdBy: {
             _id: utilService.makeId(),
             fullname: 'Guest',
-            imgUrl: 'https://robohash.org/userrobohash'
+            imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
         },
         createdAt: utilService.randomAddedTime()
     }
 }
 
-function createEmptyLikedSongsPlaylist() {
+function _createEmptyLikedSongsStation() {
     return {
         _id: 'liked-songs',
         name: 'Liked Songs',
@@ -139,7 +139,7 @@ function createEmptyLikedSongsPlaylist() {
         createdBy: {
             _id: '',
             fullname: 'Guest',
-            imgUrl: 'https://robohash.org/userrobohash'
+            imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
         },
         createdAt: '',
     }
@@ -476,7 +476,7 @@ function _createStations() {
                 ],
                 'Soundify',
                 ['Made For You']),
-            createEmptyLikedSongsPlaylist(),
+            _createEmptyLikedSongsStation(),
         ]
     }
 
