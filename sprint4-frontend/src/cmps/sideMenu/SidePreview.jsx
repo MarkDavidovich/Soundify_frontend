@@ -28,7 +28,9 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     return (
-        <div className="side-preview-line" onContextMenu={handleContextMenu} onClick={() => { handleStationClick(station) }}>
+        <div className="side-preview-line"
+            onContextMenu={handleContextMenu}
+            onClick={() => { handleStationClick(station) }}>
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
             <div className="station-preview-details">
                 <span className="station-name">{station.name}</span>
