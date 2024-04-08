@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { loadStations } from '../store/actions/station.actions'
 import { showErrorMsg } from '../services/event-bus.service'
 
+import { AppHeader } from '../cmps/AppHeader'
 import { StationList } from '../cmps/StationList'
 import { StationDetails } from '../cmps/StationDetails'
 
@@ -23,15 +24,14 @@ export function HomePage() {
 
     return (
         <section className="main-view">
-            <pre>
-                HEADER HERE
-            </pre>
+            <AppHeader />
+
             <pre>
                 RECENTLY PLAYED
             </pre>
             <StationList
                 stations={stations} />
-            
+
 
 
         </section >

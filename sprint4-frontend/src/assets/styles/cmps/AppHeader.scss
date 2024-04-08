@@ -1,7 +1,40 @@
-.app-header {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,0.5) 0%, rgba(226,79,92,0.5) 0%, rgba(0,212,255,0.5) 100%); 
-       padding: 10px;
+.main-view-header {
+    // display: flex;
+    background-color: transparent;
+    height: 64px;
+    z-index: 1;
+    width: 100%;
+
+    .prev-next-container {
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+        margin-left: 6px;
+
+        button.prev-btn,
+        button.next-btn {
+            @include btn($type: regular);
+            background-color: $clr15;
+            border-radius: 50%;
+            height: 38px;
+
+            svg {
+                width: 20px;
+                height: 16px;
+
+                path {
+                    stroke: $clr3;
+                    fill: $clr3;
+                    stroke: width px;
+                }
+            }
+        }
+    }
+
+
+
+
+
 
 
     .user-info {
@@ -9,14 +42,6 @@
         // padding: 2px 8px;
         padding-left: 100px;
         color: $clr1;
-
-        .score {
-            background-color: $clr2;
-            color: $clr6;
-            padding: 8px;
-            margin: 10px;
-            border-radius: 50%;
-        }
 
         img {
             width: 32px;
@@ -26,29 +51,29 @@
         }
     }
 
-    .user-info .btn-link {
-        color: $clr2;
-    }
+    // .user-info .btn-link {
+    //     color: $clr2;
+    // }
 
-    nav {
-        font-size: .8em;
-        background-color: $clr5;
-        padding: 5px;
+    // nav {
+    //     font-size: .8em;
+    //     background-color: $clr5;
+    //     padding: 5px;
 
-    }
+    // }
 
-    nav a:first-child {
-        margin-right: 30px;
-    }
+    // nav a:first-child {
+    //     margin-right: 30px;
+    // }
 
-    nav a:not(:first-child) {
-        border-top: 1px solid $clr1;
-        padding: 0 5px;
-        margin: 10px;
-    }
+    // nav a:not(:first-child) {
+    //     border-top: 1px solid $clr1;
+    //     padding: 0 5px;
+    //     margin: 10px;
+    // }
 
-    nav .active {
-        color: $clr1;
-    }
+    // nav .active {
+    //     color: $clr1;
+    // }
 
 }
