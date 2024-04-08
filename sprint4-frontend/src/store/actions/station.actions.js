@@ -67,17 +67,15 @@ export async function addStation(station) {
     }
 }
 
-export function updateStation(station) {
-    return stationService.save(station)
-        .then(savedStation => {
-            console.log('Updated station:', savedStation)
-            store.dispatch(getActionUpdateStation(savedStation))
-            return savedStation
-        })
-        .catch(err => {
-            console.log('Cannot save station', err)
-            throw err
-        })
+export async function updateStation(station) {
+    try {
+        const savedStation = await stationService.save(station)
+        store.dispatch(getActionUpdateStation(savedStation))
+        return savedStation
+    } catch (err) {
+        console.log('Cannot save station', err)
+        throw err
+    }
 }
 
 export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
@@ -113,3 +111,16 @@ export function onRemoveStationOptimistic(stationId) {
         })
 }
 
+
+// export function updateStation(station) {
+//     return stationService.save(station)
+//         .then(savedStation => {
+//             console.log('Updated station:', savedStation)
+//             store.dispatch(getActionUpdateStation(savedStation))
+//             return savedStation
+//         })
+//         .catch(err => {
+//             console.log('Cannot save station', err)
+//             throw err
+//         })
+// }
