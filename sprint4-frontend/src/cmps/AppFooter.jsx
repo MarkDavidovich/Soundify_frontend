@@ -217,6 +217,7 @@ export function AppFooter() {
                         </button>
                     </div>
                 </div>
+
                 <div className='progress-bar-container'>
                     {/* <div className="following-bar" style={{ width: `${ progress * 100 / 2 }% ` }}></div> */}
                     <span className='song-duration'>{formatTime(currSongTime)}</span>

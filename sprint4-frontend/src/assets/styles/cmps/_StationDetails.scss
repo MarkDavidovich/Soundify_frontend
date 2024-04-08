@@ -179,6 +179,11 @@
 
     .menu-station {
         justify-content: space-between;
+        display: flex;
+        position: relative;
+        align-items: center;
+        height: 104px;
+        padding: 16px;
 
         &>* {
             background: none;
@@ -186,27 +191,41 @@
     }
 
     .right-menu-btns {
+        display: flex;
 
+
+        >* {
+            margin: 0;
+            margin-right: 32px;
+        }
 
         .play-btn {
             display: flex;
             align-items: center;
             justify-content: center;
+            text-align: center;
             background-color: #1ed760;
             height: em(56px);
             width: em(56px);
             color: black;
             border-radius: 32px;
+
         }
 
         .opt-btn {
             background: none;
         }
+
+
     }
 
     .options {
         background: none;
         opacity: 0;
+    }
+
+    .display-station-btn {
+        gap: 8px;
     }
 
 
