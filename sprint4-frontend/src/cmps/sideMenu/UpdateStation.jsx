@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { stationService } from "../../services/station.service.local";
+import { uploadService } from "../../services/upload.service";
 
-import TextField from '@mui/material/TextField';
 
 export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleStationUpdate }) {
 
@@ -19,15 +19,32 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
         setImagePreview(URL.createObjectURL(file))
     }
 
-    function handleFileChange(ev) {
+    async function handleFileChange(ev) {
         const file = ev.target.files[0]
         if (file) {
             const filePreviewUrl = URL.createObjectURL(file)
             setImagePreview(filePreviewUrl)
 
-            setStationToUpdate(prevUpdate => ({ ...prevUpdate, imgUrl: file }))
+            try {
+                const uploadResponse = await uploadService.uploadImg(ev)
+                console.log("🚀 ~ handleFileChange ~ uploadResponse:", uploadResponse)
+
+                setStationToUpdate(prevUpdate => ({ ...prevUpdate, imgUrl: uploadResponse.url }))
+            } catch (err) {
+                console.error("Error uploading image:", err)
+            }
+
         }
     }
+    // function handleFileChange(ev) {
+    //     const file = ev.target.files[0]
+    //     if (file) {
+    //         const filePreviewUrl = URL.createObjectURL(file)
+    //         setImagePreview(filePreviewUrl)
+
+    //         setStationToUpdate(prevUpdate => ({ ...prevUpdate, imgUrl: file }))
+    //     }
+    // }
 
     function handleSubmit(ev) {
         ev.preventDefault()
@@ -74,14 +91,16 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
                             onChange={handleChange}
                         />
 
-                        <input className="station-desc"
-                            type="text"
-                            id="txt"
-                            label="Description"
-                            name="desc"
-                            value={stationToUpdate.desc}
-                            onChange={handleChange}
-                        />
+                        <pre>
+                            <textarea className="station-desc"
+                                type="text"
+                                id="txt"
+                                label="Description"
+                                name="desc"
+                                value={stationToUpdate.desc}
+                                onChange={handleChange}
+                            />
+                        </pre>
 
                         <div className="station-img"
                             onMouseOver={() => setIsHovering(true)}
