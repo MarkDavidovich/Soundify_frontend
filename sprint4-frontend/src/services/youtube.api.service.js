@@ -66,11 +66,13 @@ export async function getSongs(term) {
             return {
                 id: video.id.videoId,
                 title: cleanedTitle,
-                artists: video.snippet.channelTitle,
+                artist: video.snippet.channelTitle,
                 url: `https://www.youtube.com/watch?v=${video.id.videoId}`,
                 imgUrl: video.snippet.thumbnails.default.url,
                 isLiked: false,
-                duration: details ? convertDuration(details.contentDetails.duration) : 'Unknown'
+                duration: details ? convertDuration(details.contentDetails.duration) : 'Unknown',
+                addedAt: new Date,
+                addedBy: 'Guest'
             }
         })
 
