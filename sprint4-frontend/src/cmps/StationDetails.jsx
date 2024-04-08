@@ -68,10 +68,15 @@ export function StationDetails() {
     return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
   }
 
-  function handleSongClick(songIdx = 0) {
-    const songIdxToPlay = songIdx ? songIdx : currSongIdx
-    dispatch(getActionCurrSongIdx(songIdxToPlay))
-    togglePlaying(isPlaying)
+  function handleSongClick(songIdx) {
+    if (songIdx === undefined) { // main play button will return undefined 
+      togglePlaying(isPlaying)
+
+    } else {
+      dispatch(getActionCurrSongIdx(songIdx))
+      togglePlaying(false) // toggle will always switch it to true
+    }
+
   }
 
   function formatAddedTime(addedTime) {
