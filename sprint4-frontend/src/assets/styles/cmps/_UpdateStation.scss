@@ -43,8 +43,13 @@
 
                 .close-btn {
                     margin-left: 10px;
-
                     background-color: $clr11;
+
+                    &:hover {
+                        border-radius: 25px;
+                        background-color: $clr12;
+                        transition: 0.3s;
+                    }
 
                     svg {
                         width: 16px;
@@ -95,6 +100,7 @@
                     width: 312px;
                     height: 138px;
                     justify-self: end;
+                    resize: none;
 
                     border: none;
                     outline: none;
