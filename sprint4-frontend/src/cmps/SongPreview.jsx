@@ -5,13 +5,11 @@ import { useSelector } from 'react-redux'
 export function SongPreview({ currSong, handleSongLike }) {
   const [isLiked, setIsLiked] = useState()
 
-
   function toggleIsLiked() {
     const updatedIsLiked = !isLiked
     setIsLiked(updatedIsLiked)
     console.log("🚀 ~ SongPreview ~ currSong:", currSong)
     currSong.isLiked = updatedIsLiked
-    handleSongLike(currSong)
   }
 
   useEffect(() => {
@@ -50,4 +48,3 @@ export function SongPreview({ currSong, handleSongLike }) {
       </div>
     ))
 }
-

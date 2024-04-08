@@ -61,8 +61,6 @@ async function getLikedSong() {
     return await storageService.query(LIKED_SONG_KEY).filter()
 }
 
-
-
 // Demo Data
 const songsList =
     [

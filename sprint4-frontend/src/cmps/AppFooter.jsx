@@ -5,7 +5,6 @@ import ReactPlayer from 'react-player'
 import { togglePlaying, getActionCurrSongIdx } from '../store/actions/player.actions.js'
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service.js'
-import { AddToLikedSongs } from '../store/actions/station.actions.js'
 
 export function AppFooter() {
 
@@ -14,7 +13,6 @@ export function AppFooter() {
     const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
     const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
     const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
-
 
     // Volume states
     const [volume, setVolume] = useState(0.5)
@@ -102,6 +100,7 @@ export function AppFooter() {
     }
 
     function goToPrevSong() {
+
         if (!currSong.title || !currStation._id) return
 
         if (shuffle) {
@@ -148,7 +147,7 @@ export function AppFooter() {
         setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
     }, [currSongTime, totalSongTime])
 
-    if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
+    // if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
 
     return (
         <footer className="app-footer">
@@ -321,7 +320,7 @@ export function AppFooter() {
             <ReactPlayer
                 className="react-player"
                 ref={playerRef}
-                url={currSong.url}
+                url={currSong?.url}
                 config={{
                     youtube: {
                         playerVars: {
