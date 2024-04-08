@@ -42,12 +42,13 @@
     }
 
 
+
     .info-station {
         position: relative;
         background: linear-gradient(transparent 0, rgba(0, 0, 0, .5) 100%), var(--background-noise);
         background-color: var(--bg-color);
 
-        > *:not(::before) {
+        >*:not(::before) {
             position: relative;
         }
 
@@ -151,21 +152,30 @@
     }
 
     .menu-station {
+        justify-content: space-between;
 
         &>* {
             background: none;
         }
     }
 
-    .play-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #1ed760;
-        height: em(56px);
-        width: em(56px);
-        color: black;
-        border-radius: 32px;
+    .right-menu-btns {
+
+
+        .play-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1ed760;
+            height: em(56px);
+            width: em(56px);
+            color: black;
+            border-radius: 32px;
+        }
+
+        .opt-btn {
+            background: none;
+        }
     }
 
     .options {
@@ -180,7 +190,6 @@
         position: relative;
 
         .heading-station {
-            background-color: #1a1a1a;
             display: grid;
             position: sticky;
             top: 0;
@@ -276,5 +285,11 @@
             }
 
         }
+    }
+
+    .horizontal-line {
+        background-color: rgba(255, 255, 255, 0.284);
+        width: 100%;
+        height: 1px;
     }
 }

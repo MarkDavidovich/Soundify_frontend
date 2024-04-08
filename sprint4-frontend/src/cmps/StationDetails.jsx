@@ -100,6 +100,7 @@ export function StationDetails() {
 
     try {
       await dispatch(getActionUpdateStation(updatedStation))
+
       showSuccessMsg('Station updated successfully')
 
     } catch (err) {
@@ -130,13 +131,25 @@ export function StationDetails() {
           </div>
         </div>
         <div className="menu-station flex">
-          <button className="play-btn btn"><span>
-            <svg width="16" height="16" viewBox="0 0 16 16" >
-              <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+          <div className="right-menu-btns flex">
+            <button className="play-btn btn"><span>
+              <svg width="16" height="16" viewBox="0 0 16 16" >
+                <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+              </svg>
+            </span></button>
+            <button className="opt-btn btn"><span>...</span></button>
+          </div>
+          <button className="display-station-btn btn flex">
+            <span>List</span>
+            <svg height='16' width='16' viewBox="0 0 16 16" >
+              <path d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"
+                fill="#f5f5f5"
+              // stroke="white"
+              >
+              </path>
             </svg>
-          </span></button>
-          <button className="opt-btn btn"><span>...</span></button>
-          <button className="display-station-btn btn"><span>List</span>🍔</button>
+
+          </button>
         </div>
         <div className="songs-details-container">
           <div className="heading-station">
@@ -148,6 +161,7 @@ export function StationDetails() {
               <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
             </span>
           </div>
+          <div className="horizontal-line"></div>
 
           <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
             <Droppable droppableId="station-droppable">
@@ -181,16 +195,16 @@ export function StationDetails() {
                             {song.album}
                           </a>
                           <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-                          <div className="song-duration">{song.duration}<button className="options" onClick={()=>setIsModalOpen(true)} >...</button>
+                          <div className="song-duration">{song.duration}<button className="options" onClick={() => setIsModalOpen(true)} >...</button>
                           </div>
                           {isModalOpen && (
                             <div className="modal">
                               <div className="modal-content">
                                 {/* <span className="close" onClick={handleModalClose}>X</span> */}
                                 <SongActionModal
-                                  song={song} 
+                                  song={song}
                                   currStation={currStation}
-                                  />
+                                />
                               </div>
                             </div>
                           )}
