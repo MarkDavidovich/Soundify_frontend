@@ -26,13 +26,17 @@ export function HomePage() {
         <section className="main-view">
             <AppHeader />
 
-            <pre>
-                RECENTLY PLAYED
-            </pre>
+            <div>some stations</div>
             <StationList
                 stations={stations} />
 
+            <div>some more stations</div>
+            <StationList
+                stations={stations} />
 
+            <div>even more stations</div>
+            <StationList
+                stations={stations} />
 
         </section >
     )
