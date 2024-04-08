@@ -147,18 +147,18 @@ export function StationDetails() {
               <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
             </span>
           </div>
-          
+
           <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
             <Droppable droppableId="station-droppable">
-              {(provided) => (
+              {(provided,snapshot) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef}>
 
                   {currStation.songs.map((song, idx) => (
                     <Draggable draggableId={song.id} key={song.id} index={idx}>
                       {(providedDraggable) => (
                         <li
-                          className="song-preview clean-list"
-                          ref={providedDraggable.innerRef}
+                        className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''}`}
+                        ref={providedDraggable.innerRef}
                           {...providedDraggable.draggableProps}
                           {...providedDraggable.dragHandleProps}
                         >
