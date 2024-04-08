@@ -71,7 +71,7 @@ export async function getSongs(term) {
                 imgUrl: video.snippet.thumbnails.default.url,
                 isLiked: false,
                 duration: details ? convertDuration(details.contentDetails.duration) : 'Unknown',
-                addedAt: new Date,
+                addedAt: Date.now(),
                 addedBy: 'Guest'
             }
         })
