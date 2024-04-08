@@ -218,20 +218,23 @@ export function AppFooter() {
                     </div>
                 </div>
 
-                <div className='progress-bar-container'>
-                    {/* <div className="following-bar" style={{ width: `${ progress * 100 / 2 }% ` }}></div> */}
+                <div className='progress-container'>
+
                     <span className='song-duration'>{formatTime(currSongTime)}</span>
-                    <input
-                        className='input-bar'
-                        type='range'
-                        id='progressRange'
-                        name='progressRange'
-                        min={0}
-                        max={playerRef.current ? playerRef.current.getDuration() : 0}
-                        step={0.1}
-                        value={progress}
-                        onChange={handleSeek}
-                    />
+                    <div className='progress-bar-container'>
+                        <div className="following-bar" style={{ width: `${progress / totalSongTime * 100}%` }}></div>
+                        <input
+                            className='input-bar'
+                            type='range'
+                            id='progressRange'
+                            name='progressRange'
+                            min={0}
+                            max={playerRef.current ? playerRef.current.getDuration() : 0}
+                            step={0.1}
+                            value={progress}
+                            onChange={handleSeek}
+                        />
+                    </div>
                     <span className='song-remainder' onClick={() => {
                         setShowRemainder(!showRemainder)
                         setCurrSongRemainder(totalSongTime - currSongTime)
