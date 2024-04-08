@@ -24,7 +24,7 @@ export function StationDetails() {
     try {
       const color = await fac.getColorAsync(stationImgUrl)
       setBackgroundColor(color.hex)
-      document.body.style.setProperty('--bg-color', 'purple')
+      document.body.style.setProperty('--bg-color', [color.hex])
     } catch (error) {
       console.error('Error extracting color:', error)
     }
