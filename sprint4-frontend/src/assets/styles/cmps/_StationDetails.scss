@@ -143,7 +143,8 @@
         .user-img {
             background-color: aqua;
             border-radius: 50%;
-            margin-right: em(4px);
+            width: 3%;
+            margin: 0 7px 9px 7px;
         }
 
         span {
@@ -154,6 +155,16 @@
         .created-by {
             font-size: $font-size-14;
             font-family: circular-bold;
+            padding-bottom: 2px;
+        }
+
+        .info-songs {
+            font-size: $font-size-14;
+            font-family: circular-light;
+            padding-bottom: 8px;
+            margin-top: 3px;
+            margin-left: 3px;
+
         }
     }
 
