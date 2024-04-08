@@ -112,7 +112,7 @@ export function StationDetails() {
   let stationDuration = calcStationDuration(currStation.songs)
 
   return (
-    <div className="station-details flex">
+    <div className="station-details">
       <div className="station-data-container">
         <div className="info-station flex" style={{ background: `linear-gradient(transparent 0, rgba(0, 0, 0, 0.5) 100%), ${backgroundColor}` }}>
           <div className="station-img-container">
