@@ -1,27 +1,23 @@
 import { useDispatch } from "react-redux"
-import { getActionUpdateStation } from "../store/actions/station.actions"
+import { getActionUpdateStation, updateStation } from "../store/actions/station.actions"
 
 export function SongActionModal({song, currStation}) {
 
 const dispatch = useDispatch()
 
-
-    
     function handleClose() {
         // setContextMenu(null)
     }
 
     async function handleRemoveSong(songId) {
-        console.log("🚀 ~ file: songActionModal.jsx:11 ~ handleRemoveSong ~ song:", songId)
         const songIdx = currStation.songs.findIndex(song => song.id === songId);
         if (songIdx !== -1) { 
             currStation.songs.splice(songIdx, 1)
     
             const updatedStation = { ...currStation, songs: [...currStation.songs] }
-            console.log("🚀 ~ file: songActionModal.jsx:23 ~ handleRemoveSong ~ updatedStation:", updatedStation)
     
             try {
-                await dispatch(getActionUpdateStation(updatedStation))
+                await dispatch(updateStation(updatedStation))
                 showSuccessMsg('Song removed successfully')
             } catch (err) {
                 console.error('Failed to remove song:', err)

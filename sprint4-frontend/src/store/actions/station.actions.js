@@ -17,6 +17,7 @@ export function getActionAddStation(station) {
     }
 }
 export function getActionUpdateStation(station) {
+    console.log("🚀 ~ file: station.actions.js:20 ~ getActionUpdateStation ~ station:", station)
     return {
         type: UPDATE_STATION,
         station
