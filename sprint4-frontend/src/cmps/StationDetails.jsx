@@ -18,6 +18,8 @@ export function StationDetails() {
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
+  const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
     const fac = new FastAverageColor()
@@ -66,9 +68,10 @@ export function StationDetails() {
     return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
   }
 
-  function handleSongClick(songIdx) {
-    dispatch(getActionCurrSongIdx(songIdx))
-    togglePlaying(!true)
+  function handleSongClick(songIdx = 0) {
+    const songIdxToPlay = songIdx ? songIdx : currSongIdx
+    dispatch(getActionCurrSongIdx(songIdxToPlay))
+    togglePlaying(isPlaying)
   }
 
   function formatAddedTime(addedTime) {
@@ -132,7 +135,7 @@ export function StationDetails() {
         </div>
         <div className="menu-station flex">
           <div className="right-menu-btns flex">
-            <button className="play-btn btn"><span>
+            <button className="play-btn btn" onClick={() => { handleSongClick() }}><span>
               <svg width="16" height="16" viewBox="0 0 16 16" >
                 <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
               </svg>
