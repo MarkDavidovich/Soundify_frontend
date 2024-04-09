@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { SidePreview } from './SidePreview.jsx'
 import { UpdateStation } from './UpdateStation.jsx'
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 
 export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
@@ -11,6 +12,8 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     const [selectedStation, setSelectedStation] = useState(null)
     const [openContextMenuStationId, setOpenContextMenuStationId] = useState(null)
     const [contextMenuPosition, setContextMenuPosition] = useState({ mouseX: null, mouseY: null })
+
+
 
     const [toggleLink, setToggleLink] = useState(false)
 
@@ -53,6 +56,8 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         if (!toggleLink) return 'link'
         else return 'link clicked'
     }
+
+
 
     const filteredStations = stations.filter(station => !(station._id === 'liked-songs' && station.songs.length === 0))
 

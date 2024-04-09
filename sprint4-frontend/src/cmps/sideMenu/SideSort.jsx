@@ -17,7 +17,7 @@ export function SideSort({ sortBy, onSetSort }) {
     }
 
     return <div className="side-sort-container flex">
-        <button className={getBtnClass('station')} onClick={() => handleSort('station')}>Playlist</button>
+        <button className={getBtnClass('station')} onClick={() => handleSort('station')}>Playlists</button>
 
         <button className={getBtnClass('artist')} onClick={() => handleSort('artist')}>Artists</button>
     </div >

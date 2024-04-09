@@ -2,9 +2,13 @@ import { useState } from "react"
 import { UpdateStation } from "./UpdateStation"
 import { getActionCurrStationIdx } from "../../store/actions/player.actions"
 import { useDispatch } from 'react-redux'
+import { useSelector } from "react-redux"
 
 export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
     const dispatch = useDispatch()
+
+    const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
+    console.log("🚀 ~ SidePreview ~ currStation:", currStation)
 
     const [contextMenu, setContextMenu] = useState(null)
 
@@ -27,8 +31,14 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
         dispatch(getActionCurrStationIdx(station))
     }
 
+    function setSidePreviewLineClass() {
+        if (currStation !== station) return 'side-preview-line'
+        else return 'side-preview-line clicked'
+    }
+
     return (
-        <div className="side-preview-line"
+        // <div className="side-preview-line"
+        <div className={setSidePreviewLineClass()}
             onContextMenu={handleContextMenu}
             onClick={() => { handleStationClick(station) }}>
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />

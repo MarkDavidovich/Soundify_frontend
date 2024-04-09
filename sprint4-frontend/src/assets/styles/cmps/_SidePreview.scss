@@ -97,3 +97,10 @@
     }
 
 }
+
+.side-preview-line.clicked {
+
+    &:hover {
+        background-color: $clr16;
+    }
+}
