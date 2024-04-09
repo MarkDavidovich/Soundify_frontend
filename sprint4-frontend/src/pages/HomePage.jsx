@@ -24,7 +24,7 @@ export function HomePage() {
 
     return (
         <section className="main-view">
-            <AppHeader />
+            {/* <AppHeader /> */}
 
             <div>some stations</div>
             <StationList

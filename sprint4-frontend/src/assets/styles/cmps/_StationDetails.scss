@@ -13,6 +13,7 @@
     a:hover {
         text-decoration: underline;
     }
+
     overflow-y: scroll;
 
     &:hover {
@@ -305,19 +306,19 @@
             grid-template-areas: "idx title album date d";
 
             .song-num {
-                grid-area: idx; 
+                grid-area: idx;
                 align-items: center;
-                color: $clr14; 
-                
-          
+                color: $clr14;
+
+
                 svg {
-                  opacity: 0;
+                    opacity: 0;
                 }
-                
+
                 &:hover svg {
-                  opacity: 1;
+                    opacity: 1;
                 }
-              }
+            }
 
             .song-info {
                 display: flex;

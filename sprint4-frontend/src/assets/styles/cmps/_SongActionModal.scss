@@ -1,0 +1,32 @@
+.modal {
+    position: relative;
+
+    // width: 240px;
+    // height: 40px;
+    // z-index: 100;
+    // display: flex;
+    // flex-direction: column;
+
+    .modal-content {
+        position: absolute;
+        width: 240px;
+        height: 40px;
+        z-index: 100;
+        // display: flex;
+        // flex-direction: column;
+
+        .songs-actions {
+
+            .context-menu {
+                // position: absolute;
+                // width: 240px;
+                // height: 40px;
+                // z-index: 100;
+
+                .delete-btn {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

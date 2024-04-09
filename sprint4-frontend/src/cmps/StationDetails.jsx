@@ -226,19 +226,22 @@ export function StationDetails() {
                             </a>
                             <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
                             <div className="song-duration">{song.duration}
-                              <button className="options" onClick={() => toggleModal(song.id)}>...</button>
+                              <button className="options" onClick={() => toggleModal(song.id)}>...
+
+                                {isModalOpen[song.id] && (
+                                  <div className="modal">
+                                    <div className="modal-content">
+                                      {/* <span className="close" onClick={handleModalClose}>X</span> */}
+                                      <SongActionModal
+                                        song={song}
+                                        currStation={currStation}
+                                      />
+                                    </div>
+                                  </div>
+                                )}
+                              </button>
                             </div>
-                            {isModalOpen[song.id] && (
-                              <div className="modal">
-                                <div className="modal-content">
-                                  {/* <span className="close" onClick={handleModalClose}>X</span> */}
-                                  <SongActionModal
-                                    song={song}
-                                    currStation={currStation}
-                                  />
-                                </div>
-                              </div>
-                            )}
+
                           </li>
                         )}
                       </Draggable>
