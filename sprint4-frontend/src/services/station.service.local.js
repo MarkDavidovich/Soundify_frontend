@@ -15,6 +15,7 @@ export const stationService = {
     getDefaultSort,
     addStationMsg,
     getIdxById,
+    addToLikedSongsStation,
 }
 window.cs = stationService
 
@@ -124,6 +125,24 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
             imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
         },
         createdAt: utilService.randomAddedTime()
+    }
+}
+
+function addToLikedSongsStation() {
+    return {
+        _id: 'liked-songs',
+        name: 'Liked Songs',
+        tags: [],
+        desc: 'Playlist of liked songs',
+        songs: [],
+        likedByUsers: [],
+        imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
+        createdBy: {
+            _id: '',
+            fullname: 'Guest',
+            imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
+        },
+        createdAt: '',
     }
 }
 
@@ -476,7 +495,7 @@ function _createStations() {
                 ],
                 'Soundify',
                 ['Made For You']),
-            // _createEmptyLikedSongsStation(),
+            _createEmptyLikedSongsStation(),
         ]
     }
 

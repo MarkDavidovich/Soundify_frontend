@@ -59,7 +59,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
 
 
-    const filteredStations = stations.filter(station => !(station._id === 'liked-songs' && station.songs.length === 0))
+    const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
 
     return <div className="side-list">
 
@@ -81,7 +81,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
             </article>
         ))}
 
-        {stations.some(station => station._id === 'liked-songs' && station.songs.length > 0) && (
+        {stations.find(station => station._id === 'liked-songs' && station.songs.length > 0) && (
             <article className="side-preview-container" key="liked-songs">
                 <Link
                     className={setLinkClass()}

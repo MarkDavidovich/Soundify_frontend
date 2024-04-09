@@ -1,14 +1,54 @@
 
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { updateStation } from '../store/actions/station.actions'
 
 export function SongPreview({ currSong, handleSongLike }) {
   const [isLiked, setIsLiked] = useState()
 
-  function toggleIsLiked() {
+  const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
+  const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
+
+  const stations = useSelector(storeState => storeState.stationModule.stations)
+
+  const likedStation = stations.find(station => station._id === 'liked-songs')
+
+  async function toggleIsLiked() {
     const updatedIsLiked = !isLiked
     setIsLiked(updatedIsLiked)
-    console.log("🚀 ~ SongPreview ~ currSong:", currSong)
     currSong.isLiked = updatedIsLiked
+
+    const updatedStation = { ...currStation, [currStation.songs]: currSong }
+
+    try {
+
+      // updating the liked song in the current station
+      const savedUpdatedStation = await updateStation(updatedStation)
+
+      if (currSong.isLiked) {
+
+        likedStation.songs.push(currSong)
+        console.log('added liked song')
+
+      } else {
+        likedStation.songs.splice(currSongIdx, 1)
+        console.log('removed liked song')
+      }
+      await updateStation(likedStation)
+
+      // showSuccessMsg(`Station updated, new name: ${savedUpdatedStation.name}`)
+
+    } catch (err) {
+      console.log('Cannot update like song in store', err)
+    }
+  }
+
+
+
+
+
+  function updateStationAfterLikeSong(updatedStation) {
+
   }
 
   useEffect(() => {

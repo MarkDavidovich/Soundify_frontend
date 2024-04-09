@@ -8,7 +8,6 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     const dispatch = useDispatch()
 
     const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
-    console.log("🚀 ~ SidePreview ~ currStation:", currStation)
 
     const [contextMenu, setContextMenu] = useState(null)
 
