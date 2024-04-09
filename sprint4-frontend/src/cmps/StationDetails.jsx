@@ -9,6 +9,7 @@ import { stationService } from "../services/station.service.local"
 import { getActionUpdateStation } from "../store/actions/station.actions"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
+import { ThemesPage } from "../pages/ThemesPage"
 
 export function StationDetails() {
   const params = useParams()
@@ -18,7 +19,7 @@ export function StationDetails() {
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
+  // const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
@@ -50,6 +51,19 @@ export function StationDetails() {
       showErrorMsg('Had issues loading station')
       console.error('Had issues loading station', err)
       return navigate('/')
+    }
+  }
+
+  async function handleAddSongFromSearch(selectedSong) {
+    const updatedStation = {
+      ...currStation,
+      songs: [...currStation.songs, selectedSong]
+    };
+    try {
+      await dispatch(updateStation(updatedStation))
+      showSuccessMsg('Song added successfully')
+    } catch (err) {
+      console.error('Failed to add song:', err)
     }
   }
 
@@ -116,13 +130,20 @@ export function StationDetails() {
     }
   }
 
+  function toggleModal(songId) {
+    setIsModalOpen(prevState => ({
+      ...prevState,
+      [songId]: !prevState[songId]
+    }))
+  }
+
   if (!currStation) return <h4>loading...</h4>
   let stationDuration = calcStationDuration(currStation.songs)
 
   return (
     <div className="station-details flex column">
       <div className="station-data-container">
-        <div className="info-station flex" style={{ background: `linear-gradient(transparent 0, rgba(0, 0, 0, 0.5) 100%), ${backgroundColor}` }}>
+        <div className="info-station flex">
           <div className="station-img-container">
             <img className="station-img" src={currStation.imgUrl} alt="" />
           </div>
@@ -159,73 +180,81 @@ export function StationDetails() {
 
           </button>
         </div>
-        <div className="songs-details-container">
-          <div className="heading-station">
-            <span className="hash">#</span>
-            <span className="title">Title</span>
-            <span className="album">Album</span>
-            <span className="date">Date added</span>
-            <span className="duration">
-              <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
-            </span>
+        {currStation.songs.length > 0 &&
+          <div className="songs-details-container">
+            <div className="heading-station">
+              <span className="hash">#</span>
+              <span className="title">Title</span>
+              <span className="album">Album</span>
+              <span className="date">Date added</span>
+              <span className="duration">
+                <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
+              </span>
+            </div>
+            <div className="horizontal-line"></div>
+
+            <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+              <Droppable droppableId="station-droppable">
+                {(provided, snapshot) => (
+                  <ul {...provided.droppableProps} ref={provided.innerRef}>
+
+                    {currStation.songs.map((song, idx) => (
+                      <Draggable draggableId={song.id} key={song.id} index={idx}>
+                        {(providedDraggable) => (
+                          <li
+                            className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''}`}
+                            ref={providedDraggable.innerRef}
+                            {...providedDraggable.draggableProps}
+                            {...providedDraggable.dragHandleProps}
+                          >
+                            <div className="song-num flex" onClick={() => handleSongClick(idx)}>
+                              {idx + 1}
+                            </div>
+                            <div className="song-info">
+                              <img className="song-img" src={song.imgUrl} alt="" />
+                              <div className="station-title-artist flex">
+                                <div className="song-title" title={song.title}>
+                                  {song.title}
+                                </div>
+                                <a className="song-artist" href="#" title={song.artist}>
+                                  {song.artist}
+                                </a>
+                              </div>
+                            </div>
+                            <a className="song-album" href="#" title={song.album}>
+                              {song.album}
+                            </a>
+                            <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
+                            <div className="song-duration">{song.duration}
+                              <button className="options" onClick={() => toggleModal(song.id)}>...</button>
+                            </div>
+                            {isModalOpen[song.id] && (
+                              <div className="modal">
+                                <div className="modal-content">
+                                  {/* <span className="close" onClick={handleModalClose}>X</span> */}
+                                  <SongActionModal
+                                    song={song}
+                                    currStation={currStation}
+                                  />
+                                </div>
+                              </div>
+                            )}
+                          </li>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>
           </div>
-          <div className="horizontal-line"></div>
-
-          <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-            <Droppable droppableId="station-droppable">
-              {(provided, snapshot) => (
-                <ul {...provided.droppableProps} ref={provided.innerRef}>
-
-                  {currStation.songs.map((song, idx) => (
-                    <Draggable draggableId={song.id} key={song.id} index={idx}>
-                      {(providedDraggable) => (
-                        <li
-                          className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''}`}
-                          ref={providedDraggable.innerRef}
-                          {...providedDraggable.draggableProps}
-                          {...providedDraggable.dragHandleProps}
-                        >
-                          <div className="song-num flex" onClick={() => handleSongClick(idx)}>
-                            {idx + 1}
-                          </div>
-                          <div className="song-info">
-                            <img className="song-img" src={song.imgUrl} alt="" />
-                            <div className="station-title-artist flex">
-                              <div className="song-title" title={song.title}>
-                                {song.title}
-                              </div>
-                              <a className="song-artist" href="#" title={song.artist}>
-                                {song.artist}
-                              </a>
-                            </div>
-                          </div>
-                          <a className="song-album" href="#" title={song.album}>
-                            {song.album}
-                          </a>
-                          <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-                          <div className="song-duration">{song.duration}<button className="options" onClick={() => setIsModalOpen(true)} >...</button>
-                          </div>
-                          {isModalOpen && (
-                            <div className="modal">
-                              <div className="modal-content">
-                                {/* <span className="close" onClick={handleModalClose}>X</span> */}
-                                <SongActionModal
-                                  song={song}
-                                  currStation={currStation}
-                                />
-                              </div>
-                            </div>
-                          )}
-                        </li>
-                      )}
-                    </Draggable>
-                  ))}
-                  {provided.placeholder}
-                </ul>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </div>
+        }
+        {currStation._id !== 'liked-songs' &&
+          <ThemesPage handleAddSongFromSearch={handleAddSongFromSearch}
+            currStation={currStation}
+          />
+        }
       </div>
     </div>
   )
