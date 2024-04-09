@@ -8,12 +8,13 @@
         color: hsla(0,0%,100%,.7);
         font-size: 0.875rem;
         height: 40px;
+        width: 100%;
         opacity: 1;
         padding: 8px 32px;
         text-overflow: ellipsis;
         transition-duration: .3s;
         // transition-timing-function: cubic-bezier(.3,0,.4,1);
-        width: 100%;
+        outline: none;
 
         &::placeholder{
             color: $clr3;

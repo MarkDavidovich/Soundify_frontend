@@ -26,6 +26,14 @@
                 margin-bottom: em(16px);
             }
         }
+        img{
+            width: 50%;
+        }
+                        .song-desc{
+                            flex-direction: column;
+                        }
+
+                         
 
         .close-search-btn{
             margin-right: em(8px);
@@ -38,3 +46,6 @@
         }
     }
 }
+
+
+
