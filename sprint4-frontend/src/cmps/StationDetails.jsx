@@ -169,9 +169,16 @@ export function StationDetails() {
         <div className="menu-station flex">
           <div className="right-menu-btns flex">
             <button className="play-btn btn" onClick={() => { handleSongClick() }}><span>
-              <svg width="16" height="16" viewBox="0 0 16 16" >
-                <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+              {isPlaying ? (<svg width="20" height="20" viewBox="0 0 24 24">
+                <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                >
+                </path>
               </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 16 16" >
+                  <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+                </svg>)}
+
             </span></button>
             <button className="opt-btn btn"><span>...</span></button>
           </div>
@@ -187,7 +194,8 @@ export function StationDetails() {
 
           </button>
         </div>
-        {currStation.songs.length > 0 &&
+        {
+          currStation.songs.length > 0 &&
           <div className="songs-details-container">
             <div className="heading-station">
               <span className="hash">#</span>
@@ -274,12 +282,13 @@ export function StationDetails() {
             </DragDropContext>
           </div>
         }
-        {currStation._id !== 'liked-songs' &&
+        {
+          currStation._id !== 'liked-songs' &&
           <ThemesPage handleAddSongFromSearch={handleAddSongFromSearch}
             currStation={currStation}
           />
         }
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
