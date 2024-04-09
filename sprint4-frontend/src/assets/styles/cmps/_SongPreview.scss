@@ -41,4 +41,15 @@
       margin-top: 13px;
     }
   }
+
+  .empty-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 1em;
+
+    >* {
+      display: none;
+    }
+  }
 }

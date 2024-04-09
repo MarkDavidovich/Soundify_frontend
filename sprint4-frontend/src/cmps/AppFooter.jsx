@@ -151,11 +151,11 @@ export function AppFooter() {
 
     return (
         <footer className="app-footer">
-            {currSong && <div className="song-details-container">
+            <div className="song-details-container">
                 <SongPreview
                     currSong={currSong}
                     handleSongLike={handleSongLike} />
-            </div>}
+            </div>
             <div className='controls-main-container'>
                 <div className='player-controls-main'>
                     <div className="player-controls-left">

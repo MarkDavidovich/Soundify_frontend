@@ -19,6 +19,8 @@ export function StationDetails() {
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isHovered, setIsHovered] = useState(null)
+  const [isSelected, setIsSelected] = useState(null)
   const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
@@ -83,7 +85,7 @@ export function StationDetails() {
   }
 
   function handleSongClick(songIdx) {
-    if (songIdx === undefined) { // main play button will return undefined 
+    if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
       togglePlaying(isPlaying)
 
     } else {
@@ -135,6 +137,11 @@ export function StationDetails() {
       ...prevState,
       [songId]: !prevState[songId]
     }))
+  }
+
+  function handleSelected(idx) {
+    console.log('selected index:', idx, isSelected)
+    setIsSelected(idx)
   }
 
   if (!currStation) return <h4>loading...</h4>
@@ -202,12 +209,27 @@ export function StationDetails() {
                       <Draggable draggableId={song.id} key={song.id} index={idx}>
                         {(providedDraggable) => (
                           <li
-                            className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''}`}
+                            className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx ? 'selected' : ''}`}
                             ref={providedDraggable.innerRef}
                             {...providedDraggable.draggableProps}
                             {...providedDraggable.dragHandleProps}
+                            onMouseEnter={() => { setIsHovered(idx) }}
+                            onMouseLeave={() => { setIsHovered(null) }}
+                            onClick={() => handleSelected(idx)}
+                            onDoubleClick={() => handleSongClick(idx)}
                           >
                             <div className={`song-num flex ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
+                              {/* {isSelected === idx && isPlaying ? (<svg height='16' width='16' viewBox="0 0 24 24">
+                                <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                                  color='white'
+                                >
+                                </path>
+                              </svg>) : (<svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                                color='white'
+                              >
+                              </path>
+                              </svg>
+                              )} */}
                               {idx + 1}
                             </div>
                             <div className="song-info">
