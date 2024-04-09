@@ -10,7 +10,6 @@ import { getActionUpdateStation } from "../store/actions/station.actions"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
 import { ThemesPage } from "../pages/ThemesPage"
-import { AppHeader } from "./AppHeader"
 
 export function StationDetails() {
   const params = useParams()
@@ -142,7 +141,6 @@ export function StationDetails() {
   let stationDuration = calcStationDuration(currStation.songs)
 
   return (
-
     <div className="station-details flex column">
       <div className="station-data-container">
         <div className="info-station flex">
@@ -227,9 +225,10 @@ export function StationDetails() {
                               {song.album}
                             </a>
                             <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-                            <div className="song-duration">{song.duration}<button className="options" onClick={() => setIsModalOpen(true)} >...</button>
+                            <div className="song-duration">{song.duration}
+                              <button className="options" onClick={() => toggleModal(song.id)}>...</button>
                             </div>
-                            {isModalOpen && (
+                            {isModalOpen[song.id] && (
                               <div className="modal">
                                 <div className="modal-content">
                                   {/* <span className="close" onClick={handleModalClose}>X</span> */}
@@ -250,6 +249,11 @@ export function StationDetails() {
               </Droppable>
             </DragDropContext>
           </div>
+        }
+        {currStation._id !== 'liked-songs' &&
+          <ThemesPage handleAddSongFromSearch={handleAddSongFromSearch}
+            currStation={currStation}
+          />
         }
       </div>
     </div>
