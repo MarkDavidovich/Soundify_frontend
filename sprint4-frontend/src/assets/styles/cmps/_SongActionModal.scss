@@ -1,30 +1,28 @@
 .modal {
-    position: relative;
-
-    // width: 240px;
-    // height: 40px;
-    // z-index: 100;
-    // display: flex;
-    // flex-direction: column;
+    position: absolute;
+    /* or 'absolute' if you want the modal to be positioned relative to its first positioned (not static) ancestor element */
+    top: 10px;
+    right: 20px;
+    width: 240px;
+    height: 40px;
+    z-index: 100;
 
     .modal-content {
         position: absolute;
         width: 240px;
         height: 40px;
-        z-index: 100;
+        z-index: 101;
         // display: flex;
         // flex-direction: column;
 
         .songs-actions {
 
             .context-menu {
-                // position: absolute;
-                // width: 240px;
-                // height: 40px;
-                // z-index: 100;
+                // display: flex;
+                // flex-direction: column;
 
                 .delete-btn {
-                    display: flex;
+                    width: 100%;
                 }
             }
         }
