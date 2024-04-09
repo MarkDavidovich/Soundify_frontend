@@ -79,12 +79,7 @@
             font-size: $font-size-12;
 
             .progress-bar-container {
-
-                display: flex;
-                justify-content: center;
-                width: 100%;
-                position: relative;
-
+                @include container($type: barContainer);
 
 
                 .input-bar {
@@ -102,7 +97,7 @@
                     height: 4px;
                     border-radius: 4px;
                     background-color: white;
-
+                    pointer-events: none;
                 }
             }
 
@@ -155,14 +150,39 @@
                 }
             }
 
-            .volume-bar {
-                display: flex;
-                align-items: center;
+            .volume-bar-container {
+                @include container($type: barContainer);
+
+                .volume-bar {
+
+                    margin-top: 7px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 9px;
+                }
+
+                .following-bar {
+                    max-width: 100%;
+                    margin-top: 9px;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 4px;
+                    border-radius: 4px;
+                    background-color: white;
+                    pointer-events: none;
+                }
+            }
+
+            .volume-bar-container:hover .following-bar {
+                background-color: #1ed760;
             }
         }
     }
 
     .input-bar {
+        margin-inline: 0;
         -webkit-appearance: none;
         background: transparent;
         appearance: none;

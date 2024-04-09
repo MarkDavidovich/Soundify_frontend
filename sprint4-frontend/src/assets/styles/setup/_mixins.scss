@@ -121,3 +121,16 @@
         }
     }
 }
+
+
+@mixin container($type: regular) {
+
+    @if $type ==regular {}
+
+    @if $type ==barContainer {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+    }
+}

@@ -303,19 +303,21 @@ export function AppFooter() {
                         )}
 
                     </button>
-                    <div className="volume-bar">
-                        <label htmlFor="volumeRange"></label>
-                        <input
-                            className='input-bar'
-                            type='range'
-                            id='volumeRange'
-                            name='volumeRange'
-                            min='0'
-                            max='1'
-                            step='0.01'
-                            value={volume}
-                            onChange={handleVolumeChange}
-                        />
+                    <div className='volume-bar-container'>
+                        <div className="following-bar" style={{ width: `${volume * 100}%` }}></div>
+                        <div className="volume-bar">
+                            <input
+                                className='input-bar'
+                                type='range'
+                                id='volumeRange'
+                                name='volumeRange'
+                                min='0'
+                                max='1'
+                                step='0.01'
+                                value={volume}
+                                onChange={handleVolumeChange}
+                            />
+                        </div>
                     </div>
                 </div>
                 {/* <button className="mini-player-btn">mini player</button> */}
