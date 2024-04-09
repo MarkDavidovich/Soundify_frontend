@@ -1,11 +1,17 @@
 .main-view-header {
     // display: flex;
     background-color: transparent;
+    position: absolute;
     height: 64px;
     z-index: 1;
     width: 100%;
+    margin-right: 8px;
+    border-radius: 7px;
+
 
     .prev-next-container {
+        // background-color: transparent;
+
         display: flex;
         align-items: center;
         padding-top: 15px;
@@ -30,12 +36,6 @@
             }
         }
     }
-
-
-
-
-
-
 
     .user-info {
         // background-color: $clr2;
@@ -75,5 +75,13 @@
     // nav .active {
     //     color: $clr1;
     // }
+
+}
+
+.main-view-header.header-scrolled {
+    background-color: linear-gradient(transparent 0, rgba(0, 0, 0, .5) 100%), var(--background-noise);
+    background-color: var(--bg-color);
+    height: 64px;
+    margin-right: 8px;
 
 }
