@@ -476,7 +476,7 @@ function _createStations() {
                 ],
                 'Soundify',
                 ['Made For You']),
-            _createEmptyLikedSongsStation(),
+            // _createEmptyLikedSongsStation(),
         ]
     }
 

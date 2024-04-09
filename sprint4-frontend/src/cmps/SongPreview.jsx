@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 
 export function SongPreview({ currSong, handleSongLike }) {
   const [isLiked, setIsLiked] = useState()

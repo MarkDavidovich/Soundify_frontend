@@ -19,7 +19,7 @@ export function StationDetails() {
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
-  // const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
+  const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
@@ -207,13 +207,13 @@ export function StationDetails() {
                             {...providedDraggable.draggableProps}
                             {...providedDraggable.dragHandleProps}
                           >
-                            <div className="song-num flex" onClick={() => handleSongClick(idx)}>
+                            <div className={`song-num flex ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
                               {idx + 1}
                             </div>
                             <div className="song-info">
                               <img className="song-img" src={song.imgUrl} alt="" />
                               <div className="station-title-artist flex">
-                                <div className="song-title" title={song.title}>
+                                <div className={`song-title ${idx === currSongIdx ? 'active-song' : ''}`} title={song.title}>
                                   {song.title}
                                 </div>
                                 <a className="song-artist" href="#" title={song.artist}>
@@ -227,7 +227,6 @@ export function StationDetails() {
                             <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
                             <div className="song-duration">{song.duration}
                               <button className="options" onClick={() => toggleModal(song.id)}>...
-
                                 {isModalOpen[song.id] && (
                                   <div className="modal">
                                     <div className="modal-content">

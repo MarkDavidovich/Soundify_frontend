@@ -89,6 +89,7 @@
                 width: 100%;
                 height: auto;
                 min-width: 128px;
+                border-radius: 5px;
             }
         }
 
@@ -183,8 +184,10 @@
         display: flex;
         position: relative;
         align-items: center;
-        height: 104px;
-        padding: 16px;
+        height: 100px;
+        margin-top: 22px;
+        padding-inline: 17px;
+        padding-bottom: 22px;
 
         &>* {
             background: none;
@@ -193,7 +196,6 @@
 
     .right-menu-btns {
         display: flex;
-
 
         >* {
             margin: 0;
@@ -206,11 +208,10 @@
             justify-content: center;
             text-align: center;
             background-color: #1ed760;
-            height: em(56px);
-            width: em(56px);
+            height: 56px;
+            width: 56px;
             color: black;
-            border-radius: 32px;
-
+            border-radius: 50%;
         }
 
         .opt-btn {
@@ -221,6 +222,7 @@
     }
 
     .options {
+        position: relative;
         background: none;
         opacity: 0;
     }
@@ -232,14 +234,14 @@
 
     .songs-details-container {
         // padding: 0 1rem;
-        padding: 0 em(24px) 0 em(24px);
+        padding-inline: 24px;
         position: relative;
 
         .heading-station {
             display: grid;
             position: sticky;
             top: 0;
-            gap: 16px;
+            gap: 10px;
 
             span {
                 color: $clr14;
@@ -250,10 +252,12 @@
             grid-template-areas: "idx title album date d";
 
             .hash {
+                padding-left: 16px;
                 grid-area: idx;
             }
 
             .title {
+                padding-left: 16px;
                 grid-area: title;
             }
 
@@ -266,8 +270,9 @@
             }
 
             .duration {
+                padding-left: 10px; // place-self: center;
                 grid-area: d;
-                margin-left: em(16px);
+
             }
         }
 
@@ -277,19 +282,24 @@
         }
 
         .song-preview {
-            margin-bottom: em(5px);
+            height: 54px;
+            margin-bottom: 10px;
             display: grid;
             gap: 16px;
             align-items: center;
             transition: background-color 0.3s ease;
+            cursor: default;
+            border-radius: 4px;
 
             &:hover {
                 // background-color:#b3b3b3 ;
                 // opacity: 0.3;
                 background-color: hsla(0, 0%, 100%, .3);
+                border-radius: 7px;
 
                 .options {
                     opacity: 1;
+
                 }
 
                 a {
@@ -306,10 +316,12 @@
             grid-template-areas: "idx title album date d";
 
             .song-num {
+                display: flex;
+                cursor: pointer;
+                padding-left: 16px;
                 grid-area: idx;
-                align-items: center;
+                align-self: center;
                 color: $clr14;
-
 
                 svg {
                     opacity: 0;
@@ -321,8 +333,18 @@
             }
 
             .song-info {
+                padding-left: 16px;
                 display: flex;
                 grid-area: title;
+
+                .station-title-artist {
+                    align-items: flex-start;
+
+                    // .song-title {}
+
+                    // .song-artist {}
+                }
+
             }
 
             .song-album {
@@ -335,7 +357,7 @@
             }
 
             .song-duration {
-
+                // text-align: center;
                 color: $clr14;
             }
 
@@ -346,5 +368,9 @@
         background-color: rgba(255, 255, 255, 0.284);
         width: 100%;
         height: 1px;
+    }
+
+    .active-song {
+        color: #1ed760 !important;
     }
 }
