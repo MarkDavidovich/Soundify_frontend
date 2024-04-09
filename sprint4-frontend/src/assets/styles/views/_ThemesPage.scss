@@ -1,4 +1,40 @@
 .main-view {
     grid-area: main-view;
     position: relative;
+
+    .find-more-btn {
+        display: block;
+        margin-left: auto;
+        background: none;
+
+        .find-more-text {
+            font-size: $font-size-14;
+            color: $clr2;
+            font-weight: 700;
+        }
+    }
+
+    .add-song-container {
+        border-top: 1px solid hsla(0, 0%, 100%, .1);
+        padding: em(24px) 0;
+        justify-content: space-between;
+
+        .search-song-container {
+            .find-song {
+                color: $clr2;
+                font-size: 1.25rem;
+                margin-bottom: em(16px);
+            }
+        }
+
+        .close-search-btn{
+            margin-right: em(8px);
+            background: none;
+
+            svg{
+                fill:$clr3;
+                height: 1.5rem;
+            }
+        }
+    }
 }
