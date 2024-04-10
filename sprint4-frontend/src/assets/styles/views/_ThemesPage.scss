@@ -2,6 +2,31 @@
     grid-area: main-view;
     position: relative;
 
+    .song-list {
+        .song-info {
+            display: grid;
+            grid-template-columns:
+                minmax(120px, 4fr) minmax(120px, 2fr) minmax(120px, 1fr);
+            column-gap: em(16px);
+
+            grid-template-areas: "img album add-song";
+
+            .basic-song-info {
+                grid-area: img;
+            }
+
+            .album {
+                grid-area: album;
+            }
+
+            .add-song {
+                grid-area: add-song;
+
+            }
+        }
+
+    }
+
     .find-more-btn {
         display: block;
         margin-left: auto;
@@ -26,26 +51,25 @@
                 margin-bottom: em(16px);
             }
         }
-        img{
+
+        img {
             width: 50%;
         }
-                        .song-desc{
-                            flex-direction: column;
-                        }
 
-                         
+        .song-desc {
+            flex-direction: column;
+        }
 
-        .close-search-btn{
+
+
+        .close-search-btn {
             margin-right: em(8px);
             background: none;
 
-            svg{
-                fill:$clr3;
+            svg {
+                fill: $clr3;
                 height: 1.5rem;
             }
         }
     }
 }
-
-
-

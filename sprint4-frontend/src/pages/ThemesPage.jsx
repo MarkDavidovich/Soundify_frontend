@@ -56,7 +56,7 @@ export function ThemesPage({ onSongSelect, currStation }) {
         </div>
       )}
 
-      {(showFindMore || currStation.songs.length === 0) && (
+      {(showFindMore || currStation?.songs.length === 0) && (
         <section className='add-song-container flex'>
           <div className="search-song-container">
             <h1 className='find-song'>Let's find something for your playlist</h1>
@@ -64,9 +64,9 @@ export function ThemesPage({ onSongSelect, currStation }) {
           </div>
           <div className="song-list">
             {songs?.map(song => (
-              <div className="song-preview flex" key={song.id}>
+              <div className="song-preview " key={song.id}>
                 <div className="song-info">
-                  <div className="song-img-container flex">
+                  <div className="basic-song-info">
                     <img src={song.imgUrl} alt="Song artwork" />
                   </div>
                   <div className="song-desc">
@@ -76,13 +76,16 @@ export function ThemesPage({ onSongSelect, currStation }) {
                     <span className='song-artist'>
                       <h4>Artist: {song.artist}</h4>
                     </span>
+                    </div>
+                    <div className="album">
+                      Album random function
+                    </div>
                     <div className="add-song">
                       <button className="add-song-btn" onClick={() => handleAddSongFromSearch(song)}>
                         Add
                       </button>
                     </div>
                   </div>
-                </div>
               </div>
             ))}
           </div>
