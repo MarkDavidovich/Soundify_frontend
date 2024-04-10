@@ -6,6 +6,7 @@
     --background-noise: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=");
     height: 100vh;
 
+
     a {
         color: $clr14;
         font-size: $font-size-14;
@@ -238,6 +239,8 @@
         padding-inline: 24px;
         position: relative;
 
+
+
         .heading-station {
             display: grid;
             position: sticky;
@@ -258,15 +261,17 @@
             }
 
             .title {
-                padding-left: 16px;
+                padding-left: 25px;
                 grid-area: title;
             }
 
             .album {
+                padding-left: 8px;
                 grid-area: album;
             }
 
             .date {
+                padding-left: 3px;
                 grid-area: date;
             }
 
@@ -283,9 +288,10 @@
         }
 
         .song-preview {
+            padding-inline-start: 12px;
             height: 54px;
             display: grid;
-            gap: 16px;
+            gap: 8px;
             align-items: center;
             transition: background-color 0.3s ease;
             cursor: default;
@@ -316,24 +322,38 @@
             grid-template-areas: "idx title album date d";
 
             .song-num {
+
+                width: 100%;
                 display: flex;
                 cursor: pointer;
-                padding-left: 16px;
-                grid-area: idx;
-                align-self: center;
+                // padding-left: 16px;
+                justify-content: center;
                 color: $clr14;
 
-                svg {
-                    opacity: 0;
+
+                //overwrite button settings
+                background: none;
+                font-family: circular-light;
+                margin: 0;
+                padding: 0;
+
+
+
+                img {
+                    width: 100%;
                 }
 
-                &:hover svg {
-                    opacity: 1;
-                }
+                // svg {
+                //     opacity: 0;
+                // }
+
+                // &:hover svg {
+                //     opacity: 1;
+                // }
             }
 
             .song-info {
-                padding-left: 16px;
+                padding-left: 10px;
                 display: flex;
                 grid-area: title;
 

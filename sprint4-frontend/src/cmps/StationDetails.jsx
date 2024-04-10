@@ -42,7 +42,7 @@ export function StationDetails() {
 
     setCurrStation(id)
 
-  }, [params, currStation])
+  }, [params, currStation,])
 
   async function setCurrStation(id) {
     try {
@@ -92,7 +92,6 @@ export function StationDetails() {
       dispatch(getActionCurrSongIdx(songIdx))
       togglePlaying(false) // toggle will always switch it to true
     }
-
   }
 
   function formatAddedTime(addedTime) {
@@ -140,8 +139,8 @@ export function StationDetails() {
   }
 
   function handleSelected(idx) {
-    console.log('selected index:', idx, isSelected)
     setIsSelected(idx)
+    // console.log('selected index:', idx, 'selected song:', isSelected)
   }
 
   if (!currStation) return <h4>loading...</h4>
@@ -176,7 +175,8 @@ export function StationDetails() {
               </svg>
               ) : (
                 <svg width="20" height="20" viewBox="0 0 16 16" >
-                  <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"></path>
+                  <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                  ></path>
                 </svg>)}
 
             </span></button>
@@ -221,25 +221,37 @@ export function StationDetails() {
                             ref={providedDraggable.innerRef}
                             {...providedDraggable.draggableProps}
                             {...providedDraggable.dragHandleProps}
-                            onMouseEnter={() => { setIsHovered(idx) }}
-                            onMouseLeave={() => { setIsHovered(null) }}
+                            onMouseEnter={() => {
+                              setIsHovered(idx)
+                              console.log(isHovered)
+                            }}
+                            onMouseLeave={() => {
+                              setIsHovered(null)
+                              console.log(isHovered)
+                            }}
                             onClick={() => handleSelected(idx)}
                             onDoubleClick={() => handleSongClick(idx)}
+                          // CLICK OUTSIDE TO unselect
                           >
-                            <div className={`song-num flex ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
-                              {/* {isSelected === idx && isPlaying ? (<svg height='16' width='16' viewBox="0 0 24 24">
-                                <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
-                                  color='white'
-                                >
+                            <button className={`song-num ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
+                              {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) ? ( //PAUSE SVG
+                                <svg height='16' width='16' viewBox="0 0 24 24">
+                                  <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                                    fill="white">
+                                  </path>
+                                </svg>
+                              ) : isPlaying && (isHovered === idx || isSelected == idx) || !isPlaying && (isHovered === idx) ? (//PLAY SVG
+                                <svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                                  fill="white">
                                 </path>
-                              </svg>) : (<svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
-                                color='white'
-                              >
-                              </path>
-                              </svg>
-                              )} */}
-                              {idx + 1}
-                            </div>
+                                </svg>
+                              ) : isPlaying && currSongIdx === idx && isHovered !== idx ? (
+                                <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
+                              ) : (
+                                idx + 1
+                              )}
+
+                            </button>
                             <div className="song-info">
                               <img className="song-img" src={song.imgUrl} alt="" />
                               <div className="station-title-artist flex">

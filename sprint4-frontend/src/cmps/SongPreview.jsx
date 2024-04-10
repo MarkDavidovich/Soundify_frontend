@@ -7,23 +7,13 @@ import { useDispatch } from 'react-redux'
 
 export function SongPreview({ currStation, currSong, handleSongLike }) {
   const [isLiked, setIsLiked] = useState(null)
-
-  // const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
-  // const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
-
   const stations = useSelector(storeState => storeState.stationModule.stations)
-
   const likedStation = stations.find(station => station._id === 'liked-songs')
 
-
-
-  // ------------------------------------------------------------------- //
   async function toggleIsLiked() {
     const updatedIsLiked = !isLiked
     setIsLiked(updatedIsLiked)
     currSong.isLiked = updatedIsLiked
-
-    // const updatedStation = { ...currStation, [currStation.songs]: currSong }
 
     try {
       const updatedStation = { ...currStation }
@@ -38,7 +28,6 @@ export function SongPreview({ currStation, currSong, handleSongLike }) {
         await updateStation(likedStation)
 
       } else {
-        // songIdx to remove fro, liked song 
         const likedSongIdx = likedStation.songs.findIndex(song => song.id === currSong.id)
         if (likedSongIdx !== -1) {
           likedStation.songs.splice(likedSongIdx, 1)
