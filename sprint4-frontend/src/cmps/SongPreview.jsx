@@ -19,63 +19,48 @@ export function SongPreview({ currStation, currSong, handleSongLike }) {
 
   // ------------------------------------------------------------------- //
   async function toggleIsLiked() {
-
     const updatedIsLiked = !isLiked
     setIsLiked(updatedIsLiked)
     currSong.isLiked = updatedIsLiked
-    currSong.fromStation = currStation
-    console.log("🚀 ~ toggleIsLiked ~ currSong.fromStation:", currSong.fromStation)
 
-    // stationService.handleLikedSongs(stations, currSong)
     // const updatedStation = { ...currStation, [currStation.songs]: currSong }
-    const updatedStation = { ...currStation, [currStation.songs]: currSong }
-
-    // const songToChange = stations.filter(station => station.songs.song.id === currSong.id)
-    // console.log("🚀 ~ toggleIsLiked ~ songToChange:", songToChange)
-
 
     try {
+      const updatedStation = { ...currStation }
+      const songIdx = updatedStation.songs.findIndex(song => song.id === currSong.id)
+      if (songIdx !== -1) {
+        updatedStation.songs[songIdx] = { ...currSong, isLiked: updatedIsLiked }
+        await updateStation(updatedStation)
+      }
 
-      // updating the liked song in the current station
-      const savedUpdatedStation = await updateStation(updatedStation)
-      console.log("🚀 ~~~~~~ toggleIsLiked ~ savedUpdatedStation:", savedUpdatedStation)
-
-      if (currSong.isLiked) {
-        // need songId to check if already exist
+      if (updatedIsLiked) {
         likedStation.songs.push(currSong)
-        console.log('added liked song')
+        await updateStation(likedStation)
 
       } else {
         // songIdx to remove fro, liked song 
-        const songIdx = likedStation.songs.findIndex(song => song.id === currSong.id)
-        console.log("likedStatio --> songIdx:", songIdx)
+        const likedSongIdx = likedStation.songs.findIndex(song => song.id === currSong.id)
+        if (likedSongIdx !== -1) {
+          likedStation.songs.splice(likedSongIdx, 1)
+          await updateStation(likedStation)
 
-        const removedSong = likedStation.songs.splice(songIdx, 1)
-        console.log("~~~~~~~ toggleIsLiked ~~~~~~~ likedStation:", likedStation)
-        console.log("------- toggleIsLiked ------- removedSong:", removedSong)
-        currSong.isLiked = false
+          const originalStation = stations.find(station => station.songs.some(song => song.id === currSong.id))
+          console.log("🚀 ~ toggleIsLiked ~ originalStation:", originalStation)
 
-        console.log('removed liked song')
+          if (originalStation) {
+            const originalSongIdx = originalStation.songs.findIndex(song => song.id === currSong.id)
+            if (originalSongIdx !== -1) {
+              originalStation.songs[originalSongIdx] = { ...currSong, isLiked: false }
+              await updateStation(originalStation)
+            }
+          }
+        }
       }
-
-      await updateStation(updatedStation)
-      await updateStation(likedStation)
-
-      // showSuccessMsg(`Station updated, new name: ${savedUpdatedStation.name}`)
-
     } catch (err) {
       console.log('Cannot update like song in store', err)
     }
-    console.log("🚀 ~ toggleIsLiked ~ likedStation:", likedStation)
   }
 
-
-
-
-
-  function updateStationAfterLikeSong(updatedStation) {
-
-  }
 
   useEffect(() => {
     setIsLiked(currSong?.isLiked)

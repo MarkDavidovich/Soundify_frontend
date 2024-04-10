@@ -5,6 +5,7 @@ import { userService } from './user.service.js'
 
 const STORAGE_KEY = 'stationDB'
 
+
 export const stationService = {
     query,
     getById,
@@ -15,8 +16,8 @@ export const stationService = {
     getDefaultSort,
     addStationMsg,
     getIdxById,
-    // addToLikedSongsStation,
     handleLikedSongs,
+    getSongById
 }
 window.cs = stationService
 
@@ -57,6 +58,15 @@ async function getIdxById(id) {
     catch (err) {
         console.log('could not get station idx', err)
     }
+}
+
+async function getSongById(songId) {
+    const stations = await storageService.query(STORAGE_KEY)
+    const song = stations.reduce((foundSong, station) => {
+        if (foundSong) return foundSong
+        return station.songs.find(song => song.id === songId)
+    }, null)
+    return song || null
 }
 
 async function remove(stationId) {
@@ -151,24 +161,6 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
     }
 }
 
-// function addToLikedSongsStation() {
-//     return {
-//         _id: 'liked-songs',
-//         name: 'Liked Songs',
-//         tags: [],
-//         desc: 'Playlist of liked songs',
-//         songs: [],
-//         likedByUsers: [],
-//         imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
-//         createdBy: {
-//             _id: '',
-//             fullname: 'Guest',
-//             imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
-//         },
-//         createdAt: '',
-//     }
-// }
-
 function _createEmptyLikedSongsStation() {
     return {
         _id: 'liked-songs',
@@ -200,7 +192,6 @@ const sInTheEnd = {
     duration: '3:36',
     addedAt: utilService.randomAddedTime(),
     isLiked: false,
-    fromStation: '',
 }
 const sMrBlueSky = {
     id: utilService.makeId(),
@@ -450,7 +441,6 @@ function _createStations() {
     if (!stations || !stations.length) {
 
         stations = [
-
 
             _createStation('Our Favorites',
                 "our favorite songs!",
