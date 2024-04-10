@@ -13,8 +13,6 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     const [openContextMenuStationId, setOpenContextMenuStationId] = useState(null)
     const [contextMenuPosition, setContextMenuPosition] = useState({ mouseX: null, mouseY: null })
 
-
-
     const [toggleLink, setToggleLink] = useState(false)
 
     useEffect(() => {
@@ -56,8 +54,6 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         if (!toggleLink) return 'link'
         else return 'link clicked'
     }
-
-
 
     const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
 

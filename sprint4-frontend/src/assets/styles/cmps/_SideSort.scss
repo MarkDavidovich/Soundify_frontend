@@ -1,5 +1,5 @@
 .side-sort-container {
-
+    display: flex;
     margin: 0 0 10px 3px;
     height: 37px;
 
@@ -33,4 +33,8 @@
         margin-left: 4px;
         margin-right: 12px;
     }
+}
+
+.side-sort-container-collapsed {
+    display: none;
 }

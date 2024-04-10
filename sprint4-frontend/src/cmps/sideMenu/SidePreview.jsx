@@ -10,6 +10,8 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
 
     const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
 
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+
     const [contextMenu, setContextMenu] = useState(null)
 
     const location = useLocation()
@@ -41,6 +43,9 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
         // else return 'side-preview-line clicked'
     }
 
+    const dynamicClass = toggleLibrary ? '-collapsed' : ''
+
+
     return (
         // <div className="side-preview-line"
         <div className={setSidePreviewLineClass()}
@@ -48,7 +53,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
             onClick={() => { handleStationClick(station) }}>
 
             <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
-            <div className="station-preview-details">
+            <div className={'station-preview-details' + dynamicClass}>
                 <span className="station-name">{station.name}</span>
 
                 {station._id !== 'liked-songs' &&

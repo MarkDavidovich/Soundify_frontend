@@ -2,12 +2,18 @@
 import React, { useState } from 'react'
 import { SideIndex } from './SideIndex'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { toggleLibraryAction } from '../../store/actions/layout.actions'
+import { useDispatch } from 'react-redux'
 
 export function SideBar() {
 
     const [isWhiteFill, setIsWhiteFill] = useState(true)
     const [toggleSvgSearch, setToggleSvgSearch] = useState(false)
-    const [toggleLibrary, setToggleLibrary] = useState(false)
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+    // const [toggleLibrary, setToggleLibrary] = useState(false)
+    const dispatch = useDispatch()
+
 
     const handleHomeButtonClick = () => {
         setIsWhiteFill(prevState => !prevState)
@@ -19,9 +25,14 @@ export function SideBar() {
         setToggleSvgSearch(prevState => !prevState)
     }
 
+    // const handleToggleLibraryClick = () => {
+    //     setToggleLibrary(!toggleLibrary)
+    // }
+
     const handleToggleLibraryClick = () => {
-        setToggleLibrary(!toggleLibrary)
+        dispatch(toggleLibraryAction())
     }
+
 
     const sideBarClass = toggleLibrary ? 'side-bar collapsed' : 'side-bar'
 

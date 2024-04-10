@@ -106,3 +106,12 @@
         background-color: $clr16;
     }
 }
+
+.side-preview-line {
+    width: 50px;
+
+    .station-preview-details-collapsed {
+        display: none;
+
+    }
+}

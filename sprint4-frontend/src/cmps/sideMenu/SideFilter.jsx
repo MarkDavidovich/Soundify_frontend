@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import { utilService } from "../../services/util.service"
+import { useSelector } from "react-redux"
 
 
 export function SideFilter({ filterBy, onSetFilter, toggleFilter,
     setToggleFilter, onFilterBlur }) {
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+
     // onSetFilter = useRef(utilService.debounce(onSetFilter, 300))
 
     const filterRef = useRef()
@@ -58,9 +61,10 @@ export function SideFilter({ filterBy, onSetFilter, toggleFilter,
     //     onFilterBlur()
     // }
 
-    return (
-        <div ref={filterRef} className="side-filter">
+    const dynamicClass = toggleLibrary ? '-collapsed' : ''
 
+    return (
+        <div ref={filterRef} className={'side-filter' + dynamicClass}>
             <form className="side-search-library">
 
                 <input

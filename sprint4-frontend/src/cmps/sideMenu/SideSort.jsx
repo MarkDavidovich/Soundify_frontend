@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useSelector } from "react-redux"
 
 
 export function SideSort({ sortBy, onSetSort }) {
 
     const [selectedSort, setSelectedSort] = useState(sortBy.by)
+    const toggleLibrary = useSelector(storeState => storeState.layoutModule.toggleLibrary)
 
     function handleSort(by) {
         setSelectedSort(by)
@@ -16,7 +18,9 @@ export function SideSort({ sortBy, onSetSort }) {
         return selectedSort === by ? 'btn-clicked' : 'btn'
     }
 
-    return <div className="side-sort-container flex">
+    const dynamicClass = toggleLibrary ? '-collapsed' : ''
+
+    return <div className={'side-sort-container' + dynamicClass}>
         <button className={getBtnClass('station')} onClick={() => handleSort('station')}>Playlists</button>
 
         <button className={getBtnClass('artist')} onClick={() => handleSort('artist')}>Artists</button>

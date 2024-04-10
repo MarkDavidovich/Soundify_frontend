@@ -6,6 +6,7 @@
     // flex: 1;
 
     .top-bar {
+        display: flex;
         justify-content: space-between;
         height: 48px;
         align-items: center;
@@ -13,6 +14,7 @@
         margin-bottom: 8px;
 
         .your-library {
+            display: flex;
             @include btn($type: regular);
             align-items: center;
             width: 142px;
@@ -58,6 +60,76 @@
     }
 
     .search-library {
+        display: flex;
+        margin-bottom: 5px;
+        margin-left: 2px;
+
+        .search-btn {
+            background-color: $clr8;
+
+            path {
+                fill: $clr3;
+            }
+
+            &:hover {
+                background-color: $clr9;
+                border-radius: 20px;
+
+                path {
+                    fill: $clr2;
+                }
+
+            }
+        }
+
+        .search-btn.close {
+            background-color: $clr9;
+            border-radius: 0;
+        }
+
+    }
+}
+
+
+.side-index-collapsed {
+    background-color: $clr8;
+    padding: 0 8px 8px 8px;
+    border-radius: $border-rad1;
+
+    .top-bar-collapsed {
+        display: inline;
+
+        *> :not(:first-child) {
+            display: none;
+        }
+
+        button.your-library-collapsed {
+            width: 50px;
+
+            @include btn($type: regular);
+            align-items: center;
+            height: 40px;
+            border-radius: 20%;
+
+            font-size: rem(16px);
+
+            svg {
+                width: 30px;
+                height: 24px;
+                margin-right: 5px;
+            }
+
+            span.library-collapsed {
+                display: none;
+            }
+        }
+
+        .add-btn-collapsed {
+            display: none;
+        }
+    }
+
+    .search-library-collapsed {
         margin-bottom: 5px;
         margin-left: 2px;
 

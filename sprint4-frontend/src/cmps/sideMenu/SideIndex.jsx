@@ -11,15 +11,21 @@ import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideSort } from './SideSort.jsx'
 import { useNavigate } from 'react-router'
+import { useDispatch } from 'react-redux'
+import { toggleLibraryAction } from '../../store/actions/layout.actions.js';
+// import { setToggleLibrary } from '../../store/actions/layout.actions.js';
 
-export function SideIndex({ toggleLibrary, onToggleLibrary }) {
+// export function SideIndex({ toggleLibrary, onToggleLibrary }) {
+export function SideIndex({ }) {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const filterBy = useSelector(storeState => storeState.stationModule.filterBy)
     const sortBy = useSelector(storeState => storeState.stationModule.sortBy)
     const [toggleFilter, setToggleFilter] = useState(false)
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
     // const [toggleLibrary, setToggleLibrary] = useState(false)
 
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -97,15 +103,22 @@ export function SideIndex({ toggleLibrary, onToggleLibrary }) {
         else return 'search-btn'
     }
 
+    function onToggleLibrary() {
+        dispatch(toggleLibraryAction())
+    }
+
+    const sideIndexClass = toggleLibrary ? '-collapsed' : ''
+
     // function onFilterBlur() {
     //     setToggleFilter(false)
     // }
 
 
     return (
-        <div className="side-index">
-            <div className="top-bar flex">
-                <button className="your-library flex" onClick={onToggleLibrary}>
+        // <div className="side-index">
+        <div className={'side-index' + sideIndexClass}>
+            <div className={'top-bar' + sideIndexClass}>
+                <button className={'your-library' + sideIndexClass} onClick={onToggleLibrary}>
 
                     {!toggleLibrary &&
                         <svg
@@ -125,10 +138,10 @@ export function SideIndex({ toggleLibrary, onToggleLibrary }) {
                             </path>
                         </svg>
                     }
-                    <span className="library">Your Library</span>
+                    <span className={'library' + sideIndexClass}>Your Library</span>
                 </button>
 
-                <button className="add-btn" onClick={onAddStation}><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
+                <button className={'add-btn' + sideIndexClass} onClick={onAddStation}><svg role="img" height="16" width="16" aria-hidden="true" viewBox="0 0 16 16" data-encore-id="icon">
                     <path className="plus-icon" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z" fill="#b3b3af">
                     </path>
                 </svg></button>
@@ -136,7 +149,7 @@ export function SideIndex({ toggleLibrary, onToggleLibrary }) {
 
             <SideSort sortBy={sortBy} onSetSort={onSetSort} />
 
-            <div className="search-library flex">
+            <div className={'search-library' + sideIndexClass}>
                 <button className={setSearchClass()} onClick={onToggleFilter}>
                     <svg role="img" height="16" width="16" aria-hidden="true" className="Svg-sc-ytk21e-0 haNxPq mOLTJ2mxkzHJj6Y9_na_" viewBox="0 0 16 16" data-encore-id="icon"><path d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0  1 .25 7z" fill="#FFFFFF"></path></svg>
                 </button>
@@ -155,7 +168,7 @@ export function SideIndex({ toggleLibrary, onToggleLibrary }) {
             <SideList stations={stations} onRemoveStation={onRemoveStation}
                 onUpdateStation={onUpdateStation} />
 
-        </div>
+        </div >
     )
 }
 

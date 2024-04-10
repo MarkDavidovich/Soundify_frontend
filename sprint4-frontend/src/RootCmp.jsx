@@ -7,11 +7,17 @@ import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
 import { UserDetails } from './pages/UserDetails'
 import { SideBar } from './cmps/sideMenu/SideBar'
+import { useSelector } from 'react-redux'
 
 export function RootCmp() {
 
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+
+    const dynamicClass = toggleLibrary ? '-collapsed' : ''
+
+
     return (
-        <div className="main-layout">
+        <div className={'main-layout' + dynamicClass}>
             {/* <AppHeader /> */}
             <SideBar />
             <main className="main-view">
