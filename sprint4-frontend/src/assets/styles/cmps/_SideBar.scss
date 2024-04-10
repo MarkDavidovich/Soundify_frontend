@@ -2,6 +2,13 @@
     grid-area: side-bar;
     gap: 8px;
 
+    display: grid;
+    grid-template-rows: auto 1fr;
+    overflow-y: hidden;
+    height: 100%;
+    grid-column: 1;
+    grid-row: 1;
+
     .actions-btns {
         display: flex;
         flex-direction: column;
