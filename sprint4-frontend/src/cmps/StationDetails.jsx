@@ -9,7 +9,7 @@ import { stationService } from "../services/station.service.local"
 import { getActionUpdateStation, updateStation } from "../store/actions/station.actions"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
-import { ThemesPage } from "../pages/ThemesPage"
+import { SearchPreview } from "./SearchPreview"
 
 export function StationDetails() {
   const params = useParams()
@@ -364,7 +364,7 @@ export function StationDetails() {
         }
         {
           currStation._id !== 'liked-songs' &&
-          <ThemesPage handleAddSongFromSearch={handleAddSongFromSearch}
+          <SearchPreview handleAddSongFromSearch={handleAddSongFromSearch}
             currStation={currStation}
           />
         }
