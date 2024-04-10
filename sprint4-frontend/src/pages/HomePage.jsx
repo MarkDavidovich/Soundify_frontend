@@ -27,15 +27,14 @@ export function HomePage() {
         <section className="main-view">
             {/* <AppHeader /> */}
 
-            <div>some stations</div>
             <MiniHomeStationList
                 stations={stations} />
 
-            <div>some more stations</div>
+            <div className="list-name">Made for You</div>
             <StationList
                 stations={stations} />
 
-            <div>even more stations</div>
+            <div className="list-name">Top lists</div>
             <StationList
                 stations={stations} />
 

@@ -6,6 +6,12 @@
     border-radius: 7px;
     padding-inline: 4px;
 
+    .list-name {
+        font-family: circular-bold;
+        font-size: 24px;
+        padding-left: 10px;
+    }
+
     &:hover {
         overflow-y: auto;
     }

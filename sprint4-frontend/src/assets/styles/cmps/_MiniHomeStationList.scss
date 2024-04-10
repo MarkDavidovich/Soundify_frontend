@@ -1,7 +1,8 @@
 .mini-stations-container {
   grid-template-columns: repeat(4, 1fr);
-  height: 160px;
-
+  height: 180px;
+  padding-inline: 12px;
+  padding-top: 8px;
 
   .mini-station-list {
     display: grid;
@@ -24,6 +25,7 @@
         padding: 0;
         transition: background-color 0.4s;
         align-items: center;
+
 
         .img-container {
           width: 4em;
