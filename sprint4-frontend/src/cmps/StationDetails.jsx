@@ -71,27 +71,25 @@ export function StationDetails() {
   }
 
   function calcStationDuration(songs) {
-    let totalDurationInSeconds = 0
-    if (!songs.length) return
+    let totalDurationInSeconds = 0;
+    if (!songs.length) return;
+
     songs.forEach(song => {
       const [minutes, seconds] = song.duration.split(':')
 
       totalDurationInSeconds += parseInt(minutes, 10) * 60 + parseInt(seconds, 10)
     })
 
-    const totalMinutes = Math.floor(totalDurationInSeconds / 60)
-    const totalSeconds = totalDurationInSeconds % 60
+    const totalHours = Math.floor(totalDurationInSeconds / 3600)
+    const remainingSeconds = totalDurationInSeconds % 3600
+    const totalMinutes = Math.floor(remainingSeconds / 60)
+    const totalSeconds = remainingSeconds % 60
 
-    return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
-  }
-
-  function handleSongClick(songIdx) {
-    if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
-      togglePlaying(isPlaying)
-
+    if (totalHours >= 1) {
+      const hourText = totalHours === 1 ? "hour" : "hours";
+      return `about ${totalHours} ${hourText} `;
     } else {
-      dispatch(getActionCurrSongIdx(songIdx))
-      togglePlaying(false) // toggle will always switch it to true
+      return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
     }
   }
 
