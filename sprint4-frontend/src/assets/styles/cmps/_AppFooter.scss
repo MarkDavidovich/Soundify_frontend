@@ -250,3 +250,8 @@
     transform: translateX(-50%);
     left: 50%;
 }
+
+.inactive {
+    filter: brightness(50%);
+    pointer-events: none;
+}

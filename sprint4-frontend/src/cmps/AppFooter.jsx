@@ -150,14 +150,14 @@ export function AppFooter() {
     // if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
 
     return (
-        <footer className="app-footer">
-            <div className="song-details-container">
+        <footer className={`app-footer ${!currSong ? ' inactive' : ''}`}>
+            <div className={"song-details-container"}>
                 <SongPreview
                     currSong={currSong}
                     handleSongLike={handleSongLike}
                     currStation={currStation} />
             </div>
-            <div className='controls-main-container'>
+            <div className={`controls-main-container `}>
                 <div className='player-controls-main'>
                     <div className="player-controls-left">
                         <button className={'shuffle-btn' + (shuffle ? ' active' : '')} onClick={() => {
@@ -248,7 +248,7 @@ export function AppFooter() {
                         setShowRemainder(!showRemainder)
                         setCurrSongRemainder(totalSongTime - currSongTime)
                     }}>
-                        {showRemainder ? '-' + formatTime(currSongRemainder) : formatTime(totalSongTime)}
+                        {currSong ? showRemainder ? '-' + formatTime(currSongRemainder) : formatTime(totalSongTime) : '-:--'}
                     </span>
                 </div>
             </div>
@@ -359,6 +359,6 @@ export function AppFooter() {
                 onProgress={handleProgress}
                 onEnded={handleEnd}
             />
-        </footer>
+        </footer >
     )
 }
