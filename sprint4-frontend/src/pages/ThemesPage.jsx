@@ -48,10 +48,12 @@ export function ThemesPage({ onSongSelect, currStation }) {
 
   return (
     <section className="main-view">
+         { currStation.songs.length > 0 && (
       <button className='find-more-btn' onClick={handleFindMore}>
         {showFindMore ? null : <div className="find-more-text">Find more</div>}
       </button>
-      {showFindMore && (
+         )}
+      { currStation.songs.length === 0 && (
         <section className=' add-song-container flex'>
           <div className="search-song-container">
             <h1 className='find-song'>Let's find something for your playlist</h1>
@@ -66,10 +68,10 @@ export function ThemesPage({ onSongSelect, currStation }) {
                   </div>
                   <div className="song-desc flex">
                     <span className='song-title'>
-                    {song.title}
+                      {song.title}
                     </span>
                     <span className='song-artist'>
-                    <h4> {song.artist}</h4>
+                      <h4>Artist: {song.artist}</h4>
                     </span>
                     <div className="add-song">
                       <button className="add-song-btn flex" onClick={() => handleAddSongFromSearch(song)}>

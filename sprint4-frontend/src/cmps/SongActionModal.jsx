@@ -19,7 +19,7 @@ export function SongActionModal({ song, currStation }) {
     }
 
     async function handleRemoveSong(songId) {
-        const songIdx = currStation.songs.findIndex(song => song.id === songId);
+        const songIdx = currStation.songs.findIndex(song => song.id === songId)
         if (songIdx !== -1) {
             currStation.songs.splice(songIdx, 1)
 
