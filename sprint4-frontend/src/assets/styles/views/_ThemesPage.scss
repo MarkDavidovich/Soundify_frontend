@@ -1,31 +1,6 @@
-.main-view {
-    grid-area: main-view;
-    position: relative;
-
-    .song-list {
-        .song-info {
-            display: grid;
-            grid-template-columns:
-                minmax(120px, 4fr) minmax(120px, 2fr) minmax(120px, 1fr);
-            column-gap: em(16px);
-
-            grid-template-areas: "img album add-song";
-
-            .basic-song-info {
-                grid-area: img;
-            }
-
-            .album {
-                grid-area: album;
-            }
-
-            .add-song {
-                grid-area: add-song;
-
-            }
-        }
-
-    }
+.main-container {
+    // grid-area: main-view;
+    // position: relative;
 
     .find-more-btn {
         display: block;
@@ -39,21 +14,103 @@
         }
     }
 
-    .add-song-container {
-        border-top: 1px solid hsla(0, 0%, 100%, .1);
-        padding: em(24px) 0;
-        justify-content: space-between;
+    .song-list {
+        .song-info {
+            display: grid;
+            grid-template-columns:
+                minmax(120px, 4fr) minmax(120px, 2fr) minmax(120px, 1fr);
+            column-gap: em(16px);
+            padding: 0 em(16px);
+            grid-template-rows: em(56px);
+            align-items: center;
 
-        .search-song-container {
-            .find-song {
-                color: $clr2;
-                font-size: 1.25rem;
-                margin-bottom: em(16px);
+            &:hover {
+                background-color: hsla(0, 0%, 100%, .15);
+                border-radius: 5px;
+            }
+
+            grid-template-areas: "img album add-song";
+
+            .basic-song-info {
+                grid-area: img;
+                align-items: center;
+
+                img {
+                    border-radius: em(4px);
+                    margin-right: em(12px);
+                    width: em(40px);
+                    height: em(40px);
+                }
+
+                .song-desc {
+                    flex-direction: column;
+
+                    .song-artist {
+                        h4 {
+
+                            font-size: $font-size-14;
+                            color: $clr3;
+                        }
+
+                    }
+                }
+
+            }
+
+            .album {
+                grid-area: album;
+                color: $clr3;
+                font-size: $font-size-14;
+            }
+
+            .add-song {
+                grid-area: add-song;
+
+                .add-song-btn {
+                    font-size: $font-size-14;
+                    background-color: transparent;
+                    border-radius: 3em;
+                    text-align: center;
+                    transition-duration: 33ms;
+                    transform: translate3d(0px, 0px, 0px);
+                    border: 1px solid #727272;
+                    font-weight: 700;
+                    color: white;
+
+                    // padding-block-start: 3px;
+                    // padding-block-end:3px;
+                    padding-inline-start: 15px;
+                    padding-inline-end: 15px;
+
+                    &:hover {
+                        transform: scale(1.04);
+                        border: 1px solid white;
+                    }
+
+
+                }
+
             }
         }
 
-        img {
-            width: 50%;
+    }
+
+
+    .add-song-container {
+        border-top: 1px solid hsla(0, 0%, 100%, .1);
+        // padding: em(24px) 0;
+        flex-direction: column;
+
+        .search-song-container {
+            // padding: 24px 0;
+            justify-content: space-between;
+            margin-top: 24px;
+
+            .find-song {
+                color: $clr2;
+                font-size: em(23.5px);
+                margin-bottom: em(16px);
+            }
         }
 
         .song-desc {

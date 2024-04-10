@@ -1,35 +1,37 @@
 .search-song {
-   
-    input {
-        position: relative;
-        background-color: hsla(0,0%,100%,.1);
+    .search-container {
+      display: flex;
+      align-items: center;
+      background-color: hsla(0, 0%, 100%, .1);
+      border-radius: 4px;
+      color: hsla(0, 0%, 100%, .7);
+      width: 365px;
+
+  
+      input {
+        flex: 1; /* Take up remaining space */
+        background-color: transparent; /* Transparent background */
         border: 0;
-        border-radius: 4px;
-        color: hsla(0,0%,100%,.7);
+        color: hsla(0, 0%, 100%, .7);
         font-size: 0.875rem;
         height: 40px;
         width: 100%;
         opacity: 1;
-        padding: 8px 32px;
-        text-overflow: ellipsis;
-        transition-duration: .3s;
-        // transition-timing-function: cubic-bezier(.3,0,.4,1);
         outline: none;
-
-        &::placeholder{
-            color: $clr3;
+        text-align: left;
+  
+        &::placeholder {
+          color: $clr3;
         }
-
-        &[type="text"] + svg {
-            width: em(16px);
-            height: em(16px);
-            position: absolute;
-            fill:  $clr3;
-            top: 45%;
-            left: 0.8%;
-            pointer-events: none;
-        }
-
-
+      }
+  
+      svg {
+        width: 16px;
+        height: 16px;
+        fill: $clr3;
+        margin-left: 8px; /* Adjust margin to create space between icon and input */
+        margin-right: 8px;
+      }
     }
-}
+  }
+  
