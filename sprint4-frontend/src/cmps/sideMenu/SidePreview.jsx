@@ -15,10 +15,6 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     const location = useLocation()
     const isActive = location.pathname.includes(`/station/${station._id}`)
 
-    console.log("🚀 ~ SidePreview ~ location:", location)
-    console.log("🚀 ~ SidePreview ~ isActive:", isActive)
-
-
     function handleContextMenu(ev) {
         ev.preventDefault()
         onContextMenuOpen(station._id, ev.clientX - 2, ev.clientY - 4)
@@ -60,8 +56,8 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
                 }
                 {station._id === 'liked-songs' && (
                     <>
-                     <span className="station-created">Playlist</span> 
-               <span className="station-created"><span>•</span> {station.songs.length} songs</span>
+                        <span className="station-created">Playlist</span>
+                        <span className="station-created"><span>•</span> {station.songs.length} songs</span>
 
                     </>
                 )}

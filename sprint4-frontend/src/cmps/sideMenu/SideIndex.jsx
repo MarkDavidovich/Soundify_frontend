@@ -12,13 +12,13 @@ import { SideList } from './SideList.jsx'
 import { SideSort } from './SideSort.jsx'
 import { useNavigate } from 'react-router'
 
-export function SideIndex() {
+export function SideIndex({ toggleLibrary, onToggleLibrary }) {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const filterBy = useSelector(storeState => storeState.stationModule.filterBy)
     const sortBy = useSelector(storeState => storeState.stationModule.sortBy)
     const [toggleFilter, setToggleFilter] = useState(false)
-    const [toggleLibrary, setToggleLibrary] = useState(false)
+    // const [toggleLibrary, setToggleLibrary] = useState(false)
 
     const navigate = useNavigate()
 
@@ -80,26 +80,27 @@ export function SideIndex() {
         setStationSort(sortBy)
     }
 
-    function onToggleLibrary() {
-        setToggleLibrary(!toggleLibrary)
-    }
+    // function onToggleLibrary() {
+    //     setToggleLibrary(!toggleLibrary)
+    // }
 
     function onToggleFilter() {
-        // setToggleFilter(!toggleFilter)
-        setToggleFilter(prevToggleFilter => !prevToggleFilter)
 
+        // setToggleFilter(!toggleFilter)
+
+        setToggleFilter(prevToggleFilter => !prevToggleFilter)
 
     }
 
     function setSearchClass() {
-        if (!toggleFilter) return 'search-btn close'
-        else return 'search-btn open'
+        if (toggleFilter) return 'search-btn close'
+        else return 'search-btn'
     }
 
-    function onFilterBlur() {
-        console.log("Filter should be closed now")
-        setToggleFilter(false)
-    }
+    // function onFilterBlur() {
+    //     setToggleFilter(false)
+    // }
+
 
     return (
         <div className="side-index">
@@ -144,7 +145,9 @@ export function SideIndex() {
                 {toggleFilter &&
 
                     <SideFilter className={"animate__animated animate__fadeInLeft"} filterBy={filterBy} onSetFilter={onSetFilter}
-                        onFilterBlur={onFilterBlur}
+                        toggleFilter={toggleFilter}
+                        setToggleFilter={setToggleFilter}
+                    // onFilterBlur={onFilterBlur}
                     />
                 }
             </div>

@@ -69,11 +69,19 @@
             }
 
             &:hover {
+                background-color: $clr9;
+                border-radius: 20px;
+
                 path {
                     fill: $clr2;
                 }
 
             }
+        }
+
+        .search-btn.close {
+            background-color: $clr9;
+            border-radius: 0;
         }
 
     }

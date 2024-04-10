@@ -62,11 +62,12 @@ export async function getSongs(term) {
             const details = videosWithDetails.find(detail => detail.id === video.id.videoId)
 
             const cleanedTitle = cleanTitle(video.snippet.title)
+            const cleanedArtist = cleanTitle(video.snippet.channelTitle)
 
             return {
                 id: video.id.videoId,
                 title: cleanedTitle,
-                artist: video.snippet.channelTitle,
+                artist: cleanedArtist,
                 url: `https://www.youtube.com/watch?v=${video.id.videoId}`,
                 imgUrl: video.snippet.thumbnails.default.url,
                 isLiked: false,
@@ -108,6 +109,7 @@ function cleanTitle(title) {
         /HD/gi,
         /lyrics/gi,
         /video clip/gi,
+        /VEVO/gi,
     ]
 
     let cleanedTitle = title

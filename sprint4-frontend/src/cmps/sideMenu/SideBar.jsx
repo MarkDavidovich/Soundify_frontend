@@ -7,6 +7,7 @@ export function SideBar() {
 
     const [isWhiteFill, setIsWhiteFill] = useState(true)
     const [toggleSvgSearch, setToggleSvgSearch] = useState(false)
+    const [toggleLibrary, setToggleLibrary] = useState(false)
 
     const handleHomeButtonClick = () => {
         setIsWhiteFill(prevState => !prevState)
@@ -18,9 +19,16 @@ export function SideBar() {
         setToggleSvgSearch(prevState => !prevState)
     }
 
+    const handleToggleLibraryClick = () => {
+        setToggleLibrary(!toggleLibrary)
+    }
+
+    const sideBarClass = toggleLibrary ? 'side-bar collapsed' : 'side-bar'
+
     return (
         <>
-            <div className="side-bar">
+            {/* <div className="side-bar"> */}
+            <div className={sideBarClass}>
                 <div className="actions-btns">
                     <Link className="home-link" to="/">
                         <div className="home-btn-container" onClick={handleHomeButtonClick}>
@@ -72,7 +80,8 @@ export function SideBar() {
                     </Link>
 
                 </div>
-                <SideIndex />
+
+                <SideIndex toggleLibrary={toggleLibrary} onToggleLibrary={handleToggleLibraryClick} />
             </div>
         </>
     )
