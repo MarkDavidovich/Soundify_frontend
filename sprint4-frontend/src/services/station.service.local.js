@@ -15,7 +15,8 @@ export const stationService = {
     getDefaultSort,
     addStationMsg,
     getIdxById,
-    addToLikedSongsStation,
+    // addToLikedSongsStation,
+    handleLikedSongs,
 }
 window.cs = stationService
 
@@ -109,6 +110,28 @@ function getEmptyStation() {
     }
 }
 
+export function handleLikedSongs(stations, song) {
+
+    const allSongs = [].concat(...stations.map(station => station.songs))
+    const songToCheck = allSongs.find(s => s.id === song.id)
+
+    console.log("🚀 ~ handleLikedSongs ~ songToCheck:", songToCheck)
+    const likedStation = getById('liked-songs')
+
+    console.log("~~~~ handleLikedSongs ~~~~ likedStation:", likedStation)
+
+    if (song.isLiked) {
+        likedStation.songs.push(song)
+        console.log('added liked song')
+
+    } else {
+
+        likedStation.songs.splice(currSongIdx, 1)
+        console.log('removed liked song')
+    }
+
+}
+
 
 function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = []) {
     return {
@@ -128,23 +151,23 @@ function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUs
     }
 }
 
-function addToLikedSongsStation() {
-    return {
-        _id: 'liked-songs',
-        name: 'Liked Songs',
-        tags: [],
-        desc: 'Playlist of liked songs',
-        songs: [],
-        likedByUsers: [],
-        imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
-        createdBy: {
-            _id: '',
-            fullname: 'Guest',
-            imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
-        },
-        createdAt: '',
-    }
-}
+// function addToLikedSongsStation() {
+//     return {
+//         _id: 'liked-songs',
+//         name: 'Liked Songs',
+//         tags: [],
+//         desc: 'Playlist of liked songs',
+//         songs: [],
+//         likedByUsers: [],
+//         imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
+//         createdBy: {
+//             _id: '',
+//             fullname: 'Guest',
+//             imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712605592/Guest-user_iswifs.png'
+//         },
+//         createdAt: '',
+//     }
+// }
 
 function _createEmptyLikedSongsStation() {
     return {
@@ -177,6 +200,7 @@ const sInTheEnd = {
     duration: '3:36',
     addedAt: utilService.randomAddedTime(),
     isLiked: false,
+    fromStation: '',
 }
 const sMrBlueSky = {
     id: utilService.makeId(),

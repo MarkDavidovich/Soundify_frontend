@@ -69,12 +69,10 @@ export async function addStation(station) {
 }
 
 export async function updateStation(station) {
-    console.log("🚀 ~ updateStation ~ station:", station)
 
     try {
         const savedStation = await stationService.save(station)
         store.dispatch(getActionUpdateStation(savedStation))
-        console.log("🚀 ~ file: station.actions.js:79 ~ updateStation ~ savedStation:", savedStation)
 
         return savedStation
     } catch (err) {

@@ -80,7 +80,6 @@ export function SideIndex() {
     function onToggleLibrary() {
         setToggleLibrary(!toggleLibrary)
     }
-    console.log("🚀 ~ onToggleLibrary ~ toggleLibrary:", toggleLibrary)
 
     function onToggleFilter() {
         setToggleFilter(!toggleFilter)

@@ -154,7 +154,8 @@ export function AppFooter() {
             <div className="song-details-container">
                 <SongPreview
                     currSong={currSong}
-                    handleSongLike={handleSongLike} />
+                    handleSongLike={handleSongLike}
+                    currStation={currStation} />
             </div>
             <div className='controls-main-container'>
                 <div className='player-controls-main'>
