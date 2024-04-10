@@ -23,6 +23,8 @@ export function MiniHomeStationList({ stations }) {
 
   if (!stations) return <div></div>
 
+  // const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
+
   return (
     <section className="mini-stations-container">
       <div className='mini-station-list'>

@@ -19,9 +19,10 @@ export function HomePage() {
     useEffect(() => {
         loadStations()
             .catch(err => {
-                showErrorMsg('cannot load stations')
+                showErrorMsg('cannot load stations', err)
             })
     }, [])
+
 
     return (
         <section className="main-view">

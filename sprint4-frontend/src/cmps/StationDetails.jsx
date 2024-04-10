@@ -26,6 +26,7 @@ export function StationDetails() {
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
+    if (!stationImgUrl) return
     const fac = new FastAverageColor()
     try {
       const color = await fac.getColorAsync(stationImgUrl)
@@ -191,6 +192,16 @@ export function StationDetails() {
   if (!currStation) return <div></div>
   let stationDuration = calcStationDuration(currStation.songs)
 
+  function handleSongClick(songIdx) {
+    if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
+      togglePlaying(isPlaying)
+
+    } else {
+      dispatch(getActionCurrSongIdx(songIdx))
+      togglePlaying(false) // toggle will always switch it to true
+    }
+  }
+
   return (
     <div className="station-details flex column">
       <div className="station-data-container">
@@ -248,7 +259,7 @@ export function StationDetails() {
               <span className="album">Album</span>
               <span className="date">Date added</span>
               <span className="duration">
-                <svg data-encore-id="icon" role="img" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
               </span>
             </div>
             <div className="horizontal-line"></div>

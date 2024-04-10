@@ -110,6 +110,7 @@ function getEmptyStation() {
         songs: [],
         likedByUsers: [],
         imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
+
         createdBy: {
             _id: '',
             fullname: 'Guest', // Add || LoggedIn user
@@ -145,7 +146,7 @@ function _createEmptyLikedSongsStation() {
         desc: 'Playlist of liked songs',
         songs: [],
         likedByUsers: [],
-        imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712320500/Station%20images/Misc%20images/newPlaylist_exl8fh.png',
+        imgUrl: 'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/Station%20images/liked-songs-300_kljhls.png',
         createdBy: {
             _id: '',
             fullname: 'Guest',
@@ -420,7 +421,7 @@ function _createStations() {
 
             _createStation('Our Favorites',
                 "our favorite songs!",
-                'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712214797/Station%20images/liked-songs-300_kljhls.png',
+                'https://res.cloudinary.com/dkwwsxprt/image/upload/v1712783456/Station%20images/Misc%20images/ab67706c0000da8454c9a023b386d4afc4a8a013_sxztsd.jpg',
                 [
                     sInTheEnd,
                     sMrBlueSky,
