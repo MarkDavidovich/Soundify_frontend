@@ -82,13 +82,20 @@ export function SideIndex() {
     }
 
     function onToggleFilter() {
-        setToggleFilter(!toggleFilter)
+        // setToggleFilter(!toggleFilter)
+        setToggleFilter(prevToggleFilter => !prevToggleFilter)
+
 
     }
 
     function setSearchClass() {
         if (!toggleFilter) return 'search-btn close'
         else return 'search-btn open'
+    }
+
+    function onFilterBlur() {
+        console.log("Filter should be closed now")
+        setToggleFilter(false)
     }
 
     return (
@@ -133,7 +140,9 @@ export function SideIndex() {
 
                 {toggleFilter &&
 
-                    <SideFilter className={"animate__animated animate__fadeInLeft"} filterBy={filterBy} onSetFilter={onSetFilter} />
+                    <SideFilter className={"animate__animated animate__fadeInLeft"} filterBy={filterBy} onSetFilter={onSetFilter}
+                        onFilterBlur={onFilterBlur}
+                    />
                 }
             </div>
 
