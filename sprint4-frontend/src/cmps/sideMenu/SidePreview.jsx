@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { UpdateStation } from "./UpdateStation"
 import { getActionCurrStationIdx } from "../../store/actions/player.actions"
 import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux"
+import { useLocation } from "react-router"
 
 export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
     const dispatch = useDispatch()
@@ -10,6 +11,13 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
 
     const [contextMenu, setContextMenu] = useState(null)
+
+    const location = useLocation()
+    const isActive = location.pathname.includes(`/station/${station._id}`)
+
+    console.log("🚀 ~ SidePreview ~ location:", location)
+    console.log("🚀 ~ SidePreview ~ isActive:", isActive)
+
 
     function handleContextMenu(ev) {
         ev.preventDefault()
@@ -31,8 +39,10 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     function setSidePreviewLineClass() {
-        if (currStation !== station) return 'side-preview-line'
-        else return 'side-preview-line clicked'
+        return isActive ? 'side-preview-line clicked' : 'side-preview-line'
+
+        // if (currStation !== station) return 'side-preview-line'
+        // else return 'side-preview-line clicked'
     }
 
     return (

@@ -99,6 +99,9 @@
 
 .side-preview-line.clicked {
 
+    border-radius: 10px;
+    background-color: $clr11;
+
     &:hover {
         background-color: $clr16;
     }

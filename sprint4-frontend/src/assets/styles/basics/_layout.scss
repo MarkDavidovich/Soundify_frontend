@@ -12,6 +12,9 @@
         "side-bar main-view"
         "footer footer";
 
+    .main-view {
+        height: 100vh;
+    }
 
     @include for-narrow-layout {
         grid-template-columns:

@@ -20,7 +20,7 @@
             // padding: 4px 8px;
             border-radius: 20%;
             font-size: rem(16px);
-
+            flex: 1;
 
             svg {
                 width: 30px;
@@ -32,7 +32,7 @@
                 @include btn($type: regular);
                 width: 112px;
                 font-weight: bold;
-                margin-left: 2px;
+                margin-left: 8px;
                 font-family: circular-bold;
                 display: flex;
             }

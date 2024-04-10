@@ -5,6 +5,7 @@ import { ReviewIndex } from './pages/ReviewIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
 import { StationDetails } from './cmps/StationDetails.jsx'
+import { SidePreview } from './cmps/sideMenu/SidePreview.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
