@@ -188,7 +188,7 @@ export function StationDetails() {
     if (currStation === likedStation && likedStation.songs.length === 0) navigate('/')
   }
 
-  if (!currStation) return <h4>loading...</h4>
+  if (!currStation) return <div></div>
   let stationDuration = calcStationDuration(currStation.songs)
 
   return (

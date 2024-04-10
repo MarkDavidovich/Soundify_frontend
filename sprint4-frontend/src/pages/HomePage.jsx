@@ -8,6 +8,7 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { AppHeader } from '../cmps/AppHeader'
 import { StationList } from '../cmps/StationList'
 import { StationDetails } from '../cmps/StationDetails'
+import { MiniHomeStationList } from '../cmps/MiniHomeStationList'
 
 
 
@@ -27,7 +28,7 @@ export function HomePage() {
             {/* <AppHeader /> */}
 
             <div>some stations</div>
-            <StationList
+            <MiniHomeStationList
                 stations={stations} />
 
             <div>some more stations</div>

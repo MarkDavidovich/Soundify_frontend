@@ -3,7 +3,7 @@ import { StationPreview } from "./StationPreview"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { getActionCurrStationIdx } from '../../src/store/actions/player.actions'
+import { getActionCurrStationIdx } from "../store/actions/player.actions"
 
 export function StationList({ stations }) {
   const dispatch = useDispatch()
@@ -37,6 +37,7 @@ export function StationList({ stations }) {
               <StationPreview
                 station={station}
                 onPlay={onPlay}
+                isMini={false}
               />
             </div>
           ))
