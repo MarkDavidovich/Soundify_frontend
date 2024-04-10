@@ -20,7 +20,7 @@ export function SideBar() {
 
     return (
         <>
-            <div className="side-bar flex column">
+            <div className="side-bar">
                 <div className="actions-btns">
                     <Link className="home-link" to="/">
                         <div className="home-btn-container" onClick={handleHomeButtonClick}>
