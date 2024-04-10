@@ -212,6 +212,16 @@
             width: 56px;
             color: black;
             border-radius: 50%;
+
+            &:hover {
+                transform: scale(1.08);
+                filter: brightness(110%);
+            }
+
+            &:active {
+                transform: scale(0.97);
+                filter: brightness(80%);
+            }
         }
 
         .opt-btn {

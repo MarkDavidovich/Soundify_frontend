@@ -39,6 +39,11 @@
 
     .song-like {
       margin-top: 13px;
+
+      &:active {
+        transform: scale(0.90);
+        filter: brightness(80%);
+      }
     }
   }
 

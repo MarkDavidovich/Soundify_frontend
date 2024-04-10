@@ -63,6 +63,10 @@
                 &:hover {
                     transform: scale(1.08);
                 }
+
+                &:active {
+                    transform: scale(0.97);
+                }
             }
 
             .player-controls-right {
