@@ -177,9 +177,13 @@ export function StationDetails() {
         await updateStation(likedStation)
 
         const originalStation = stations.find(station => station.songs.some(song => song.id === hoveredSong.id))
+
         if (originalStation) {
-          originalStation.songs[songIdx] = { ...hoveredSong, isLiked: false }
-          await updateStation(originalStation)
+          const originalSongIdx = originalStation.songs.findIndex(song => song.id === hoveredSong.id)
+          if (originalSongIdx !== -1) {
+            originalStation.songs[originalSongIdx] = { ...hoveredSong, isLiked: false }
+            await updateStation(originalStation)
+          }
         }
       }
     }
@@ -188,7 +192,6 @@ export function StationDetails() {
 
   if (!currStation) return <h4>loading...</h4>
   let stationDuration = calcStationDuration(currStation.songs)
-
 
   return (
     <div className="station-details flex column">
