@@ -3,8 +3,8 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'stationDB'
 
+const STORAGE_KEY = 'stationDB'
 
 export const stationService = {
     query,
@@ -16,7 +16,6 @@ export const stationService = {
     getDefaultSort,
     addStationMsg,
     getIdxById,
-    handleLikedSongs,
     getSongById
 }
 window.cs = stationService
@@ -119,29 +118,6 @@ function getEmptyStation() {
         createdAt: '',
     }
 }
-
-export function handleLikedSongs(stations, song) {
-
-    const allSongs = [].concat(...stations.map(station => station.songs))
-    const songToCheck = allSongs.find(s => s.id === song.id)
-
-    console.log("🚀 ~ handleLikedSongs ~ songToCheck:", songToCheck)
-    const likedStation = getById('liked-songs')
-
-    console.log("~~~~ handleLikedSongs ~~~~ likedStation:", likedStation)
-
-    if (song.isLiked) {
-        likedStation.songs.push(song)
-        console.log('added liked song')
-
-    } else {
-
-        likedStation.songs.splice(currSongIdx, 1)
-        console.log('removed liked song')
-    }
-
-}
-
 
 function _createStation(name = '', desc = '', imgUrl = '', songs = [], likedByUsers = []) {
     return {

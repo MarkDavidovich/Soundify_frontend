@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { FastAverageColor } from 'fast-average-color'
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { stationService } from "../services/station.service.local"
-import { getActionUpdateStation } from "../store/actions/station.actions"
+import { getActionUpdateStation, updateStation } from "../store/actions/station.actions"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
 import { ThemesPage } from "../pages/ThemesPage"
@@ -16,6 +16,7 @@ export function StationDetails() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  const stations = useSelector(storeState => storeState.stationModule.stations)
   const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -42,7 +43,7 @@ export function StationDetails() {
 
     setCurrStation(id)
 
-  }, [params, currStation,])
+  }, [params, currStation])
 
   async function setCurrStation(id) {
     try {
@@ -71,7 +72,7 @@ export function StationDetails() {
 
   function calcStationDuration(songs) {
     let totalDurationInSeconds = 0
-
+    if (!songs.length) return
     songs.forEach(song => {
       const [minutes, seconds] = song.duration.split(':')
 
@@ -143,8 +144,51 @@ export function StationDetails() {
     // console.log('selected index:', idx, 'selected song:', isSelected)
   }
 
+  function checkIfLiked(idx) {
+    const hoveredSong = currStation.songs[idx]
+    if (hoveredSong && hoveredSong.isLiked) {
+      return true
+    }
+    return false
+  }
+
+  async function toggleIsLiked(songIdx) {
+    const likedStation = stations.find(station => station._id === 'liked-songs')
+    console.log("🚀 ~ toggleIsLiked ~ likedStation:", likedStation)
+    const hoveredSong = currStation.songs[songIdx]
+    console.log("🚀 ~ toggleIsLiked ~ hoveredSong:", hoveredSong)
+    const updatedIsLiked = !hoveredSong.isLiked
+    hoveredSong.isLiked = updatedIsLiked
+
+    const updatedStation = { ...currStation }
+    updatedStation.songs[songIdx] = { ...hoveredSong, isLiked: updatedIsLiked }
+    await updateStation(updatedStation)
+
+    if (updatedIsLiked) {
+      if (!likedStation.songs.find(s => s.id === hoveredSong.id)) {
+        likedStation.songs.push(hoveredSong)
+        await updateStation(likedStation)
+      }
+
+    } else {
+      const likedSongIdx = likedStation.songs.findIndex(song => song.id === hoveredSong.id)
+      if (likedSongIdx !== -1) {
+        likedStation.songs.splice(likedSongIdx, 1)
+        await updateStation(likedStation)
+
+        const originalStation = stations.find(station => station.songs.some(song => song.id === hoveredSong.id))
+        if (originalStation) {
+          originalStation.songs[songIdx] = { ...hoveredSong, isLiked: false }
+          await updateStation(originalStation)
+        }
+      }
+    }
+    if (currStation === likedStation && likedStation.songs.length === 0) navigate('/')
+  }
+
   if (!currStation) return <h4>loading...</h4>
   let stationDuration = calcStationDuration(currStation.songs)
+
 
   return (
     <div className="station-details flex column">
@@ -212,7 +256,6 @@ export function StationDetails() {
               <Droppable droppableId="station-droppable">
                 {(provided, snapshot) => (
                   <ul {...provided.droppableProps} ref={provided.innerRef}>
-
                     {currStation.songs.map((song, idx) => (
                       <Draggable draggableId={song.id} key={song.id} index={idx}>
                         {(providedDraggable) => (
@@ -223,11 +266,9 @@ export function StationDetails() {
                             {...providedDraggable.dragHandleProps}
                             onMouseEnter={() => {
                               setIsHovered(idx)
-                              console.log(isHovered)
                             }}
                             onMouseLeave={() => {
                               setIsHovered(null)
-                              console.log(isHovered)
                             }}
                             onClick={() => handleSelected(idx)}
                             onDoubleClick={() => handleSongClick(idx)}
@@ -263,12 +304,36 @@ export function StationDetails() {
                                 </a>
                               </div>
                             </div>
-                            <a className="song-album" href="#" title={song.album}>
-                              {song.album}
-                            </a>
-                            <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
-                            <div className="song-duration">{song.duration}
-                              <button className="options" onClick={() => toggleModal(song.id)}>...
+                            <div className="song-album-container">
+                              <a className="song-album" href="#" title={song.album}>
+                                {song.album}
+                              </a>
+                            </div>
+                            <div className="song-added-time">
+                              <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
+                              <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
+                                {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
+                                  <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
+                                    fill='#1ed760'>
+                                  </path>
+                                </svg>
+                                ) : (
+                                  <svg width="16" height="16" role="img" viewBox="0 0 16 16">
+                                    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="white">
+                                    </path>
+                                    <path d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z" fill="white"></path>
+                                  </svg>
+                                )}
+                              </button>
+                            </div>
+                            <div className="song-duration-container">
+                              <div>{song.duration}</div>
+                              <button className="options" onClick={() => toggleModal(song.id)}>
+                                <svg width="16" height="16" viewBox="0 0 16 16">
+                                  <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                                    fill="white">
+                                  </path>
+                                </svg>
                                 {isModalOpen[song.id] && (
                                   <div className="modal">
                                     <div className="modal-content">
