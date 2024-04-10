@@ -10,7 +10,7 @@ import { stationService } from '../../services/station.service.local.js'
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideSort } from './SideSort.jsx'
-import { Navigate } from 'react-router'
+import { useNavigate } from 'react-router'
 
 export function SideIndex() {
 
@@ -20,6 +20,8 @@ export function SideIndex() {
     const [toggleFilter, setToggleFilter] = useState(false)
     const [toggleLibrary, setToggleLibrary] = useState(false)
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         loadStations()
     }, [filterBy, sortBy])
@@ -28,7 +30,7 @@ export function SideIndex() {
         try {
             await removeStation(stationId)
             showSuccessMsg('Station removed')
-            Navigate('/')
+            navigate('/')
         } catch (err) {
             showErrorMsg('Cannot remove station')
         }
@@ -44,6 +46,7 @@ export function SideIndex() {
         try {
             const savedStation = await addStation(station)
             showSuccessMsg(`Station added (id: ${savedStation._id})`)
+            navigate(`/station/${savedStation._id}`)
         } catch (err) {
             showErrorMsg('Cannot add station')
         }
