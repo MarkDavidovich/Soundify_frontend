@@ -30,7 +30,7 @@ export function StationDetails() {
     const fac = new FastAverageColor()
     try {
       const color = await fac.getColorAsync(stationImgUrl)
-      setBackgroundColor(color.hex)
+      // setBackgroundColor(color.hex)
       document.body.style.setProperty('--bg-color', [color.hex])
     } catch (error) {
       console.error('Error extracting color:', error)
@@ -158,9 +158,6 @@ export function StationDetails() {
     if (currStation === likedStation && likedStation.songs.length === 0) navigate('/')
   }
 
-  if (!currStation) return <div></div>
-  let stationDuration = calcStationDuration(currStation.songs)
-
   function handleSongClick(songIdx) {
     if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
       togglePlaying(isPlaying)
@@ -170,6 +167,11 @@ export function StationDetails() {
       togglePlaying(false) // toggle will always switch it to true
     }
   }
+
+  if (!currStation) return <div></div>
+  let stationDuration = stationService.calcStationDuration(currStation.songs)
+
+  
 
   return (
     <div className="station-details flex column">
