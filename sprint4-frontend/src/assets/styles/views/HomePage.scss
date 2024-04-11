@@ -52,37 +52,34 @@
         margin-bottom: 16px;
         min-height: 200px;
 
-        .station-list-item {
+        // .station-list-item {
 
-            .station-preview {
-                max-width: 215px;
-                min-height: 288px;
-                display: inline-flex;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 12px;
-                border-radius: 7px;
-                cursor: pointer;
+        //     // .station-preview {
+        //     //     max-width: 215px;
+        //     //     min-height: 288px;
+        //     //     display: inline-flex;
+        //     //     flex-direction: column;
+        //     //     align-items: flex-start;
+        //     //     padding: 12px;
+        //     //     border-radius: 7px;
+        //     //     cursor: pointer;
 
-                &:hover {
-                    background-color: $clr10;
-                }
+        //     //     &:hover {
+        //     //         background-color: $clr10;
+        //     //     }
 
-                .img-container {
-                    width: 190px;
-                    height: auto;
+        //     .img-container {
 
-                    img {
-                        // width: 100%;
-                        // height: auto;
-                    }
-                }
 
-                .station-desc {
-                    color: $clr14;
-                }
+        //         img {
+        //             // width: 100%;
+        //             // height: auto;
+        //         }
+        //     }
 
-            }
-        }
+        //     .station-desc {
+
+        //     }
+
     }
 }

@@ -9,20 +9,51 @@
     cursor: pointer;
 
     &:hover {
-        background-color: $clr7;
+        background-color: rgba(255, 255, 255, 0.035);
     }
 
     .station-desc {
         color: $clr14;
     }
 
-    .station-img {
-        // background-color: var(--card-color, #333);
-        border-radius: 6px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
-        position: relative;
-        max-width: 190px;
-        width: 100%;
+    .img-container {
+        width: 190px;
         height: auto;
+        position: relative;
+
+        .station-img {
+            // background-color: var(--card-color, #333);
+            border-radius: 6px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
+            position: relative;
+            max-width: 190px;
+            width: 100%;
+            height: auto;
+
+        }
+
+        .preview-play-btn {
+            background-color: #1ed760;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            translate: 0 0;
+            box-shadow: 0 8px 8px rgba(0, 0, 0, .3);
+        }
+    }
+
+
+    &:hover {
+        .preview-play-btn {
+            visibility: visible;
+            opacity: 1;
+            translate: 0 -10px;
+        }
     }
 }
