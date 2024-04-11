@@ -452,6 +452,120 @@ const sHereWithoutYou = {
     isLiked: false,
 }
 
+const blindingLights = {
+    id: utilService.makeId(),
+    title: 'Blinding Lights',
+    artist: 'The Weeknd',
+    album: 'After Hours',
+    url: 'https://www.youtube.com/watch?v=fHI8X4OXluQ',
+    imgUrl: 'https://example.com/img/blindinglights.jpg',
+    addedBy: 'Alex',
+    duration: '3:20',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const watermelonSugar = {
+    id: utilService.makeId(),
+    title: 'Watermelon Sugar',
+    artist: 'Harry Styles',
+    album: 'Fine Line',
+    url: 'https://www.youtube.com/watch?v=nQA97xS49LQ',
+    imgUrl: 'https://example.com/img/watermelonsugar.jpg',
+    addedBy: 'Jordan',
+    duration: '2:54',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const goodAsHell = {
+    id: utilService.makeId(),
+    title: 'Good As Hell',
+    artist: 'Lizzo',
+    album: 'Coconut Oil',
+    url: 'https://www.youtube.com/watch?v=SmbmeOgWsqE',
+    imgUrl: 'https://example.com/img/goodashell.jpg',
+    addedBy: 'Sam',
+    duration: '2:39',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const levitating = {
+    id: utilService.makeId(),
+    title: 'Levitating',
+    artist: 'Dua Lipa',
+    album: 'Future Nostalgia',
+    url: 'https://www.youtube.com/watch?v=TUVcZfQe-Kw',
+    imgUrl: 'https://example.com/img/levitating.jpg',
+    addedBy: 'Charlie',
+    duration: '3:51',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const badGuy = {
+    id: utilService.makeId(),
+    title: 'bad guy',
+    artist: 'Billie Eilish',
+    album: 'WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?',
+    url: 'https://www.youtube.com/watch?v=DyDfgMOUjCI',
+    imgUrl: 'https://example.com/img/badguy.jpg',
+    addedBy: 'Taylor',
+    duration: '3:14',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const circles = {
+    id: utilService.makeId(),
+    title: 'Circles',
+    artist: 'Post Malone',
+    album: 'Hollywood\'s Bleeding',
+    url: 'https://www.youtube.com/watch?v=wXhTHyIgQ_U',
+    imgUrl: 'https://example.com/img/circles.jpg',
+    addedBy: 'Morgan',
+    duration: '3:35',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const danceMonkey = {
+    id: utilService.makeId(),
+    title: 'Dance Monkey',
+    artist: 'Tones and I',
+    album: 'The Kids Are Coming',
+    url: 'https://www.youtube.com/watch?v=q0hyYWKXF0Q',
+    imgUrl: 'https://example.com/img/dancemonkey.jpg',
+    addedBy: 'Jamie',
+    duration: '3:29',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const senorita = {
+    id: utilService.makeId(),
+    title: 'Señorita',
+    artist: 'Shawn Mendes, Camila Cabello',
+    album: 'Shawn Mendes',
+    url: 'https://www.youtube.com/watch?v=Pkh8UtuejGw',
+    imgUrl: 'https://example.com/img/senorita.jpg',
+    addedBy: 'Casey',
+    duration: '3:11',
+    addedAt: utilService.randomAddedTime(),
+    isLiked: false,
+}
+
+const dontStartNow = {
+    id: utilService.makeId(),
+    title: 'Don\'t Start Now',
+    artist: 'Dua Lipa',
+    album: 'Future Nostalgia',
+    url: 'https://www.youtube.com/watch?v=oygrmJFKYZY',
+    imgUrl: ''
+}
+
+
 function _createStations() {
 
     let stations = utilService.loadFromStorage(STORAGE_KEY)
