@@ -20,7 +20,6 @@
 
   }
 
-
   &::after {
     content: "";
     display: block;
@@ -30,10 +29,10 @@
     width: 100%;
     height: 232px;
     transform: translateY(100%);
-    background-image: linear-gradient(rgba(0, 0, 0, .6) 0, $clr8 100%), var(--background-noise);
+    background-image: linear-gradient(rgba(0, 0, 0, .5) 0, $clr8 100%), var(--background-noise);
     background-color: var(--bg-color);
+    transition: background-color 0.8s ease-out;
   }
-
 
   .mini-station-list {
     display: grid;
@@ -42,7 +41,6 @@
     grid-column-gap: 12px;
     grid-row-gap: 12px;
     width: 100%;
-
 
     .mini-station {
 

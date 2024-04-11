@@ -1,23 +1,10 @@
 .station-details {
-    // max-height: calc(100vh - 115px);
+    max-height: calc(100vh - 100px);
     overflow-y: hidden;
     background-color: $clr8;
     border-radius: $border-rad1;
     --background-noise: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=");
     height: 100vh;
-
-    &::after {
-        content: "";
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 232px;
-        transform: translateY(100%);
-        background-image: linear-gradient(rgba(0, 0, 0, .6) 0, $clr8 100%), var(--background-noise);
-        background-color: var(--bg-color);
-    }
 
     a {
         color: $clr14;
@@ -125,11 +112,11 @@
 
             .title-station {
 
-                h1{
-                font-family: circular-bold, sans-serif;
-                font-size: 100px;
-                margin-left: 4px;
-                margin-bottom: -2px;
+                h1 {
+                    font-family: circular-bold, sans-serif;
+                    font-size: 100px;
+                    margin-left: 4px;
+                    margin-bottom: -2px;
                 }
             }
         }
@@ -365,18 +352,25 @@
                 display: flex;
                 grid-area: title;
 
+
+
                 .station-title-artist {
                     flex-direction: column;
                     margin-left: 9px;
                     align-items: flex-start;
                     // padding-block: 10px;
                     justify-content: center;
+                    text-overflow: ellipsis;
 
                     .song-title {
+                        resize: horizontal;
                         line-height: 1.6;
+
+
                     }
 
                     .song-artist {
+                        resize: horizontal;
                         line-height: 0.9;
                     }
                 }
