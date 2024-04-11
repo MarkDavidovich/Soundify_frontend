@@ -52,17 +52,21 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
             onContextMenu={handleContextMenu}
             onClick={() => { handleStationClick(station) }}>
 
-            <img className="side-preview-img" src={station.imgUrl} alt={station.name} />
+            <img className='side-preview-img' src={station.imgUrl} alt={station.name} />
             <div className={'station-preview-details' + dynamicClass}>
                 <span className="station-name">{station.name}</span>
 
                 {station._id !== 'liked-songs' &&
-                    <span className="station-created">{station.createdBy.fullname}</span>
+                    <span className='station-created'>{station.createdBy.fullname}</span>
                 }
                 {station._id === 'liked-songs' && (
                     <>
-                        <span className="station-created">Playlist</span>
-                        <span className="station-created"><span>•</span> {station.songs.length} songs</span>
+                        <span className='station-created'>Playlist
+                            <span className='station-created'>
+                                <span> • </span>
+                                {station.songs.length} songs</span>
+                        </span>
+
 
                     </>
                 )}
