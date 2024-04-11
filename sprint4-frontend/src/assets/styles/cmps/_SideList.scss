@@ -1,4 +1,37 @@
 .side-list {
+    max-height: calc(100vh - 60px);
+    // height: 100vh;
+    ///////////////////////////////////////////////////
+    overflow-y: scroll;
+
+    &:hover {
+        overflow-y: auto;
+    }
+
+    &::-webkit-scrollbar {
+        width: em(5px);
+        opacity: 0.5;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $clr3;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $clr2;
+        height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $clr3;
+    }
+
+    &:hover {
+        overflow-y: auto;
+        opacity: 1;
+    }
+
+    ///////////////////////////////////////////////////
 
     .side-preview-container {
         // margin-left: 3px;
