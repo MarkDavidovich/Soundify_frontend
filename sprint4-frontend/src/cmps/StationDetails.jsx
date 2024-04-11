@@ -11,6 +11,7 @@ import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store
 import { SongActionModal } from "./songActionModal"
 import { SearchPreview } from "./SearchPreview"
 import { MainViewFooter } from "./MainViewFooter"
+import { AppHeader } from "./AppHeader"
 
 export function StationDetails() {
   const params = useParams()
@@ -172,9 +173,9 @@ export function StationDetails() {
   if (!currStation) return <div></div>
   let stationDuration = stationService.calcStationDuration(currStation.songs)
 
-
-
   return (
+    <>
+    <AppHeader/>
     <div className="station-details flex column">
       <div className="station-data-container">
         <div className="info-station flex">
@@ -352,5 +353,6 @@ export function StationDetails() {
       </div >
       <MainViewFooter />
     </div >
+    </>
   )
 }

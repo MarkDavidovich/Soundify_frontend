@@ -12,6 +12,7 @@ import { MiniHomeStationList } from '../cmps/MiniHomeStationList'
 
 
 
+
 export function HomePage() {
     const stations = useSelector(storeState => storeState.stationModule.stations)
 
@@ -25,6 +26,9 @@ export function HomePage() {
 
 
     return (
+          <>
+        <AppHeader/>
+        
         <section className="main-view">
             {/* <AppHeader /> */}
 
@@ -40,5 +44,6 @@ export function HomePage() {
                 stations={stations} />
 
         </section >
+        </>
     )
 }
