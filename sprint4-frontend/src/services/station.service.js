@@ -14,7 +14,7 @@ export const stationService = {
     remove,
     getEmptyStation,
     getEmptyFilterBy,
-    addStationMsg
+    addStationMsg,
 }
 window.cs = stationService
 
@@ -40,6 +40,8 @@ async function save(station) {
     }
     return savedStation
 }
+
+
 
 async function addStationMsg(stationId, txt) {
     const savedMsg = await httpService.post(`station/${stationId}/msg`, { txt })

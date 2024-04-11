@@ -70,44 +70,13 @@ export function StationDetails() {
     }
   }
 
-  function calcStationDuration(songs) {
-    let totalDurationInSeconds = 0;
-    if (!songs.length) return;
+  function handleSongClick(songIdx) {
+    if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
+      togglePlaying(isPlaying)
 
-    songs.forEach(song => {
-      const [minutes, seconds] = song.duration.split(':')
-
-      totalDurationInSeconds += parseInt(minutes, 10) * 60 + parseInt(seconds, 10)
-    })
-
-    const totalHours = Math.floor(totalDurationInSeconds / 3600)
-    const remainingSeconds = totalDurationInSeconds % 3600
-    const totalMinutes = Math.floor(remainingSeconds / 60)
-    const totalSeconds = remainingSeconds % 60
-
-    if (totalHours >= 1) {
-      const hourText = totalHours === 1 ? "hour" : "hours";
-      return `about ${totalHours} ${hourText} `;
     } else {
-      return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
-    }
-  }
-
-  function formatAddedTime(addedTime) {
-    const diff = Date.now() - addedTime
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24))
-    if (days === 0) {
-      const hours = Math.floor(diff / (1000 * 60 * 60))
-      if (hours === 0) {
-        const minutes = Math.floor(diff / (1000 * 60))
-        return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
-      } else {
-        return `${hours} hour${hours === 1 ? '' : 's'} ago`
-      }
-    } else if (days === 1) {
-      return 'Yesterday'
-    } else {
-      return `${days} day${days === 1 ? '' : 's'} ago`
+      dispatch(getActionCurrSongIdx(songIdx))
+      togglePlaying(false) // toggle will always switch it to true
     }
   }
 
@@ -189,7 +158,7 @@ export function StationDetails() {
   }
 
   if (!currStation) return <h4>loading...</h4>
-  let stationDuration = calcStationDuration(currStation.songs)
+  let stationDuration = stationService.calcStationDuration(currStation.songs)
 
   return (
     <div className="station-details flex column">
@@ -311,7 +280,7 @@ export function StationDetails() {
                               </a>
                             </div>
                             <div className="song-added-time">
-                              <span className="song-added-time">{formatAddedTime(song.addedAt)}</span>
+                              <span className="song-added-time">{stationService.formatAddedTime(song.addedAt)}</span>
                               <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
                                 {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
                                   <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"

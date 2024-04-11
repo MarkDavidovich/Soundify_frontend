@@ -16,7 +16,9 @@ export const stationService = {
     getDefaultSort,
     addStationMsg,
     getIdxById,
-    getSongById
+    getSongById,
+    calcStationDuration, 
+    formatAddedTime,
 }
 window.cs = stationService
 
@@ -38,9 +40,7 @@ async function query(filterBy = {}, sortBy = {}) {
         //     stations.sort((artist1, artist2) => 1 * artist1.name.localeCompare(artist2.name))
         // }
     }
-
     return stations
-
 }
 
 function getById(stationId) {
@@ -84,6 +84,47 @@ async function save(station) {
     }
     return savedStation
 }
+
+function calcStationDuration(songs) {
+    let totalDurationInSeconds = 0;
+    if (!songs.length) return;
+
+    songs.forEach(song => {
+        const [minutes, seconds] = song.duration.split(':')
+
+        totalDurationInSeconds += parseInt(minutes, 10) * 60 + parseInt(seconds, 10)
+    })
+
+    const totalHours = Math.floor(totalDurationInSeconds / 3600)
+    const remainingSeconds = totalDurationInSeconds % 3600
+    const totalMinutes = Math.floor(remainingSeconds / 60)
+    const totalSeconds = remainingSeconds % 60
+
+    if (totalHours >= 1) {
+        const hourText = totalHours === 1 ? "hour" : "hours";
+        return `about ${totalHours} ${hourText} `;
+    } else {
+        return `${totalMinutes} min ${totalSeconds.toString().padStart(2, '0')} sec`
+    }
+}
+
+function formatAddedTime(addedTime) {
+    const diff = Date.now() - addedTime
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+    if (days === 0) {
+      const hours = Math.floor(diff / (1000 * 60 * 60))
+      if (hours === 0) {
+        const minutes = Math.floor(diff / (1000 * 60))
+        return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
+      } else {
+        return `${hours} hour${hours === 1 ? '' : 's'} ago`
+      }
+    } else if (days === 1) {
+      return 'Yesterday'
+    } else {
+      return `${days} day${days === 1 ? '' : 's'} ago`
+    }
+  }
 
 async function addStationMsg(stationId, txt) {
     // Later, this is all done by the backend
