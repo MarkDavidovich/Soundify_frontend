@@ -1,19 +1,13 @@
 .main-view {
-    max-height: calc(100vh - 115px);
-    overflow-y: hidden;
-    grid-area: main-view;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: $clr8;
     border-radius: 7px;
-    padding-inline: 4px;
 
     .list-name {
         font-family: circular-bold;
         font-size: 24px;
-        padding-left: 10px;
-    }
-
-    &:hover {
-        overflow-y: auto;
+        padding-left: 24px;
     }
 
     &::-webkit-scrollbar {
@@ -34,11 +28,6 @@
         background: #555;
     }
 
-    &:hover {
-        overflow-y: auto;
-        opacity: 1;
-    }
-
     .home-btn {
         width: 22px;
         height: 24px;
@@ -51,6 +40,7 @@
         flex: 1 1 100%;
         margin-bottom: 16px;
         min-height: 200px;
+        padding-left: 12px;
 
         // .station-list-item {
 

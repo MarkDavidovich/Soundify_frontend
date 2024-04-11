@@ -1,12 +1,10 @@
 .main-view-header {
-    // display: flex;
     background-color: transparent;
-    position: absolute;
+    position: sticky;
     height: 64px;
-    z-index: 1;
+    z-index: 5;
     width: 100%;
-    margin-right: 8px;
-    border-radius: 7px;
+    // border-radius: 7px;
 
     .prev-next-container {
         // background-color: transparent;

@@ -1,6 +1,7 @@
 .station-details {
     max-height: calc(100vh - 100px);
-    overflow-y: hidden;
+    // overflow-y: hidden;
+    overflow-y: auto;
     background-color: $clr8;
     border-radius: $border-rad1;
     --background-noise: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=");
@@ -17,9 +18,9 @@
 
     overflow-y: scroll;
 
-    &:hover {
-        overflow-y: auto;
-    }
+    // &:hover {
+    //     overflow-y: auto;
+    // }
 
     &::-webkit-scrollbar {
         width: em(10px);
@@ -39,10 +40,10 @@
         background: #555;
     }
 
-    &:hover {
-        overflow-y: auto;
-        opacity: 1;
-    }
+    // &:hover {
+    //     overflow-y: auto;
+    //     opacity: 1;
+    // }
 
 
     .info-station {
@@ -251,6 +252,8 @@
             position: sticky;
             top: 0;
             gap: 10px;
+
+            :stuck {}
 
             span {
                 color: $clr14;
