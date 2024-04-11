@@ -4,6 +4,37 @@
   padding-inline: 12px;
   padding-top: 8px;
 
+  --background-noise: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=");
+  position: relative;
+  background: linear-gradient(transparent 0, rgba(0, 0, 0, .5) 100%), var(--background-noise);
+  background-color: var(--bg-color);
+  transition: background-color .4s ease-out;
+  
+:not(::before) {
+  bottom: 0;
+  content: "";
+  left: 8px;
+  position: absolute;
+  right: 8px;
+  top: 0;
+
+  }
+
+  
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 232px;
+    transform: translateY(100%);
+    background-image: linear-gradient(rgba(0, 0, 0, .6) 0, $clr8 100%), var(--background-noise);
+    background-color: var(--bg-color);
+}
+  
+
   .mini-station-list {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -11,6 +42,7 @@
     grid-column-gap: 12px;
     grid-row-gap: 12px;
     width: 100%;
+
 
     .mini-station {
 
