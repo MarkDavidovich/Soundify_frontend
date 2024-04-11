@@ -8,6 +8,7 @@ import { showErrorMsg } from '../services/event-bus.service'
 import { AppHeader } from '../cmps/AppHeader'
 import { StationList } from '../cmps/StationList'
 import { StationDetails } from '../cmps/StationDetails'
+import { MiniHomeStationList } from '../cmps/MiniHomeStationList'
 
 
 
@@ -18,23 +19,23 @@ export function HomePage() {
     useEffect(() => {
         loadStations()
             .catch(err => {
-                showErrorMsg('cannot load stations')
+                showErrorMsg('cannot load stations', err)
             })
     }, [])
+
 
     return (
         <section className="main-view">
             {/* <AppHeader /> */}
 
-            <div>some stations</div>
+            <MiniHomeStationList
+                stations={stations} />
+
+            <div className="list-name">Made for You</div>
             <StationList
                 stations={stations} />
 
-            <div>some more stations</div>
-            <StationList
-                stations={stations} />
-
-            <div>even more stations</div>
+            <div className="list-name">Top lists</div>
             <StationList
                 stations={stations} />
 

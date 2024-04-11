@@ -1,0 +1,55 @@
+.mini-stations-container {
+  grid-template-columns: repeat(4, 1fr);
+  height: 180px;
+  padding-inline: 12px;
+  padding-top: 8px;
+
+  .mini-station-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 64px);
+    grid-column-gap: 12px;
+    grid-row-gap: 12px;
+    width: 100%;
+
+    .mini-station {
+
+      .station-preview {
+        background-color: #222;
+        width: 100%;
+        min-height: 0;
+        max-width: none;
+        height: 64px;
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        transition: background-color 0.4s;
+        align-items: center;
+
+
+        .img-container {
+          width: 4em;
+          height: 4em;
+
+          .station-img {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:hover {
+          background-color: #b3b3b3;
+        }
+
+        .station-content {
+
+          .station-name {
+            padding-left: 8px;
+            margin: 0;
+
+          }
+        }
+      }
+    }
+  }
+}
