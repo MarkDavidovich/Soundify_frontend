@@ -44,9 +44,10 @@
             @include btn($type: regular);
             // width: 12px;
             // padding: 0;
-            margin-top: 5px;
+            margin-top: 6px;
             border-radius: 20px;
             margin-right: 20px;
+            padding: 5px 5px 1px;
             background-color: $clr8;
 
             &:hover {
@@ -66,6 +67,13 @@
 
         .search-btn {
             background-color: $clr8;
+            padding: 4px 5px 1px;
+            display: flex;
+            align-self: center;
+
+            svg {
+                margin-bottom: 3px;
+            }
 
             path {
                 fill: $clr3;
@@ -80,6 +88,7 @@
                 }
 
             }
+
         }
 
         .search-btn.close {
