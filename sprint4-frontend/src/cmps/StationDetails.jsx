@@ -10,6 +10,7 @@ import { getActionUpdateStation, updateStation } from "../store/actions/station.
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
 import { SearchPreview } from "./SearchPreview"
+import { MainViewFooter } from "./MainViewFooter"
 
 export function StationDetails() {
   const params = useParams()
@@ -171,7 +172,7 @@ export function StationDetails() {
   if (!currStation) return <div></div>
   let stationDuration = stationService.calcStationDuration(currStation.songs)
 
-  
+
 
   return (
     <div className="station-details flex column">
@@ -349,6 +350,7 @@ export function StationDetails() {
           />
         }
       </div >
+      <MainViewFooter />
     </div >
   )
 }

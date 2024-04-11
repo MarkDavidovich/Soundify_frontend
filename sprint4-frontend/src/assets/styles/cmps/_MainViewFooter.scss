@@ -1,0 +1,90 @@
+.main-view-footer {
+
+    .details-container {
+        display: flex;
+        padding: 40px 24px 40px 24px;
+        gap: 40px;
+        justify-content: space-between;
+
+        // *> {
+        //     display: flex;
+        //     flex-direction: column;
+        // }
+
+        .info {
+            display: flex;
+            gap: 50px;
+            // justify-content: space-between;
+
+
+            .company {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    color: $clr14;
+                }
+            }
+
+            .communities {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    color: $clr14;
+                }
+            }
+
+            .useful-links {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    color: $clr14;
+                }
+            }
+
+            .soundify-plans {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    color: $clr14;
+                }
+            }
+        }
+    }
+
+    .links-container {
+
+        .social-links {
+            display: flex;
+            justify-content: space-between;
+            // flex-direction: column;
+
+            .btn {
+                display: flex;
+                align-items: center;
+                @include btn($type: regular);
+                background-color: $clr9;
+                border-radius: 50%;
+                padding: 7px 8px;
+
+                &:hover {
+                    background-color: $clr11;
+                }
+
+                svg {
+                    width: 16px;
+                    height: 16px;
+
+                    path {
+                        stroke: $clr3;
+                        fill: $clr2;
+                    }
+                }
+
+            }
+        }
+    }
+}
