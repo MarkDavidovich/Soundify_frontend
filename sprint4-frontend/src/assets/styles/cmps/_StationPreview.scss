@@ -48,7 +48,6 @@
         }
     }
 
-
     &:hover {
         .preview-play-btn {
             visibility: visible;
@@ -56,4 +55,11 @@
             translate: -10px -20px;
         }
     }
+
+    .static {
+        visibility: visible !important;
+        opacity: 1 !important;
+        translate: -10px -20px !important;
+    }
+
 }

@@ -1,21 +1,31 @@
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { getActionCurrStationIdx } from '../store/actions/player.actions'
+import { getActionCurrStationIdx, setCurrSongIdx, setCurrStationIdx, togglePlaying } from '../store/actions/player.actions'
 import { StationPreview } from './StationPreview'
 import { useNavigate } from "react-router-dom"
 import { FastAverageColor } from 'fast-average-color'
-import { useEffect } from 'react'
+import { useState } from 'react'
 
 export function MiniHomeStationList({ stations }) {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [activeStation, setActiveStation] = useState(null)
+  const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
+
   //! THIS WILL SHOW THE 8 LAST STATIONS THE USER LISTENED TO
 
-  function onPlay(station, ev) {
+  function onPlay(ev, station) {
     ev.stopPropagation()
-    if (isPlaying && currStation._id === station._id) {
+    setActiveStation(station)
+    const clickedStationIdx = stations.findIndex(s => s._id === station._id)
+    if (clickedStationIdx === currStationIdx) {
+      togglePlaying(isPlaying)
+    } else if (clickedStationIdx !== currStationIdx) {
+      setCurrStationIdx(clickedStationIdx)
+      setCurrSongIdx(0)
+      togglePlaying(false)
+    } else {
       togglePlaying(true)
-      return
     }
   }
 
@@ -31,20 +41,11 @@ export function MiniHomeStationList({ stations }) {
     }
   }
 
-  // useEffect(() => {
-  
-  //   extractColor(currStation?.imgUrl, setBackgroundColor)
-
-
-  // }, [])
-
   function handleStationClick(station) {
     dispatch(getActionCurrStationIdx(station))
   }
 
   if (!stations) return <div></div>
-
-  // const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
 
   return (
     <section className="mini-stations-container">
@@ -52,7 +53,7 @@ export function MiniHomeStationList({ stations }) {
         {
           stations.slice(0, 8).map(station => (
             <div className='mini-station' key={station._id}
-            onMouseEnter={() => extractColor(station.imgUrl)}
+              onMouseEnter={() => extractColor(station.imgUrl)}
               onClick={() => {
                 navigate(`/station/${station._id}`)
                 handleStationClick(station)
@@ -61,6 +62,8 @@ export function MiniHomeStationList({ stations }) {
                 station={station}
                 onPlay={onPlay}
                 isMini={true}
+                setActiveStation={setActiveStation}
+                activeStation={activeStation}
               />
             </div>
           ))

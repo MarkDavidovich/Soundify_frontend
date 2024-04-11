@@ -1,23 +1,32 @@
-import { togglePlaying } from "../store/actions/player.actions"
 import { StationPreview } from "./StationPreview"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useDispatch } from 'react-redux'
-import { getActionCurrStationIdx } from "../store/actions/player.actions"
+import { getActionCurrStationIdx, setCurrStationIdx, setCurrSongIdx, togglePlaying } from "../store/actions/player.actions"
+import { useState } from "react"
 
 export function StationList({ stations }) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
-  const currStation = useSelector(storeState => storeState.playerModule.currStation)
+  const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
+  const [activeStation, setActiveStation] = useState(null)
 
-  function onPlay(station, ev) {
+  function onPlay(ev, station) {
     ev.stopPropagation()
-    if (isPlaying && currStation._id === station._id) {
+    setActiveStation(station)
+    const clickedStationIdx = stations.findIndex(s => s._id === station._id)
+    if (clickedStationIdx === currStationIdx) {
+      togglePlaying(isPlaying)
+    } else if (clickedStationIdx !== currStationIdx) {
+      setCurrStationIdx(clickedStationIdx)
+      setCurrSongIdx(0)
+      togglePlaying(false)
+    } else {
       togglePlaying(true)
-      return
     }
   }
+
 
   function handleStationClick(station) {
     dispatch(getActionCurrStationIdx(station))
@@ -39,6 +48,8 @@ export function StationList({ stations }) {
                 onPlay={onPlay}
                 isMini={false}
                 isPlaying={isPlaying}
+                setActiveStation={setActiveStation}
+                activeStation={activeStation}
               />
             </div>
           ))
@@ -46,5 +57,4 @@ export function StationList({ stations }) {
       </section>
     </section>
   )
-
 }
