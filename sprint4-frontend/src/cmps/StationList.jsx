@@ -11,7 +11,7 @@ export function StationList({ stations }) {
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
   const currStation = useSelector(storeState => storeState.playerModule.currStation)
 
-  function onPlay(station, song, ev) {
+  function onPlay(station, ev) {
     ev.stopPropagation()
     if (isPlaying && currStation._id === station._id) {
       togglePlaying(true)
@@ -38,6 +38,7 @@ export function StationList({ stations }) {
                 station={station}
                 onPlay={onPlay}
                 isMini={false}
+                isPlaying={isPlaying}
               />
             </div>
           ))

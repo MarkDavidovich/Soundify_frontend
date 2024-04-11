@@ -1,13 +1,22 @@
+export function StationPreview({ station, isMini, isPlaying }) {
 
-export function StationPreview({ station, isMini }) {
 
-    function handleClickPlay(ev) {
+    function handleClickPlay(ev, station) {
+        console.log(station)
         ev.stopPropagation()
+
+        if (!isPlaying) {
+            //! PLAY
+            setCurrStationIdx(station)
+            setCurrSongIdx(0)
+        } else {
+            //! PAUSE
+        }
         console.log('Playing music!')
     }
 
     function getPlayBtn() {
-        return <button onClick={(ev) => { handleClickPlay(ev) }} className="preview-play-btn">{<svg width='24' height='24' viewBox="0 0 24 24">
+        return <button onClick={(ev) => { handleClickPlay(ev, station) }} className="preview-play-btn">{<svg width='24' height='24' viewBox="0 0 24 24">
             <path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
             >
             </path>
