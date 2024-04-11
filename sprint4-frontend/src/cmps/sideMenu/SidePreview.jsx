@@ -48,7 +48,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
 
     return (
         // <div className="side-preview-line"
-        <div className={setSidePreviewLineClass()}
+        <div className={setSidePreviewLineClass() + dynamicClass}
             onContextMenu={handleContextMenu}
             onClick={() => { handleStationClick(station) }}>
 
