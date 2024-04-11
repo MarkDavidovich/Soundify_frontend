@@ -50,18 +50,15 @@ export function MainViewFooter() {
             </div>
             <hr className="horizontal-line"></hr>
 
-
             <section className="footer">
-                <span>
-                    Legal
-                    Safety & Privacy Center
-                    Privacy Policy
-                    Cookies
-                    About Ads
-                    Accessibility
-                </span>
+                <span>Legal </span>
+                <span>Safety & Privacy Center </span>
+                <span>Privacy Policy </span>
+                <span>Cookies </span>
+                <span>About Ads </span>
+                <span>Accessibility </span>
 
-                <span>
+                <span className="rights">
                     © 2024 Soundify
                 </span>
             </section>
