@@ -15,6 +15,8 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
     const [toggleLink, setToggleLink] = useState(false)
 
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+
     useEffect(() => {
         const closeMenu = (event) => {
             handleContextMenuClose()
@@ -57,10 +59,13 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
     const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
 
+    const dynamicClass = toggleLibrary ? '-collapsed' : ''
+
+
     return <div className="side-list">
 
         {filteredStations.map(station => (
-            <article className="side-preview-container" key={station._id}>
+            <article className={'side-preview-container' + dynamicClass} key={station._id}>
                 <Link className={setLinkClass()}
                     onClick={onSetToggleLink}
                     to={`/station/${station._id}`}>
@@ -78,7 +83,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         ))}
 
         {stations.find(station => station._id === 'liked-songs' && station.songs.length > 0) && (
-            <article className="side-preview-container" key="liked-songs">
+            <article className={'side-preview-container' + dynamicClass} key="liked-songs">
                 <Link
                     className={setLinkClass()}
                     onClick={onSetToggleLink}
