@@ -17,8 +17,10 @@ export const stationService = {
     addStationMsg,
     getIdxById,
     getSongById,
-    calcStationDuration, 
+    calcStationDuration,
     formatAddedTime,
+    _createStation,
+    _createStations,
 }
 window.cs = stationService
 
@@ -112,19 +114,19 @@ function formatAddedTime(addedTime) {
     const diff = Date.now() - addedTime
     const days = Math.floor(diff / (1000 * 60 * 60 * 24))
     if (days === 0) {
-      const hours = Math.floor(diff / (1000 * 60 * 60))
-      if (hours === 0) {
-        const minutes = Math.floor(diff / (1000 * 60))
-        return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
-      } else {
-        return `${hours} hour${hours === 1 ? '' : 's'} ago`
-      }
+        const hours = Math.floor(diff / (1000 * 60 * 60))
+        if (hours === 0) {
+            const minutes = Math.floor(diff / (1000 * 60))
+            return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
+        } else {
+            return `${hours} hour${hours === 1 ? '' : 's'} ago`
+        }
     } else if (days === 1) {
-      return 'Yesterday'
+        return 'Yesterday'
     } else {
-      return `${days} day${days === 1 ? '' : 's'} ago`
+        return `${days} day${days === 1 ? '' : 's'} ago`
     }
-  }
+}
 
 async function addStationMsg(stationId, txt) {
     // Later, this is all done by the backend
@@ -639,4 +641,5 @@ function getEmptyFilterBy() {
 function getDefaultSort() {
     return { by: '' }
 }
+
 
