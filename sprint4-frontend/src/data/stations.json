@@ -1,0 +1,992 @@
+[
+    {
+        "_id": "s101",
+        "name": "Today's Top Hits",
+        "tags": [
+            "categories"
+        ],
+        "desc": "",
+        "songs": [
+            {
+                "id": "s101",
+                "title": "Blinding Lights",
+                "artist": "The Weeknd",
+                "album": "After Hours",
+                "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+                "addedBy": "",
+                "duration": "3:20",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s102",
+                "title": "Watermelon Sugar",
+                "artist": "Harry Styles",
+                "album": "Fine Line",
+                "url": "https://www.youtube.com/watch?v=E07s5ZYygMg",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0277fdcfda6535601aff081b6a",
+                "addedBy": "",
+                "duration": "2:54",
+                "addedAt": "1712378723945",
+                "isLiked": false
+            },
+            {
+                "id": "s103",
+                "title": "Dance Monkey",
+                "artist": "Tones and I",
+                "album": "The Kids Are Coming",
+                "url": "https://www.youtube.com/watch?v=q0hyYWKXF0Q",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02c6f7af36ecdc3ed6e0a1f169",
+                "addedBy": "",
+                "duration": "3:29",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s104",
+                "title": "Bad Guy",
+                "artist": "Billie Eilish",
+                "album": "When We All Fall Asleep, Where Do We Go?",
+                "url": "https://www.youtube.com/watch?v=DyDfgMOUjCI",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0250a3147b4edd7701a876c6ce",
+                "addedBy": "",
+                "duration": "3:14",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s105",
+                "title": "Old Town Road",
+                "artist": "Lil Nas X feat. Billy Ray Cyrus",
+                "album": "7",
+                "url": "https://www.youtube.com/watch?v=w2Ov5jzm3j8",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02c0e7bf5cdd630f314f20586a",
+                "addedBy": "",
+                "duration": "2:37",
+                "addedAt": "1712378763245",
+                "isLiked": false
+            },
+            {
+                "id": "s106",
+                "title": "Levitating",
+                "artist": "Dua Lipa feat. DaBaby",
+                "album": "Future Nostalgia",
+                "url": "https://www.youtube.com/watch?v=TUVcZfQe-Kw",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e024bc66095f8a70bc4e6593f4f",
+                "addedBy": "",
+                "duration": "3:23",
+                "addedAt": "1712378737445",
+                "isLiked": false
+            },
+            {
+                "id": "s107",
+                "title": "Peaches",
+                "artist": "Justin Bieber feat. Daniel Caesar, Giveon",
+                "album": "Justice",
+                "url": "https://www.youtube.com/watch?v=tQ0yjYUFKAE",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02e6f407c7f3a0ec98845e4431",
+                "addedBy": "",
+                "duration": "3:18",
+                "addedAt": "17123787338945",
+                "isLiked": false
+            },
+            {
+                "id": "s108",
+                "title": "Good 4 U",
+                "artist": "Olivia Rodrigo",
+                "album": "SOUR",
+                "url": "https://www.youtube.com/watch?v=gNi_6U5Pm_o",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a91c10fe9472d9bd89802e5a",
+                "addedBy": "",
+                "duration": "2:58",
+                "addedAt": "1712378743145",
+                "isLiked": false
+            },
+            {
+                "id": "s109",
+                "title": "Drivers license",
+                "artist": "Olivia Rodrigo",
+                "album": "SOUR",
+                "url": "https://www.youtube.com/watch?v=ZmDBbnmKpqQ",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a91c10fe9472d9bd89802e5a",
+                "addedBy": "",
+                "duration": "4:02",
+                "addedAt": "1712378733349",
+                "isLiked": false
+            },
+            {
+                "id": "s110",
+                "title": "Butter",
+                "artist": "BTS",
+                "album": "Butter",
+                "url": "https://www.youtube.com/watch?v=WMweEpGlu_U",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02240447f2da1433d8f4303596",
+                "addedBy": "",
+                "duration": "2:44",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s111",
+                "title": "Take My Breath",
+                "artist": "The Weekend",
+                "album": "Take My Breath",
+                "url": "https://www.youtube.com/watch?v=rhTl_OyehF8",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e024ab2520c2c77a1d66b9ee21d",
+                "addedBy": "",
+                "duration": "3:40",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s112",
+                "title": "Stay",
+                "artist": "The Kid LAROI, Justin Bieber",
+                "album": "F*CK LOVE 3+: OVER YOU",
+                "url": "https://www.youtube.com/watch?v=kTJczUoc26U",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0241e31d6ea1d493dd77933ee5",
+                "addedBy": "",
+                "duration": "2:22",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s113",
+                "title": "Heat Waves",
+                "artist": "Glass Animals",
+                "album": "Dreamland",
+                "url": "https://www.youtube.com/watch?v=mRD0-GxqHVo",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02712701c5e263efc8726b1464",
+                "addedBy": "",
+                "duration": "3:58",
+                "addedAt": "1712378763641",
+                "isLiked": false
+            },
+            {
+                "id": "s114",
+                "title": "MONTERO (Call Me By Your Name)",
+                "artist": "Lil Nas X",
+                "album": "MONTERO",
+                "url": "https://www.youtube.com/watch?v=6swmTBVI83k",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02664034dd80e91b28f773598d",
+                "addedBy": "",
+                "duration": "2:18",
+                "addedAt": "1712378743548",
+                "isLiked": false
+            },
+            {
+                "id": "s115",
+                "title": "Kiss Me More",
+                "artist": "Doja Cat ft. SZA",
+                "album": "Planet Her",
+                "url": "https://www.youtube.com/watch?v=0EVVKs6DQLo",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e026c031afd210aed3084f80956",
+                "addedBy": "",
+                "duration": "3:29",
+                "addedAt": "1712378436746",
+                "isLiked": false
+            },
+            {
+                "id": "s116",
+                "title": "INDUSTRY BABY",
+                "artist": "Lil Nas X, Jack Harlow",
+                "album": "MONTERO",
+                "url": "https://www.youtube.com/watch?v=UTHLKHL_whs",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02ba26678947112dff3c3158bf",
+                "addedBy": "",
+                "duration": "3:32",
+                "addedAt": "1712378763347",
+                "isLiked": false
+            },
+            {
+                "id": "s117",
+                "title": "Deja vu",
+                "artist": "Olivia Rodrigo",
+                "album": "SOUR",
+                "url": "https://www.youtube.com/watch?v=cii6ruuycQA",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a91c10fe9472d9bd89802e5a",
+                "addedBy": "",
+                "duration": "3:35",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            }
+        ],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000023386614f0885feec7bc6bfc5",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s102",
+        "name": "RapCaviar",
+        "tags": [
+            "categories"
+        ],
+        "desc": "''",
+        "songs": [
+            {
+                "id": "s101",
+                "title": "Lose Yourself",
+                "artist": "Eminem",
+                "album": "8 Mile",
+                "url": "https://www.youtube.com/watch?v=_Yhyp-_hX2s",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e023f66b5b49ccea004a5ef0db2",
+                "addedBy": "",
+                "duration": "5:26",
+                "addedAt": "1712378732342",
+                "isLiked": false
+            },
+            {
+                "id": "s102",
+                "title": "Juicy",
+                "artist": "The Notorious B.I.G.",
+                "album": "Ready to Die",
+                "url": "https://www.youtube.com/watch?v=_JZom_gVfuw",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02639fea4197e676cfe9512e04",
+                "addedBy": "",
+                "duration": "4:45",
+                "addedAt": "1712378738343",
+                "isLiked": false
+            },
+            {
+                "id": "s103",
+                "title": "California Love",
+                "artist": "2Pac",
+                "album": "All Eyez on Me",
+                "url": "https://www.youtube.com/watch?v=5wBTdfAkqGU",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02d81a092eb373ded457d94eec",
+                "addedBy": "",
+                "duration": "4:01",
+                "addedAt": "1712378748248",
+                "isLiked": false
+            },
+            {
+                "id": "s104",
+                "title": "N.Y. State of Mind",
+                "artist": "Nas",
+                "album": "Illmatic",
+                "url": "https://www.youtube.com/watch?v=UKjj4hk0pV4",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02045fc920ecf4f8094888ec26",
+                "addedBy": "",
+                "duration": "4:53",
+                "addedAt": "1712378734659",
+                "isLiked": false
+            },
+            {
+                "id": "s105",
+                "title": "Alright",
+                "artist": "Kendrick Lamar",
+                "album": "To Pimp a Butterfly",
+                "url": "https://www.youtube.com/watch?v=Z-48u_uWMHY",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02cdb645498cd3d8a2db4d05e1",
+                "addedBy": "",
+                "duration": "3:39",
+                "addedAt": "1712378736829",
+                "isLiked": false
+            },
+            {
+                "id": "s106",
+                "title": "God's Plan",
+                "artist": "Drake",
+                "album": "Scorpion",
+                "url": "https://www.youtube.com/watch?v=xpVfcZ0ZcFM",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02f907de96b9a4fbc04accc0d5",
+                "addedBy": "",
+                "duration": "3:19",
+                "addedAt": "1712378738342",
+                "isLiked": false
+            },
+            {
+                "id": "s107",
+                "title": "Sicko Mode",
+                "artist": "Travis Scott",
+                "album": "Astroworld",
+                "url": "https://www.youtube.com/watch?v=6ONRf7h3Mdk",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02072e9faef2ef7b6db63834a3",
+                "addedBy": "",
+                "duration": "5:13",
+                "addedAt": "2023-10-05T15:20:00.000Z",
+                "isLiked": false
+            },
+            {
+                "id": "s108",
+                "title": "In Da Club",
+                "artist": "50 Cent",
+                "album": "Get Rich or Die Tryin'",
+                "url": "https://www.youtube.com/watch?v=5qm8PH4xAss",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02d843fabb75fef14010e30cae",
+                "addedBy": "",
+                "duration": "3:13",
+                "addedAt": "1712378738649",
+                "isLiked": false
+            },
+            {
+                "id": "s109",
+                "title": "Hotline Bling",
+                "artist": "Drake",
+                "album": "Views",
+                "url": "https://www.youtube.com/watch?v=uxpDa-c-4Mc",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e029416ed64daf84936d89e671c",
+                "addedBy": "",
+                "duration": "4:27",
+                "addedAt": "1712378738749",
+                "isLiked": false
+            },
+            {
+                "id": "s110",
+                "title": "HUMBLE.",
+                "artist": "Kendrick Lamar",
+                "album": "DAMN.",
+                "url": "https://www.youtube.com/watch?v=tvTRZJ-4EyI",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e028b52c6b9bc4e43d873869699",
+                "addedBy": "",
+                "duration": "3:04",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s111",
+                "title": "All of the Lights",
+                "artist": "Kanye West",
+                "album": "My Beautiful Dark Twisted Fantasy",
+                "url": "https://www.youtube.com/watch?v=HAfFfqiYLp0",
+                "imgUrl": "https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213235/Station%20images/allOfTheLights_kanye.jpg",
+                "addedBy": "Nadav",
+                "duration": "5:00",
+                "addedAt": "1712378733343",
+                "isLiked": false
+            },
+            {
+                "id": "s112",
+                "title": "The Box",
+                "artist": "Roddy Ricch",
+                "album": "Please Excuse Me for Being Antisocial",
+                "url": "https://www.youtube.com/watch?v=UNZqm3dxd2w",
+                "imgUrl": "https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213235/Station%20images/theBox_roddy",
+                "addedBy": "Nadav",
+                "duration": "5:00",
+                "addedAt": "1712378734544",
+                "isLiked": false
+            },
+            {
+                "id": "s113",
+                "title": "Lemon Pepper Freestyle",
+                "artist": "Drake ft. Rick Ross",
+                "album": "Scary Hours 2",
+                "url": "https://www.youtube.com/watch?v=wd2Iro7hc6E",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e028b20e4631fa15d3953528bbc",
+                "addedBy": "",
+                "duration": "6:23",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s114",
+                "title": "RAPSTAR",
+                "artist": "Polo G",
+                "album": "Hall of Fame",
+                "url": "https://www.youtube.com/watch?v=w2IhccXakkE",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a493e05c99d8ec5e8020ff2b",
+                "addedBy": "",
+                "duration": "2:46",
+                "addedAt": "1712378833241",
+                "isLiked": false
+            },
+            {
+                "id": "s115",
+                "title": "Calling My Phone",
+                "artist": "Lil Tjay ft. 6LACK",
+                "album": "Destined 2 Win",
+                "url": "https://www.youtube.com/watch?v=LFNe9XChhN0",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e025af0305457ff290e06dcc4c2",
+                "addedBy": "",
+                "duration": "3:26",
+                "addedAt": "1712378743644",
+                "isLiked": false
+            },
+            {
+                "id": "s116",
+                "title": "Laugh Now Cry Later",
+                "artist": "Drake ft. Lil Durk",
+                "album": "Certified Lover Boy",
+                "url": "https://www.youtube.com/watch?v=JFm7YDVlqnI",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0252c75ed37313b889447011ef",
+                "addedBy": "",
+                "duration": "4:21",
+                "addedAt": "1712368732749",
+                "isLiked": false
+            },
+            {
+                "id": "s117",
+                "title": "Wants and Needs",
+                "artist": "Drake ft. Lil Baby",
+                "album": "Scary Hours 2",
+                "url": "https://www.youtube.com/watch?v=RoVxHpURYDQ",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e028b20e4631fa15d3953528bbc",
+                "addedBy": "",
+                "duration": "3:13",
+                "addedAt": "1712378763442",
+                "isLiked": false
+            }
+        ],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002d0f5f09f66d88054da5ca0ee",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s103",
+        "name": "Viva Latino",
+        "tags": [
+            "categories"
+        ],
+        "desc": "",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002543cbc9a323f92fb71be9cef",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s104",
+        "name": "African Heat",
+        "tags": [
+            "categories"
+        ],
+        "desc": "''",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002b01a2b925392e210552f1dc8",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s105",
+        "name": "RNB X",
+        "tags": [
+            "categories"
+        ],
+        "desc": "''",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000026c4101d3b122c642029970e4",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s106",
+        "name": "MARROW",
+        "tags": [
+            "categories"
+        ],
+        "desc": "''",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000023fb25c3b317a893cf2fda8de",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s107",
+        "name": "OOs Pop Run",
+        "tags": [
+            "categories"
+        ],
+        "desc": "feel it in your bones.",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f0000000282c50e1d42a1a5ebc36dc2bc",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s108",
+        "name": "mint",
+        "tags": [
+            "categories"
+        ],
+        "desc": "The world's biggest dance hits",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000028815b0874ca4bebeaabf3bad",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s109",
+        "name": "Classics Rock",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Great Rock Classics",
+        "songs": [
+            {
+                "id": "s101",
+                "title": "Highway to Hell",
+                "artist": "AC/DC",
+                "album": "Highway to Hell",
+                "url": "https://www.youtube.com/watch?v=l482T0yNkeo",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e020a80b890ab011362fd7aa73b",
+                "addedBy": "",
+                "duration": "3:27",
+                "addedAt": "1712378763442",
+                "isLiked": false
+            },
+            {
+                "id": "s102",
+                "title": "Stairway to Heaven",
+                "artist": "Led Zeppelin",
+                "album": "Led Zeppelin IV",
+                "url": "https://www.youtube.com/watch?v=QkF3oxziUI4",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02c8a11e48c91a982d086afc69",
+                "addedBy": "",
+                "duration": "8:02",
+                "addedAt": "1712378783747",
+                "isLiked": false
+            },
+            {
+                "id": "s103",
+                "title": "Bohemian Rhapsody",
+                "artist": "Queen",
+                "album": "A Night at the Opera",
+                "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02e319baafd16e84f0408af2a0",
+                "addedBy": "",
+                "duration": "5:55",
+                "addedAt": "1712378784777",
+                "isLiked": false
+            },
+            {
+                "id": "s104",
+                "title": "Paint It Black",
+                "artist": "The Rolling Stones",
+                "album": "Aftermath",
+                "url": "https://www.youtube.com/watch?v=O4irXQhgMqg",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02bad7062c3fd2f2d037989694",
+                "addedBy": "",
+                "duration": "3:22",
+                "addedAt": "1712378886474",
+                "isLiked": false
+            },
+            {
+                "id": "s105",
+                "title": "Break On Through (To the Other Side)",
+                "artist": "The Doors",
+                "album": "The Doors",
+                "url": "https://www.youtube.com/watch?v=-r679Hhs9Zs",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e025b96a8c5d61be8878452f8f1",
+                "addedBy": "",
+                "duration": "2:29",
+                "addedAt": "1712378866687",
+                "isLiked": false
+            },
+            {
+                "id": "s106",
+                "title": "Hotel California",
+                "artist": "Eagles",
+                "album": "Hotel California",
+                "url": "https://www.youtube.com/watch?v=EqPtz5qN7HM",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e024637341b9f507521afa9a778",
+                "addedBy": "",
+                "duration": "6:31",
+                "addedAt": "1712378867785",
+                "isLiked": false
+            },
+            {
+                "id": "s107",
+                "title": "Comfortably Numb",
+                "artist": "Pink Floyd",
+                "album": "The Wall",
+                "url": "https://www.youtube.com/watch?v=_FrOQC-zEog",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e025d48e2f56d691f9a4e4b0bdf",
+                "addedBy": "",
+                "duration": "6:24",
+                "addedAt": "1712378866887",
+                "isLiked": false
+            },
+            {
+                "id": "s108",
+                "title": "Sweet Child O' Mine",
+                "artist": "Guns N' Roses",
+                "album": "Appetite for Destruction",
+                "url": "https://www.youtube.com/watch?v=1w7OgIMMRc4",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0221ebf49b3292c3f0f575f0f5",
+                "addedBy": "",
+                "duration": "5:56",
+                "addedAt": "1712378876989",
+                "isLiked": false
+            },
+            {
+                "id": "s109",
+                "title": "Smells Like Teen Spirit",
+                "artist": "Nirvana",
+                "album": "Nevermind",
+                "url": "https://www.youtube.com/watch?v=hTWKbfoikeg",
+                "imgUrl": "https://res.cloudinary.com/dkwwsxprt/image/upload/v1712213245/Station%20images/smellsLikeTeenSpirit_mfhfnl.jpg",
+                "addedBy": "",
+                "duration": "5:01",
+                "addedAt": "17123787846979",
+                "isLiked": false
+            },
+            {
+                "id": "s110",
+                "title": "Black Hole Sun",
+                "artist": "Soundgarden",
+                "album": "Superunknown",
+                "url": "https://www.youtube.com/watch?v=3mbBbFH9fAg",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02ae6d8e36136353d550b2587d",
+                "addedBy": "",
+                "duration": "5:18",
+                "addedAt": "1712378784777",
+                "isLiked": false
+            }
+        ],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000025e81461d7898c4309ef0e02d",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s110",
+        "name": "Latin Hit Mix",
+        "tags": [
+            "categories"
+        ],
+        "desc": "These hits were made to stay!",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002616ad618fb2be210e701114b",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s111",
+        "name": "Mega Hit Mix",
+        "tags": [
+            "categories"
+        ],
+        "desc": "A mega mix hits",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f0000000235fed49a1e4edb70fb29853a",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s112",
+        "name": "Mega Hit Mix",
+        "tags": [
+            "categories"
+        ],
+        "desc": "",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f0000000235fed49a1e4edb70fb29853a",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s113",
+        "name": "Mega Hit Mix",
+        "tags": [
+            "categories"
+        ],
+        "desc": "",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002593226e2e583175aa9fecdd7",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s114",
+        "name": "Songs to Sing in the Car",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Sing along and enjoy the drive",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000025f413a23f7469b59cc462928",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s115",
+        "name": "Warm Fuzzy Feeling",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Beautiful songs to give you that warm, fuzzy feeling",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000025f413a23f7469b59cc462928",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s116",
+        "name": "Warm Fuzzy Feeling",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Energetic tracks from the 1990s to boost your running session",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000020ea3abd7d02798b54502ac35",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s117",
+        "name": "Warm Fuzzy Feeling",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Playlist Listen to all the tracks you've been missing",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000024477d03df61b0379b33f8e4f",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s117",
+        "name": "Summer Throwbacks",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Throwing it back with these summer classics",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002c2fa910c4805df6d7cc685c5",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s118",
+        "name": "All New All Now",
+        "tags": [
+            "categories"
+        ],
+        "desc": "All the new music you need to hear right now",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002e81de6916e0c83464deca315",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s119",
+        "name": "Party Mode",
+        "tags": [
+            "categories"
+        ],
+        "desc": "",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000029e9eba80ff5f0164496e7285",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s120",
+        "name": "Cheesy Hits!",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Who doesn't love a bit of cheese?",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000025918ed120609487bbca4d873",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s120",
+        "name": "Throwing it back with these summer classics",
+        "tags": [
+            "categories"
+        ],
+        "desc": "All the new music you need to hear right now",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000029e9eba80ff5f0164496e7285",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s121",
+        "name": "Feelin' Good",
+        "tags": [
+            "categories"
+        ],
+        "desc": "All the new music you need to hear right now",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000024887bcc008e0dad5275de257",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s122",
+        "name": "Kitchen Swagger",
+        "tags": [
+            "categories"
+        ],
+        "desc": "Gettin' figgy with it, bana-na-na-nanana",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000028dc9fe0c14e5f34ad165e3c2",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s123",
+        "name": "Healin' Blues",
+        "tags": [
+            "categories"
+        ],
+        "desc": "For body and mind, blues straight from the soul",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000022e951ec4784064384c928827",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s124",
+        "name": "Soulful Disco",
+        "tags": [
+            "categories"
+        ],
+        "desc": "All the best soul disco sounds for getting down",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000028b2e7ba955590594ee01550e",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "s125",
+        "name": "Summer Dance Hits",
+        "tags": [
+            "categories"
+        ],
+        "desc": "The summer needs dance hits ",
+        "songs": [],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000023ff395d03138d858c532c64e",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    }
+]

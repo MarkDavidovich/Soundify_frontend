@@ -29,22 +29,24 @@ export function SearchPage() {
   console.log("🚀 ~ loadCategories ~ categories:", categories)
 
   return (
-    <div className="search-page">
-
+    <>
       <AppHeader />
-     //!!Need To Add The Search to the Header
+      <div className="search-page">
 
-      <h2>Browse all</h2>
 
-      <div className="grid-container">
+   //!!Need To Add The Search to the Header
 
-        <CategoryList categories={categories} />
+        <h2>Browse all</h2>
 
+        <div className="grid-container">
+
+          <CategoryList categories={categories} />
+
+        </div>
+
+        <MainViewFooter />
       </div>
-
-      <MainViewFooter />
-    </div>
+    </>
   )
-
 
 }
