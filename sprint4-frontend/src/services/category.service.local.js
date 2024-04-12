@@ -4,6 +4,7 @@ import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 import { stationService } from './station.service.local.js'
 
+import categoriesData from '../data/categories.json'
 
 const CATEGORY_KEY = 'categoryDB'
 
@@ -110,44 +111,65 @@ const sBohemianRhapsody = {
 }
 
 
-function _createCategories(numCategories = 2, numStationsPerCategory = 2) {
+function _createCategories(numStationsPerCategory = 5) {
 
     let categories = utilService.loadFromStorage(CATEGORY_KEY)
 
     if (!categories || !categories.length) {
         console.log('No categories found in storage, creating new ones.')
 
-        const categoriesName = [
-            'Music', 'Pop', 'Hip-Hop', 'Rock', 'Latin', 'Dance', 'Electronic', 'Mood', 'Indie', 'Rock', 'Workout', 'Chill', 'R&B', 'Sleep', 'Party', 'Love', 'Metal', 'At Home', 'Wellness', 'Jazz', 'Focus', 'Soul', 'Classical', 'Punk', 'Blues', 'Cooking & Dining', 'Alternative', 'Travel', 'Funk', 'Summer', 'Afro', 'Fresh Finds', 'Equal', 'Trending', 'Gaming', 'New Releases', 'Made For You', 'Country'
-        ]
+        categories = categoriesData
 
-        categories = []
-
-        for (let i = 0; i < numCategories; i++) {
-            let stations = []
-
-            for (let j = 0; j < numStationsPerCategory; j++) {
-                stations.push(stationService._createStations())
-            }
-
-            categories.push({
-                _id: utilService.makeId(),
-                name: categoriesName[i % categoriesName.length],
-                stations: stations,
-                imgUrl: `https://dummyimage.com/600x400/000/fff&text=Category${i + 1}`
-            })
-        }
+        categories = categories.map(category => ({
+            ...category,
+            stations: category.stations.length ? category.stations : Array.from({ length: numStationsPerCategory }, stationService._createStations)
+        }))
 
         utilService.saveToStorage(CATEGORY_KEY, categories)
         console.log('New categories saved:', categories)
 
     } else {
-        console.log('Categories loaded from storage:', categories);
+        console.log('Categories loaded from storage:', categories)
     }
-
-
     return categories
 }
+// function _createCategories(numCategories = 2, numStationsPerCategory = 2) {
+
+//     let categories = utilService.loadFromStorage(CATEGORY_KEY)
+
+//     if (!categories || !categories.length) {
+//         console.log('No categories found in storage, creating new ones.')
+
+//         const categoriesName = [
+//             'Music', 'Pop', 'Hip-Hop', 'Rock', 'Latin', 'Dance', 'Electronic', 'Mood', 'Indie', 'Rock', 'Workout', 'Chill', 'R&B', 'Sleep', 'Party', 'Love', 'Metal', 'At Home', 'Wellness', 'Jazz', 'Focus', 'Soul', 'Classical', 'Punk', 'Blues', 'Cooking & Dining', 'Alternative', 'Travel', 'Funk', 'Summer', 'Afro', 'Fresh Finds', 'Equal', 'Trending', 'Gaming', 'New Releases', 'Made For You', 'Country'
+//         ]
+
+//         categories = []
+
+//         for (let i = 0; i < numCategories; i++) {
+//             let stations = []
+
+//             for (let j = 0; j < numStationsPerCategory; j++) {
+//                 stations.push(stationService._createStations())
+//             }
+
+//             categories.push({
+//                 _id: utilService.makeId(),
+//                 name: categoriesName[i % categoriesName.length],
+//                 stations: stations,
+//                 imgUrl: `https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb`
+//             })
+//         }
+
+//         utilService.saveToStorage(CATEGORY_KEY, categories)
+//         console.log('New categories saved:', categories)
+
+//     } else {
+//         console.log('Categories loaded from storage:', categories);
+//     }
+
+//     return categories
+// }
 
 _createCategories()
 

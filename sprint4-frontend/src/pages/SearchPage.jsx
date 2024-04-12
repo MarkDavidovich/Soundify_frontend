@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { AppHeader } from "../cmps/AppHeader"
 import { CategoryList } from "../cmps/CategoryList"
 import { categoryService } from "../services/category.service.local"
+import { MainViewFooter } from "../cmps/MainViewFooter"
 
 export function SearchPage() {
 
@@ -33,12 +34,15 @@ export function SearchPage() {
       <AppHeader />
      //!!Need To Add The Search to the Header
 
+      <h2>Browse all</h2>
+
       <div className="grid-container">
-        <h2>Browse all</h2>
 
         <CategoryList categories={categories} />
 
       </div>
+
+      <MainViewFooter />
     </div>
   )
 

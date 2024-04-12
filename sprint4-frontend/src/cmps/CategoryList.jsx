@@ -7,11 +7,11 @@ export function CategoryList({ categories }) {
     return (
         <div className="category-list-container">
 
-            {categories.map(category => (
+            {categories.map((category, idx) => (
                 <div className="category-preview" key={category._id}>
 
                     <Link className="link" to={`/category/${category._id}`}>
-                        <CategoryPreview category={category} />
+                        <CategoryPreview category={category} idx={idx} />
                     </Link>
                 </div>
             ))

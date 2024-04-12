@@ -1,0 +1,200 @@
+[
+    {
+        "_id": "c101",
+        "name": "Music",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+        "_id": "c102",
+        "name": "Life Events",
+        "stations": [],
+        "imgUrl": "https://concerts.spotifycdn.com/images/live-events_category-image.jpg"
+    },
+    {
+        "_id": "c103",
+        "name": "Pop",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafa862ab80dd85682b37c4e768"
+    },
+    {
+        "_id": "c104",
+        "name": "Made For You",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf14030380532b34badbf0a229"
+    },
+    {
+        "_id": "c105",
+        "name": "Hip-Hop",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf9e3dea60be755ccd97b7351f"
+    },
+    {
+        "_id": "c106",
+        "name": "Rock",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafda4c849095796a9e5d2c4ddb"
+    },
+    {
+        "_id": "c107",
+        "name": "Latin",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafa59f90c077c9f618fd0dde30"
+    },
+    {
+        "_id": "c108",
+        "name": "Dance",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafdfdaac1cf9574a196ca25196"
+    },
+    {
+        "_id": "c109",
+        "name": "Electronic",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe760702de052fbefea27064a"
+    },
+    {
+        "_id": "c110",
+        "name": "Mood",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf271f9d895003c5f5561c1354"
+    },
+    {
+        "_id": "c111",
+        "name": "Indie",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafa1a252e3a815b65778d8c2aa"
+    },
+    {
+        "_id": "c112",
+        "name": "Workout",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000029249b35f23fb596b6f006a15"
+    },
+    {
+        "_id": "c113",
+        "name": "Chill",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf47e942f5bea637f4f4760170"
+    },
+    {
+        "_id": "c114",
+        "name": "R&B",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caff4e38be86ca48a3b10884ae3"
+    },
+    {
+        "_id": "c115",
+        "name": "Party",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafcbf80f8ea695536eace4fd2c"
+    },
+    {
+        "_id": "c116",
+        "name": "Love",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafb03c6f8e7efca2ae36f41b31"
+    },
+    {
+        "_id": "c117",
+        "name": "At Home",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe914a07d20cec7a65e2e5dad"
+    },
+    {
+        "_id": "c118",
+        "name": "Jazz",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe289743024639ea8f202364d"
+    },
+    {
+        "_id": "c120",
+        "name": "Focus",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002e4eadd417a05b2546e866934"
+    },
+    {
+        "_id": "c121",
+        "name": "Soul",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafd82e2c83fe100a89e9cbb2a2"
+    },
+    {
+        "_id": "c122",
+        "name": "Soul",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafd82e2c83fe100a89e9cbb2a2"
+    },
+    {
+        "_id": "c123",
+        "name": "Classical",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf12809992dfc5b318892ea07b"
+    },
+    {
+        "_id": "c124",
+        "name": "Blues",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caff22ac5cab318d550b593ffac"
+    },
+    {
+        "_id": "c125",
+        "name": "Punk",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafb2cdd7a95b0a5444aa15cfb5"
+    },
+    {
+        "_id": "c126",
+        "name": "Cooking & Dining",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe53d71d0920a4f1f441d803c"
+    },
+    {
+        "_id": "c127",
+        "name": "Travel",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf4b36a2c31432ace68d90c4f2"
+    },
+    {
+        "_id": "c128",
+        "name": "Summer",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf097a46192e6bb67e52cdff60"
+    },
+    {
+        "_id": "c129",
+        "name": "Afro",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf04faccb4f5e1828600921f37"
+    },
+    {
+        "_id": "c130",
+        "name": "Fresh Finds",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafcc1499bbb8565f490858c2bc"
+    },
+    {
+        "_id": "c131",
+        "name": "Trending",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf1867113f5218598847550acd"
+    },
+    {
+        "_id": "c132",
+        "name": "Equal",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf9ed6e364e8839210dc4dbff7"
+    },
+    {
+        "_id": "c133",
+        "name": "New Releases",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112"
+    },
+    {
+        "_id": "c134",
+        "name": "Country",
+        "stations": [],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafc0d2222b4c6441930e1a386e"
+    }
+]
