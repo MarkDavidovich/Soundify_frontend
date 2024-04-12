@@ -150,7 +150,7 @@ export function AppFooter() {
     // if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
 
     return (
-        <footer className={`app-footer ${!currSong ? ' inactive' : ''}`}>
+        <footer className={`app-footer ${!currSong ? 'inactive' : ''}`}>
             <div className={"song-details-container"}>
                 <SongPreview
                     currSong={currSong}

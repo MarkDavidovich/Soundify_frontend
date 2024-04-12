@@ -8,6 +8,7 @@
     height: 72px;
     width: 99%;
     z-index: 10;
+    margin-bottom: 3px;
 
     .controls-main-container {
         display: flex;
@@ -95,7 +96,7 @@
                 }
 
                 .following-bar {
-                    margin-top: 5px;
+                    margin-top: 6px;
                     position: absolute;
                     top: 0;
                     left: 0;

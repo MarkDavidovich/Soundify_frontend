@@ -1,6 +1,6 @@
 //OPENS WHEN YOU CLICK ON SEARCH
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SearchSongs } from '../cmps/SearchSongs'
 import { getSongs } from '../services/youtube.api.service'
 import { useDispatch } from 'react-redux'
@@ -25,13 +25,19 @@ export function SearchPreview({ onSongSelect, currStation }) {
     }
   }
 
-  function handleSongSelect(song) {
-    onSongSelect(song)
-  }
+  useEffect(() => {
+    if (currStation.songs.length === 0) {
+      setShowFindMore(true)
+    }
+  }, [currStation.songs.length])
 
-  function handleFindMore() {
-    setShowFindMore(true)
-  }
+  // function handleSongSelect(song) {
+  //   onSongSelect(song)
+  // }
+
+  // function handleFindMore() {
+  //   setShowFindMore(true)
+  // }
 
   async function handleAddSongFromSearch(selectedSong) {
     const updatedStation = {
@@ -46,16 +52,13 @@ export function SearchPreview({ onSongSelect, currStation }) {
     }
   }
 
+
   return (
     <section className="main-container flex">
-      {currStation.songs.length > 0 && (
-        <button className={`find-more-btn ${showFindMore ? 'expanded' : ''}`} onClick={() => setShowFindMore(!showFindMore)}>
-          {showFindMore ? null : <div className="find-more-text">Find more</div>}
-        </button>
-      )}
-
-
-      {(showFindMore || currStation?.songs.length === 0) && (
+      <button className={`find-more-btn ${showFindMore ? 'expanded' : ''}`} onClick={() => setShowFindMore(!showFindMore)}>
+        {showFindMore ? null : <div className="find-more-text">Find more</div>}
+      </button>
+      {(showFindMore) && (
         <section className='add-song-container'>
           <div className="search-song-container">
             <div className="title-container">
@@ -95,9 +98,7 @@ export function SearchPreview({ onSongSelect, currStation }) {
                 </div>
               </div>
             ))}
-
           </div>
-
         </section>
       )}
     </section>
