@@ -25,18 +25,18 @@ export function SearchPage() {
     }
   }
 
-  // console.log("🚀 ~ loadCategories ~ categories:", categories)
+  console.log("🚀 ~ loadCategories ~ categories:", categories)
 
   return (
     <div className="search-page">
 
-     //!!Need To Add The Search to the Header
       <AppHeader />
+     //!!Need To Add The Search to the Header
 
       <div className="grid-container">
         <h2>Browse all</h2>
 
-        <CategoryList />
+        <CategoryList categories={categories} />
 
       </div>
     </div>

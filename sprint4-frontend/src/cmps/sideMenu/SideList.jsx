@@ -65,7 +65,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     return <div className="side-list">
 
         {filteredStations.map(station => (
-            <article className={'side-preview-container' + dynamicClass} key={station._id}>
+            <div className={'side-preview-container' + dynamicClass} key={station._id}>
                 <Link className={setLinkClass()}
                     onClick={onSetToggleLink}
                     to={`/station/${station._id}`}>
@@ -79,7 +79,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
                         onTriggerUpdate={() => handleUpdateClick(station)} />
                 </Link>
-            </article>
+            </div>
         ))}
 
         {stations.find(station => station._id === 'liked-songs' && station.songs.length > 0) && (
