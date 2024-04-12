@@ -49,17 +49,15 @@ export function SearchPreview({ onSongSelect, currStation }) {
   return (
     <section className="main-container flex">
       {currStation.songs.length > 0 && (
-        // <div>
-          <button className='find-more-btn' onClick={() => setShowFindMore(!showFindMore)}>
-            {showFindMore ? null : <div className="find-more-text">Find more</div>}
-          </button>
-        // </div>
+        <button className={`find-more-btn ${showFindMore ? 'expanded' : ''}`} onClick={() => setShowFindMore(!showFindMore)}>
+          {showFindMore ? null : <div className="find-more-text">Find more</div>}
+        </button>
       )}
 
 
       {(showFindMore || currStation?.songs.length === 0) && (
-        <section className='add-song-container flex'>
-          <div className="search-song-container flex">
+        <section className='add-song-container'>
+          <div className="search-song-container">
             <div className="title-container">
               <h1 className='find-song'>Let's find something for your playlist</h1>
               <SearchSongs searchSongs={searchSongs} />
@@ -70,7 +68,7 @@ export function SearchPreview({ onSongSelect, currStation }) {
               </svg>
             </button>
           </div>
-         
+
           <div className="song-list">
             {songs?.map(song => (
               <div className="song-preview " key={song.id}>
@@ -102,7 +100,7 @@ export function SearchPreview({ onSongSelect, currStation }) {
 
         </section>
       )}
-     </section>
+    </section>
   )
 
 }

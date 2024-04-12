@@ -6,6 +6,7 @@
         display: block;
         margin-left: auto;
         background: none;
+        padding-left: 26px;
 
         .find-more-text {
             font-size: $font-size-14;
@@ -20,7 +21,6 @@
             grid-template-columns:
                 minmax(120px, 4fr) minmax(120px, 2fr) minmax(120px, 1fr);
             column-gap: em(16px);
-            padding: 0 em(16px);
             grid-template-rows: em(56px);
             align-items: center;
 
@@ -44,12 +44,17 @@
 
                 .song-desc {
                     flex-direction: column;
+                    justify-content: center;
+
+
+                    .song-title {}
 
                     .song-artist {
                         h4 {
 
                             font-size: $font-size-14;
                             color: $clr3;
+                            margin: 0;
                         }
 
                     }
@@ -65,6 +70,7 @@
 
             .add-song {
                 grid-area: add-song;
+                padding-left: 60px;
 
                 .add-song-btn {
                     font-size: $font-size-14;
@@ -86,23 +92,19 @@
                         transform: scale(1.04);
                         border: 1px solid white;
                     }
-
-
                 }
-
             }
         }
-
     }
-
 
     .add-song-container {
         border-top: 1px solid hsla(0, 0%, 100%, .1);
-        // padding: em(24px) 0;
-        flex-direction: column;
+        width: 100%;
+        margin-right: 30px; // display: flex;
+        // flex-direction: column;
 
         .search-song-container {
-            // padding: 24px 0;
+            display: flex;
             justify-content: space-between;
             margin-top: 24px;
 
@@ -128,5 +130,9 @@
                 height: 1.5rem;
             }
         }
+    }
+
+    .expanded {
+        margin-left: 0;
     }
 }
