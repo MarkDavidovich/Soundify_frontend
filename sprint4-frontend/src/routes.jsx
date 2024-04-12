@@ -1,5 +1,5 @@
 import { HomePage } from './pages/HomePage.jsx'
-import { ThemesPage } from './pages/ThemesPage.jsx'
+import { SearchPage } from './pages/SearchPage.jsx'
 import { AboutUs } from './pages/AboutUs.jsx'
 import { ReviewIndex } from './pages/ReviewIndex.jsx'
 import { ChatApp } from './pages/Chat.jsx'
@@ -16,7 +16,7 @@ const routes = [
     },
     {
         path: '/search',
-        component: <ThemesPage />,
+        component: <SearchPage />,
         label: 'Search'
     },
     {
