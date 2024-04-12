@@ -1,18 +1,25 @@
 .main-view-header {
     background-color: transparent;
-    position: sticky;
+    position: fixed;
     height: 64px;
     z-index: 5;
-    width: 100%;
+    // width: 75%;
+    display: flex;
+    // display: flex;
+    justify-content: space-between;
     // border-radius: 7px;
+    align-items: center;
+
+    .main-view-header .collapsed {
+        width: 90%;
+    }
 
     .prev-next-container {
         // background-color: transparent;
-
         display: flex;
         align-items: center;
-        padding-top: 15px;
-        margin-left: 6px;
+        padding-inline: 16px;
+        padding-block: 8px;
 
         button.prev-btn,
         button.next-btn {
@@ -20,6 +27,8 @@
             background-color: $clr15;
             border-radius: 50%;
             height: 38px;
+            display: flex;
+            align-items: center;
 
             svg {
                 width: 20px;
@@ -31,6 +40,21 @@
                     stroke: width px;
                 }
             }
+        }
+    }
+
+    .searchbar-container {
+        display: flex;
+
+        .search-page-searchbar {
+            display: flex;
+            flex: 1 1 100%;
+            height: 48px;
+            background-color: #242424;
+            padding: 6px 36px;
+            border-radius: 500px;
+            border: 0;
+            color: white;
         }
     }
 

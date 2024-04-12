@@ -34,19 +34,19 @@ export function SearchPage() {
       <div className="search-page">
 
 
-   //!!Need To Add The Search to the Header
+        <div className="search-page">
 
-        <h2>Browse all</h2>
+          <h2>Browse all</h2>
 
-        <div className="grid-container">
+          <div className="grid-container">
 
-          <CategoryList categories={categories} />
+            <CategoryList categories={categories} />
 
+          </div>
+
+          <MainViewFooter />
         </div>
-
-        <MainViewFooter />
-      </div>
-    </>
-  )
+      </>
+      )
 
 }

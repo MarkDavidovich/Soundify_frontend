@@ -34,7 +34,8 @@ export function StationList({ stations }) {
 
   if (!stations) return <div>LOADING STATIONS...</div>
   return (
-    <section>
+    <section className='main-stations-container'>
+      <div className="station-list-name">Station List Name:</div>
       <section className="station-list-container">
         {
           stations.map(station => (

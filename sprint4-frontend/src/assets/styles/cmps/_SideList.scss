@@ -10,11 +10,12 @@
     }
 
     &::-webkit-scrollbar-track {
-        background: $clr3;
+        background: transparent;
+
     }
 
     &::-webkit-scrollbar-thumb {
-        background: $clr2;
+        background: rgba(255, 255, 255, 0.5);
         height: 5px;
     }
 
@@ -23,8 +24,8 @@
     }
 
     &:hover {
-        overflow-y: auto;
-        opacity: 1;
+        // overflow-y: auto;
+        // opacity: 1;
     }
 
     ///////////////////////////////////////////////////

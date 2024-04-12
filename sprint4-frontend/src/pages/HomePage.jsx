@@ -26,24 +26,22 @@ export function HomePage() {
 
 
     return (
-          <>
-        <AppHeader/>
-        
-        <section className="main-view">
-            {/* <AppHeader /> */}
+        <>
+            <AppHeader />
 
-            <MiniHomeStationList
-                stations={stations} />
+            <section className="main-view">
+                {/* <AppHeader /> */}
 
-            <div className="list-name">Made for You</div>
-            <StationList
-                stations={stations} />
+                <MiniHomeStationList
+                    stations={stations} />
 
-            <div className="list-name">Top lists</div>
-            <StationList
-                stations={stations} />
+                <StationList
+                    stations={stations} />
 
-        </section >
+                <StationList
+                    stations={stations} />
+
+            </section >
         </>
     )
 }

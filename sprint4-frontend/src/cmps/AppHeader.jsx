@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import routes from '../routes'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
@@ -9,8 +9,9 @@ import { LoginSignup } from './LoginSignup.jsx'
 import { useEffect } from 'react'
 
 export function AppHeader() {
+    const location = useLocation()
     const user = useSelector(storeState => storeState.userModule.user)
-
+    const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
 
     const handleScroll = () => {
         console.log("Scroll event triggered in station-details")
@@ -31,7 +32,6 @@ export function AppHeader() {
             }
         }
     }
-
 
     useEffect(() => {
         const container = document.querySelector('.station-details')
@@ -79,7 +79,7 @@ export function AppHeader() {
 
     return (
 
-        <header className="main-view-header">
+        <header className={`main-view-header ${toggleLibrary ? 'collapsed' : ''}`}>
             <section className="prev-next-container">
                 <button className="prev-btn">
                     <svg
@@ -95,11 +95,14 @@ export function AppHeader() {
                         </path>
                     </svg>
                 </button>
+                <div className='searchbar-container'>
+                    {location.pathname === '/search' && <input type='input' className='search-page-searchbar' placeholder='What do you want to play?'></input>}
+                </div>
             </section>
-
-
+            <div>
+                login/out
+            </div>
         </header>
-
     )
 }
 
