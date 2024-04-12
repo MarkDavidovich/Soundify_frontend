@@ -46,7 +46,7 @@ export function SearchPage() {
 
           <MainViewFooter />
         </div>
-      </>
-      )
-
+      </div>
+    </>
+  )
 }
