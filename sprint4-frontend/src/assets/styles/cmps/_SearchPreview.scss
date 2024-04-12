@@ -70,7 +70,8 @@
 
             .add-song {
                 grid-area: add-song;
-                padding-left: 60px;
+                justify-self: end;
+                padding-right: 30px;
 
                 .add-song-btn {
                     font-size: $font-size-14;
