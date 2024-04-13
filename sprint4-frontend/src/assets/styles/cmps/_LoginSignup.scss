@@ -1,0 +1,19 @@
+.main-login{
+
+    .header-login{
+        svg{
+            fill: $clr2
+        }
+    }
+    .login-container{
+        margin: 0 auto;
+        width: em(324px);
+
+        .login-title{
+            font-family: circular-bold;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+    }
+}

@@ -60,7 +60,7 @@ export function StationDetails() {
     }
     catch (err) {
       showErrorMsg('Had issues loading station')
-      console.error('Had issues loading station', err)
+      console.error('Had issues loading station', err)  
       return navigate('/')
     }
   }
@@ -180,184 +180,184 @@ export function StationDetails() {
 
   return (
     <>
-      <AppHeader />
-      <div className="station-details flex column">
-        <div className="station-data-container">
-          <div className="info-station flex">
-            <div className="station-img-container">
-              <img className="station-img" src={currStation.imgUrl} alt="" />
-            </div>
-            <div className="text-station">
-              <span className="playlist">Playlist</span>
-              <h1 className="title-station">{currStation.name}</h1>
-              <div className="user-info flex">
-                <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
-                <div className="created-by">{currStation.createdBy.fullname} • </div>
-                <div className="info-songs">
-                  <span>{currStation.songs.length} Songs, {stationDuration}</span>
-                </div>
+    <AppHeader/>
+    <div className="station-details flex column">
+      <div className="station-data-container">
+        <div className="info-station flex">
+          <div className="station-img-container">
+            <img className="station-img" src={currStation.imgUrl} alt="" />
+          </div>
+          <div className="text-station">
+            <span className="playlist">Playlist</span>
+            <h1 className="title-station">{currStation.name}</h1>
+            <div className="user-info flex">
+              <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
+              <div className="created-by">{currStation.createdBy.fullname} • </div>
+              <div className="info-songs">
+                <span>{currStation.songs.length} Songs, {stationDuration}</span>
               </div>
             </div>
           </div>
-          <div className="menu-station flex">
-            <div className="right-menu-btns flex">
-              <button className={`play-btn btn ${currStation.songs.length > 0 ? '' : ' inactive'}`} onClick={() => { handleSongClick() }}><span>
-                {isPlaying ? (<svg width="20" height="20" viewBox="0 0 24 24">
-                  <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
-                  >
-                  </path>
-                </svg>
-                ) : (
-                  <svg width="20" height="20" viewBox="0 0 16 16" >
-                    <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                    ></path>
-                  </svg>)}
-
-              </span></button>
-              <button className="opt-btn btn"><span>...</span></button>
-            </div>
-            <button className="display-station-btn btn flex">
-              <span>List</span>
-              <svg height='16' width='16' viewBox="0 0 16 16" >
-                <path d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"
-                  fill="#f5f5f5"
-                // stroke="white"
+        </div>
+        <div className="menu-station flex">
+          <div className="right-menu-btns flex">
+            <button className={`play-btn btn ${currStation.songs.length > 0 ? '' : ' inactive'}`} onClick={() => { handleSongClick() }}><span>
+              {isPlaying ? (<svg width="20" height="20" viewBox="0 0 24 24">
+                <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
                 >
                 </path>
               </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 16 16" >
+                  <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                  ></path>
+                </svg>)}
 
-            </button>
+            </span></button>
+            <button className="opt-btn btn"><span>...</span></button>
           </div>
-          {
-            currStation.songs.length > 0 &&
-            <div className="songs-details-container">
-              <div className="heading-station">
-                <span className="hash">#</span>
-                <span className="title">Title</span>
-                <span className="album">Album</span>
-                <span className="date">Date added</span>
-                <span className="duration">
-                  <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
-                </span>
-              </div>
-              <div className="horizontal-line"></div>
+          <button className="display-station-btn btn flex">
+            <span>List</span>
+            <svg height='16' width='16' viewBox="0 0 16 16" >
+              <path d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"
+                fill="#f5f5f5"
+              // stroke="white"
+              >
+              </path>
+            </svg>
 
-              <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-                <Droppable droppableId="station-droppable">
-                  {(provided, snapshot) => (
-                    <ul {...provided.droppableProps} ref={provided.innerRef}>
-                      {currStation.songs.map((song, idx) => (
-                        <Draggable draggableId={song.id} key={song.id} index={idx}>
-                          {(providedDraggable) => (
-                            <li
-                              className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx ? 'selected' : ''}`}
-                              ref={providedDraggable.innerRef}
-                              {...providedDraggable.draggableProps}
-                              {...providedDraggable.dragHandleProps}
-                              onMouseEnter={() => {
-                                setIsHovered(idx)
-                              }}
-                              onMouseLeave={() => {
-                                setIsHovered(null)
-                              }}
-                              onClick={() => handleSelected(idx)}
-                              onDoubleClick={() => handleSongClick(idx)}
-                            // CLICK OUTSIDE TO unselect
-                            >
-                              <button className={`song-num ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
-                                {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) ? ( //PAUSE SVG
-                                  <svg height='16' width='16' viewBox="0 0 24 24">
-                                    <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
-                                      fill="white">
-                                    </path>
-                                  </svg>
-                                ) : isPlaying && (isHovered === idx || isSelected == idx) || !isPlaying && (isHovered === idx) ? (//PLAY SVG
-                                  <svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+          </button>
+        </div>
+        {
+          currStation.songs.length > 0 &&
+          <div className="songs-details-container">
+            <div className="heading-station">
+              <span className="hash">#</span>
+              <span className="title">Title</span>
+              <span className="album">Album</span>
+              <span className="date">Date added</span>
+              <span className="duration">
+                <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 3.25a.75.75 0 0 1 .75.75v3.25H11a.75.75 0 0 1 0 1.5H7.25V4A.75.75 0 0 1 8 3.25z" stroke="#a7a7a7" strokeWidth="0.3" fill="#a7a7a7"></path><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="#a7a7a7" strokeWidth="0.3" stroke="#a7a7a7"></path></svg>
+              </span>
+            </div>
+            <div className="horizontal-line"></div>
+
+            <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+              <Droppable droppableId="station-droppable">
+                {(provided, snapshot) => (
+                  <ul {...provided.droppableProps} ref={provided.innerRef}>
+                    {currStation.songs.map((song, idx) => (
+                      <Draggable draggableId={song.id} key={song.id} index={idx}>
+                        {(providedDraggable) => (
+                          <li
+                            className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx ? 'selected' : ''}`}
+                            ref={providedDraggable.innerRef}
+                            {...providedDraggable.draggableProps}
+                            {...providedDraggable.dragHandleProps}
+                            onMouseEnter={() => {
+                              setIsHovered(idx)
+                            }}
+                            onMouseLeave={() => {
+                              setIsHovered(null)
+                            }}
+                            onClick={() => handleSelected(idx)}
+                            onDoubleClick={() => handleSongClick(idx)}
+                          // CLICK OUTSIDE TO unselect
+                          >
+                            <button className={`song-num ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
+                              {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) ? ( //PAUSE SVG
+                                <svg height='16' width='16' viewBox="0 0 24 24">
+                                  <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
                                     fill="white">
                                   </path>
-                                  </svg>
-                                ) : isPlaying && currSongIdx === idx && isHovered !== idx ? (
-                                  <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
-                                ) : (
-                                  idx + 1
-                                )}
+                                </svg>
+                              ) : isPlaying && (isHovered === idx || isSelected == idx) || !isPlaying && (isHovered === idx) ? (//PLAY SVG
+                                <svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
+                                  fill="white">
+                                </path>
+                                </svg>
+                              ) : isPlaying && currSongIdx === idx && isHovered !== idx ? (
+                                <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
+                              ) : (
+                                idx + 1
+                              )}
 
-                              </button>
-                              <div className="song-info">
-                                <img className="song-img" src={song.imgUrl} alt="" />
-                                <div className="station-title-artist flex">
-                                  <div className={`song-title ${idx === currSongIdx ? 'active-song' : ''}`} title={song.title}>
-                                    {song.title}
-                                  </div>
-                                  <a className="song-artist" href="#" title={song.artist}>
-                                    {song.artist}
-                                  </a>
+                            </button>
+                            <div className="song-info">
+                              <img className="song-img" src={song.imgUrl} alt="" />
+                              <div className="station-title-artist flex">
+                                <div className={`song-title ${idx === currSongIdx ? 'active-song' : ''}`} title={song.title}>
+                                  {song.title}
                                 </div>
-                              </div>
-                              <div className="song-album-container">
-                                <a className="song-album" href="#" title={song.album}>
-                                  {song.album}
+                                <a className="song-artist" href="#" title={song.artist}>
+                                  {song.artist}
                                 </a>
                               </div>
-                              <div className="song-added-time">
-                                <span className="song-added-time">{stationService.formatAddedTime(song.addedAt)}</span>
-                                <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
-                                  {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
-                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
-                                      fill='#1ed760'>
+                            </div>
+                            <div className="song-album-container">
+                              <a className="song-album" href="#" title={song.album}>
+                                {song.album}
+                              </a>
+                            </div>
+                            <div className="song-added-time">
+                              <span className="song-added-time">{stationService.formatAddedTime(song.addedAt)}</span>
+                              <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
+                                {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
+                                  <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
+                                    fill='#1ed760'>
+                                  </path>
+                                </svg>
+                                ) : (
+                                  <svg width="16" height="16" role="img" viewBox="0 0 16 16">
+                                    <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="white">
                                     </path>
+                                    <path d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z" fill="white"></path>
                                   </svg>
-                                  ) : (
-                                    <svg width="16" height="16" role="img" viewBox="0 0 16 16">
-                                      <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="white">
-                                      </path>
-                                      <path d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z" fill="white"></path>
-                                    </svg>
-                                  )}
-                                </button>
-                              </div>
-                              <div className="song-duration-container">
-                                <div>{song.duration}</div>
-                                <button className="options" onClick={() => toggleModal(song.id)}>
-                                  <svg width="16" height="16" viewBox="0 0 16 16">
-                                    <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                                      fill="white">
-                                    </path>
-                                  </svg>
-                                  {isModalOpen[song.id] && (
-                                    <div className="modal">
-                                      <div className="modal-content">
-                                        {/* <span className="close" onClick={handleModalClose}>X</span> */}
-                                        <SongActionModal
-                                          song={song}
-                                          currStation={currStation}
-                                        />
-                                      </div>
+                                )}
+                              </button>
+                            </div>
+                            <div className="song-duration-container">
+                              <div>{song.duration}</div>
+                              <button className="options" onClick={() => toggleModal(song.id)}>
+                                <svg width="16" height="16" viewBox="0 0 16 16">
+                                  <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                                    fill="white">
+                                  </path>
+                                </svg>
+                                {isModalOpen[song.id] && (
+                                  <div className="modal">
+                                    <div className="modal-content">
+                                      {/* <span className="close" onClick={handleModalClose}>X</span> */}
+                                      <SongActionModal
+                                        song={song}
+                                        currStation={currStation}
+                                      />
                                     </div>
-                                  )}
-                                </button>
-                              </div>
+                                  </div>
+                                )}
+                              </button>
+                            </div>
 
-                            </li>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </ul>
-                  )}
-                </Droppable>
-              </DragDropContext>
-            </div>
-          }
-          {
-            currStation._id !== 'liked-songs' &&
-            <SearchPreview handleAddSongFromSearch={handleAddSongFromSearch}
-              currStation={currStation}
-            />
-          }
-        </div >
-        <MainViewFooter />
+                          </li>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </ul>
+                )}
+              </Droppable>
+            </DragDropContext>
+          </div>
+        }
+        {
+          currStation._id !== 'liked-songs'  &&
+          <SearchPreview handleAddSongFromSearch={handleAddSongFromSearch}
+            currStation={currStation}
+          />
+        }
       </div >
+      <MainViewFooter />
+    </div >
     </>
   )
 }

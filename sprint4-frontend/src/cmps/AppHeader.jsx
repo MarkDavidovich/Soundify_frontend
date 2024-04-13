@@ -100,7 +100,9 @@ export function AppHeader() {
                 </div>
             </section>
             <div>
+                <Link to="/login">
                 login/out
+                </Link>
             </div>
         </header>
     )
