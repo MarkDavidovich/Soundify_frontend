@@ -1,16 +1,16 @@
 
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
-import { userService } from './user.service.js'
 import { stationService } from './station.service.local.js'
 
-import categoriesData from '../data/categories.json'
+// import categoriesData from '../data/categories.json'
+import categoriesData from '../data/categoriesStationId.json'
 
 const CATEGORY_KEY = 'categoryDB'
 
 export const categoryService = {
     queryCategory,
-
+    getById,
 }
 window.cs = categoryService
 
@@ -20,32 +20,19 @@ async function queryCategory() {
     return categories
 }
 
-
-function createRandomSong() {
-    const songs = [
-        { title: 'In The End', artist: 'Linkin Park', album: 'Hybrid Theory', imgUrl: 'linkToImg', duration: '3:36' },
-        // Add more song templates
-    ];
-    const song = songs[Math.floor(Math.random() * songs.length)];
-    return {
-        ...song,
-        id: utilService.makeId(),
-        url: `https://www.youtube.com/watch?v=${utilService.makeId()}`,
-        addedBy: 'Random User',
-        addedAt: utilService.randomAddedTime(),
-        isLiked: Math.random() > 0.5
-    };
+function getById(categoryId) {
+    console.log("🚀 ~ getById ~ categoryId:", categoryId)
+    return storageService.get(CATEGORY_KEY, categoryId)
 }
 
 
 
 
-//DEMODATA
 
 
 
 
-
+// Demo Data 
 function _createCategories(numStationsPerCategory = 5) {
 
     let categories = utilService.loadFromStorage(CATEGORY_KEY)
@@ -74,6 +61,5 @@ _createCategories()
 
 
 
-const categoryStations = stationService._createStations
 
 
