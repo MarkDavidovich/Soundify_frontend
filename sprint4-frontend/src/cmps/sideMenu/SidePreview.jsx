@@ -4,6 +4,8 @@ import { getActionCurrStationIdx } from "../../store/actions/player.actions"
 import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router"
+import useMediaQuery from '@mui/material/useMediaQuery'
+
 
 export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
     const dispatch = useDispatch()
@@ -16,6 +18,8 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
 
     const location = useLocation()
     const isActive = location.pathname.includes(`/station/${station._id}`)
+    const matchesNarrow = useMediaQuery('(max-width: 720px)')
+
 
     function handleContextMenu(ev) {
         ev.preventDefault()
@@ -43,7 +47,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
         // else return 'side-preview-line clicked'
     }
 
-    const dynamicClass = toggleLibrary ? '-collapsed' : ''
+    const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
 
     return (

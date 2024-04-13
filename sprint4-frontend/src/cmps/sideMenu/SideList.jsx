@@ -5,6 +5,7 @@ import { SidePreview } from './SidePreview.jsx'
 import { UpdateStation } from './UpdateStation.jsx'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
@@ -12,10 +13,11 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     const [selectedStation, setSelectedStation] = useState(null)
     const [openContextMenuStationId, setOpenContextMenuStationId] = useState(null)
     const [contextMenuPosition, setContextMenuPosition] = useState({ mouseX: null, mouseY: null })
-
     const [toggleLink, setToggleLink] = useState(false)
 
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+
+    const matchesNarrow = useMediaQuery('(max-width: 720px)')
 
     useEffect(() => {
         const closeMenu = (event) => {
@@ -59,7 +61,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
     const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
 
-    const dynamicClass = toggleLibrary ? '-collapsed' : ''
+    const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
 
     return <div className="side-list">

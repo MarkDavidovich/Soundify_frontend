@@ -1,7 +1,7 @@
 import 'animate.css';
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-
+import useMediaQuery from '@mui/material/useMediaQuery'
 import { loadStations, addStation, updateStation, removeStation, setStationFilter, setStationSort } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
@@ -16,7 +16,6 @@ import { stationService } from '../../services/station.service.js';
 
 // export function SideIndex({ toggleLibrary, onToggleLibrary }) {
 export function SideIndex({ }) {
-
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const filterBy = useSelector(storeState => storeState.stationModule.filterBy)
     const sortBy = useSelector(storeState => storeState.stationModule.sortBy)
@@ -24,12 +23,14 @@ export function SideIndex({ }) {
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
     // const [toggleLibrary, setToggleLibrary] = useState(false)
 
+    const matchesNarrow = useMediaQuery('(max-width: 720px)')
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadStations()
-    }, [filterBy,sortBy])
+    }, [filterBy, sortBy])
 
     async function onRemoveStation(stationId) {
         try {
@@ -106,7 +107,7 @@ export function SideIndex({ }) {
         dispatch(toggleLibraryAction())
     }
 
-    const sideIndexClass = toggleLibrary ? '-collapsed' : ''
+    const sideIndexClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
     // function onFilterBlur() {
     //     setToggleFilter(false)

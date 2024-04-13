@@ -6,9 +6,11 @@ import { ChatApp } from './pages/Chat.jsx'
 import { AdminApp } from './pages/AdminIndex.jsx'
 import { StationDetails } from './cmps/StationDetails.jsx'
 import { SidePreview } from './cmps/sideMenu/SidePreview.jsx'
+import { CategoryStations } from './pages/CategoryStations.jsx'
 import { LoginSignup } from './cmps/LoginSignup.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
+
 const routes = [
     {
         path: '/',
@@ -24,6 +26,11 @@ const routes = [
         path: '/station/:id',
         component: <StationDetails />,
         label: 'Details'
+    },
+    {
+        path: '/category/:id',
+        component: <CategoryStations />,
+        label: 'CategoryStations'
     },
     {
         path: '/login',

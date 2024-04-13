@@ -14,11 +14,6 @@
         "side-bar main-view"
         "footer footer";
 
-    .main-view {
-        // overflow-y: auto;
-        // display: grid;
-        // grid-template-rows: auto 1fr;
-    }
 
     @include for-narrow-layout {
         // grid-template-columns:
@@ -61,7 +56,6 @@
         "side-bar main-view"
         "footer footer";
 
-    .main-view {}
 
     @include for-narrow-layout {
         grid-template-columns:

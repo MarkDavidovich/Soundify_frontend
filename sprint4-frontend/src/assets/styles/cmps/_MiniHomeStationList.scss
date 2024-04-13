@@ -1,6 +1,6 @@
 .mini-stations-container {
   // grid-template-columns: repeat(4, 1fr);
-  height: 260px;
+  padding-bottom: 30px;
   padding-inline: 24px;
   padding-top: 72px;
   --background-noise: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=");
@@ -8,6 +8,7 @@
   background: linear-gradient(transparent 0, rgba(0, 0, 0, .5) 100%), var(--background-noise);
   background-color: var(--bg-color);
   transition: background-color .8s ease-out;
+
 
 
   :not(::before) {
@@ -43,6 +44,15 @@
     grid-row-gap: 12px;
     width: 100%;
 
+    @media (max-width: $wide-breakpoint) {
+      grid-template-rows: repeat(2, 48px);
+    }
+
+    @media (max-width: $wide-normal-breakpoint) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 48px);
+    }
+
     .mini-station {
 
 
@@ -51,15 +61,13 @@
         width: 100%;
         min-height: 0;
         max-width: none;
-        height: 64px;
         display: flex;
         flex-direction: row;
         padding: 0;
         transition: background-color 0.4s;
         align-items: center;
         position: relative;
-        // overflow: hidden;
-        white-space: nowrap;
+        // white-space: nowrap;
 
         &:hover {
           .preview-play-btn {
@@ -87,10 +95,19 @@
         .img-container {
           width: 4em;
           height: 4em;
+          min-width: 4em;
+
+          @media (max-width: $wide-breakpoint) {
+            width: 3em;
+            height: 3em;
+            min-width: 3em;
+          }
 
           .station-img {
+            width: 100%;
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+
           }
         }
 
@@ -101,10 +118,11 @@
         .station-content {
 
           .station-name {
-
-            text-overflow: clip;
+            min-width: 100px;
+            text-wrap: wrap;
             padding-left: 8px;
             margin: 0;
+
           }
         }
       }

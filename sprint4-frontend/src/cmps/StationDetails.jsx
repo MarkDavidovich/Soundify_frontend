@@ -51,11 +51,9 @@ export function StationDetails() {
   }, [params, currStation])
 
   async function setCurrStation(id) {
-    console.log("🚀 ~ file: StationDetails.jsx:45 ~ useEffect ~ id:", id)
 
     try {
       const idx = await stationService.getIdxById(id)
-      console.log("🚀 ~ file: StationDetails.jsx:57 ~ setCurrStation ~ idx:", idx)
       setCurrStationIdx(idx)
     }
     catch (err) {
@@ -180,38 +178,37 @@ export function StationDetails() {
 
   return (
     <>
-    <AppHeader/>
-    <div className="station-details flex column">
-      <div className="station-data-container">
-        <div className="info-station flex">
-          <div className="station-img-container">
-            <img className="station-img" src={currStation.imgUrl} alt="" />
-          </div>
-          <div className="text-station">
-            <span className="playlist">Playlist</span>
-            <h1 className="title-station">{currStation.name}</h1>
-            <div className="user-info flex">
-              <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
-              <div className="created-by">{currStation.createdBy.fullname} • </div>
-              <div className="info-songs">
-                <span>{currStation.songs.length} Songs, {stationDuration}</span>
+      <div className="station-details flex column">
+        <div className="station-data-container">
+          <div className="info-station flex">
+            <div className="station-img-container">
+              <img className="station-img" src={currStation.imgUrl} alt="" />
+            </div>
+            <div className="text-station">
+              <span className="playlist">Playlist</span>
+              <h1 className="title-station">{currStation.name}</h1>
+              <div className="user-info flex">
+                <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
+                <div className="created-by">{currStation.createdBy.fullname} • </div>
+                <div className="info-songs">
+                  <span>{currStation.songs.length} Songs, {stationDuration}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div className="menu-station flex">
-          <div className="right-menu-btns flex">
-            <button className={`play-btn btn ${currStation.songs.length > 0 ? '' : ' inactive'}`} onClick={() => { handleSongClick() }}><span>
-              {isPlaying ? (<svg width="20" height="20" viewBox="0 0 24 24">
-                <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
-                >
-                </path>
-              </svg>
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 16 16" >
-                  <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                  ></path>
-                </svg>)}
+          <div className="menu-station flex">
+            <div className="right-menu-btns flex">
+              <button className={`play-btn btn ${currStation.songs.length > 0 ? '' : ' inactive'}`} onClick={() => { handleSongClick() }}><span>
+                {isPlaying ? (<svg width="20" height="20" viewBox="0 0 24 24">
+                  <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                  >
+                  </path>
+                </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 16 16" >
+                    <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                    ></path>
+                  </svg>)}
 
             </span></button>
             <button className="opt-btn btn"><span>...</span></button>
