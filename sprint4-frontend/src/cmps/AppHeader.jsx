@@ -78,7 +78,6 @@ export function AppHeader() {
     console.log("Script loaded")
 
     return (
-
         <header className={`main-view-header ${toggleLibrary ? 'collapsed' : ''}`}>
             <section className="prev-next-container">
                 <button className="prev-btn">

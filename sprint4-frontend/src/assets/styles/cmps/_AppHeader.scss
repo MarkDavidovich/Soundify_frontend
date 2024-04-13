@@ -1,6 +1,6 @@
 .main-view-header {
-    background-color: transparent;
-    position: sticky;
+    background: opacity(0);
+    position: absolute;
     height: 64px;
     z-index: 5;
     display: flex;
@@ -8,6 +8,8 @@
     align-items: center;
     top: 0;
     padding-inline: 16px;
+    padding-block: 42px;
+    width: calc(100vw - 400px);
 
     .main-view-header .collapsed {
         width: 90%;

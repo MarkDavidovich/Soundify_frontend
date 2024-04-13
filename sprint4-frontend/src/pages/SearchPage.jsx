@@ -32,7 +32,7 @@ export function SearchPage() {
 
   return (
     <>
-      <AppHeader />
+      {/* <AppHeader /> */}
       <div className="search-page">
 
 

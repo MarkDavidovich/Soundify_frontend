@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { toggleLibraryAction } from '../../store/actions/layout.actions'
 import { useDispatch } from 'react-redux'
+import useMediaQuery from '@mui/material/useMediaQuery'
 
 export function SideBar() {
 
@@ -13,6 +14,8 @@ export function SideBar() {
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
     // const [toggleLibrary, setToggleLibrary] = useState(false)
     const dispatch = useDispatch()
+
+    const matchesNarrow = useMediaQuery('(max-width: 720px)')
 
 
     const handleHomeButtonClick = () => {
@@ -34,7 +37,7 @@ export function SideBar() {
     }
 
 
-    const sideBarClass = toggleLibrary ? 'side-bar collapsed' : 'side-bar'
+    const sideBarClass = toggleLibrary || matchesNarrow ? 'side-bar collapsed' : 'side-bar'
 
     return (
         <>

@@ -51,11 +51,9 @@ export function StationDetails() {
   }, [params, currStation])
 
   async function setCurrStation(id) {
-    console.log("🚀 ~ file: StationDetails.jsx:45 ~ useEffect ~ id:", id)
 
     try {
       const idx = await stationService.getIdxById(id)
-      console.log("🚀 ~ file: StationDetails.jsx:57 ~ setCurrStation ~ idx:", idx)
       setCurrStationIdx(idx)
     }
     catch (err) {
@@ -180,7 +178,6 @@ export function StationDetails() {
 
   return (
     <>
-      <AppHeader />
       <div className="station-details flex column">
         <div className="station-data-container">
           <div className="info-station flex">

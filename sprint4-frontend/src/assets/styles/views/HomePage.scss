@@ -2,8 +2,7 @@
     overflow-x: hidden;
     // overflow: hidden;
     background-color: $clr8;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
+    border-radius: 7px;
 
     .list-name {
         font-family: circular-bold;
@@ -14,11 +13,12 @@
     &::-webkit-scrollbar {
         width: 10px;
         opacity: 0.5;
+
     }
 
     &::-webkit-scrollbar-track {
         background: transparent;
-        border-top-right-radius: 9px;
+
 
     }
 
@@ -26,37 +26,19 @@
         background: rgba(255, 255, 255, 0.5);
         height: 5px;
         z-index: 3;
+
     }
 
     &::-webkit-scrollbar-thumb:hover {
         background: $clr3;
     }
 
+    &::-webkit-scrollbar-corner {
+        border-bottom-right-radius: 7px;
+    }
+
     .home-btn {
         width: 22px;
         height: 24px;
-    }
-
-    .main-stations-container {
-        position: relative;
-
-        margin-top: 10px;
-
-        .station-list-name {
-            padding-left: 24px;
-            font-family: circular-bold;
-            font-size: 24px;
-        }
-
-        .station-list-container {
-            display: flex;
-            max-width: 100%;
-            position: relative;
-            flex: 1 1 100%;
-            margin-bottom: 16px;
-            min-height: 200px;
-            padding-left: 12px;
-
-        }
     }
 }

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { getActionCurrStationIdx, setCurrStationIdx, setCurrSongIdx, togglePlaying } from "../store/actions/player.actions"
 import { useState } from "react"
 
-export function StationList({ stations }) {
+export function StationList({ stations, listName, amount }) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
@@ -27,18 +27,17 @@ export function StationList({ stations }) {
     }
   }
 
-
   function handleStationClick(station) {
     dispatch(getActionCurrStationIdx(station))
   }
 
-  if (!stations) return <div>LOADING STATIONS...</div>
+  if (!stations) return <div></div>
   return (
     <section className='main-stations-container'>
-      <div className="station-list-name">Station List Name:</div>
+      <div className="station-list-name">{listName}</div>
       <section className="station-list-container">
         {
-          stations.map(station => (
+          stations.slice(0, amount).map(station => (
             <div className='station-list-item' key={station._id}
               onClick={() => {
                 navigate(`/station/${station._id}`)
