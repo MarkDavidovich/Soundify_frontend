@@ -6,7 +6,7 @@ import { login, logout, signup } from '../store/actions/user.actions.js'
 
 
 import { LoginSignup } from './LoginSignup.jsx'
-import  { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 
 export function AppHeader() {
     const location = useLocation()
@@ -34,64 +34,17 @@ export function AppHeader() {
     }
 
     useEffect(() => {
-        if (mainViewRef.current) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (!entry.isIntersecting) {
-                            headerRef.current.style.backgroundColor = 'red';
-                        } else {
-                            headerRef.current.style.backgroundColor = 'green';
-                        }
-                    });
-                },
-                {
-                    root: null,
-                    threshold: 0.1
-                }
-            );
+        const container = document.querySelector('.station-details')
+        if (container) {
+            console.log("Event listener added to station-details")
+            container.addEventListener('scroll', handleScroll)
 
-            observer.observe(mainViewRef.current);
-
-            return () => observer.disconnect();
+            return () => {
+                console.log("Event listener removed from station-details")
+                container.removeEventListener('scroll', handleScroll)
+            }
         }
-    }, []);
-
-    
-
-    // const handleScroll = () => {
-    //     console.log("Scroll event triggered in station-details")
-    //     const header = document.querySelector('.main-view-header')
-    //     const container = document.querySelector('.station-details')
-
-
-    //     if (header && container) {
-
-    //         const scrolledAmount = container.scrollTop
-
-    //         if (scrolledAmount >= 270) {
-    //             console.log("Adding class", scrolledAmount)
-    //             header.classList.add('header-scrolled')
-    //         } else {
-    //             console.log("Removing class", scrolledAmount)
-    //             header.classList.remove('header-scrolled')
-    //         }
-    //     }
-    // }
-
-
-    // useEffect(() => {
-    //     const container = document.querySelector('.station-details')
-    //     if (container) {
-    //         console.log("Event listener added to station-details")
-    //         container.addEventListener('scroll', handleScroll)
-
-    //         return () => {
-    //             console.log("Event listener removed from station-details")
-    //             container.removeEventListener('scroll', handleScroll)
-    //         }
-    //     }
-    // }, [])
+    }, [])
 
 
     // ------------------------------------------------------ // 
@@ -117,7 +70,7 @@ export function AppHeader() {
     async function onLogout() {
         try {
             await logout()
-            showSuccessMsg(`Bye now`)
+            showSuccessMsg('Bye now')
         } catch (err) {
             showErrorMsg('Cannot logout')
         }
@@ -159,7 +112,7 @@ export function AppHeader() {
 
     {user &&
         <span className="user-info">
-            <Link to={`user/${user._id}`}>
+            <Link to={user/${user._id}}>
                 {user.imgUrl && <img src={user.imgUrl} />}
                 {user.fullname}
             </Link>
