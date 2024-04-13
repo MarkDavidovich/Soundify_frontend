@@ -1,6 +1,6 @@
 [
     {
-        "_id": "s101",
+        "_id": "661a74f284edb867eb472d10",
         "name": "Today's Top Hits",
         "tags": [
             "categories"
@@ -222,7 +222,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s102",
+        "_id": "661a74f284edb867eb472d00",
         "name": "RapCaviar",
         "tags": [
             "categories"
@@ -444,7 +444,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s103",
+        "_id": "661a74f284edb867eb472d01",
         "name": "Viva Latino",
         "tags": [
             "categories"
@@ -678,7 +678,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s104",
+        "_id": "661a74f284edb867eb472d02",
         "name": "African Heat",
         "tags": [
             "categories"
@@ -840,7 +840,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s105",
+        "_id": "661a74f284edb867eb472d03",
         "name": "Soul & Rap",
         "tags": [
             "categories"
@@ -1134,7 +1134,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s106",
+        "_id": "661a74f284edb867eb472d04",
         "name": "MARROW",
         "tags": [
             "categories"
@@ -1632,7 +1632,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s107",
+        "_id": "661a74f284edb867eb472d05",
         "name": "OOs Pop Run",
         "tags": [
             "categories"
@@ -1890,7 +1890,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s108",
+        "_id": "661a74f284edb867eb472d06",
         "name": "mint",
         "tags": [
             "categories"
@@ -2400,7 +2400,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s109",
+        "_id": "661a74f284edb867eb472d07",
         "name": "Classics Rock",
         "tags": [
             "categories"
@@ -2538,7 +2538,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s110",
+        "_id": "661a74f284edb867eb472d08",
         "name": "Latin Hit Mix",
         "tags": [
             "categories"
@@ -2772,7 +2772,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s111",
+        "_id": "661a74f284edb867eb472d09",
         "name": "Mega Hit Mix",
         "tags": [
             "categories"
@@ -3186,8 +3186,8 @@
         "createdAt": ""
     },
     {
-        "_id": "s112",
-        "name": "All Time Hit Mix",
+        "_id": "661a74f284edb867eb472d0a",
+        "name": "Adrenaline Mix",
         "tags": [
             "categories"
         ],
@@ -3384,7 +3384,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s113",
+        "_id": "661a74f284edb867eb472d0b",
         "name": "All Hit Mix",
         "tags": [
             "categories"
@@ -3678,7 +3678,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s114",
+        "_id": "661a74f284edb867eb472d0c",
         "name": "Songs to Sing in the Car",
         "tags": [
             "categories"
@@ -3948,7 +3948,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s115",
+        "_id": "661a74f284edb867eb472d0d",
         "name": "Warm Fuzzy Feeling",
         "tags": [
             "categories"
@@ -4194,7 +4194,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s116",
+        "_id": "661a74f284edb867eb472d0e",
         "name": "Top Charts",
         "tags": [
             "categories"
@@ -4620,12 +4620,12 @@
         "createdAt": ""
     },
     {
-        "_id": "s117",
-        "name": "Warm Fuzzy Feeling",
+        "_id": "661a74f284edb867eb472d0f",
+        "name": "All Time Soul",
         "tags": [
             "categories"
         ],
-        "desc": "Playlist Listen to all the tracks you've been missing",
+        "desc": "Playlist from the soul",
         "songs": [
             {
                 "id": "s101",
@@ -4861,12 +4861,12 @@
         "createdBy": {
             "_id": "",
             "fullname": "Soundify",
-            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+            "imgUrl": "https://i.scdn.co/image/ab67706f000000026490ec963406a8a0b3f8894c"
         },
         "createdAt": ""
     },
     {
-        "_id": "s117",
+        "_id": "661a74f284edb867eb472d10",
         "name": "Summer Throwbacks",
         "tags": [
             "categories"
@@ -5124,7 +5124,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s118",
+        "_id": "661a74f284edb867eb472d11",
         "name": "All Time All Now",
         "tags": [
             "categories"
@@ -5634,7 +5634,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s119",
+        "_id": "661a74f284edb867eb472d12",
         "name": "Party Mode",
         "tags": [
             "categories"
@@ -6060,7 +6060,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s120",
+        "_id": "661a74f284edb867eb472d13",
         "name": "Cheesy Hits!",
         "tags": [
             "categories"
@@ -6378,12 +6378,12 @@
         "createdAt": ""
     },
     {
-        "_id": "s120",
-        "name": "Throwing it back with these summer classics",
+        "_id": "661a74f284edb867eb472d14",
+        "name": "Summer vibes",
         "tags": [
             "categories"
         ],
-        "desc": "All the new music you need to hear right now",
+        "desc": "Throwing it back with these summer classics",
         "songs": [
             {
                 "id": "s125",
@@ -6696,7 +6696,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s121",
+        "_id": "661a74f284edb867eb472d15",
         "name": "Feelin' Good",
         "tags": [
             "categories"
@@ -6894,7 +6894,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s122",
+        "_id": "661a74f284edb867eb472d16",
         "name": "Kitchen Swagger",
         "tags": [
             "categories"
@@ -7128,7 +7128,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s123",
+        "_id": "661a74f284edb867eb472d17",
         "name": "Healin' Blues",
         "tags": [
             "categories"
@@ -7374,7 +7374,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s124",
+        "_id": "661a74f284edb867eb472d18",
         "name": "Soulful Disco",
         "tags": [
             "categories"
@@ -7812,7 +7812,7 @@
         "createdAt": ""
     },
     {
-        "_id": "s125",
+        "_id": "661a74f284edb867eb472d19",
         "name": "Summer Dance Hits",
         "tags": [
             "categories"

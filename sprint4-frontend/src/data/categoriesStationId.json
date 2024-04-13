@@ -1,0 +1,920 @@
+[
+    {
+        "_id": "",
+        "name": "Music",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d00",
+                "name": "RapCaviar"
+            },
+            {
+                "_id": "661a74f284edb867eb472d01",
+                "name": "Viva Latino"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            },
+            {
+                "_id": "661a74f284edb867eb472d03",
+                "name": "Soul & Rap"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf474a477debc822a3a45c5acb"
+    },
+    {
+        "_id": "",
+        "name": "Life Events",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d04",
+                "name": "MARROW"
+            },
+            {
+                "_id": "661a74f284edb867eb472d05",
+                "name": "OOs Pop Run"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d07",
+                "name": "Classics Rock"
+            },
+            {
+                "_id": "661a74f284edb867eb472d08",
+                "name": "Latin Hit Mix"
+            }
+        ],
+        "imgUrl": "https://concerts.spotifycdn.com/images/live-events_category-image.jpg"
+    },
+    {
+        "_id": "",
+        "name": "Pop",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafa862ab80dd85682b37c4e768"
+    },
+    {
+        "_id": "",
+        "name": "Made For You",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Summer Throwbacks"
+            },
+            {
+                "_id": "661a74f284edb867eb472d11",
+                "name": "All Time All Now"
+            },
+            {
+                "_id": "661a74f284edb867eb472d12",
+                "name": "Party Mode"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf14030380532b34badbf0a229"
+    },
+    {
+        "_id": "",
+        "name": "Hip-Hop",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d00",
+                "name": "RapCaviar"
+            },
+            {
+                "_id": "661a74f284edb867eb472d01",
+                "name": "Viva Latino"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            },
+            {
+                "_id": "661a74f284edb867eb472d03",
+                "name": "Soul & Rap"
+            },
+            {
+                "_id": "661a74f284edb867eb472d08",
+                "name": "Latin Hit Mix"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf9e3dea60be755ccd97b7351f"
+    },
+    {
+        "_id": "",
+        "name": "Rock",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d07",
+                "name": "Classics Rock"
+            },
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafda4c849095796a9e5d2c4ddb"
+    },
+    {
+        "_id": "",
+        "name": "Latin",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d01",
+                "name": "Viva Latino"
+            },
+            {
+                "_id": "661a74f284edb867eb472d03",
+                "name": "Soul & Rap"
+            },
+            {
+                "_id": "661a74f284edb867eb472d08",
+                "name": "Latin Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafa59f90c077c9f618fd0dde30"
+    },
+    {
+        "_id": "",
+        "name": "Dance",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            },
+            {
+                "_id": "661a74f284edb867eb472d11",
+                "name": "All Time All Now"
+            },
+            {
+                "_id": "661a74f284edb867eb472d13",
+                "name": "Cheesy Hits!"
+            },
+            {
+                "_id": "661a74f284edb867eb472d14",
+                "name": "Summer vibes"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafdfdaac1cf9574a196ca25196"
+    },
+    {
+        "_id": "",
+        "name": "Electronic",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d19",
+                "name": "Summer Dance Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d12",
+                "name": "Party Mode"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe760702de052fbefea27064a"
+    },
+    {
+        "_id": "",
+        "name": "Mood",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d15",
+                "name": "Feelin' Good"
+            },
+            {
+                "_id": "661a74f284edb867eb472d16",
+                "name": "Kitchen Swagger"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf271f9d895003c5f5561c1354"
+    },
+    {
+        "_id": "",
+        "name": "Mix it All",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            },
+            {
+                "_id": "661a74f284edb867eb472d04",
+                "name": "MARROW"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            }
+        ],
+        "imgUrl": "https://i2o.scdn.co/image/ab67706c0000cfa3dbd8bb33a945e4a587884765"
+    },
+    {
+        "_id": "",
+        "name": "Workout",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            },
+            {
+                "_id": "661a74f284edb867eb472d12",
+                "name": "Party Mode"
+            },
+            {
+                "_id": "661a74f284edb867eb472d15",
+                "name": "Feelin' Good"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000029249b35f23fb596b6f006a15"
+    },
+    {
+        "_id": "",
+        "name": "Chill",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d16",
+                "name": "Kitchen Swagger"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d18",
+                "name": "Soulful Disco"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf47e942f5bea637f4f4760170"
+    },
+    {
+        "_id": "",
+        "name": "R&B",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d11",
+                "name": "All Time All Now"
+            },
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d18",
+                "name": "Soulful Disco"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caff4e38be86ca48a3b10884ae3"
+    },
+    {
+        "_id": "",
+        "name": "Party",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d12",
+                "name": "Party Mode"
+            },
+            {
+                "_id": "661a74f284edb867eb472d11",
+                "name": "All Time All Now"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d05",
+                "name": "OOs Pop Run"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafcbf80f8ea695536eace4fd2c"
+    },
+    {
+        "_id": "",
+        "name": "Love",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d13",
+                "name": "Cheesy Hits!"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Summer Throwbacks"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafb03c6f8e7efca2ae36f41b31"
+    },
+    {
+        "_id": "",
+        "name": "At Home",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d15",
+                "name": "Feelin' Good"
+            },
+            {
+                "_id": "661a74f284edb867eb472d16",
+                "name": "Kitchen Swagger"
+            },
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d07",
+                "name": "Classics Rock"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe914a07d20cec7a65e2e5dad"
+    },
+    {
+        "_id": "",
+        "name": "Jazz",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d18",
+                "name": "Soulful Disco"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe289743024639ea8f202364d"
+    },
+    {
+        "_id": "",
+        "name": "Focus",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d07",
+                "name": "Classics Rock"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Summer Throwbacks"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67706f00000002e4eadd417a05b2546e866934"
+    },
+    {
+        "_id": "",
+        "name": "Soul",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d18",
+                "name": "Soulful Disco"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d11",
+                "name": "All Time All Now"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafd82e2c83fe100a89e9cbb2a2"
+    },
+    {
+        "_id": "c122",
+        "name": "Netflix",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d07",
+                "name": "Classics Rock"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf0b0c71c920d6a745461ada69"
+    },
+    {
+        "_id": "",
+        "name": "All In All",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d00",
+                "name": "RapCaviar"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d08",
+                "name": "Latin Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf12809992dfc5b318892ea07b"
+    },
+    {
+        "_id": "",
+        "name": "Blues",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d03",
+                "name": "Soul & Rap"
+            },
+            {
+                "_id": "661a74f284edb867eb472d18",
+                "name": "Soulful Disco"
+            },
+            {
+                "_id": "661a74f284edb867eb472d15",
+                "name": "Feelin' Good"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caff22ac5cab318d550b593ffac"
+    },
+    {
+        "_id": "",
+        "name": "Party Mode",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d01",
+                "name": "Viva Latino"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d19",
+                "name": "Summer Dance Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d05",
+                "name": "OOs Pop Run"
+            },
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            }
+        ],
+        "imgUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da849be7e6674a9e8d778c1a0d74"
+    },
+    {
+        "_id": "",
+        "name": "Cooking & Dining",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d16",
+                "name": "Kitchen Swagger"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d13",
+                "name": "Cheesy Hits!"
+            },
+            {
+                "_id": "661a74f284edb867eb472d15",
+                "name": "Feelin' Good"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafe53d71d0920a4f1f441d803c"
+    },
+    {
+        "_id": "",
+        "name": "Travel",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0c",
+                "name": "Songs to Sing in the Car"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0d",
+                "name": "Warm Fuzzy Feeling"
+            },
+            {
+                "_id": "661a74f284edb867eb472d08",
+                "name": "Latin Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf4b36a2c31432ace68d90c4f2"
+    },
+    {
+        "_id": "",
+        "name": "Summer",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Summer Throwbacks"
+            },
+            {
+                "_id": "661a74f284edb867eb472d12",
+                "name": "Party Mode"
+            },
+            {
+                "_id": "661a74f284edb867eb472d19",
+                "name": "Summer Dance Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d14",
+                "name": "Summer vibes"
+            },
+            {
+                "_id": "661a74f284edb867eb472d11",
+                "name": "All Time All Now"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf097a46192e6bb67e52cdff60"
+    },
+    {
+        "_id": "",
+        "name": "Afro",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d00",
+                "name": "RapCaviar"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            },
+            {
+                "_id": "661a74f284edb867eb472d03",
+                "name": "Soul & Rap"
+            },
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf04faccb4f5e1828600921f37"
+    },
+    {
+        "_id": "",
+        "name": "Fresh Finds",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d01",
+                "name": "Viva Latino"
+            },
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d14",
+                "name": "Summer vibes"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafcc1499bbb8565f490858c2bc"
+    },
+    {
+        "_id": "",
+        "name": "Trending",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d00",
+                "name": "RapCaviar"
+            },
+            {
+                "_id": "661a74f284edb867eb472d04",
+                "name": "MARROW"
+            },
+            {
+                "_id": "661a74f284edb867eb472d05",
+                "name": "OOs Pop Run"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf1867113f5218598847550acd"
+    },
+    {
+        "_id": "",
+        "name": "Equal",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul"
+            },
+            {
+                "_id": "661a74f284edb867eb472d07",
+                "name": "Classics Rock"
+            },
+            {
+                "_id": "661a74f284edb867eb472d08",
+                "name": "Latin Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005caf9ed6e364e8839210dc4dbff7"
+    },
+    {
+        "_id": "",
+        "name": "New Releases",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d0e",
+                "name": "Top Charts"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d09",
+                "name": "Mega Hit Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d04",
+                "name": "MARROW"
+            },
+            {
+                "_id": "661a74f284edb867eb472d01",
+                "name": "Viva Latino"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112"
+    },
+    {
+        "_id": "",
+        "name": "Shake & Bake",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            },
+            {
+                "_id": "661a74f284edb867eb472d05",
+                "name": "OOs Pop Run"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat"
+            },
+            {
+                "_id": "661a74f284edb867eb472d10",
+                "name": "Today's Top Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0b",
+                "name": "All Hit Mix"
+            }
+        ],
+        "imgUrl": "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84a217f9aa2b91c556f47664ee"
+    },
+    {
+        "_id": "",
+        "name": "Disco",
+        "stations": [
+            {
+                "_id": "661a74f284edb867eb472d19",
+                "name": "Summer Dance Hits"
+            },
+            {
+                "_id": "661a74f284edb867eb472d18",
+                "name": "Soulful Disco"
+            },
+            {
+                "_id": "661a74f284edb867eb472d12",
+                "name": "Party Mode"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0a",
+                "name": "Adrenaline Mix"
+            },
+            {
+                "_id": "661a74f284edb867eb472d06",
+                "name": "mint"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafc0d2222b4c6441930e1a386e"
+    }
+]
