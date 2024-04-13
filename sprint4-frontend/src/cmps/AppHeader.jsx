@@ -6,7 +6,7 @@ import { login, logout, signup } from '../store/actions/user.actions.js'
 
 
 import { LoginSignup } from './LoginSignup.jsx'
-import { useEffect } from 'react'
+import  { useEffect, useRef } from 'react'
 
 export function AppHeader() {
     const location = useLocation()
@@ -34,17 +34,64 @@ export function AppHeader() {
     }
 
     useEffect(() => {
-        const container = document.querySelector('.station-details')
-        if (container) {
-            console.log("Event listener added to station-details")
-            container.addEventListener('scroll', handleScroll)
+        if (mainViewRef.current) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (!entry.isIntersecting) {
+                            headerRef.current.style.backgroundColor = 'red';
+                        } else {
+                            headerRef.current.style.backgroundColor = 'green';
+                        }
+                    });
+                },
+                {
+                    root: null,
+                    threshold: 0.1
+                }
+            );
 
-            return () => {
-                console.log("Event listener removed from station-details")
-                container.removeEventListener('scroll', handleScroll)
-            }
+            observer.observe(mainViewRef.current);
+
+            return () => observer.disconnect();
         }
-    }, [])
+    }, []);
+
+    
+
+    // const handleScroll = () => {
+    //     console.log("Scroll event triggered in station-details")
+    //     const header = document.querySelector('.main-view-header')
+    //     const container = document.querySelector('.station-details')
+
+
+    //     if (header && container) {
+
+    //         const scrolledAmount = container.scrollTop
+
+    //         if (scrolledAmount >= 270) {
+    //             console.log("Adding class", scrolledAmount)
+    //             header.classList.add('header-scrolled')
+    //         } else {
+    //             console.log("Removing class", scrolledAmount)
+    //             header.classList.remove('header-scrolled')
+    //         }
+    //     }
+    // }
+
+
+    // useEffect(() => {
+    //     const container = document.querySelector('.station-details')
+    //     if (container) {
+    //         console.log("Event listener added to station-details")
+    //         container.addEventListener('scroll', handleScroll)
+
+    //         return () => {
+    //             console.log("Event listener removed from station-details")
+    //             container.removeEventListener('scroll', handleScroll)
+    //         }
+    //     }
+    // }, [])
 
 
     // ------------------------------------------------------ // 

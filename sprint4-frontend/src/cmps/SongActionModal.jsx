@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { updateStation } from "../store/actions/station.actions"
-import { useState } from "react";
+import { useState } from "react"
 
 export function SongActionModal({ song, currStation }) {
 

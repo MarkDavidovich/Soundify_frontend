@@ -5,13 +5,14 @@ import { FastAverageColor } from 'fast-average-color'
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
-import { stationService } from "../services/station.service.local"
+
 import { getActionUpdateStation, updateStation } from "../store/actions/station.actions"
 import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
 import { SearchPreview } from "./SearchPreview"
 import { MainViewFooter } from "./MainViewFooter"
 import { AppHeader } from "./AppHeader"
+import { stationService } from "../services/station.service"
 
 export function StationDetails() {
   const params = useParams()
@@ -50,8 +51,11 @@ export function StationDetails() {
   }, [params, currStation])
 
   async function setCurrStation(id) {
+    console.log("🚀 ~ file: StationDetails.jsx:45 ~ useEffect ~ id:", id)
+
     try {
       const idx = await stationService.getIdxById(id)
+      console.log("🚀 ~ file: StationDetails.jsx:57 ~ setCurrStation ~ idx:", idx)
       setCurrStationIdx(idx)
     }
     catch (err) {
@@ -125,7 +129,7 @@ export function StationDetails() {
 
   async function toggleIsLiked(songIdx) {
     const likedStation = stations.find(station => station._id === 'liked-songs')
-    console.log("🚀 ~ toggleIsLiked ~ likedStation:", likedStation)
+    console.log("🚀 ~ file: StationDetails.jsx:128 ~ %%%%toggleIsLiked ~ likedStation:", likedStation)
     const hoveredSong = currStation.songs[songIdx]
     console.log("🚀 ~ toggleIsLiked ~ hoveredSong:", hoveredSong)
     const updatedIsLiked = !hoveredSong.isLiked

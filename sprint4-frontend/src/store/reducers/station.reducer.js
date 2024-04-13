@@ -1,4 +1,5 @@
-import { stationService } from "../../services/station.service.local"
+import { stationService } from "../../services/station.service"
+
 
 export const SET_STATIONS = 'SET_STATIONS'
 export const REMOVE_STATION = 'REMOVE_STATION'
@@ -46,7 +47,8 @@ export function stationReducer(state = initialState, action) {
             break
 
         case SET_FILTER:
-            return { ...state, filterBy: action.filterBy }
+            return { 
+                ...state, filterBy: action.filterBy }
 
         case SET_SORT:
             return {

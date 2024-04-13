@@ -1,4 +1,5 @@
-import { stationService } from '../../services/station.service.local.js'
+import { stationService } from '../../services/station.service.js'
+
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
 import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_SORT, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from '../reducers/station.reducer.js'
@@ -17,7 +18,6 @@ export function getActionAddStation(station) {
     }
 }
 export function getActionUpdateStation(station) {
-    console.log("🚀 ~ file: station.actions.js:20 ~ getActionUpdateStation ~ station:", station)
     return {
         type: UPDATE_STATION,
         station
@@ -28,11 +28,12 @@ export function getActionUpdateStation(station) {
 export async function loadStations() {
 
     try {
-        // const { filterBy } = store.getState().stationModule
-        const filterBy = store.getState().stationModule.filterBy
+        const { filterBy } = store.getState().stationModule
+        // const filterBy = store.getState().stationModule.filterBy
+        console.log("🚀 ~ file: station.actions.js:34 ~ loadStations ~ filterBy:", filterBy)
         const sortBy = store.getState().stationModule.sortBy
 
-        const stations = await stationService.query(filterBy, sortBy)
+        const stations = await stationService.query(filterBy,sortBy)
         console.log('Stations from DB:', stations)
         store.dispatch({
             type: SET_STATIONS,
@@ -69,6 +70,7 @@ export async function addStation(station) {
 }
 
 export async function updateStation(station) {
+console.log("🚀 ~ file: station.actions.js:73 ~ updateStation ~ station:", station)
 
     try {
         const savedStation = await stationService.save(station)
@@ -83,6 +85,7 @@ export async function updateStation(station) {
 
 export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
     store.dispatch({ type: SET_FILTER, filterBy })
+    console.log("🚀 ~ file: station.actions.js:89 ~ setStationFilter ~ filterBy:", filterBy)
     return Promise.resolve(filterBy)
 }
 

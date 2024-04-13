@@ -2,7 +2,8 @@
     overflow-x: hidden;
     // overflow: hidden;
     background-color: $clr8;
-    border-radius: 7px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
 
     .list-name {
         font-family: circular-bold;

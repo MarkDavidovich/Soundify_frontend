@@ -5,14 +5,13 @@ import { useSelector } from 'react-redux'
 import { loadStations, addStation, updateStation, removeStation, setStationFilter, setStationSort } from '../../store/actions/station.actions.js'
 
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { stationService } from '../../services/station.service.local.js'
-
 import { SideFilter } from './SideFilter.jsx'
 import { SideList } from './SideList.jsx'
 import { SideSort } from './SideSort.jsx'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
 import { toggleLibraryAction } from '../../store/actions/layout.actions.js';
+import { stationService } from '../../services/station.service.js';
 // import { setToggleLibrary } from '../../store/actions/layout.actions.js';
 
 // export function SideIndex({ toggleLibrary, onToggleLibrary }) {
@@ -30,7 +29,7 @@ export function SideIndex({ }) {
 
     useEffect(() => {
         loadStations()
-    }, [filterBy, sortBy])
+    }, [filterBy,sortBy])
 
     async function onRemoveStation(stationId) {
         try {
