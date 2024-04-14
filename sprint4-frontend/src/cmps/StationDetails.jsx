@@ -298,7 +298,7 @@ export function StationDetails() {
                                   {song.album}
                                 </a>
                               </div>
-                              <div className="song-added-time">
+                              <div className="song-added-container">
                                 <span className="song-added-time">{stationService.formatAddedTime(song.addedAt)}</span>
                                 <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
                                   {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
