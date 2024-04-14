@@ -27,6 +27,8 @@ export function CategoryStations() {
 
     if (!category) return <div>Loading...</div>
     return <div>
+
+        <h1>{category.name}</h1>
         <StationList stations={category.stations} stationName={category.name} />
     </div>
 
