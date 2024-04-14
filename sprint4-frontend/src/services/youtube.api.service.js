@@ -68,6 +68,7 @@ export async function getSongs(term) {
                 id: video.id.videoId,
                 title: cleanedTitle,
                 artist: cleanedArtist,
+                album: cleanedArtist,
                 url: `https://www.youtube.com/watch?v=${video.id.videoId}`,
                 imgUrl: video.snippet.thumbnails.default.url,
                 isLiked: false,
