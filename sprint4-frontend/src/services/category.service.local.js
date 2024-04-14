@@ -21,7 +21,6 @@ async function queryCategory() {
 }
 
 function getById(categoryId) {
-    console.log("🚀 ~ getById ~ categoryId:", categoryId)
     return storageService.get(CATEGORY_KEY, categoryId)
 }
 

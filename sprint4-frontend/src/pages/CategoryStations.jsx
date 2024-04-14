@@ -1,5 +1,6 @@
 import { useParams } from "react-router"
-import { categoryService } from "../services/category.service.local"
+// import { categoryService } from "../services/category.service.local"
+import { categoryService } from "../services/category.service"
 import { useEffect, useState } from "react"
 import { StationList } from "../cmps/StationList"
 
