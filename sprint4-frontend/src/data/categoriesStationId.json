@@ -1086,5 +1086,37 @@
             }
         ],
         "imgUrl": "https://i.scdn.co/image/ab67fb8200005cafc0d2222b4c6441930e1a386e"
+    },
+    {
+        "_id": "",
+        "name": "Reggae",
+        "stations": [
+            {
+                "_id": "661b9b7af0666aa45e374b6d",
+                "name": "Reggae Time",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02eef49792023ec51a2cf1f744"
+            },
+            {
+                "_id": "661a74f284edb867eb472d02",
+                "name": "African Heat",
+                "imgUrl": "https://i.scdn.co/image/ab67706f00000002b01a2b925392e210552f1dc8"
+            },
+            {
+                "_id": "661a74f284edb867eb472d03",
+                "name": "Soul & Rap",
+                "imgUrl": "https://i.scdn.co/image/ab67706f000000026c4101d3b122c642029970e4"
+            },
+            {
+                "_id": "661a74f284edb867eb472d17",
+                "name": "Healin' Blues",
+                "imgUrl": "https://i.scdn.co/image/ab67706f000000022e951ec4784064384c928827"
+            },
+            {
+                "_id": "661a74f284edb867eb472d0f",
+                "name": "All Time Soul",
+                "imgUrl": "https://i.scdn.co/image/ab67706f000000026490ec963406a8a0b3f8894c"
+            }
+        ],
+        "imgUrl": "https://i.scdn.co/image/ab67706f0000000248567ac418dc9eb7f97cb4c1"
     }
 ]
