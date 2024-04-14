@@ -59,7 +59,8 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
         else return 'link clicked'
     }
 
-    const filteredStations = stations.filter(station => (station._id !== 'liked-songs'))
+    const likedStationIdx = '661bb9089f9e9468991f1be7'
+    const filteredStations = stations.filter(station => (station._id !== likedStationIdx))
 
     const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
@@ -84,19 +85,19 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
             </div>
         ))}
 
-        {stations.find(station => station._id === 'liked-songs' && station.songs.length > 0) && (
-            <article className={'side-preview-container' + dynamicClass} key="liked-songs">
+        {stations.find(station => station._id === likedStationIdx && station.songs.length > 0) && (
+            <article className={'side-preview-container' + dynamicClass} key={likedStationIdx}>
                 <Link
                     className={setLinkClass()}
                     onClick={onSetToggleLink}
-                    to={`/station/liked-songs`}
+                    to={`/station/${likedStationIdx}`}
                 >
                     <SidePreview
-                        station={stations.find(station => station._id === 'liked-songs')}
+                        station={stations.find(station => station._id === likedStationIdx)}
                         onRemoveStation={onRemoveStation}
                         onContextMenuOpen={handleContextMenuOpen}
                         onContextMenuClose={handleContextMenuClose}
-                        isContextMenuOpen={openContextMenuStationId === 'liked-songs'}
+                        isContextMenuOpen={openContextMenuStationId === likedStationIdx}
                         contextMenuPosition={contextMenuPosition}
                         onTriggerUpdate={() => handleUpdateClick(station)}
                     />

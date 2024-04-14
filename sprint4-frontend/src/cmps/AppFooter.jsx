@@ -37,7 +37,8 @@ export function AppFooter() {
     const currStation = stations[currStationIdx]
     const currSong = currStation?.songs[currSongIdx]
     let shuffledSongIndices = []
-    const likedSongsStation = stations.find(station => station._id === 'liked-songs')
+    const likedStationIdx = '661bb9089f9e9468991f1be7'
+    const likedSongsStation = stations.find(station => station._id === likedStationIdx)
 
     const playerRef = useRef(null) //ref for the reactplayer cmp
 

@@ -72,8 +72,10 @@ export function LoginSignup(props) {
                 <div className="login-page">
                     
                    <form className="login-form" onSubmit={handleSubmit}>
+                    <label htmlFor="username" className="label-username">Username</label>
             <input
                 type="text"
+                id="username"
                 name="username"
                 value={credentials.username}
                 placeholder="Username"

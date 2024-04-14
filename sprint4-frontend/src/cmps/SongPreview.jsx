@@ -8,7 +8,8 @@ import { useDispatch } from 'react-redux'
 export function SongPreview({ currStation, currSong, handleSongLike }) {
   const [isLiked, setIsLiked] = useState(null)
   const stations = useSelector(storeState => storeState.stationModule.stations)
-  const likedStation = stations.find(station => station._id === 'liked-songs')
+  const likedStationIdx = '661bb9089f9e9468991f1be7'
+  const likedStation = stations.find(station => station._id === likedStationIdx)
 
   async function toggleIsLiked() {
     const updatedIsLiked = !isLiked

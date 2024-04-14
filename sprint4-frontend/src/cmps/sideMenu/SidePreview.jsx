@@ -18,6 +18,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
 
     const location = useLocation()
     const isActive = location.pathname.includes(`/station/${station._id}`)
+    const likedStationIdx = '661bb9089f9e9468991f1be7'
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
 
 
@@ -60,10 +61,10 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
             <div className={'station-preview-details' + dynamicClass}>
                 <span className="station-name">{station.name}</span>
 
-                {station._id !== 'liked-songs' &&
+                {station._id !==likedStationIdx &&
                     <span className='station-created'>{station.createdBy.fullname}</span>
                 }
-                {station._id === 'liked-songs' && (
+                {station._id === likedStationIdx && (
                     <>
                         <span className='station-created'>Playlist
                             <span className='station-created'>
