@@ -98,11 +98,11 @@ export function AppHeader() {
                     {location.pathname === '/search' && <input type='input' className='search-page-searchbar' placeholder='What do you want to play?'></input>}
                 </div>
             </section>
-            <div>
+            <button className='login-btn'>
                 <Link to="/login">
-                login/out
+                    Login
                 </Link>
-            </div>
+            </button>
         </header>
     )
 }

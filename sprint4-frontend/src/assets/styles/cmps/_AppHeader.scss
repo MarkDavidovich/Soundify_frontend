@@ -11,9 +11,7 @@
     padding-block: 42px;
     width: calc(100vw - 400px);
 
-    .main-view-header .collapsed {
-        width: 90%;
-    }
+
 
     .prev-next-container {
         // background-color: transparent;
@@ -41,6 +39,33 @@
                     stroke: width px;
                 }
             }
+        }
+    }
+
+
+    .login-btn {
+        background-color: white;
+
+        font-size: $font-size-16;
+        font-family: circular-bold;
+        width: 110px;
+        height: 48px;
+        border-radius: 50px;
+        min-width: 110px;
+
+        a: {
+            text-decoration: none;
+
+
+        }
+
+        a:visited {
+            color: black;
+        }
+
+        &:hover {
+            filter: brightness(95%);
+            transform: scale(1.04);
         }
     }
 
@@ -106,4 +131,8 @@
     height: 64px;
     margin-right: 8px;
 
+}
+
+.main-view-header.collapsed {
+    width: calc(100vw - 115px)
 }
