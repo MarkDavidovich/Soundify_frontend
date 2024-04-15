@@ -6,8 +6,81 @@
         h2 {
             font-family: circular-bold, sans-serif;
         }
+
     }
 
+    .song-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-top: solid rgba(255, 255, 255, 0.28) 1px;
+        // background-color: red;
+        margin-bottom: 16px;
+
+        .song-preview {
+            margin-top: 8px;
+            border-radius: 7px;
+
+
+            &:hover {
+                background-color: hsla(0, 0%, 100%, .15);
+            }
+
+            .song-info {
+                .basic-song-info {
+
+                    .song-img-container {
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+                        height: 80px;
+                        width: 80px;
+                        // height: auto;
+
+                        .song-img {
+                            width: 100%;
+                            aspect-ratio: 1/1;
+                            border-radius: 7px;
+                        }
+
+                        .play-song-btn {
+                            z-index: 1;
+                            position: absolute;
+                            background: none;
+                            color: white;
+                            opacity: 0;
+                        }
+
+                        &:hover {
+                            .song-img {
+                                filter: brightness(60%);
+
+                            }
+
+                            .play-song-btn {
+                                opacity: 1;
+                            }
+                        }
+                    }
+
+                    .song-desc {
+                        display: flex;
+                        flex-direction: column;
+                        padding-left: 16px;
+                        justify-content: center;
+                        font-family: circular-light;
+
+                        .song-title {}
+
+                        .song-artist {
+
+                            color: #a7a7a7;
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     .grid-container {
 

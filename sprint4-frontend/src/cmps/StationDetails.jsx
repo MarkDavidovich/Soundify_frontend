@@ -275,7 +275,7 @@ export function StationDetails() {
                                     fill="white">
                                   </path>
                                   </svg>
-                                ) : isPlaying && currSongIdx === idx && isHovered !== idx ? (
+                                ) : isPlaying && currSongIdx === idx && isHovered !== idx ? ( //EQUALIZER GIF
                                   <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
                                 ) : (
                                   idx + 1
