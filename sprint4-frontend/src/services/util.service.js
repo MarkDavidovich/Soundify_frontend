@@ -80,7 +80,7 @@ function createIndexArray(n) {
 
 
 function generateBgColor(index) {
-    const colors = ['#ff4d6d', '#ffcc00', '#00b359', '#cc33ff', '#ff66b2', '#33ccff', '#ff5050', '#ff9900', '#6699ff', '#ff33cc', '#00cc99', '#ff9966', '#6666cc', '#ccff33', '#ff6699', '#66cccc', '#cc66ff', '#ff6666', '#3366ff', '#6600cc', '#33cc33', '#ffcc99', '#3399ff', '#ff9933', '#666699', '#ff3333', '#009999', '#996633',
+    const colors = ['#ff4d6d', '#ffcc00', '#00b359', '#cc33ff', '#ff66b2', '#33ccff', '#ff5050', '#ff9900', '#6699ff', '#ff33cc', '#00cc99', '#ff9966', '#6666cc', '#ffd333', '#ff6699', '#66cccc', '#cc66ff', '#ff6666', '#3366ff', '#6600cc', '#33cc33', '#ffcc99', '#3399ff', '#ff9933', '#666699', '#ff3333', '#009999', '#996633',
         '#ff66ff', '#336600', '#ff5050', '#339966', '#9933ff', '#ffccff',
         '#33cccc', '#ff9966', '#99cc33', '#cc99ff', '#ffcc66', '#3333ff',
     ]

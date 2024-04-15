@@ -88,7 +88,7 @@ export function SearchPreview({ onSongSelect, currStation }) {
                     </div>
                   </div>
                   <div className="the">
-                    Album random function
+                    {songs.album}
                   </div>
                   <div className="add-song">
                     <button className="add-song-btn" onClick={() => handleAddSongFromSearch(song)}>

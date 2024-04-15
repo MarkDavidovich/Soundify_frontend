@@ -5,7 +5,7 @@ export const IS_PLAYING = 'IS_PLAYING'
 export const REMOVE_SONG_FROM_STATION = 'REMOVE_SONG_FROM_STATION'
 
 const initialState = {
-  currSongIdx: 0,
+  currSongIdx: null,
   currStationIdx: 0,
   isPlaying: false,
 }
