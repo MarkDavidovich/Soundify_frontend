@@ -51,16 +51,12 @@ export function StationDetails() {
 
     setCurrStation(id)
 
-
-    // socketService.setup()
     socketService.on(SOCKET_EVENT_STATION_UPDATED, (updatedStation) => {
-      console.log('SOCKET!!', updateStation)
       dispatch(getActionUpdateStation(updatedStation))
     })
 
     return () => {
       socketService.off(SOCKET_EVENT_STATION_UPDATED)
-      // socketService.terminate()
     }
 
 

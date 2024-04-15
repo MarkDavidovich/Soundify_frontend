@@ -59,6 +59,7 @@ export function HomePage() {
     const stations2 = stations.slice(9, 17)
     const stations3 = stations.slice(18)
 
+
     return (
         <>
             <section ref={homeMainViewRef} className="home-main-view">

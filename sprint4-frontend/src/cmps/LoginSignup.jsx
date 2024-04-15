@@ -3,11 +3,14 @@ import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 import { login, signup } from "../store/actions/user.actions"
 import { LoginForm } from "./LoginForm"
 import { useSelector } from "react-redux";
+import { ImgUploader } from "./ImgUploader";
 
 export function LoginSignup() {
 
     const [isSignup, setIsSignUp] = useState(false)
     const user = useSelector(storeState => storeState.userModule.loggedInUser)
+    const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
+
     console.log("🚀 ~ file: LoginSignup.jsx:11 ~ LoginSignup ~ user:", user)
 
 
@@ -35,6 +38,10 @@ export function LoginSignup() {
         }
     }
 
+    function onUploaded(imgUrl) {
+        setCredentials({ ...credentials, imgUrl })
+    }
+
     return (
         <div className="login-page">
             <LoginForm
@@ -49,19 +56,11 @@ export function LoginSignup() {
                     }
                 </a >
             </div>
-            {user ? (
-            < section className="login-user">
-                <span to={`/user/${user._id}`}>Hello {user.fullname}</span>
-                <button className="logout-btn btn" onClick={onLogout}>Logout</button>
-            </ section >
-        ) : (
-            <section className="login-layout">
-            </section>
-        )}
+            <ImgUploader onUploaded={onUploaded} />
         </div >
-        
-      
-        
+
+
+
     )
 }
 
