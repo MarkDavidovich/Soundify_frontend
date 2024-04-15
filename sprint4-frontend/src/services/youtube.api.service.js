@@ -103,6 +103,7 @@ function cleanTitle(title) {
         // Matches anything in square brackets - global flag
         /\[.*?\]/g,
         /\(.*?\)/g,
+        /[&#;%@]+/g,
 
         // Matches all in the string (g) and ignore letter case (i).
         /official music video/gi,
@@ -111,6 +112,7 @@ function cleanTitle(title) {
         /lyrics/gi,
         /video clip/gi,
         /VEVO/gi,
+        /d+/gi,
     ]
 
     let cleanedTitle = title

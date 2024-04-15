@@ -18,7 +18,6 @@ export function RootCmp() {
     const [scrollTop, setScrollTop] = useState(0)
     const [scrollBottom, setScrollBottom] = useState(0)
 
-
     // useEffect(() => {
     //     const handleScroll = () => {
     //         const scrollTop = mainRef.current.scrollTop
@@ -48,15 +47,23 @@ export function RootCmp() {
     return (
         <div className={'main-layout' + dynamicClass}>
             <SideBar />
-            <main className="main-view" ref={mainRef}>
-
+            <main
+                style={{ position: 'relative' }} className="main-view"
+                ref={mainRef}
+            >
                 <AppHeader
                     scrollTop={scrollTop}
                     scrollBottom={scrollBottom}
                 />
 
                 <Routes>
-                    {routes.map(route => <Route key={route.path} exact={true} element={route.component} path={route.path} />)}
+                    {routes.map(
+                        route => <Route
+                            key={route.path}
+                            exact={true}
+                            element={route.component}
+                            path={route.path}
+                        />)}
 
                     {/* <Route path="user/:id" element={<UserDetails />} /> */}
                 </Routes>

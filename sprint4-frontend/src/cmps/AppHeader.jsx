@@ -17,6 +17,8 @@ export function AppHeader() {
     const user = useSelector(storeState => storeState.userModule.user)
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
 
+
+
     const [input, setInput] = useState('')
 
     function handleSearch(ev) {
@@ -25,65 +27,56 @@ export function AppHeader() {
         setInput('')
     }
 
+
     const headerRef = useRef(null)
+    const dummyRef = useRef(null)
+
+
+    // else {
+    //     headerRef.current.classList.remove('bgBlack')
+    // }
+    // ------------------------------------------------------------ //
 
     useEffect(() => {
+        const isSearchPageBg = location.pathname === '/search'
+        if (isSearchPageBg) headerRef.current.classList.add('bgBlack')
+        if (!isSearchPageBg) headerRef.current.classList.remove('bgBlack')
 
-        function setupObserver() {
-
-            const headerObserver = new IntersectionObserver((entries) => {
-                const [entry] = entries
-
-                console.log('Entry is intersecting:', entry.isIntersecting)
-                console.log('Entry bounding rect:', entry.boundingClientRect)
-                console.log('Entry root bounds:', entry.rootBounds)
-
-                // headerRef.current.style.position = entry.isIntersecting ? 'sticky' : 'relative'
-                headerRef.current.style.backgroundColor = entry.isIntersecting ? 'blue' : 'red'
-
-                // console.log('Style set to:', headerRef.current.style.position)
-
-                console.log("🚀 ~ headerObserver ~  entry.isIntersecting:", entry.isIntersecting)
-            }, {
-                root: null,
-                rootMargin: "65px 0px 0px 0px",
-                threshold: 0
-            })
-
-            if (headerRef.current) {
-                headerObserver.observe(headerRef.current)
-            }
-
-            return () => headerObserver.disconnect()
-
+        console.log(dummyRef.current)
+        const options = {
+            threshold: 0.1,
         }
+        let isFirstIntersectionDone = false
+        const dummyObserver = new IntersectionObserver(
+            () => {
+                if (!isFirstIntersectionDone) {
+                    isFirstIntersectionDone = true
+                    return
+                }
+                console.log('threshold 0 reached')
+                // headerRef.current.classList.toggle('intersected')
 
-        setupObserver()
+                const isHomePage = location.pathname === '/'
+                if (isHomePage) {
+                    headerRef.current.classList.toggle('intersected')
+                }
+                // const isSearchPage = location.pathname === '/search'
+                // if (isSearchPage) {
+                //     headerRef.current.classList.toggle('search')
+                // } else {
+                //     headerRef.current.classList.toggle('intersected')
+                // }
+            },
+            options
+        )
 
-        // return () => {
-        //     if (headerRef.current) {
-        //         headerObserver.unobserve(headerRef.current)
-        //     }
-        // }
-        // const headerObserver = new IntersectionObserver(onHeaderObserved, {
-        //     rootMargin: "270px",
-        // })
+        dummyObserver.observe(dummyRef.current)
 
-        // headerObserver.observe(headerRef)
-
-        // function onHeaderObserved(entries) {
-        //     entries.forEach((entry) => {
-        //         headingStationRef.style.position = entry.isIntersection ? 'static' : 'fixed'
-        //     })
-        // }
-
-
-    }, [])
+    }, [location.pathname])
 
 
-    // ------------------------------------------------------ // 
+    // ------------------------------------------------------------ //
 
-    // ------------------------------------------------------ // 
 
     async function onLogin(credentials) {
         try {
@@ -112,46 +105,53 @@ export function AppHeader() {
     console.log("Script loaded")
 
     return (
-        <header ref={headerRef} className={`main-view-header`}>
-            <section className="prev-next-container">
-                <button className="prev-btn">
-                    <svg
-                        data-encore-id="icon" role="img" aria-hidden="true" className="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
-                        <path d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z">
-                        </path>
-                    </svg>
-                </button>
-                <button className="next-btn">
-                    <svg
-                        data-encore-id="icon" role="img" aria-hidden="true" className="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
-                        <path d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z">
-                        </path>
-                    </svg>
-                </button>
-                <div className='searchbar-container'>
-                    {location.pathname === '/search' && <form onSubmit={handleSearch}>
-                        <input className="search-page-searchbar"
-                            type="text"
-                            placeholder="What do you want to play?"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                        />
-                    </form>}
+        <>
+            <div ref={dummyRef} style={{
+                height: '65px',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                left: 0,
+            }}></div>
+            <header ref={headerRef} className={`main-view-header`}>
+                <section className="prev-next-container">
+                    <button className="prev-btn">
+                        <svg
+                            data-encore-id="icon" role="img" aria-hidden="true" className="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
+                            <path d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z">
+                            </path>
+                        </svg>
+                    </button>
+                    <button className="next-btn">
+                        <svg
+                            data-encore-id="icon" role="img" aria-hidden="true" className="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
+                            <path d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div className='searchbar-container'>
+                        {location.pathname === '/search' && <form onSubmit={handleSearch}>
+                            <input className="search-page-searchbar"
+                                type="text"
+                                placeholder="What do you want to play?"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                            />
+                        </form>}
 
-                </div>
-                {/* <div className='searchbar-container'>
-                    {location.pathname === '/search' && <input type='input' className='search-page-searchbar' placeholder='What do you want to play?'></input>}
+                    </div>
 
-                </div> */}
-            </section>
-            <button className='login-btn'>
-                <Link to="/login">
-                    Login
-                </Link>
-            </button>
-        </header>
+                </section>
+                <button className='login-btn'>
+                    <Link to="/login">
+                        Login
+                    </Link>
+                </button>
+            </header>
+        </>
     )
 }
+
 // export function AppHeader() {
 //     const location = useLocation()
 //     const user = useSelector(storeState => storeState.userModule.user)
@@ -251,7 +251,7 @@ export function AppHeader() {
 //     )
 // }
 
-{/* <header>
+/* <header>
 <nav>
     {routes.map(route => <NavLink key={route.path} to={route.path}>{route.label}</NavLink>)}
 
@@ -272,4 +272,5 @@ export function AppHeader() {
     }
 </nav>
 <h1>Soundify</h1>
-</header> */}
+</header> */
+

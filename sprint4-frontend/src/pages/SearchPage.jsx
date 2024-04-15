@@ -7,6 +7,7 @@ import { MainViewFooter } from "../cmps/MainViewFooter"
 import { SearchPreview } from "../cmps/SearchPreview"
 import { useSelector } from "react-redux"
 import { getSongs } from "../services/youtube.api.service"
+import { SearchResultsPreview } from "../cmps/SearchResultsPreview"
 
 export function SearchPage() {
 
@@ -51,9 +52,12 @@ export function SearchPage() {
       {/* <AppHeader /> */}
       <div className="search-page">
 
+
         <div className="search-songs-results">
           <h1>Search Results</h1>
-          <div className="song-list">
+
+          <SearchResultsPreview songs={songs} />
+          {/* <div className="song-list">
             {songs?.map(song => (
               <div className="song-preview " key={song.id}>
                 <div className="song-info">
@@ -79,7 +83,7 @@ export function SearchPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* <SearchPreview /> */}
