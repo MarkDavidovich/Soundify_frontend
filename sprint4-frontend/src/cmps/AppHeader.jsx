@@ -1,9 +1,8 @@
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, Navigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import routes from '../routes'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/actions/user.actions.js'
-
 
 import { LoginSignup } from './LoginSignup.jsx'
 import { useEffect } from 'react'
@@ -67,6 +66,7 @@ export function AppHeader() {
             showErrorMsg('Cannot signup')
         }
     }
+
     async function onLogout() {
         try {
             await logout()

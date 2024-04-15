@@ -1,56 +1,70 @@
-.main-login{
 
-    .header-login{
-        svg{
-            fill: $clr2
-        }
+
+    .login-page {
+
+        padding-top: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
-    .login-container{
-        margin: 0 auto;
-        width: em(324px);
 
-     
 
-        .login-title{
-            font-family: circular-bold;
-            font-size: 3rem;
-            font-weight: 700;
-        }
 
-        .login-form{
-          &>*{
-            width: em(324px);
-          }
-
-            .label-username{
-                font-size: 0.8125rem;
-            }
-
-               input{
-            width: em(324px);
-            appearance: none;
-            background-image: none;
-            border: 0px;
-            display: block;
-            font-size: 1rem;
-            font-weight: 400;
-            transition: box-shadow 0.1s ease-in-out 0s, color 0.1s ease-in-out 0s;
-            inline-size: 100%;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-            margin-block: 0px;
-            border-radius: var(--encore-corner-radius-base, 4px);
-            padding-inline-start: var(--encore-spacing-base, 16px);
-            padding-inline-end: var(--encore-spacing-base, 16px);
-            padding-block-start: var(--encore-spacing-tighter, 12px);
-            padding-block-end: var(--encore-spacing-tighter, 12px);
-            min-block-size: var(--encore-control-size-base, 48px);
-            background: none;
-            box-shadow: inset 0 0 0 1px var(--essential-subdued, #878787);
-            color: var(--text-base, #000000);
-
-        }
-        }
-
-    }
+.btns {
+    margin: 0 auto;
 }
+
+// .main-login{
+
+//     .header-login{
+//         svg{
+//             fill: $clr2
+//         }
+//     }
+//     .login-container{
+//         margin: 0 auto;
+//         width: em(324px);
+
+
+
+//         .login-title{
+//             font-family: circular-bold;
+//             font-size: 3rem;
+//             font-weight: 700;
+//         }
+
+//         .login-form{
+//           &>*{
+//             width: em(324px);
+//           }
+
+//             .label-username{
+//                 font-size: 0.8125rem;
+//             }
+
+//                input{
+//             width: em(324px);
+//             appearance: none;
+//             background-image: none;
+//             border: 0px;
+//             display: block;
+//             font-size: 1rem;
+//             font-weight: 400;
+//             transition: box-shadow 0.1s ease-in-out 0s, color 0.1s ease-in-out 0s;
+//             inline-size: 100%;
+//             box-sizing: border-box;
+//             margin-block: 0px;
+//             border-radius: 4px;
+//             padding-inline-start: 16px;
+//             padding-inline-end: 12px;
+//             padding-block-end:  12px;
+//             background: none;
+//             box-shadow: inset 0 0 0 1px var(--essential-subdued, #878787);
+//             color: white;
+
+//         }
+//         }
+
+//     }
+// }

@@ -13,6 +13,7 @@ import { SearchPreview } from "./SearchPreview"
 import { MainViewFooter } from "./MainViewFooter"
 import { AppHeader } from "./AppHeader"
 import { stationService } from "../services/station.service"
+import { SOCKET_EVENT_STATION_UPDATED } from "../services/socket.service"
 
 export function StationDetails() {
   const params = useParams()
@@ -50,6 +51,18 @@ export function StationDetails() {
 
     setCurrStation(id)
 
+
+  // socketService.setup()
+  socketService.on(SOCKET_EVENT_STATION_UPDATED, (updatedStation) => {
+    dispatch(getActionUpdateStation(updatedStation))
+  })
+
+  return () => {
+      socketService.off(SOCKET_EVENT_STATION_UPDATED)
+      // socketService.terminate()
+  }
+ 
+
   }, [params, currStation])
 
   async function setCurrStation(id) {
@@ -64,6 +77,13 @@ export function StationDetails() {
       return navigate('/')
     }
   }
+
+//   function handleStationUpdate(updatedStation) {
+//   // Update local state to reflect changes
+//   if (updatedStation._id === currStation._id) {
+//     setCurrStation(updatedStation);
+//   }
+// }
 
   async function handleAddSongFromSearch(selectedSong) {
     const updatedStation = {
@@ -143,6 +163,8 @@ export function StationDetails() {
       if (!likedStation.songs.find(s => s.id === hoveredSong.id)) {
         likedStation.songs.push(hoveredSong)
         await updateStation(likedStation)
+        socketService.emit(SOCKET_EVENT_STATION_UPDATED, likedStation)
+
       }
 
     } else {
@@ -150,6 +172,8 @@ export function StationDetails() {
       if (likedSongIdx !== -1) {
         likedStation.songs.splice(likedSongIdx, 1)
         await updateStation(likedStation)
+                socketService.emit(SOCKET_EVENT_STATION_UPDATED, likedStation)
+
 
         const originalStation = stations.find(station => station.songs.some(song => song.id === hoveredSong.id))
 
