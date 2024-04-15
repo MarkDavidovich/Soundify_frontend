@@ -13,7 +13,7 @@ import { SearchPreview } from "./SearchPreview"
 import { MainViewFooter } from "./MainViewFooter"
 import { AppHeader } from "./AppHeader"
 import { stationService } from "../services/station.service"
-import { SOCKET_EVENT_STATION_UPDATED } from "../services/socket.service"
+import { SOCKET_EMIT_SET_TOPIC, SOCKET_EVENT_STATION_UPDATED } from "../services/socket.service"
 
 export function StationDetails() {
   const params = useParams()
@@ -30,6 +30,7 @@ export function StationDetails() {
   const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
   const likedStationIdx = '661bb9089f9e9468991f1be7'
+  const { id } = params
 
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
@@ -45,25 +46,29 @@ export function StationDetails() {
   }
 
   useEffect(() => {
-    const { id } = params
     if (!id) return
     extractColor(currStation?.imgUrl, setBackgroundColor)
 
     setCurrStation(id)
 
 
-  // socketService.setup()
-  socketService.on(SOCKET_EVENT_STATION_UPDATED, (updatedStation) => {
-    dispatch(getActionUpdateStation(updatedStation))
-  })
+    // socketService.setup()
+    socketService.on(SOCKET_EVENT_STATION_UPDATED, (updatedStation) => {
+      console.log('SOCKET!!', updateStation)
+      dispatch(getActionUpdateStation(updatedStation))
+    })
 
-  return () => {
+    return () => {
       socketService.off(SOCKET_EVENT_STATION_UPDATED)
       // socketService.terminate()
-  }
- 
+    }
+
 
   }, [params, currStation])
+
+  useEffect(() => {
+    socketService.emit(SOCKET_EMIT_SET_TOPIC, id)
+  }, [id])
 
   async function setCurrStation(id) {
 
@@ -78,12 +83,12 @@ export function StationDetails() {
     }
   }
 
-//   function handleStationUpdate(updatedStation) {
-//   // Update local state to reflect changes
-//   if (updatedStation._id === currStation._id) {
-//     setCurrStation(updatedStation);
-//   }
-// }
+  //   function handleStationUpdate(updatedStation) {
+  //   // Update local state to reflect changes
+  //   if (updatedStation._id === currStation._id) {
+  //     setCurrStation(updatedStation);
+  //   }
+  // }
 
   async function handleAddSongFromSearch(selectedSong) {
     const updatedStation = {
@@ -119,6 +124,8 @@ export function StationDetails() {
 
     try {
       await dispatch(getActionUpdateStation(updatedStation))
+      socketService.emit(SOCKET_EVENT_STATION_UPDATED, updatedStation)
+
 
       showSuccessMsg('Station updated successfully')
 
@@ -163,7 +170,7 @@ export function StationDetails() {
       if (!likedStation.songs.find(s => s.id === hoveredSong.id)) {
         likedStation.songs.push(hoveredSong)
         await updateStation(likedStation)
-        socketService.emit(SOCKET_EVENT_STATION_UPDATED, likedStation)
+        console.log('Hello!!!!!');
 
       }
 
@@ -172,7 +179,7 @@ export function StationDetails() {
       if (likedSongIdx !== -1) {
         likedStation.songs.splice(likedSongIdx, 1)
         await updateStation(likedStation)
-                socketService.emit(SOCKET_EVENT_STATION_UPDATED, likedStation)
+        // socketService.emit(SOCKET_EVENT_STATION_UPDATED, likedStation)
 
 
         const originalStation = stations.find(station => station.songs.some(song => song.id === hoveredSong.id))
