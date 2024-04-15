@@ -11,14 +11,15 @@ import { setSearchTerm } from '../store/actions/system.actions.js'
 
 export function AppHeader() {
     const dispatch = useDispatch()
-
     const location = useLocation()
+
     const user = useSelector(storeState => storeState.userModule.user)
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
 
-
-
     const [input, setInput] = useState('')
+
+    const headerRef = useRef(null)
+    const dummyRef = useRef(null)
 
     function handleSearch(ev) {
         ev.preventDefault()
@@ -26,10 +27,10 @@ export function AppHeader() {
         setInput('')
     }
 
-
-    const headerRef = useRef(null)
-    const dummyRef = useRef(null)
-
+    const isSearchPage = location.pathname === '/search';
+    const isCategoryPage = location.pathname.includes('/category');
+    const isHomePage = location.pathname === '/';
+    const headerClass = isHomePage ? 'intersected' : isSearchPage || isCategoryPage ? 'bgBlack' : '';
 
     // else {
     //     headerRef.current.classList.remove('bgBlack')
@@ -37,39 +38,47 @@ export function AppHeader() {
     // ------------------------------------------------------------ //
 
     useEffect(() => {
-        const isSearchPageBg = location.pathname === '/search'
-        if (isSearchPageBg) headerRef.current.classList.add('bgBlack')
-        if (!isSearchPageBg) headerRef.current.classList.remove('bgBlack')
+        // const isSearchPageBg = location.pathname === '/search'
+        // const isCategory = location.pathname.includes('/category')
 
-        console.log(dummyRef.current)
-        const options = {
-            threshold: 0.1,
-        }
-        let isFirstIntersectionDone = false
-        const dummyObserver = new IntersectionObserver(
-            () => {
-                if (!isFirstIntersectionDone) {
-                    isFirstIntersectionDone = true
-                    return
-                }
-                console.log('threshold 0 reached')
-                // headerRef.current.classList.toggle('intersected')
+        // if (isSearchPageBg) headerRef.current.classList.add('bgBlack')
+        // if (!isSearchPageBg) headerRef.current.classList.remove('bgBlack')
 
-                const isHomePage = location.pathname === '/'
-                if (isHomePage) {
-                    headerRef.current.classList.toggle('intersected')
-                }
-                // const isSearchPage = location.pathname === '/search'
-                // if (isSearchPage) {
-                //     headerRef.current.classList.toggle('search')
-                // } else {
-                //     headerRef.current.classList.toggle('intersected')
-                // }
-            },
-            options
-        )
+        // if (isCategory) headerRef.current.classList.add('bgBlack')
+        // if (!isCategory) headerRef.current.classList.remove('bgBlack')
 
-        dummyObserver.observe(dummyRef.current)
+
+        // const isStationDetails = location.pathname.includes('/station')
+
+        // console.log(dummyRef.current)
+        // const options = {
+        //     threshold: 0.1,
+        // }
+        // let isFirstIntersectionDone = false
+        // const dummyObserver = new IntersectionObserver(
+        //     () => {
+        //         if (!isFirstIntersectionDone) {
+        //             isFirstIntersectionDone = true
+        //             return
+        //         }
+        //         console.log('threshold 0 reached')
+        //         // headerRef.current.classList.toggle('intersected')
+
+        //         const isHomePage = location.pathname === '/'
+        //         if (isHomePage) {
+        //             headerRef.current.classList.toggle('intersected')
+        //         }
+        //         // const isSearchPage = location.pathname === '/search'
+        //         // if (isSearchPage) {
+        //         //     headerRef.current.classList.toggle('search')
+        //         // } else {
+        //         //     headerRef.current.classList.toggle('intersected')
+        //         // }
+        //     },
+        //     options
+        // )
+
+        // dummyObserver.observe(dummyRef.current)
 
     }, [location.pathname])
 
@@ -113,7 +122,7 @@ export function AppHeader() {
                 right: 0,
                 left: 0,
             }}></div>
-            <header ref={headerRef} className={`main-view-header`}>
+            <header className={`main-view-header ${headerClass}`}>            {/* <header ref={headerRef} className={`main-view-header`}> */}
                 <section className="prev-next-container">
                     <button className="prev-btn">
                         <svg

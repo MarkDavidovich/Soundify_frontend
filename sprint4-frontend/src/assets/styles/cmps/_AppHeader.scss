@@ -15,29 +15,24 @@
     // width: calc(100vw - 400px);
     background-color: var(--bg-color);
     transition: background-color 0.8s ease-out;
+    border-top-right-radius: 5px;
 
-    // &.intersected {
-    //     z-index: 100;
-    //     background-color: var(--bg-color) // background: opacity(1);
 
-    // }
     &.intersected {
         z-index: 100;
-        background-color: var(--bg-color) // background: opacity(1);
+        background-color: var(--bg-color); // background: opacity(1);
+        border-top-right-radius: 5px;
     }
 
-    // .main-view-header.search {
+    // &.search {
     //     z-index: 100;
-    //     background-color: red // background: opacity(1);
+    //     background-color: black // background: opacity(1);
     // }
-
-    &.search {
-        z-index: 100;
-        background-color: black // background: opacity(1);
-    }
 
     &.bgBlack {
         background-color: $clr8;
+        border-top-right-radius: 5px;
+
     }
 
     .prev-next-container {
