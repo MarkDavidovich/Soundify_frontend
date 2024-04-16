@@ -5,7 +5,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import routes from './routes'
 
 import { AppHeader } from './cmps/AppHeader'
-import { AppFooter } from './cmps/AppFooter'
+import { Player } from './cmps/Player'
 import { UserDetails } from './pages/UserDetails'
 import { SideBar } from './cmps/sideMenu/SideBar'
 import { useSelector } from 'react-redux'
@@ -68,7 +68,7 @@ export function RootCmp() {
                     {/* <Route path="user/:id" element={<UserDetails />} /> */}
                 </Routes>
             </main>
-            <AppFooter />
+            <Player />
         </div>
     )
 }

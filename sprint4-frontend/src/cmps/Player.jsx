@@ -6,7 +6,7 @@ import { togglePlaying, getActionCurrSongIdx } from '../store/actions/player.act
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service.js'
 
-export function AppFooter() {
+export function Player() {
 
     // global states
     const stations = useSelector(storeState => storeState.stationModule.stations)
