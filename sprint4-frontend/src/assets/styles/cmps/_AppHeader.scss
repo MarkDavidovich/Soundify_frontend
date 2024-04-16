@@ -8,11 +8,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // top: 0;
     padding-inline: 16px;
     padding-block: 42px;
     border-top-right-radius: 5px;
-    // width: calc(100vw - 400px);
     background-color: var(--bg-color);
     transition: background-color 0.8s ease-out;
     border-top-right-radius: 5px;
@@ -125,14 +123,16 @@
 
     .login-user {
         .logout-btn {
-            width: 48px;
-            background-color: rgba(0,0,0,.54);
-            border: 0px;
-            border-radius:4em;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
             text-decoration: none;
-            .user-img {
-                border-radius: 50%;
+            padding: 0;
+            margin: 0;
 
+            .user-img {
+                outline: 3px solid rgba(0, 0, 0, 0.4);
+                border-radius: 50%;
                 height: 100%;
                 object-fit: cover;
                 width: 100%;
