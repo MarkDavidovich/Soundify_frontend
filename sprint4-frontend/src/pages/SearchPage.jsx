@@ -121,7 +121,7 @@ export function SearchPage() {
 
 
         <div className="search-songs-results">
-          <h2>Search Results</h2>
+          {songs.length > 0 && <h2>Search Results</h2>}
           <div className="song-list">
             {songs.map((song, idx) => (
               <div className="song-preview " key={song.id}

@@ -1,11 +1,19 @@
 import { store } from '../store.js'
 import { MENU_TOGGLE } from '../reducers/layout.reducer.js'
+import { MOBILE_TOGGLE } from '../reducers/layout.reducer.js'
 
 
 export function toggleLibraryAction() {
     return {
         type: MENU_TOGGLE,
         // toggleLibrary
+    }
+
+}
+
+export function toggleMobileAction() {
+    return {
+        type: MOBILE_TOGGLE,
     }
 }
 

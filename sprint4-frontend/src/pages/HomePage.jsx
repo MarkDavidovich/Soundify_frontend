@@ -2,17 +2,9 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useRef } from 'react'
-
-
-import { loadStations } from '../store/actions/station.actions'
-import { showErrorMsg } from '../services/event-bus.service'
-
-import { AppHeader } from '../cmps/AppHeader'
-import { StationList } from '../cmps/StationList'
-import { StationDetails } from '../cmps/StationDetails'
-import { MiniHomeStationList } from '../cmps/MiniHomeStationList'
+import { toggleMobileAction } from '../store/actions/layout.actions'
+import { useDispatch } from 'react-redux'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { utilService } from '../services/util.service'
 import { MainStationList } from '../cmps/MainStationList'
 
 
@@ -26,6 +18,7 @@ export function HomePage() {
 
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const homeMainViewRef = useRef(null)
+    const dispatch = useDispatch()
 
     const amount = getAmount(width6, width5, width4, width3, width2, width1)
 
@@ -63,7 +56,9 @@ export function HomePage() {
 
     return (
         <>
+
             <section ref={homeMainViewRef} className="home-main-view">
+
 
                 {/* <MiniHomeStationList
                     stations={stations3}
@@ -73,12 +68,14 @@ export function HomePage() {
                     type={'mini'}
                 />
 
+
                 <MainStationList
                     stations={stations1}
                     listName={'User favorites'}
                     amount={amount}
                     type={'big'}
                 />
+
 
                 <MainStationList
                     stations={stations3}

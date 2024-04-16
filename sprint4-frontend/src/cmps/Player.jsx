@@ -81,15 +81,6 @@ export function Player() {
         }
     }
 
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60)
-        const remainingSeconds = seconds % 60
-        const roundedSeconds = Math.round(remainingSeconds * 100) / 100
-        const formattedSeconds = roundedSeconds === 0 ? '00' : roundedSeconds.toFixed(2).padStart(5, '0')
-
-        return `${minutes}:${formattedSeconds.split('.')[0]}`
-    }
-
     function handleMute() {
         if (isMuted || volume === 0) {
             setVolume(volumeSnapshot)
@@ -230,7 +221,7 @@ export function Player() {
 
                 <div className='progress-container'>
 
-                    <span className='song-duration'>{formatTime(currSongTime)}</span>
+                    <span className='song-duration'>{utilService.formatTime(currSongTime)}</span>
                     <div className='progress-bar-container'>
                         <div className="following-bar" style={{ width: `${progress / totalSongTime * 100}%` }}></div>
                         <input
@@ -249,7 +240,7 @@ export function Player() {
                         setShowRemainder(!showRemainder)
                         setCurrSongRemainder(totalSongTime - currSongTime)
                     }}>
-                        {currSong ? showRemainder ? '-' + formatTime(currSongRemainder) : formatTime(totalSongTime) : '-:--'}
+                        {currSong ? showRemainder ? '-' + utilService.formatTime(currSongRemainder) : utilService.formatTime(totalSongTime) : '-:--'}
                     </span>
                 </div>
             </div>

@@ -9,6 +9,8 @@ export function SideSort({ sortBy, onSetSort }) {
     const toggleLibrary = useSelector(storeState => storeState.layoutModule.toggleLibrary)
 
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
+
     function handleSort(by) {
         setSelectedSort(by)
 
@@ -20,7 +22,7 @@ export function SideSort({ sortBy, onSetSort }) {
         return selectedSort === by ? 'btn-clicked' : 'btn'
     }
 
-    const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
+    const dynamicClass = matchesMobile ? ' mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
     return <div className={'side-sort-container' + dynamicClass}>
         <button className={getBtnClass('station')} onClick={() => handleSort('station')}>Playlists</button>

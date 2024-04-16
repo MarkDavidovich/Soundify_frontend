@@ -11,6 +11,7 @@ export function SideFilter({ filterBy, onSetFilter, toggleFilter,
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
 
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
     // onSetFilter = useRef(utilService.debounce(onSetFilter, 300))
 
     const filterRef = useRef()
@@ -63,7 +64,7 @@ export function SideFilter({ filterBy, onSetFilter, toggleFilter,
     //     onFilterBlur()
     // }
 
-    const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
+    const dynamicClass = matchesMobile ? ' mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
     return (
         <div ref={filterRef} className={'side-filter' + dynamicClass}>

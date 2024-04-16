@@ -62,3 +62,18 @@
             72px minmax(1fr, $mobile-breakpoint);
     }
 }
+
+.main-layout-mobile {
+    display: grid;
+    height: 100vh;
+
+    grid-template-rows: auto 1fr 1fr;
+    gap: 8px;
+    padding: 8px;
+
+    grid-template-areas:
+        "main-view"
+        "footer"
+        "side-bar"
+
+}

@@ -9,6 +9,10 @@
     grid-column: 1;
     grid-row: 1;
 
+    &.mobile {
+        display: none;
+    }
+
     .actions-btns {
         display: flex;
         flex-direction: column;
@@ -204,5 +208,4 @@
             }
         }
     }
-
 }

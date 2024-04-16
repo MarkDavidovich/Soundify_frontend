@@ -22,6 +22,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     const isActive = location.pathname.includes(`/station/${station._id}`)
     const likedStationIdx = '661bb9089f9e9468991f1be7'
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
 
 
     function handleContextMenu(ev) {
@@ -52,7 +53,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
         // else return 'side-preview-line clicked'
     }
 
-    const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
+    const dynamicClass = matchesMobile ? ' mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
 
     return (

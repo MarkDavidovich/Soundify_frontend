@@ -10,6 +10,7 @@ export const utilService = {
     createIndexArray,
     shuffleArray,
     generateBgColor,
+    formatTime,
 }
 
 function makeId(length = 6) {
@@ -87,4 +88,13 @@ function generateBgColor(index) {
 
     const backgroundColor = colors[index % colors.length]
     return backgroundColor
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60)
+    const remainingSeconds = seconds % 60
+    const roundedSeconds = Math.round(remainingSeconds * 100) / 100
+    const formattedSeconds = roundedSeconds === 0 ? '00' : roundedSeconds.toFixed(2).padStart(5, '0')
+
+    return `${minutes}:${formattedSeconds.split('.')[0]}`
 }

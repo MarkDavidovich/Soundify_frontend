@@ -24,6 +24,7 @@ export function SideIndex({ }) {
     // const [toggleLibrary, setToggleLibrary] = useState(false)
 
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
 
     const dispatch = useDispatch()
     const navigate = useNavigate()

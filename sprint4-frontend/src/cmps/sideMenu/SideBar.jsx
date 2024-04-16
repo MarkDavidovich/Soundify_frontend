@@ -16,6 +16,7 @@ export function SideBar() {
     const dispatch = useDispatch()
 
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
 
 
     const handleHomeButtonClick = () => {
@@ -37,7 +38,7 @@ export function SideBar() {
     }
 
 
-    const sideBarClass = toggleLibrary || matchesNarrow ? 'side-bar collapsed' : 'side-bar'
+    const sideBarClass = matchesMobile ? 'side-bar mobile' : toggleLibrary || matchesNarrow ? 'side-bar collapsed' : 'side-bar'
 
     return (
         <>

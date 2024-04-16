@@ -18,6 +18,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
 
     const matchesNarrow = useMediaQuery('(max-width: 720px)')
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
 
     useEffect(() => {
         const closeMenu = (event) => {
@@ -60,9 +61,12 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
     }
 
     const likedStationIdx = '661bb9089f9e9468991f1be7'
-    const filteredStations = stations.filter(station => (station._id !== likedStationIdx))
+    const filteredStations = stations.filter(station => (station._id !== likedStationIdx && station.desc !== 'Searched Songs'))
 
-    const dynamicClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
+
+
+
+    const dynamicClass = matchesMobile ? 'side-bar mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
 
     return <div className="side-list">
@@ -85,7 +89,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
             </div>
         ))}
 
-        {stations.find(station => station._id === likedStationIdx && station.songs.length > 0) && (
+        {stations.find(station => station._id === likedStationIdx) && (
             <article className={'side-preview-container' + dynamicClass} key={likedStationIdx}>
                 <Link
                     className={setLinkClass()}
