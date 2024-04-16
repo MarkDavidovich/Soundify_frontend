@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setSearchTerm } from '../store/actions/system.actions.js'
 
+
 export function AppHeader() {
     const dispatch = useDispatch()
     const location = useLocation()
@@ -31,6 +32,7 @@ export function AppHeader() {
     const isCategoryPage = location.pathname.includes('/category');
     const isHomePage = location.pathname === '/';
     const headerClass = isHomePage ? 'intersected' : isSearchPage || isCategoryPage ? 'bgBlack' : '';
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
 
     // else {
     //     headerRef.current.classList.remove('bgBlack')
@@ -151,20 +153,15 @@ export function AppHeader() {
                     </div>
 
                 </section>
-                {!user &&
-                    <button className='login-btn'>
-
-                        <Link to="/login">
-                            Login
-                        </Link>
-                    </button>
-                }
+                <button className='login-btn'>
+                    <Link to="/login">
+                        Login
+                    </Link>
+                </button>
                 {user ? (
                     < section className="login-user">
-                       
-                        <button className="logout-btn btn" onClick={onLogout}>
-                        <img className='user-img' src={user.imgUrl}  />
-                        </button>
+                        <span to={`/user/${user._id}`}>Hello {user.fullname}</span>
+                        <button className="logout-btn btn" onClick={onLogout}>Logout</button>
                     </ section >
                 ) : (
                     <section className="login-layout">
