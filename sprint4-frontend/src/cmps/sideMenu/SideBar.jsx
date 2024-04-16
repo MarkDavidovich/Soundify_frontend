@@ -29,10 +29,6 @@ export function SideBar() {
         setToggleSvgSearch(prevState => !prevState)
     }
 
-    // const handleToggleLibraryClick = () => {
-    //     setToggleLibrary(!toggleLibrary)
-    // }
-
     const handleToggleLibraryClick = () => {
         dispatch(toggleLibraryAction())
     }

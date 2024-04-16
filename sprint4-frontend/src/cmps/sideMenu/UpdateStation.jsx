@@ -27,7 +27,6 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
 
             try {
                 const uploadResponse = await uploadService.uploadImg(ev)
-                console.log("🚀 ~ handleFileChange ~ uploadResponse:", uploadResponse)
 
                 setStationToUpdate(prevUpdate => ({ ...prevUpdate, imgUrl: uploadResponse.url }))
             } catch (err) {
@@ -36,15 +35,6 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
 
         }
     }
-    // function handleFileChange(ev) {
-    //     const file = ev.target.files[0]
-    //     if (file) {
-    //         const filePreviewUrl = URL.createObjectURL(file)
-    //         setImagePreview(filePreviewUrl)
-
-    //         setStationToUpdate(prevUpdate => ({ ...prevUpdate, imgUrl: file }))
-    //     }
-    // }
 
     function handleSubmit(ev) {
         ev.preventDefault()
@@ -65,8 +55,6 @@ export function UpdateStation({ station, setIsOnUpdate, onUpdateStation, handleS
     function handleModalClick(ev) {
         ev.stopPropagation()
     }
-
-    console.log("🚀 ~ UpdateStation ~ stationToUpdate:", stationToUpdate)
 
     return (
         <div className="update-modal-overlay" onClick={closeModal}>

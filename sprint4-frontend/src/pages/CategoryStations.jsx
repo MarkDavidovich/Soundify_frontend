@@ -4,39 +4,51 @@ import { categoryService } from "../services/category.service"
 import { useEffect, useState } from "react"
 import { StationList } from "../cmps/StationList"
 import { MainStationList } from "../cmps/MainStationList"
+import { utilService } from "../services/util.service"
 
 export function CategoryStations() {
     const { id } = useParams()
     const [category, setCategory] = useState(null)
+    const [categoryIdx, setCategoryIdx] = useState(null)
+    const [bgColor, setBgColor] = useState('')
 
 
     useEffect(() => {
 
-        async function getCategoryById() {
+        async function fetchCategoryData() {
             try {
                 const fetchedCategory = await categoryService.getById(id)
-                console.log("🚀 ~ getCategoryById ~ fetchedCategory:", fetchedCategory)
-
                 setCategory(fetchedCategory)
+
+                const categoryIndex = await categoryService.getIdxById(id)
+                console.log("🚀 ~ fetchCategoryData ~ categoryIndex:", categoryIndex)
+
+                setCategoryIdx(categoryIndex)
+
+                const bgColor = utilService.generateBgColor(categoryIndex)
+                setBgColor(bgColor)
+
             } catch (err) {
-                console.log('Cannot get category by Id')
+                console.log('Error fetching category data: ', err)
             }
         }
 
         if (id) {
-            getCategoryById()
+            fetchCategoryData()
         }
 
-    }, [id])
+    }, [categoryIdx, id])
 
 
-
-    if (!category) return <div>Loading...</div>
+    if (!category) return <div></div>
 
     return <section className="category">
         {/* <div className="info-category flex"> */}
-        <div className="category-info-container">
-            <img className="category-img" src={category.imgUrl} alt="" />
+
+        <div className="category-info-container flex" style={{ backgroundColor: bgColor }}>
+            <div className="category-img-container">
+                <img className="category-img" src={category.imgUrl} alt="" />
+            </div>
             <div className="category-name">{category.name}</div>
         </div>
         {/* </div> */}
