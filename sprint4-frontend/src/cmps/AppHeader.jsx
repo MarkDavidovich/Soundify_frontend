@@ -153,15 +153,19 @@ export function AppHeader() {
                     </div>
 
                 </section>
+                {!user &&
                 <button className='login-btn'>
                     <Link to="/login">
                         Login
                     </Link>
                 </button>
+                }
                 {user ? (
                     < section className="login-user">
-                        <span to={`/user/${user._id}`}>Hello {user.fullname}</span>
-                        <button className="logout-btn btn" onClick={onLogout}>Logout</button>
+                        <button className="logout-btn btn" onClick={onLogout}>
+                        <img className="user-img" src={user.imgUrl} alt="" />
+
+                        </button>
                     </ section >
                 ) : (
                     <section className="login-layout">
