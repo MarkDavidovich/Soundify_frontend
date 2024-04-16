@@ -125,7 +125,7 @@ export function AppHeader() {
                 left: 0,
             }}></div>
             <header className={`main-view-header ${headerClass}`}>            {/* <header ref={headerRef} className={`main-view-header`}> */}
-                <section className="prev-next-container">
+                {!matchesMobile && <section className="prev-next-container">
                     <button className="prev-btn">
                         <svg
                             data-encore-id="icon" role="img" aria-hidden="true" className="Svg-sc-ytk21e-0 cAMMLk IYDlXmBmmUKHveMzIPCF" viewBox="0 0 16 16">
@@ -152,7 +152,7 @@ export function AppHeader() {
 
                     </div>
 
-                </section>
+                </section>}
                 <div className='login-container'>
                     {!user &&
                         <button className='login-btn'>
