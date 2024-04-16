@@ -108,7 +108,7 @@ export function SideIndex({ }) {
         dispatch(toggleLibraryAction())
     }
 
-    const sideIndexClass = toggleLibrary || matchesNarrow ? '-collapsed' : ''
+    const sideIndexClass = matchesMobile ? ' mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
     // function onFilterBlur() {
     //     setToggleFilter(false)

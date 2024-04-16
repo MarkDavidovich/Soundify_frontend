@@ -3,6 +3,10 @@
     margin: 0 0 10px 3px;
     height: 37px;
 
+    &.mobile {
+        display: none;
+    }
+
     .btn:first-child {
         margin-left: 4px;
     }

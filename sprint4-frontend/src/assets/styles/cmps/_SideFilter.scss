@@ -5,6 +5,9 @@
     margin-left: 9px;
     align-items: center;
 
+    &.mobile {
+        display: none;
+    }
 
     button.search-btn.close {
         @include btn($type: regular);

@@ -4,6 +4,10 @@
     ///////////////////////////////////////////////////
     overflow-y: auto;
 
+    &.mobile {
+        display: none;
+    }
+
     &::-webkit-scrollbar {
         width: em(5px);
         opacity: 0.5;

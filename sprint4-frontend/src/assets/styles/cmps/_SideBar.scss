@@ -9,8 +9,73 @@
     grid-column: 1;
     grid-row: 1;
 
+
     &.mobile {
-        display: none;
+        grid-area: side-bar;
+        gap: 0px;
+        grid-template-rows: auto;
+        grid-template-columns: (2, auto);
+        grid-template-areas:
+            "h l";
+        height: 55px;
+        position: relative;
+        bottom: 0;
+
+        .actions-btns {
+            display: flex;
+            // grid-template-columns: repeat(auto);
+            flex-direction: row;
+            justify-content: space-between;
+            height: 50px;
+            border-radius: 0px;
+
+            .home-link {
+
+                text-decoration: none;
+                color: $clr3;
+
+                &:hover {
+                    color: $clr2;
+                    transition: 0.6s;
+                }
+
+                .home-btn-container {
+                    // grid-column: 1;
+                    grid-area: h;
+                    margin: 0px;
+
+                    .home-btn {
+                        background-color: $clr8;
+                        text-decoration: none;
+                        margin: 0px;
+                    }
+
+                }
+
+
+                span {
+                    display: none;
+                }
+            }
+
+            .search-link {
+
+                .search-btn-container {
+                    // grid-column: 2;
+                    grid-area: s;
+
+
+                    .search-btn {
+                        margin: 0px;
+                    }
+
+                    span.span-search {
+                        display: none;
+
+                    }
+                }
+            }
+        }
     }
 
     .actions-btns {

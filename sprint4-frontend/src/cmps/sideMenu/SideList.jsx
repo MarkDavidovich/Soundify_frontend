@@ -66,10 +66,10 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
 
 
 
-    const dynamicClass = matchesMobile ? 'side-bar mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
+    const dynamicClass = matchesMobile ? ' mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
 
 
-    return <div className="side-list">
+    return <div className={"side-list" + dynamicClass}>
 
         {filteredStations.map(station => (
             <div className={'side-preview-container' + dynamicClass} key={station._id}>
