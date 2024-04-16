@@ -13,6 +13,7 @@ import { StationDetails } from '../cmps/StationDetails'
 import { MiniHomeStationList } from '../cmps/MiniHomeStationList'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { utilService } from '../services/util.service'
+import { MainStationList } from '../cmps/MainStationList'
 
 
 export function HomePage() {
@@ -64,21 +65,29 @@ export function HomePage() {
         <>
             <section ref={homeMainViewRef} className="home-main-view">
 
-                <MiniHomeStationList
+                {/* <MiniHomeStationList
                     stations={stations3}
+                /> */}
+                <MainStationList
+                    stations={stations2}
+                    type={'mini'}
                 />
 
-                <StationList
+                <MainStationList
                     stations={stations1}
-                    amount={amount}
                     listName={'User favorites'}
+                    amount={amount}
+                    type={'big'}
                 />
 
-                <StationList
+                <MainStationList
                     stations={stations3}
+                    listName={'User favorites'}
                     amount={amount}
-                    listName={'Best of all time'}
+                    type={'big'}
                 />
+
+
 
             </section >
         </>

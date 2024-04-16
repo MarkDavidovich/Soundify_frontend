@@ -1,6 +1,5 @@
 import { stationService } from "../../services/station.service"
 
-
 export const SET_STATIONS = 'SET_STATIONS'
 export const REMOVE_STATION = 'REMOVE_STATION'
 export const ADD_STATION = 'ADD_STATION'
@@ -8,12 +7,14 @@ export const UPDATE_STATION = 'UPDATE_STATION'
 export const UNDO_REMOVE_STATION = 'UNDO_REMOVE_STATION'
 export const SET_FILTER = 'SET_FILTER'
 export const SET_SORT = 'SET_SORT'
+export const SET_CURR_VIEWED_STATION_IDX = 'SET_CURR_VIEWED_STATION_IDX'
 
 const initialState = {
     stations: [],
     lastRemovedStation: null,
     filterBy: stationService.getEmptyFilterBy(),
     sortBy: stationService.getDefaultSort(),
+    currViewedStationIdx: null,
 }
 
 export function stationReducer(state = initialState, action) {
@@ -47,13 +48,17 @@ export function stationReducer(state = initialState, action) {
             break
 
         case SET_FILTER:
-            return { 
-                ...state, filterBy: action.filterBy }
+            return {
+                ...state, filterBy: action.filterBy
+            }
 
         case SET_SORT:
             return {
                 ...state, sortBy: { ...state.sortBy, ...action.sortBy }
             }
+        case SET_CURR_VIEWED_STATION_IDX:
+            newState = { ...state, currViewedStationIdx: action.stationIdx }
+            break
 
         default:
             return state

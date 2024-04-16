@@ -6,8 +6,8 @@ import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 
-import { getActionUpdateStation, updateStation } from "../store/actions/station.actions"
-import { getActionCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
+import { getActionUpdateStation, updateStation, setCurrViewedStationIdx } from "../store/actions/station.actions"
+import { getActionCurrSongIdx, setCurrSongIdx, setCurrStationIdx, togglePlaying } from "../store/actions/player.actions"
 import { SongActionModal } from "./songActionModal"
 import { SearchPreview } from "./SearchPreview"
 import { MainViewFooter } from "./MainViewFooter"
@@ -21,7 +21,9 @@ export function StationDetails() {
   const dispatch = useDispatch()
 
   const stations = useSelector(storeState => storeState.stationModule.stations)
-  const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
+  const currViewedStationIdx = useSelector(storeState => storeState.stationModule.currViewedStationIdx)
+  const currStation = useSelector(storeState => storeState.stationModule.stations[currViewedStationIdx])
+  const currPlayerStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
 
   const [backgroundColor, setBackgroundColor] = useState('')
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -70,7 +72,7 @@ export function StationDetails() {
 
     try {
       const idx = await stationService.getIdxById(id)
-      setCurrStationIdx(idx)
+      setCurrViewedStationIdx(idx)
     }
     catch (err) {
       showErrorMsg('Had issues loading station')
@@ -78,6 +80,10 @@ export function StationDetails() {
       return navigate('/')
     }
   }
+
+  useEffect(() => {
+    setIsSelected(null)
+  }, [currViewedStationIdx])
 
   //   function handleStationUpdate(updatedStation) {
   //   // Update local state to reflect changes
@@ -96,16 +102,6 @@ export function StationDetails() {
       showSuccessMsg('Song added successfully')
     } catch (err) {
       console.error('Failed to add song:', err)
-    }
-  }
-
-  function handleSongClick(songIdx) {
-    if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
-      togglePlaying(isPlaying)
-
-    } else {
-      dispatch(getActionCurrSongIdx(songIdx))
-      togglePlaying(false) // toggle will always switch it to true
     }
   }
 
@@ -166,8 +162,6 @@ export function StationDetails() {
       if (!likedStation.songs.find(s => s.id === hoveredSong.id)) {
         likedStation.songs.push(hoveredSong)
         await updateStation(likedStation)
-        console.log('Hello!!!!!');
-
       }
 
     } else {
@@ -176,7 +170,6 @@ export function StationDetails() {
         likedStation.songs.splice(likedSongIdx, 1)
         await updateStation(likedStation)
         // socketService.emit(SOCKET_EVENT_STATION_UPDATED, likedStation)
-
 
         const originalStation = stations.find(station => station.songs.some(song => song.id === hoveredSong.id))
 
@@ -193,12 +186,23 @@ export function StationDetails() {
   }
 
   function handleSongClick(songIdx) {
-    if (songIdx === currSongIdx || songIdx === undefined) { // main play button will return undefined 
+    setCurrStationIdx(currViewedStationIdx)
+    if (songIdx === currSongIdx) { // this will pause a song that is already playing
       togglePlaying(isPlaying)
 
     } else {
       dispatch(getActionCurrSongIdx(songIdx))
       togglePlaying(false) // toggle will always switch it to true
+    }
+  }
+
+  function handleMainPlayClick() {
+    if (currPlayerStationIdx === currViewedStationIdx) {
+      togglePlaying(isPlaying)
+    } else {
+      setCurrStationIdx(currViewedStationIdx)
+      setCurrSongIdx(0)
+      togglePlaying(false)
     }
   }
 
@@ -227,13 +231,14 @@ export function StationDetails() {
           </div>
           <div className="menu-station flex">
             <div className="right-menu-btns flex">
-              <button className={`play-btn btn ${currStation.songs.length > 0 ? '' : ' inactive'}`} onClick={() => { handleSongClick() }}><span>
-                {isPlaying ? (<svg width="20" height="20" viewBox="0 0 24 24">
-                  <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
-                  >
-                  </path>
-                </svg>
-                ) : (
+              <button className={`play-btn btn ${currStation.songs.length > 0 ? '' : ' inactive'}`} onClick={() => { handleMainPlayClick() }}><span>
+                {isPlaying && currPlayerStationIdx === currViewedStationIdx ? ( //PAUSE SVG
+                  <svg width="20" height="20" viewBox="0 0 24 24">
+                    <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                    >
+                    </path>
+                  </svg>
+                ) : ( //PLAY SVG
                   <svg width="20" height="20" viewBox="0 0 16 16" >
                     <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
                     ></path>
@@ -276,7 +281,7 @@ export function StationDetails() {
                         <Draggable draggableId={song.id} key={song.id} index={idx}>
                           {(providedDraggable) => (
                             <li
-                              className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx ? 'selected' : ''}`}
+                              className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx && currPlayerStationIdx === currViewedStationIdx ? 'selected' : ''}`}
                               ref={providedDraggable.innerRef}
                               {...providedDraggable.draggableProps}
                               {...providedDraggable.dragHandleProps}
@@ -290,8 +295,8 @@ export function StationDetails() {
                               onDoubleClick={() => handleSongClick(idx)}
                             // CLICK OUTSIDE TO unselect
                             >
-                              <button className={`song-num ${idx === currSongIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
-                                {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) ? ( //PAUSE SVG
+                              <button className={`song-num ${idx === currSongIdx && currPlayerStationIdx === currViewedStationIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
+                                {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) && currPlayerStationIdx === currViewedStationIdx ? ( //PAUSE SVG
                                   <svg height='16' width='16' viewBox="0 0 24 24">
                                     <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
                                       fill="white">
@@ -302,7 +307,7 @@ export function StationDetails() {
                                     fill="white">
                                   </path>
                                   </svg>
-                                ) : isPlaying && currSongIdx === idx && isHovered !== idx ? ( //EQUALIZER GIF
+                                ) : isPlaying && currSongIdx === idx && isHovered !== idx && currPlayerStationIdx === currViewedStationIdx ? ( //EQUALIZER GIF
                                   <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
                                 ) : (
                                   idx + 1
@@ -312,7 +317,7 @@ export function StationDetails() {
                               <div className="song-info">
                                 <img className="song-img" src={song.imgUrl} alt="" />
                                 <div className="station-title-artist flex">
-                                  <div className={`song-title ${idx === currSongIdx ? 'active-song' : ''}`} title={song.title}>
+                                  <div className={`song-title ${idx === currSongIdx && currPlayerStationIdx === currViewedStationIdx ? 'active-song' : ''}`} title={song.title}>
                                     {song.title}
                                   </div>
                                   <a className="song-artist" href="#" title={song.artist}>

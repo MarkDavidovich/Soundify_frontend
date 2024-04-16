@@ -1,52 +1,15 @@
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { getActionCurrStationIdx, setCurrSongIdx, setCurrStationIdx, togglePlaying } from '../store/actions/player.actions'
 import { StationPreview } from './StationPreview'
 import { useNavigate } from "react-router-dom"
-import { FastAverageColor } from 'fast-average-color'
-import { useState } from 'react'
+import { useSelector } from 'react-redux'
 
-export function MiniHomeStationList({ stations }) {
+export function MiniHomeStationList({ activeStation, setActiveStation, onPlay, handleStationClick, stations, extractColor }) {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const [activeStation, setActiveStation] = useState(null)
-  const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
+  const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
   //! THIS WILL SHOW THE 8 LAST STATIONS THE USER LISTENED TO
 
-  function onPlay(ev, station) {
-    ev.stopPropagation()
-    setActiveStation(station)
-    const clickedStationIdx = stations.findIndex(s => s._id === station._id)
-    if (clickedStationIdx === currStationIdx) {
-      togglePlaying(isPlaying)
-    } else if (clickedStationIdx !== currStationIdx) {
-      setCurrStationIdx(clickedStationIdx)
-      setCurrSongIdx(0)
-      togglePlaying(false)
-    } else {
-      togglePlaying(true)
-    }
-  }
-
-  async function extractColor(stationImgUrl, setBackgroundColor) {
-    if (!stationImgUrl) return
-    const fac = new FastAverageColor()
-    try {
-      const color = await fac.getColorAsync(stationImgUrl)
-      // setBackgroundColor(color.hex)
-      document.body.style.setProperty('--bg-color', [color.hex])
-    } catch (error) {
-      console.error('Error extracting color:', error)
-    }
-  }
-
-  function handleStationClick(station) {
-    dispatch(getActionCurrStationIdx(station))
-  }
 
   if (!stations) return <div></div>
-
   return (
     <section className="mini-stations-container">
       <div className='mini-station-list'>
@@ -64,6 +27,7 @@ export function MiniHomeStationList({ stations }) {
                 isMini={true}
                 setActiveStation={setActiveStation}
                 activeStation={activeStation}
+                isPlaying={isPlaying}
               />
             </div>
           ))

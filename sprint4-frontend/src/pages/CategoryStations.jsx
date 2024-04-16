@@ -3,6 +3,7 @@ import { useParams } from "react-router"
 import { categoryService } from "../services/category.service"
 import { useEffect, useState } from "react"
 import { StationList } from "../cmps/StationList"
+import { MainStationList } from "../cmps/MainStationList"
 
 export function CategoryStations() {
     const { id } = useParams()
@@ -29,8 +30,11 @@ export function CategoryStations() {
     if (!category) return <div>Loading...</div>
     return <div>
 
-        <h1>{category.name}</h1>
-        <StationList stations={category.stations} stationName={category.name} />
+        <MainStationList
+            stations={category.stations}
+            listName={category.name}
+            type={'big'}
+        />
     </div>
 
 }

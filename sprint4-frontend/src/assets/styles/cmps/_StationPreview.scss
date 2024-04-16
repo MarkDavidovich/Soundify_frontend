@@ -55,6 +55,12 @@
             transition: all 0.3s;
             translate: -10px 0;
             box-shadow: 0 8px 8px rgba(0, 0, 0, .3);
+
+            &.static {
+                visibility: visible;
+                opacity: 1;
+                translate: -10px -20px;
+            }
         }
     }
 
@@ -66,10 +72,6 @@
         }
     }
 
-    .static {
-        visibility: visible !important;
-        opacity: 1 !important;
-        translate: -10px -20px !important;
-    }
+
 
 }

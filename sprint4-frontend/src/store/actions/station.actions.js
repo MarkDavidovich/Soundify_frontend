@@ -2,7 +2,7 @@ import { stationService } from '../../services/station.service.js'
 
 import { store } from '../store.js'
 import { showSuccessMsg, showErrorMsg } from '../../services/event-bus.service.js'
-import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_SORT, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION } from '../reducers/station.reducer.js'
+import { ADD_STATION, REMOVE_STATION, SET_FILTER, SET_SORT, SET_STATIONS, UNDO_REMOVE_STATION, UPDATE_STATION, SET_CURR_VIEWED_STATION_IDX } from '../reducers/station.reducer.js'
 
 // Action Creators:
 export function getActionRemoveStation(stationId) {
@@ -24,6 +24,13 @@ export function getActionUpdateStation(station) {
     }
 }
 
+export function getActionSetCurrViewedStationIdx(stationIdx) {
+    return {
+        type: SET_CURR_VIEWED_STATION_IDX,
+        stationIdx
+    }
+}
+
 
 export async function loadStations() {
 
@@ -33,7 +40,7 @@ export async function loadStations() {
         console.log("🚀 ~ file: station.actions.js:34 ~ loadStations ~ filterBy:", filterBy)
         const sortBy = store.getState().stationModule.sortBy
 
-        const stations = await stationService.query(filterBy,sortBy)
+        const stations = await stationService.query(filterBy, sortBy)
         console.log('Stations from DB:', stations)
         store.dispatch({
             type: SET_STATIONS,
@@ -70,7 +77,7 @@ export async function addStation(station) {
 }
 
 export async function updateStation(station) {
-console.log("🚀 ~ file: station.actions.js:73 ~ updateStation ~ station:", station)
+    console.log("🚀 ~ file: station.actions.js:73 ~ updateStation ~ station:", station)
 
     try {
         const savedStation = await stationService.save(station)
@@ -116,6 +123,14 @@ export function onRemoveStationOptimistic(stationId) {
         })
 }
 
+export async function setCurrViewedStationIdx(stationIdx) {
+    try {
+        store.dispatch(getActionSetCurrViewedStationIdx(stationIdx))
+    } catch (err) {
+        console.log('cannot set station', err)
+        throw err
+    }
+}
 
 // export function updateStation(station) {
 //     return stationService.save(station)

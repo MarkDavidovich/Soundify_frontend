@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router"
 import useMediaQuery from '@mui/material/useMediaQuery'
+import { stationService } from "../../services/station.service"
+import { setCurrViewedStationIdx } from "../../store/actions/station.actions"
 
 
 export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
@@ -38,7 +40,9 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     function handleStationClick(station) {
-        dispatch(getActionCurrStationIdx(station))
+        const stationIdx = stationService.getIdxById(station._id)
+        setCurrViewedStationIdx(stationIdx)
+        // dispatch(getActionCurrStationIdx(station))
     }
 
     function setSidePreviewLineClass() {
@@ -61,7 +65,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
             <div className={'station-preview-details' + dynamicClass}>
                 <span className="station-name">{station.name}</span>
 
-                {station._id !==likedStationIdx &&
+                {station._id !== likedStationIdx &&
                     <span className='station-created'>{station.createdBy.fullname}</span>
                 }
                 {station._id === likedStationIdx && (
