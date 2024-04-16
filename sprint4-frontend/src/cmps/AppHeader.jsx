@@ -151,20 +151,26 @@ export function AppHeader() {
                     </div>
 
                 </section>
-                <button className='login-btn'>
-                    <Link to="/login">
-                        Login
-                    </Link>
-                </button>
+                {!user &&
+                    <button className='login-btn'>
+
+                        <Link to="/login">
+                            Login
+                        </Link>
+                    </button>
+                }
                 {user ? (
-            < section className="login-user">
-                <span to={`/user/${user._id}`}>Hello {user.fullname}</span>
-                <button className="logout-btn btn" onClick={onLogout}>Logout</button>
-            </ section >
-        ) : (
-            <section className="login-layout">
-            </section>
-        )}
+                    < section className="login-user">
+                       
+                        <button className="logout-btn btn" onClick={onLogout}>
+                        <span to={`/user/${user._id}`}>
+                             {user.fullname}</span>
+                        </button>
+                    </ section >
+                ) : (
+                    <section className="login-layout">
+                    </section>
+                )}
             </header>
         </>
     )
@@ -209,9 +215,9 @@ export function AppHeader() {
 //     }, [])
 
 
-//     // ------------------------------------------------------ // 
+//     // ------------------------------------------------------ //
 
-//     // ------------------------------------------------------ // 
+//     // ------------------------------------------------------ //
 
 //     async function onLogin(credentials) {
 //         try {

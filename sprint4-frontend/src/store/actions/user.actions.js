@@ -28,6 +28,7 @@ export async function removeUser(userId) {
 }
 
 export async function login(credentials) {
+    console.log("🚀 ~ file: user.actions.js:31 ~ login ~ credentials:", credentials)
     try {
         const user = await userService.login(credentials)
         store.dispatch({
@@ -43,6 +44,7 @@ export async function login(credentials) {
 }
 
 export async function signup(credentials) {
+    console.log("🚀 ~ file: user.actions.js:47 ~ signup ~ credentials:", credentials)
     try {
         const user = await userService.signup(credentials)
         store.dispatch({

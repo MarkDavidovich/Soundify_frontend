@@ -19,6 +19,7 @@ export function LoginSignup() {
     }
 
     async function _login(credentials) {
+        console.log("🚀 ~ file: LoginSignup.jsx:22 ~ _login ~ credentials:", credentials)
         try {
             await login(credentials)
             showSuccessMsg('Logged in successfully')
@@ -39,7 +40,9 @@ export function LoginSignup() {
     }
 
     function onUploaded(imgUrl) {
-        setCredentials({ ...credentials, imgUrl })
+        console.log("🚀 ~ file: LoginSignup.jsx:42 ~ onUploaded ~ imgUrl:", imgUrl)
+        setCredentials(currentCredentials => ({ ...currentCredentials, imgUrl }))
+        console.log("🚀 ~ file: LoginSignup.jsx:46 ~ onUploaded ~ credentials:", credentials)
     }
 
     return (
