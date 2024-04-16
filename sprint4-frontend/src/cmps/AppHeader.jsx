@@ -8,7 +8,7 @@ import { LoginSignup } from './LoginSignup.jsx'
 import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setSearchTerm } from '../store/actions/system.actions.js'
-
+import { useMediaQuery } from '@mui/material'
 
 export function AppHeader() {
     const dispatch = useDispatch()
