@@ -13,6 +13,113 @@
         text-decoration: underline;
     }
 
+    &.mobile {
+        .info-station {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .text-station {
+
+            .user-info,
+            .playlist {
+                display: none;
+            }
+
+        }
+
+        .menu-station {
+            height: 56px;
+            padding-inline: 16px;
+            justify-content: end;
+            padding-bottom: 0;
+
+            .right-menu-btns {
+                .play-btn {
+                    width: 44px;
+                    height: 44px;
+                }
+            }
+        }
+
+        .songs-details-container {
+            padding-inline: 8px;
+
+            .horizontal-line,
+            .heading-station {
+                display: none;
+            }
+
+            .song-preview {
+                height: 54px;
+                display: grid;
+                align-items: center;
+                transition: background-color 0.3s ease;
+                cursor: default;
+                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                padding-inline-start: 0;
+
+
+
+                .song-num {
+                    display: none;
+                }
+
+                .song-info {
+                    padding-left: 10px;
+                    display: flex;
+                    grid-area: title;
+
+                    .station-title-artist {
+                        flex-direction: column;
+                        margin-left: 9px;
+                        align-items: flex-start;
+                        // padding-block: 10px;
+                        justify-content: center;
+                        text-overflow: ellipsis;
+
+                        .song-title {
+                            resize: horizontal;
+                            line-height: 1.6;
+
+
+                        }
+
+                        .song-artist {
+                            resize: horizontal;
+                            line-height: 0.9;
+                        }
+                    }
+
+                }
+
+                .song-album-container {
+                    display: none;
+                }
+
+                .song-added-container {
+                    display: none;
+                }
+
+                .song-duration-container {
+                    .song-duration {
+                        display: none;
+                    }
+
+                    .options {
+                        opacity: 1;
+                    }
+                }
+
+            }
+
+        }
+
+    }
 
     .info-station {
         position: relative;
@@ -174,7 +281,7 @@
 
         >* {
             margin: 0;
-            margin-right: 32px;
+            // margin-right: 32px;
         }
 
         .play-btn {
@@ -306,10 +413,6 @@
                 a {
                     color: $clr6;
                 }
-            }
-
-            .dragging {
-                // pointer-events: none;
             }
 
             grid-template-columns: 16px minmax(120px, 6fr) minmax(120px, 4fr) minmax(120px, 3fr) minmax(120px, 1fr);

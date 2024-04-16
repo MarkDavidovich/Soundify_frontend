@@ -16,6 +16,7 @@ export function HomePage() {
     const width2 = useMediaQuery('(min-width: 960px)')
     const width1 = useMediaQuery('(min-width: 850px)')
 
+
     const stations = useSelector(storeState => storeState.stationModule.stations)
     const homeMainViewRef = useRef(null)
     const dispatch = useDispatch()

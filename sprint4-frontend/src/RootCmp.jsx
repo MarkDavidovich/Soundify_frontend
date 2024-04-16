@@ -51,7 +51,7 @@ export function RootCmp() {
         <div className={'main-layout' + dynamicClass}>
             <SideBar />
             <main
-                style={{ position: 'relative' }} className="main-view"
+                style={{ position: 'relative' }} className={`main-view ${matchesMobile && ' mobile'}`}
                 ref={mainRef}
             >
                 <AppHeader

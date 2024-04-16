@@ -58,7 +58,7 @@ export function SongPreview({ currStation, currSong, handleSongLike }) {
 
   return (
 
-    <div className={currSong ? 'song-details' : 'empty-details'} >
+    <div div className={currSong ? 'song-details' : 'empty-details'} >
       <img className='song-img' src={currSong?.imgUrl || ''} />
       <div className='title-artist-container' >
         <div className='song-title' >
@@ -85,5 +85,6 @@ export function SongPreview({ currStation, currSong, handleSongLike }) {
           </svg>
         )}
       </button>
-    </div>)
+    </div>
+  )
 }

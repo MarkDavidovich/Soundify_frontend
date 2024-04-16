@@ -3,7 +3,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { FastAverageColor } from 'fast-average-color'
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
-
+import { useMediaQuery } from "@mui/material"
 import { showErrorMsg, showSuccessMsg } from "../services/event-bus.service"
 
 import { getActionUpdateStation, updateStation, setCurrViewedStationIdx } from "../store/actions/station.actions"
@@ -33,6 +33,7 @@ export function StationDetails() {
   const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
   const likedStationIdx = '661bb9089f9e9468991f1be7'
   const { id } = params
+  const matchesMobile = useMediaQuery('(max-width: 480px)')
 
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
@@ -211,7 +212,7 @@ export function StationDetails() {
 
   return (
     <>
-      <div className="station-details flex column">
+      <div className={`station-details${matchesMobile ? ' mobile' : ''} flex column`}>
         <div className="station-data-container">
           <div className="info-station flex">
             <div className="station-img-container">
@@ -245,9 +246,8 @@ export function StationDetails() {
                   </svg>)}
 
               </span></button>
-              <button className="opt-btn btn"><span>...</span></button>
             </div>
-            <button className="display-station-btn btn flex">
+            {/* <button className="display-station-btn btn flex">
               <span>List</span>
               <svg height='16' width='16' viewBox="0 0 16 16" >
                 <path d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"
@@ -257,7 +257,7 @@ export function StationDetails() {
                 </path>
               </svg>
 
-            </button>
+            </button> */}
           </div>
           {
             currStation.songs.length > 0 &&
@@ -348,7 +348,7 @@ export function StationDetails() {
                                 </button>
                               </div>
                               <div className="song-duration-container">
-                                <div>{song.duration}</div>
+                                <div className="song-duration">{song.duration}</div>
                                 <button className="options" onClick={() => toggleModal(song.id)}>
                                   <svg width="16" height="16" viewBox="0 0 16 16">
                                     <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"

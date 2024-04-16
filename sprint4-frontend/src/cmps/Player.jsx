@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player'
 import { togglePlaying, getActionCurrSongIdx } from '../store/actions/player.actions.js'
 import { useDispatch } from 'react-redux'
 import { utilService } from '../services/util.service.js'
+import { useMediaQuery } from '@mui/material'
 
 export function Player() {
 
@@ -13,6 +14,7 @@ export function Player() {
     const currSongIdx = useSelector(storeState => storeState.playerModule.currSongIdx)
     const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
     const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
+    const matchesMobile = useMediaQuery('(max-width: 480px)')
 
     // Volume states
     const [volume, setVolume] = useState(0.5)
@@ -141,14 +143,16 @@ export function Player() {
 
     // if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
 
+    const dynamicClass = matchesMobile ? ' mobile' : ''
+
     return (
-        <footer className={`app-footer ${!currSong ? 'inactive' : ''}`}>
-            <div className={"song-details-container"}>
+        <footer className={`app-footer${dynamicClass} ${!currSong ? 'inactive' : ''}`}>
+            {!matchesMobile && <div className={"song-details-container"}>
                 <SongPreview
                     currSong={currSong}
                     handleSongLike={handleSongLike}
                     currStation={currStation} />
-            </div>
+            </div>}
             <div className={`controls-main-container `}>
                 <div className='player-controls-main'>
                     <div className="player-controls-left">
@@ -250,7 +254,7 @@ export function Player() {
                 <button className="queue-btn">📃</button>
                 <button className="connect-device-btn">🖥️</button> */}
 
-                <div className='volume-controls'>
+                {!matchesMobile && <div className='volume-controls'>
                     <button className="mute-btn" onClick={handleMute}>
                         {isMuted || volume === 0 ? (
                             <svg width="16" height="16" viewBox="0 0 17 16" >
@@ -327,7 +331,7 @@ export function Player() {
                             />
                         </div>
                     </div>
-                </div>
+                </div>}
                 {/* <button className="mini-player-btn">mini player</button> */}
                 {/* <button className="full-screen-btn">full screen</button> */}
             </div>

@@ -5,6 +5,11 @@
     background-color: $clr8;
     border-radius: 7px;
 
+    &.mobile {
+        border-radius: 0;
+        overflow-y: hidden;
+    }
+
     .list-name {
         font-family: circular-bold;
         font-size: 24px;

@@ -11,6 +11,17 @@
     margin-bottom: 3px;
     overflow: hidden;
 
+    &.mobile {
+        .controls-main-container {
+            width: 100%;
+            align-items: center;
+        }
+
+        .player-extra-controls {
+            display: none;
+        }
+    }
+
     .controls-main-container {
         display: flex;
         flex-direction: column;
