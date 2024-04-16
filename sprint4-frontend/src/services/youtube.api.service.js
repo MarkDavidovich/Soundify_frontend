@@ -112,7 +112,6 @@ function cleanTitle(title) {
         /lyrics/gi,
         /video clip/gi,
         /VEVO/gi,
-        /d+/gi,
     ]
 
     let cleanedTitle = title
