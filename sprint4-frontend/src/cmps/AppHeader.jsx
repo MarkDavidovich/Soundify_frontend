@@ -163,8 +163,7 @@ export function AppHeader() {
                     < section className="login-user">
                        
                         <button className="logout-btn btn" onClick={onLogout}>
-                        <span to={`/user/${user._id}`}>
-                             {user.fullname}</span>
+                        <img className='user-img' src={user.imgUrl}  />
                         </button>
                     </ section >
                 ) : (

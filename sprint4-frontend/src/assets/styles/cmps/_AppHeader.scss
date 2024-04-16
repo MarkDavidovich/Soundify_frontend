@@ -122,6 +122,25 @@
         }
     }
 
+
+    .login-user {
+        .logout-btn {
+            width: 48px;
+            background-color: rgba(0,0,0,.54);
+            border: 0px;
+            border-radius:4em;
+            text-decoration: none;
+            .user-img {
+                border-radius: 50%;
+
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+    }
+
+
     // .user-info .btn-link {
     //     color: $clr2;
     // }
