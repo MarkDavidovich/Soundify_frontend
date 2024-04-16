@@ -7,7 +7,11 @@
 
     &.mobile {
         border-radius: 0;
-        overflow-y: hidden;
+
+        // overflow-y: hidden;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     .list-name {
@@ -24,7 +28,6 @@
 
     &::-webkit-scrollbar-track {
         background: transparent;
-
 
     }
 

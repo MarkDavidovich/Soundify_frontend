@@ -388,7 +388,7 @@ export function StationDetails() {
             />
           }
         </div >
-        <MainViewFooter />
+        {!matchesMobile && <MainViewFooter />}
       </div >
     </>
   )

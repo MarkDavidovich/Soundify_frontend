@@ -52,7 +52,8 @@ export function HomePage() {
 
     const stations1 = stations.slice(0, 8)
     const stations2 = stations.slice(9, 17)
-    const stations3 = stations.slice(18)
+    const stations3 = stations.slice(18, 25)
+    const stations4 = stations.slice(26, 30)
 
 
     return (
@@ -72,7 +73,7 @@ export function HomePage() {
 
                 <MainStationList
                     stations={stations1}
-                    listName={'User favorites'}
+                    listName={'Made for you'}
                     amount={amount}
                     type={'big'}
                 />
@@ -85,8 +86,12 @@ export function HomePage() {
                     type={'big'}
                 />
 
-
-
+                <MainStationList
+                    stations={stations4}
+                    listName={'Your top mixes'}
+                    amount={amount}
+                    type={'big'}
+                />
             </section >
         </>
     )
