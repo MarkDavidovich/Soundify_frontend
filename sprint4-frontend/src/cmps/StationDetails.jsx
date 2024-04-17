@@ -245,7 +245,7 @@ export function StationDetails() {
   return (
     <>
       <div ref={dummyRef} style={{
-        height: '490px',
+        height: '501px',
         position: 'absolute',
         top: 0,
         right: 0,

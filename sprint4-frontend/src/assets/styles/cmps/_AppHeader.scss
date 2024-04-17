@@ -10,16 +10,20 @@
     align-items: center;
     padding-inline: 16px;
     padding-block: 42px;
-    background-color: var(--bg-color);
+    background-color: $dynamic-clr;
     transition: all 0.8s ease-out;
 
     &.Details-intersected {
-        filter: brightness(0.7);
-        .searchbar-container{
-            .station-name{
+        background-color: color-mix(in srgb, $dynamic-clr, rgb(20, 20, 20));
+
+        .searchbar-container {
+            .station-name {
+                padding-left: 8px;
+                padding-top: 7px;
                 opacity: 1;
                 font-size: em(24px);
                 font-family: circular-bold;
+                transition: opacity 0.8s;
             }
         }
     }
@@ -100,7 +104,7 @@
     .searchbar-container {
         display: flex;
 
-        .station-name{
+        .station-name {
             opacity: 0;
         }
 
