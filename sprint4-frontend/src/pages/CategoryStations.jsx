@@ -55,7 +55,6 @@ export function CategoryStations() {
 
         <MainStationList
             stations={category.stations}
-            // listName={category.name}
             type={'big'}
         />
     </section>

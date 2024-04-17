@@ -8364,7 +8364,7 @@
         "createdAt": ""
     },
     {
-        "_id": "",
+        "_id": "661f7004f0666aa45e374b81",
         "name": "Happy Hits",
         "tags": [
             "categories"
@@ -8550,7 +8550,7 @@
         "createdAt": ""
     },
     {
-        "_id": "",
+        "_id": "661f7004f0666aa45e374b82",
         "name": "Lofi Beats",
         "tags": [
             "categories"
@@ -8736,7 +8736,7 @@
         "createdAt": ""
     },
     {
-        "_id": "",
+        "_id": "661f7004f0666aa45e374b83",
         "name": "Ginger Me",
         "tags": [
             "categories"
@@ -8982,7 +8982,7 @@
         "createdAt": ""
     },
     {
-        "_id": "",
+        "_id": "661f7004f0666aa45e374b84",
         "name": "Chillin' on a Dirt Road",
         "tags": [
             "categories"
@@ -9400,6 +9400,228 @@
         ],
         "likedByUsers": [],
         "imgUrl": "https://i.scdn.co/image/ab67706f00000002ac122bacaf283ff31b362030",
+        "createdBy": {
+            "_id": "",
+            "fullname": "Soundify",
+            "imgUrl": "https://i.scdn.co/image/ab67757000003b8255c25988a6ac314394d3fbf5"
+        },
+        "createdAt": ""
+    },
+    {
+        "_id": "661f9c57f0666aa45e374b86",
+        "name": "Right Now",
+        "tags": [
+            "categories"
+        ],
+        "desc": "",
+        "songs": [
+            {
+                "id": "s101",
+                "title": "Blinding Lights",
+                "artist": "The Weeknd",
+                "album": "After Hours",
+                "url": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+                "addedBy": "",
+                "duration": "3:20",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s102",
+                "title": "Watermelon Sugar",
+                "artist": "Harry Styles",
+                "album": "Fine Line",
+                "url": "https://www.youtube.com/watch?v=E07s5ZYygMg",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0277fdcfda6535601aff081b6a",
+                "addedBy": "",
+                "duration": "2:54",
+                "addedAt": "1712378723945",
+                "isLiked": false
+            },
+            {
+                "id": "s103",
+                "title": "Dance Monkey",
+                "artist": "Tones and I",
+                "album": "The Kids Are Coming",
+                "url": "https://www.youtube.com/watch?v=q0hyYWKXF0Q",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02c6f7af36ecdc3ed6e0a1f169",
+                "addedBy": "",
+                "duration": "3:29",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s104",
+                "title": "Bad Guy",
+                "artist": "Billie Eilish",
+                "album": "When We All Fall Asleep, Where Do We Go?",
+                "url": "https://www.youtube.com/watch?v=DyDfgMOUjCI",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0250a3147b4edd7701a876c6ce",
+                "addedBy": "",
+                "duration": "3:14",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s105",
+                "title": "Old Town Road",
+                "artist": "Lil Nas X feat. Billy Ray Cyrus",
+                "album": "7",
+                "url": "https://www.youtube.com/watch?v=w2Ov5jzm3j8",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02c0e7bf5cdd630f314f20586a",
+                "addedBy": "",
+                "duration": "2:37",
+                "addedAt": "1712378763245",
+                "isLiked": false
+            },
+            {
+                "id": "s106",
+                "title": "Levitating",
+                "artist": "Dua Lipa feat. DaBaby",
+                "album": "Future Nostalgia",
+                "url": "https://www.youtube.com/watch?v=TUVcZfQe-Kw",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e024bc66095f8a70bc4e6593f4f",
+                "addedBy": "",
+                "duration": "3:23",
+                "addedAt": "1712378737445",
+                "isLiked": false
+            },
+            {
+                "id": "s107",
+                "title": "Peaches",
+                "artist": "Justin Bieber feat. Daniel Caesar, Giveon",
+                "album": "Justice",
+                "url": "https://www.youtube.com/watch?v=tQ0yjYUFKAE",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02e6f407c7f3a0ec98845e4431",
+                "addedBy": "",
+                "duration": "3:18",
+                "addedAt": "17123787338945",
+                "isLiked": false
+            },
+            {
+                "id": "s108",
+                "title": "Good 4 U",
+                "artist": "Olivia Rodrigo",
+                "album": "SOUR",
+                "url": "https://www.youtube.com/watch?v=gNi_6U5Pm_o",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a91c10fe9472d9bd89802e5a",
+                "addedBy": "",
+                "duration": "2:58",
+                "addedAt": "1712378743145",
+                "isLiked": false
+            },
+            {
+                "id": "s109",
+                "title": "Drivers license",
+                "artist": "Olivia Rodrigo",
+                "album": "SOUR",
+                "url": "https://www.youtube.com/watch?v=ZmDBbnmKpqQ",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a91c10fe9472d9bd89802e5a",
+                "addedBy": "",
+                "duration": "4:02",
+                "addedAt": "1712378733349",
+                "isLiked": false
+            },
+            {
+                "id": "s110",
+                "title": "Butter",
+                "artist": "BTS",
+                "album": "Butter",
+                "url": "https://www.youtube.com/watch?v=WMweEpGlu_U",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02240447f2da1433d8f4303596",
+                "addedBy": "",
+                "duration": "2:44",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s111",
+                "title": "Take My Breath",
+                "artist": "The Weekend",
+                "album": "Take My Breath",
+                "url": "https://www.youtube.com/watch?v=rhTl_OyehF8",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e024ab2520c2c77a1d66b9ee21d",
+                "addedBy": "",
+                "duration": "3:40",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s112",
+                "title": "Stay",
+                "artist": "The Kid LAROI, Justin Bieber",
+                "album": "F*CK LOVE 3+: OVER YOU",
+                "url": "https://www.youtube.com/watch?v=kTJczUoc26U",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e0241e31d6ea1d493dd77933ee5",
+                "addedBy": "",
+                "duration": "2:22",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            },
+            {
+                "id": "s113",
+                "title": "Heat Waves",
+                "artist": "Glass Animals",
+                "album": "Dreamland",
+                "url": "https://www.youtube.com/watch?v=mRD0-GxqHVo",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02712701c5e263efc8726b1464",
+                "addedBy": "",
+                "duration": "3:58",
+                "addedAt": "1712378763641",
+                "isLiked": false
+            },
+            {
+                "id": "s114",
+                "title": "MONTERO (Call Me By Your Name)",
+                "artist": "Lil Nas X",
+                "album": "MONTERO",
+                "url": "https://www.youtube.com/watch?v=6swmTBVI83k",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02664034dd80e91b28f773598d",
+                "addedBy": "",
+                "duration": "2:18",
+                "addedAt": "1712378743548",
+                "isLiked": false
+            },
+            {
+                "id": "s115",
+                "title": "Kiss Me More",
+                "artist": "Doja Cat ft. SZA",
+                "album": "Planet Her",
+                "url": "https://www.youtube.com/watch?v=0EVVKs6DQLo",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e026c031afd210aed3084f80956",
+                "addedBy": "",
+                "duration": "3:29",
+                "addedAt": "1712378436746",
+                "isLiked": false
+            },
+            {
+                "id": "s116",
+                "title": "INDUSTRY BABY",
+                "artist": "Lil Nas X, Jack Harlow",
+                "album": "MONTERO",
+                "url": "https://www.youtube.com/watch?v=UTHLKHL_whs",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02ba26678947112dff3c3158bf",
+                "addedBy": "",
+                "duration": "3:32",
+                "addedAt": "1712378763347",
+                "isLiked": false
+            },
+            {
+                "id": "s117",
+                "title": "Deja vu",
+                "artist": "Olivia Rodrigo",
+                "album": "SOUR",
+                "url": "https://www.youtube.com/watch?v=cii6ruuycQA",
+                "imgUrl": "https://i.scdn.co/image/ab67616d00001e02a91c10fe9472d9bd89802e5a",
+                "addedBy": "",
+                "duration": "3:35",
+                "addedAt": "1712378733745",
+                "isLiked": false
+            }
+        ],
+        "likedByUsers": [],
+        "imgUrl": "https://i.scdn.co/image/ab67616d00001e028d1bb74e72d32237fdecc4d5",
         "createdBy": {
             "_id": "",
             "fullname": "Soundify",
