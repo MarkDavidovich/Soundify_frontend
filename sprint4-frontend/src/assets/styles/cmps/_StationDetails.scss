@@ -31,6 +31,9 @@
         }
 
         .menu-station {
+            position: sticky;
+            top: 56px;
+            z-index: 100;
             height: 56px;
             padding-inline: 16px;
             justify-content: end;
