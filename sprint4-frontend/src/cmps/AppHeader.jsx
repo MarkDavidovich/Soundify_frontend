@@ -118,6 +118,7 @@ export function AppHeader() {
                 top: 0,
                 right: 0,
                 left: 0,
+                pointerEvents: 'none',
             }}></div>
             <header ref={headerRef} className={`main-view-header ${headerClass}`}>            {/* <header ref={headerRef} className={`main-view-header`}> */}
                 {!matchesMobile && <section className="prev-next-container">
