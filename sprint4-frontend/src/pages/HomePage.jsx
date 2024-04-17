@@ -16,8 +16,12 @@ export function HomePage() {
     const width2 = useMediaQuery('(min-width: 960px)')
     const width1 = useMediaQuery('(min-width: 850px)')
 
+    const likedStationId = '661bb9089f9e9468991f1be7'
 
-    const stations = useSelector(storeState => storeState.stationModule.stations)
+    const stations = useSelector(storeState => {
+        return storeState.stationModule.stations.filter(station => station._id !== likedStationId)
+    })
+    // const stations = useSelector(storeState => storeState.stationModule.stations)
     const homeMainViewRef = useRef(null)
     const dispatch = useDispatch()
 
