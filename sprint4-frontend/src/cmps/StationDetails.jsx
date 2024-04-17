@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useLocation, useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { FastAverageColor } from 'fast-average-color'
@@ -35,6 +35,8 @@ export function StationDetails() {
   const { id } = params
   const matchesMobile = useMediaQuery('(max-width: 480px)')
 
+  const dummyRef = useRef()
+  const headingStationRef = useRef()
 
   async function extractColor(stationImgUrl, setBackgroundColor) {
     if (!stationImgUrl) return
@@ -58,8 +60,38 @@ export function StationDetails() {
       dispatch(getActionUpdateStation(updatedStation))
     })
 
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries
+        if (!entry.isIntersecting) {
+          headingStationRef.current.classList.add('intersected')
+        } else {
+          headingStationRef.current.classList.remove('intersected')
+        }
+      },
+      {
+        root: null,
+        threshold: 0.1,
+        rootMargin: '0px',
+      }
+    )
+
+    if (dummyRef.current) {
+      observer.observe(dummyRef.current)
+
+      return () => {
+        socketService.off(SOCKET_EVENT_STATION_UPDATED)
+
+        if (dummyRef.current) {
+          observer.unobserve(dummyRef.current)
+        }
+      }
+
+    }
+
     return () => {
-      socketService.off(SOCKET_EVENT_STATION_UPDATED)
+
     }
 
 
@@ -212,6 +244,13 @@ export function StationDetails() {
 
   return (
     <>
+      <div ref={dummyRef} style={{
+        height: '490px',
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        left: 0,
+      }}></div>
       <div className={`station-details${matchesMobile ? ' mobile' : ''} flex column`}>
         <div className="station-data-container">
           <div className="info-station flex">
@@ -262,7 +301,7 @@ export function StationDetails() {
           {
             currStation.songs.length > 0 &&
             <div className="songs-details-container">
-              <div className="heading-station">
+              <div ref={headingStationRef} className="heading-station">
                 <span className="hash">#</span>
                 <span className="title">Title</span>
                 <span className="album">Album</span>
@@ -272,112 +311,113 @@ export function StationDetails() {
                 </span>
               </div>
               <div className="horizontal-line"></div>
-
-              <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-                <Droppable droppableId="station-droppable">
-                  {(provided, snapshot) => (
-                    <ul {...provided.droppableProps} ref={provided.innerRef}>
-                      {currStation.songs.map((song, idx) => (
-                        <Draggable draggableId={song.id} key={song.id} index={idx}>
-                          {(providedDraggable) => (
-                            <li
-                              className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx && currPlayerStationIdx === currViewedStationIdx ? 'selected' : ''}`}
-                              ref={providedDraggable.innerRef}
-                              {...providedDraggable.draggableProps}
-                              {...providedDraggable.dragHandleProps}
-                              onMouseEnter={() => {
-                                setIsHovered(idx)
-                              }}
-                              onMouseLeave={() => {
-                                setIsHovered(null)
-                              }}
-                              onClick={() => handleSelected(idx)}
-                              onDoubleClick={() => handleSongClick(idx)}
-                            // CLICK OUTSIDE TO unselect
-                            >
-                              <button className={`song-num ${idx === currSongIdx && currPlayerStationIdx === currViewedStationIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
-                                {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) && currPlayerStationIdx === currViewedStationIdx ? ( //PAUSE SVG
-                                  <svg height='16' width='16' viewBox="0 0 24 24">
-                                    <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+              <div className="songs-details-list">
+                <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+                  <Droppable droppableId="station-droppable">
+                    {(provided, snapshot) => (
+                      <ul {...provided.droppableProps} ref={provided.innerRef}>
+                        {currStation.songs.map((song, idx) => (
+                          <Draggable draggableId={song.id} key={song.id} index={idx}>
+                            {(providedDraggable) => (
+                              <li
+                                className={`song-preview clean-list ${snapshot.isDragging ? 'dragging' : ''} ${isSelected === idx && currPlayerStationIdx === currViewedStationIdx ? 'selected' : ''}`}
+                                ref={providedDraggable.innerRef}
+                                {...providedDraggable.draggableProps}
+                                {...providedDraggable.dragHandleProps}
+                                onMouseEnter={() => {
+                                  setIsHovered(idx)
+                                }}
+                                onMouseLeave={() => {
+                                  setIsHovered(null)
+                                }}
+                                onClick={() => handleSelected(idx)}
+                                onDoubleClick={() => handleSongClick(idx)}
+                              // CLICK OUTSIDE TO unselect
+                              >
+                                <button className={`song-num ${idx === currSongIdx && currPlayerStationIdx === currViewedStationIdx ? 'active-song' : ''}`} onClick={() => handleSongClick(idx)}>
+                                  {isPlaying && currSongIdx === idx && (isHovered === idx || isSelected === idx) && currPlayerStationIdx === currViewedStationIdx ? ( //PAUSE SVG
+                                    <svg height='16' width='16' viewBox="0 0 24 24">
+                                      <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                                        fill="white">
+                                      </path>
+                                    </svg>
+                                  ) : isPlaying && (isHovered === idx || isSelected == idx) || !isPlaying && (isHovered === idx) ? (//PLAY SVG
+                                    <svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
                                       fill="white">
                                     </path>
-                                  </svg>
-                                ) : isPlaying && (isHovered === idx || isSelected == idx) || !isPlaying && (isHovered === idx) ? (//PLAY SVG
-                                  <svg height='16' width='16' viewBox="0 0 24 24"><path d="m7.05 3.606 13.49 7.788a.7.7 0 0 1 0 1.212L7.05 20.394A.7.7 0 0 1 6 19.788V4.212a.7.7 0 0 1 1.05-.606z"
-                                    fill="white">
-                                  </path>
-                                  </svg>
-                                ) : isPlaying && currSongIdx === idx && isHovered !== idx && currPlayerStationIdx === currViewedStationIdx ? ( //EQUALIZER GIF
-                                  <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
-                                ) : (
-                                  idx + 1
-                                )}
+                                    </svg>
+                                  ) : isPlaying && currSongIdx === idx && isHovered !== idx && currPlayerStationIdx === currViewedStationIdx ? ( //EQUALIZER GIF
+                                    <img src="https://res.cloudinary.com/dollaguij/image/upload/v1699194219/svg/download_acsgkq.gif" />
+                                  ) : (
+                                    idx + 1
+                                  )}
 
-                              </button>
-                              <div className="song-info">
-                                <img className="song-img" src={song.imgUrl} alt="" />
-                                <div className="station-title-artist flex">
-                                  <div className={`song-title ${idx === currSongIdx && currPlayerStationIdx === currViewedStationIdx ? 'active-song' : ''}`} title={song.title}>
-                                    {song.title}
+                                </button>
+                                <div className="song-info">
+                                  <img className="song-img" src={song.imgUrl} alt="" />
+                                  <div className="station-title-artist flex">
+                                    <div className={`song-title ${idx === currSongIdx && currPlayerStationIdx === currViewedStationIdx ? 'active-song' : ''}`} title={song.title}>
+                                      {song.title}
+                                    </div>
+                                    <a className="song-artist" href="#" title={song.artist}>
+                                      {song.artist}
+                                    </a>
                                   </div>
-                                  <a className="song-artist" href="#" title={song.artist}>
-                                    {song.artist}
+                                </div>
+                                <div className="song-album-container">
+                                  <a className="song-album" href="#" title={song.album}>
+                                    {song.album}
                                   </a>
                                 </div>
-                              </div>
-                              <div className="song-album-container">
-                                <a className="song-album" href="#" title={song.album}>
-                                  {song.album}
-                                </a>
-                              </div>
-                              <div className="song-added-container">
-                                <span className="song-added-time">{stationService.formatAddedTime(song.addedAt)}</span>
-                                <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
-                                  {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
-                                    <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
-                                      fill='#1ed760'>
-                                    </path>
-                                  </svg>
-                                  ) : (
-                                    <svg width="16" height="16" role="img" viewBox="0 0 16 16">
-                                      <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="white">
+                                <div className="song-added-container">
+                                  <span className="song-added-time">{stationService.formatAddedTime(song.addedAt)}</span>
+                                  <button className="details-song-like" onClick={() => { toggleIsLiked(idx) }}>
+                                    {checkIfLiked(idx) ? (<svg width="16" height="16" viewBox="0 0 16 16">
+                                      <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm11.748-1.97a.75.75 0 0 0-1.06-1.06l-4.47 4.47-1.405-1.406a.75.75 0 1 0-1.061 1.06l2.466 2.467 5.53-5.53z"
+                                        fill='#1ed760'>
                                       </path>
-                                      <path d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z" fill="white"></path>
                                     </svg>
-                                  )}
-                                </button>
-                              </div>
-                              <div className="song-duration-container">
-                                <div className="song-duration">{song.duration}</div>
-                                <button className="options" onClick={() => toggleModal(song.id)}>
-                                  <svg width="16" height="16" viewBox="0 0 16 16">
-                                    <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
-                                      fill="white">
-                                    </path>
-                                  </svg>
-                                  {isModalOpen[song.id] && (
-                                    <div className="modal">
-                                      <div className="modal-content">
-                                        {/* <span className="close" onClick={handleModalClose}>X</span> */}
-                                        <SongActionModal
-                                          song={song}
-                                          currStation={currStation}
-                                        />
+                                    ) : (
+                                      <svg width="16" height="16" role="img" viewBox="0 0 16 16">
+                                        <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z" fill="white">
+                                        </path>
+                                        <path d="M11.75 8a.75.75 0 0 1-.75.75H8.75V11a.75.75 0 0 1-1.5 0V8.75H5a.75.75 0 0 1 0-1.5h2.25V5a.75.75 0 0 1 1.5 0v2.25H11a.75.75 0 0 1 .75.75z" fill="white"></path>
+                                      </svg>
+                                    )}
+                                  </button>
+                                </div>
+                                <div className="song-duration-container">
+                                  <div className="song-duration">{song.duration}</div>
+                                  <button className="options" onClick={() => toggleModal(song.id)}>
+                                    <svg width="16" height="16" viewBox="0 0 16 16">
+                                      <path d="M3 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm6.5 0a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM16 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                                        fill="white">
+                                      </path>
+                                    </svg>
+                                    {isModalOpen[song.id] && (
+                                      <div className="modal">
+                                        <div className="modal-content">
+                                          {/* <span className="close" onClick={handleModalClose}>X</span> */}
+                                          <SongActionModal
+                                            song={song}
+                                            currStation={currStation}
+                                          />
+                                        </div>
                                       </div>
-                                    </div>
-                                  )}
-                                </button>
-                              </div>
+                                    )}
+                                  </button>
+                                </div>
 
-                            </li>
-                          )}
-                        </Draggable>
-                      ))}
-                      {provided.placeholder}
-                    </ul>
-                  )}
-                </Droppable>
-              </DragDropContext>
+                              </li>
+                            )}
+                          </Draggable>
+                        ))}
+                        {provided.placeholder}
+                      </ul>
+                    )}
+                  </Droppable>
+                </DragDropContext>
+              </div>
             </div>
           }
           {

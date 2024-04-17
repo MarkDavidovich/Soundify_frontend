@@ -31,10 +31,10 @@ export function AppHeader() {
         setInput('')
     }
 
-    const isSearchPage = location.pathname === '/search';
+    const isSearchPage = location.pathname === '/search'
     const isCategoryPage = location.pathname.includes('/category');
-    const isHomePage = location.pathname === '/';
-    const headerClass = isHomePage ? 'intersected' : isSearchPage || isCategoryPage ? 'bgBlack' : '';
+    const isHomePage = location.pathname === '/'
+    const headerClass = isHomePage ? 'intersected' : isSearchPage || isCategoryPage ? 'bgBlack' : ''
     const matchesMobile = useMediaQuery('(max-width: 480px)')
 
 
@@ -45,7 +45,7 @@ export function AppHeader() {
 
         const observer = new IntersectionObserver(
             (entries) => {
-                const [entry] = entries;
+                const [entry] = entries
                 if (!entry.isIntersecting && isStationDetails) {
                     headerRef.current.classList.add('Details-intersected')
                 } else {
@@ -57,7 +57,7 @@ export function AppHeader() {
                 threshold: 0.1,
                 rootMargin: '0px',
             }
-        );
+        )
 
         if (dummyRef.current) {
             observer.observe(dummyRef.current)
@@ -67,7 +67,7 @@ export function AppHeader() {
             if (dummyRef.current) {
                 observer.unobserve(dummyRef.current)
             }
-        };
+        }
     }, [location.pathname])
 
 

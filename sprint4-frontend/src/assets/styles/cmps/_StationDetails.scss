@@ -330,7 +330,7 @@
 
     .songs-details-container {
         // padding: 0 1rem;
-        padding-inline: 24px;
+        // padding-inline: 24px;
         position: relative;
 
 
@@ -338,10 +338,17 @@
         .heading-station {
             display: grid;
             position: sticky;
-            top: 0;
+            top: 83px;
             gap: 10px;
+            padding: 5px 24px;
+
 
             // :stuck {}
+
+            &.intersected {
+                background-color: $clr10;
+
+            }
 
             span {
                 color: $clr14;
@@ -386,6 +393,11 @@
                     display: none;
                 }
             }
+        }
+
+        .songs-details-list {
+            padding-inline: 24px;
+
         }
 
         ul {
