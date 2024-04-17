@@ -67,7 +67,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
                 <span className="station-name">{station.name}</span>
 
                 {station._id !== likedStationIdx &&
-                    <span className='station-created'>{station.createdBy.fullname}</span>
+                    <span className='station-created'>{station.createdBy.fullname || 'Guest'}</span>
                 }
                 {station._id === likedStationIdx && (
                     <>

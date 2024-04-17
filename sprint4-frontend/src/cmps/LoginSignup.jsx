@@ -4,9 +4,10 @@ import { login, signup } from "../store/actions/user.actions"
 import { LoginForm } from "./LoginForm"
 import { useSelector } from "react-redux";
 import { ImgUploader } from "./ImgUploader";
+import { useNavigate } from "react-router";
 
 export function LoginSignup() {
-
+    const navigate = useNavigate()
     const [isSignup, setIsSignUp] = useState(false)
     const user = useSelector(storeState => storeState.userModule.loggedInUser)
     const [credentials, setCredentials] = useState({ username: '', password: '', fullname: '' })
@@ -23,6 +24,7 @@ export function LoginSignup() {
         try {
             await login(credentials)
             showSuccessMsg('Logged in successfully')
+            return navigate('/')
         } catch (err) {
             showErrorMsg('Oops try again')
         }
@@ -33,6 +35,7 @@ export function LoginSignup() {
         try {
             await signup(credentials)
             showSuccessMsg('Signed in successfully')
+            return navigate('/')
         } catch (err) {
 
             showErrorMsg('Oops try again')
