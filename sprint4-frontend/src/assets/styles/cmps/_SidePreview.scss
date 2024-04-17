@@ -1,7 +1,7 @@
 .side-preview-line {
     display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-areas: "img station";
+    grid-template-columns: auto 1fr 30px;
+    grid-template-areas: "img station icon";
     gap: 13px;
     // margin-bottom: 15px;
     // margin-left: 6px;
@@ -38,6 +38,12 @@
             font-size: em(14px);
             color: $clr3;
         }
+    }
+
+    .playing-icon {
+        display: flex;
+        align-items: center;
+        grid-area: icon;
     }
 
     .context-menu {
@@ -157,4 +163,8 @@
     .station-preview-details-collapsed {
         display: none;
     }
+}
+
+.active-station {
+    color: #1ed760;
 }

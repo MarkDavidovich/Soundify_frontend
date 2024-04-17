@@ -1,6 +1,5 @@
 import { Link, NavLink, Navigate, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import routes from '../routes'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { login, logout, signup } from '../store/actions/user.actions.js'
 
@@ -9,6 +8,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { setSearchTerm } from '../store/actions/system.actions.js'
 import { useMediaQuery } from '@mui/material'
+import { setCurrSongIdx, setCurrStationIdx, togglePlaying } from '../store/actions/player.actions.js'
 
 export function AppHeader() {
     const dispatch = useDispatch()
@@ -18,7 +18,8 @@ export function AppHeader() {
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
     const currViewedStationIdx = useSelector(storeState => storeState.stationModule.currViewedStationIdx)
     const currViewedStation = useSelector(storeState => storeState.stationModule.stations[currViewedStationIdx])
-
+    const currPlayerStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
+    const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
 
     const [input, setInput] = useState('')
 
@@ -98,6 +99,17 @@ export function AppHeader() {
     }
     console.log("Script loaded")
 
+
+    function handleMainPlayClick() {
+        if (currPlayerStationIdx === currViewedStationIdx) {
+            togglePlaying(isPlaying)
+        } else {
+            setCurrStationIdx(currViewedStationIdx)
+            setCurrSongIdx(0)
+            togglePlaying(false)
+        }
+    }
+
     return (
         <>
             <div ref={dummyRef} style={{
@@ -124,9 +136,21 @@ export function AppHeader() {
                         </svg>
                     </button>
                     <div className='searchbar-container'>
-                        <div className="play-btn"></div>
+                        {location.pathname !== '/search' && <button className='play-btn' onClick={() => { handleMainPlayClick() }}>
+                            {isPlaying && currPlayerStationIdx === currViewedStationIdx ? ( //PAUSE SVG
+                                <svg width="20" height="20" viewBox="0 0 24 24">
+                                    <path d="M5.7 3a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7H5.7zm10 0a.7.7 0 0 0-.7.7v16.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V3.7a.7.7 0 0 0-.7-.7h-2.6z"
+                                    >
+                                    </path>
+                                </svg>
+                            ) : ( //PLAY SVG
+                                <svg width="20" height="20" viewBox="0 0 16 16" >
+                                    <path d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                                    ></path>
+                                </svg>)}
+                        </button>}
 
-                        {currViewedStation &&
+                        {location.pathname !== '/search' && currViewedStation &&
                             <div className="station-name">
                                 {currViewedStation.name}
                             </div>
