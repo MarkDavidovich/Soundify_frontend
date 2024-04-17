@@ -16,6 +16,9 @@ export function AppHeader() {
 
     const user = useSelector(storeState => storeState.userModule.user)
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
+    const currViewedStationIdx = useSelector(storeState => storeState.stationModule.currViewedStationIdx)
+    const currViewedStation = useSelector(storeState => storeState.stationModule.stations[currViewedStationIdx])
+
 
     const [input, setInput] = useState('')
 
@@ -121,6 +124,13 @@ export function AppHeader() {
                         </svg>
                     </button>
                     <div className='searchbar-container'>
+                        <div className="play-btn"></div>
+
+                        {currViewedStation &&
+                            <div className="station-name">
+                                {currViewedStation.name}
+                            </div>
+                        }
                         {location.pathname === '/search' && <form onSubmit={handleSearch}>
                             <input className="search-page-searchbar"
                                 type="text"
@@ -133,26 +143,28 @@ export function AppHeader() {
                     </div>
 
                 </section>}
-                <div className='login-container'>
-                    {!user &&
-                        <button className='login-btn'>
-                            <Link to="/login">
-                                Login
-                            </Link>
-                        </button>
-                    }
-                    {user ? (
-                        < section className="login-user" style={{ height: '36px' }}>
-                            <button className="logout-btn btn" onClick={onLogout}>
-                                <img className="user-img" src={user.imgUrl} alt="" />
-
+                {!matchesMobile &&
+                    <div className='login-container'>
+                        {!user &&
+                            <button className='login-btn'>
+                                <Link to="/login">
+                                    Login
+                                </Link>
                             </button>
-                        </ section >
-                    ) : (
-                        <section className="login-layout">
-                        </section>
-                    )}
-                </div>
+                        }
+                        {user ? (
+                            < section className="login-user" style={{ height: '36px' }}>
+                                <button className="logout-btn btn" onClick={onLogout}>
+                                    <img className="user-img" src={user.imgUrl} alt="" />
+
+                                </button>
+                            </ section >
+                        ) : (
+                            <section className="login-layout">
+                            </section>
+                        )}
+                    </div>
+                }
             </header>
         </>
     )

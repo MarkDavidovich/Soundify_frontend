@@ -15,6 +15,13 @@
 
     &.Details-intersected {
         filter: brightness(0.7);
+        .searchbar-container{
+            .station-name{
+                opacity: 1;
+                font-size: em(24px);
+                font-family: circular-bold;
+            }
+        }
     }
 
     &.intersected {
@@ -92,6 +99,10 @@
 
     .searchbar-container {
         display: flex;
+
+        .station-name{
+            opacity: 0;
+        }
 
         .search-page-searchbar {
             display: flex;
