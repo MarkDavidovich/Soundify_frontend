@@ -52,8 +52,8 @@ export function HomePage() {
 
     const stations1 = stations.slice(0, 8)
     const stations2 = stations.slice(9, 17)
-    const stations3 = stations.slice(18, 25)
-    const stations4 = stations.slice(26, 30)
+    const stations3 = stations.slice(18, 26)
+    const stations4 = stations.slice(27, 35)
 
 
     return (
