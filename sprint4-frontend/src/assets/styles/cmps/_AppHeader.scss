@@ -12,8 +12,12 @@
     padding-block: 42px;
     border-top-right-radius: 5px;
     background-color: var(--bg-color);
-    transition: background-color 0.8s ease-out;
+    transition: all 0.8s ease-out;
     border-top-right-radius: 5px;
+
+    &.Details-intersected {
+        filter: brightness(0.7);
+    }
 
     &.intersected {
         z-index: 100;
