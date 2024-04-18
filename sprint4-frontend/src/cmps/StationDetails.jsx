@@ -21,7 +21,9 @@ export function StationDetails() {
   const dispatch = useDispatch()
 
   const stations = useSelector(storeState => storeState.stationModule.stations)
+
   const currViewedStationIdx = useSelector(storeState => storeState.stationModule.currViewedStationIdx)
+  const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
   const currStation = useSelector(storeState => storeState.stationModule.stations[currViewedStationIdx])
   const currPlayerStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
 
@@ -220,7 +222,7 @@ export function StationDetails() {
 
   function handleSongClick(songIdx) {
     setCurrStationIdx(currViewedStationIdx)
-    if (songIdx === currSongIdx) { // this will pause a song that is already playing
+    if (songIdx === currSongIdx && currViewedStationIdx === currStationIdx) { // this will pause a song that is already playing but play any different song
       togglePlaying(isPlaying)
 
     } else {

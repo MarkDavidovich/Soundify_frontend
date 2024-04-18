@@ -89,7 +89,7 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
             </article>
         )}
 
-        {filteredStations.map(station => (
+        {filteredStations.map((station, idx) => (
             <div className={'side-preview-container' + dynamicClass} key={station._id}>
                 <Link
                     className={setLinkClass()}
@@ -97,7 +97,9 @@ export function SideList({ stations, onRemoveStation, onUpdateStation }) {
                     to={`/station/${station._id}`}
                 >
 
-                    <SidePreview station={station}
+                    <SidePreview
+                        station={station}
+                        idx={idx}
                         onRemoveStation={onRemoveStation}
                         onContextMenuOpen={handleContextMenuOpen}
                         onContextMenuClose={handleContextMenuClose}

@@ -1,5 +1,6 @@
 .song-list {
     .song-preview {
+        // padding-left: 16px;
 
         .song-info {
             display: grid;
@@ -8,15 +9,10 @@
             column-gap: em(16px);
             grid-template-rows: em(56px);
             align-items: center;
-
-            &:hover {
-                background-color: hsla(0, 0%, 100%, .15);
-                border-radius: 5px;
-            }
-
             grid-template-areas: "img album add-song";
 
             .basic-song-info {
+                padding-left: 16px;
                 grid-area: img;
                 align-items: center;
 

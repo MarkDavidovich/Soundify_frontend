@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react"
-import { UpdateStation } from "./UpdateStation"
-import { getActionCurrStationIdx } from "../../store/actions/player.actions"
 import { useDispatch } from 'react-redux'
 import { useSelector } from "react-redux"
 import { useLocation } from "react-router"
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { stationService } from "../../services/station.service"
 import { setCurrViewedStationIdx } from "../../store/actions/station.actions"
+import { useState } from 'react'
 
 
-export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
+export function SidePreview({ station, idx, onRemoveStation, onTriggerUpdate, isContextMenuOpen, onContextMenuOpen, contextMenuPosition }) {
     const dispatch = useDispatch()
-
+    const isPlaying = useSelector(storeState => storeState.playerModule.isPlaying)
+    const currStationIdx = useSelector(storeState => storeState.playerModule.currStationIdx)
     const currStation = useSelector(storeState => storeState.stationModule.stations[storeState.playerModule.currStationIdx])
 
     const toggleLibrary = useSelector(stateStore => stateStore.layoutModule.toggleLibrary)
@@ -54,7 +53,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
     }
 
     const dynamicClass = matchesMobile ? ' mobile' : toggleLibrary || matchesNarrow ? '-collapsed' : ''
-
+    const isCurrPlayingStation = idx === currStationIdx
 
     return (
         // <div className="side-preview-line"
@@ -64,7 +63,7 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
 
             <img className='side-preview-img' src={station.imgUrl} alt={station.name} />
             <div className={'station-preview-details' + dynamicClass}>
-                <span className="station-name">{station.name}</span>
+                <span className={`station-name ${isCurrPlayingStation && 'active-station'}`}>{station.name}</span>
 
                 {station._id !== likedStationIdx &&
                     <span className='station-created'>{station.createdBy.fullname || 'Guest'}</span>
@@ -82,6 +81,18 @@ export function SidePreview({ station, onRemoveStation, onTriggerUpdate, isConte
                 )}
 
             </div>
+            {isPlaying && isCurrPlayingStation && <div className='playing-icon'> <svg width="16" height="16" viewBox="0 0 16 16">
+                <path d="M10.016 1.125A.75.75 0 0 0 8.99.85l-6.925 4a3.639 3.639 0 0 0 0 6.299l6.925 4a.75.75 0 0 0 1.125-.65v-13a.75.75 0 0 0-.1-.375zM11.5 5.56a2.75 2.75 0 0 1 0 4.88V5.56z"
+                    fill='#1ed760'
+                >
+
+                </path>
+                <path d="M16 8a5.752 5.752 0 0 1-4.5 5.614v-1.55a4.252 4.252 0 0 0 0-8.127v-1.55A5.752 5.752 0 0 1 16 8z"
+                    fill='#1ed760'
+                >
+                </path>
+            </svg>
+            </div>}
 
             {
                 isContextMenuOpen && (
