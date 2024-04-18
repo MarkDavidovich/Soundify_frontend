@@ -126,11 +126,19 @@ export function AppHeader() {
                     <div className='searchbar-container'>
                         <div className="play-btn"></div>
 
-                        {currViewedStation &&
-                            <div className="station-name">
-                                {currViewedStation.name}
+                        {currViewedStation && (
+                            <div>
+                                {matchesMobile ? (
+                                    <div className="station-name mobile">
+                                        {currViewedStation.name} 
+                                    </div>
+                                ) : (
+                                    <div className="station-name">
+                                        {currViewedStation.name}
+                                    </div>
+                                )}
                             </div>
-                        }
+                        )}
                         {location.pathname === '/search' && <form onSubmit={handleSearch}>
                             <input className="search-page-searchbar"
                                 type="text"
