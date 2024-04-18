@@ -81,7 +81,7 @@ export function SidePreview({ station, idx, onRemoveStation, onTriggerUpdate, is
                 )}
 
             </div>
-            {isPlaying && isCurrPlayingStation && <div className='playing-icon'> <svg width="16" height="16" viewBox="0 0 16 16">
+            {isPlaying && isCurrPlayingStation && !toggleLibrary && <div className='playing-icon'> <svg width="16" height="16" viewBox="0 0 16 16">
                 <path d="M10.016 1.125A.75.75 0 0 0 8.99.85l-6.925 4a3.639 3.639 0 0 0 0 6.299l6.925 4a.75.75 0 0 0 1.125-.65v-13a.75.75 0 0 0-.1-.375zM11.5 5.56a2.75 2.75 0 0 1 0 4.88V5.56z"
                     fill='#1ed760'
                 >

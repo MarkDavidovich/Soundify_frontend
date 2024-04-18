@@ -1,6 +1,5 @@
 .search-page {
     padding-inline: 24px;
-    padding-top: 80px;
 
     .search-song-results {
         h2 {
@@ -13,13 +12,17 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        border-top: solid rgba(255, 255, 255, 0.28) 1px;
+        border-block: solid rgba(255, 255, 255, 0.28) 1px;
         // background-color: red;
         margin-bottom: 16px;
 
         .song-preview {
             margin-top: 8px;
             border-radius: 7px;
+
+            &:last-child {
+                padding-bottom: 8px;
+            }
 
 
             &:hover {
