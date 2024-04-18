@@ -332,7 +332,8 @@ export function StationDetails() {
                                 onMouseLeave={() => {
                                   setIsHovered(null)
                                 }}
-                                onClick={() => handleSelected(idx)}
+                                onClick={matchesMobile ? () => handleSongClick(idx) : () => handleSelected(idx)}
+
                                 onDoubleClick={() => handleSongClick(idx)}
                               // CLICK OUTSIDE TO unselect
                               >

@@ -19,16 +19,25 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-        }
 
-        .text-station {
-
-            .user-info,
-            .playlist {
-                display: none;
+            .station-img-container {
+                margin-left: 0;
             }
 
+            .text-station {
+                margin: 0;
+
+                h1.title-station {}
+
+                .user-info,
+                .playlist {
+                    display: none;
+                }
+
+            }
         }
+
+
 
         .menu-station {
             position: sticky;
@@ -55,6 +64,10 @@
                 display: none;
             }
 
+            .songs-details-list {
+                padding: 0;
+            }
+
             .song-preview {
                 height: 54px;
                 display: grid;
@@ -66,7 +79,9 @@
                 justify-content: space-between;
                 padding-inline-start: 0;
 
-
+                &:hover {
+                    background: none;
+                }
 
                 .song-num {
                     display: none;
