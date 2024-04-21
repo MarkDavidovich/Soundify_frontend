@@ -1,12 +1,9 @@
 import React, { useRef, useState } from 'react'
 import { Routes, Route } from 'react-router'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { toggleMobileAction } from './store/actions/layout.actions'
 import routes from './routes'
-import { useDispatch } from 'react-redux'
 import { AppHeader } from './cmps/AppHeader'
 import { Player } from './cmps/Player'
-import { UserDetails } from './pages/UserDetails'
 import { SideBar } from './cmps/sideMenu/SideBar'
 import { useSelector } from 'react-redux'
 
@@ -20,33 +17,6 @@ export function RootCmp() {
     const [scrollTop, setScrollTop] = useState(0)
     const [scrollBottom, setScrollBottom] = useState(0)
 
-
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const scrollTop = mainRef.current.scrollTop
-    //         const mainElement = mainRef.current
-    //         const scrollBottom = mainElement.scrollHeight - mainElement.scrollTop - mainElement.clientHeight
-    //         const currentScrollTop = scrollTop
-    //         const currentScrollBottom = scrollBottom
-    //         setScrollTop(currentScrollTop)
-    //         setScrollBottom(currentScrollBottom)
-
-    //         // console.log("🚀 ~ handleScroll ~ setScrollTop:", currentScrollTop)
-    //         // console.log("🚀 ~ handleScroll ~ setScrollBottom:", currentScrollBottom)
-    //     }
-
-    //     const mainElement = mainRef.current;
-    //     if (mainElement) {
-    //         mainElement.addEventListener('scroll', handleScroll)
-    //     }
-
-    //     return () => {
-    //         if (mainElement) {
-    //             mainElement.removeEventListener('scroll', handleScroll)
-    //         }
-    //     }
-    // }, [])
-
     return (
         <div className={'main-layout' + dynamicClass}>
             <SideBar />
@@ -58,7 +28,6 @@ export function RootCmp() {
                     scrollTop={scrollTop}
                     scrollBottom={scrollBottom}
                 />
-
                 <Routes>
                     {routes.map(
                         route => <Route
@@ -67,8 +36,6 @@ export function RootCmp() {
                             element={route.component}
                             path={route.path}
                         />)}
-
-                    {/* <Route path="user/:id" element={<UserDetails />} /> */}
                 </Routes>
             </main>
             <Player />

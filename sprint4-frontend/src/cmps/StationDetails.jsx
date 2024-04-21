@@ -266,7 +266,7 @@ export function StationDetails() {
                 <img className="user-img" src={currStation.createdBy.imgUrl} alt="" />
                 <div className="created-by">{currStation.createdBy.fullname} • </div>
                 <div className="info-songs">
-                  <span>{currStation.songs.length} Songs, {stationDuration}</span>
+                  {!!currStation.songs.length && <span>{currStation.songs.length} Songs, {stationDuration}</span>}
                 </div>
               </div>
             </div>

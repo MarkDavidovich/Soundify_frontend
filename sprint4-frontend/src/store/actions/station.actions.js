@@ -36,8 +36,6 @@ export async function loadStations() {
 
     try {
         const { filterBy } = store.getState().stationModule
-        // const filterBy = store.getState().stationModule.filterBy
-        console.log("🚀 ~ file: station.actions.js:34 ~ loadStations ~ filterBy:", filterBy)
         const sortBy = store.getState().stationModule.sortBy
 
         const stations = await stationService.query(filterBy, sortBy)
@@ -77,7 +75,6 @@ export async function addStation(station) {
 }
 
 export async function updateStation(station) {
-    console.log("🚀 ~ file: station.actions.js:73 ~ updateStation ~ station:", station)
 
     try {
         const savedStation = await stationService.save(station)
@@ -92,7 +89,6 @@ export async function updateStation(station) {
 
 export function setStationFilter(filterBy = stationService.getEmptyFilterBy()) {
     store.dispatch({ type: SET_FILTER, filterBy })
-    console.log("🚀 ~ file: station.actions.js:89 ~ setStationFilter ~ filterBy:", filterBy)
     return Promise.resolve(filterBy)
 }
 
@@ -100,9 +96,6 @@ export function setStationSort(sortBy) {
     store.dispatch({ type: SET_SORT, sortBy })
 }
 
-
-// Demo for Optimistic Mutation 
-// (IOW - Assuming the server call will work, so updating the UI first)
 export function onRemoveStationOptimistic(stationId) {
     store.dispatch({
         type: REMOVE_STATION,
@@ -131,16 +124,3 @@ export async function setCurrViewedStationIdx(stationIdx) {
         throw err
     }
 }
-
-// export function updateStation(station) {
-//     return stationService.save(station)
-//         .then(savedStation => {
-//             console.log('Updated station:', savedStation)
-//             store.dispatch(getActionUpdateStation(savedStation))
-//             return savedStation
-//         })
-//         .catch(err => {
-//             console.log('Cannot save station', err)
-//             throw err
-//         })
-// }

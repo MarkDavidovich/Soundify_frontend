@@ -6,7 +6,7 @@ export const CLEAR_SEARCH_TERM = 'CLEAR_SEARCH_TERM'
 const initialState = {
   isLoading: false,
   searchTerm: ''
-};
+}
 
 export function systemReducer(state = initialState, action = {}) {
   switch (action.type) {
