@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react"
 
-Slider
-
 export function StationPreview({ station, isMini, onPlay, isPlaying, setActiveStation, activeStation }) {
 
     function handleClick(ev) {
