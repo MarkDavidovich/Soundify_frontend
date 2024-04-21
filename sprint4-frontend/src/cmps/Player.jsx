@@ -44,6 +44,36 @@ export function Player() {
 
     const playerRef = useRef(null) //ref for the reactplayer cmp
 
+    // these functions let you control the playback with the keyboard
+    useEffect(() => {
+        const handleKeyPress = (ev) => {
+
+            if (ev.code === 'Space' || ev.code === 'ArrowUp' || ev.code === 'ArrowDown' || ev.code === 'ArrowLeft' || ev.code === 'ArrowRight') {
+                ev.preventDefault()
+            }
+
+            if (ev.code === 'Space') {
+                play();
+            }
+            else if (ev.code === 'ArrowUp') {
+                setVolume(Math.min(volume + 0.1, 1));
+            } else if (ev.code === 'ArrowDown') {
+                setVolume(Math.max(volume - 0.1, 0));
+            }
+            else if (ev.code === 'ArrowLeft') {
+                goToPrevSong()
+            } else if (ev.code === 'ArrowRight') {
+                goToNextSong()
+            }
+        }
+
+        window.addEventListener('keydown', handleKeyPress)
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress)
+        }
+    }, [volume, play, goToPrevSong, goToNextSong])
+
     function play() {
         if (!currSong) return
         togglePlaying(isPlaying)
@@ -140,8 +170,6 @@ export function Player() {
     useEffect(() => {
         setCurrSongRemainder(totalSongTime - currSongTime) // updates the remaining time whenever the progress or total time changes
     }, [currSongTime, totalSongTime])
-
-    // if (!currSong) return <div className=' flex justify-center'>Nothing to display yet!</div>
 
     const dynamicClass = matchesMobile ? ' mobile' : ''
 
