@@ -53,12 +53,12 @@ export function Player() {
             }
 
             if (ev.code === 'Space') {
-                play();
+                play()
             }
             else if (ev.code === 'ArrowUp') {
-                setVolume(Math.min(volume + 0.1, 1));
+                setVolume(Math.min(volume + 0.1, 1))
             } else if (ev.code === 'ArrowDown') {
-                setVolume(Math.max(volume - 0.1, 0));
+                setVolume(Math.max(volume - 0.1, 0))
             }
             else if (ev.code === 'ArrowLeft') {
                 goToPrevSong()
