@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 
+Slider
 
 export function StationPreview({ station, isMini, onPlay, isPlaying, setActiveStation, activeStation }) {
 
@@ -33,12 +34,12 @@ export function StationPreview({ station, isMini, onPlay, isPlaying, setActiveSt
         )
     }
     return (
-        <article className="station-preview">
-            {isMini && getPlayBtn()}
-            <div className="img-container">
-                <img className="station-img" src={station.imgUrl} alt={`${station.name}`} />
-                {!isMini && getPlayBtn()}
-            </div>
+            <article className="station-preview">
+                {isMini && getPlayBtn()}
+                <div className="img-container">
+                    <img className="station-img" src={station.imgUrl} alt={`${station.name}`} />
+                    {!isMini && getPlayBtn()}
+                </div>
 
             <div className="station-content">
                 <h3 className="station-name">{station.name}</h3>

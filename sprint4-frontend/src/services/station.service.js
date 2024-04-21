@@ -93,22 +93,28 @@ function calcStationDuration(songs) {
 }
 
 function formatAddedTime(addedTime) {
-    const diff = Date.now() - addedTime
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24))
+    const diff = Date.now() - addedTime;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+
     if (days === 0) {
-        const hours = Math.floor(diff / (1000 * 60 * 60))
+        const hours = Math.floor(diff / (1000 * 60 * 60));
         if (hours === 0) {
-            const minutes = Math.floor(diff / (1000 * 60))
-            return `${minutes} minute${minutes === 1 ? '' : 's'} ago`
+            const minutes = Math.floor(diff / (1000 * 60));
+            if (minutes <= 5) {
+                return 'Just now'; // Check for 5 minutes or less
+            } else {
+                return `${minutes} minute${minutes === 1 ? '' : 's'} ago`;
+            }
         } else {
-            return `${hours} hour${hours === 1 ? '' : 's'} ago`
+            return `${hours} hour${hours === 1 ? '' : 's'} ago`;
         }
     } else if (days === 1) {
-        return 'Yesterday'
+        return 'Yesterday';
     } else {
-        return `${days} day${days === 1 ? '' : 's'} ago`
+        return `${days} day${days === 1 ? '' : 's'} ago`;
     }
 }
+
 
 async function addStationMsg(stationId, txt) {
     const savedMsg = await httpService.post(`station/${stationId}/msg`, { txt })
