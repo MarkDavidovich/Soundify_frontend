@@ -33,9 +33,10 @@ export function AppHeader() {
     }
 
     const isSearchPage = location.pathname === '/search'
-    const isCategoryPage = location.pathname.includes('/category');
+    const isCategoryPage = location.pathname.includes('/category')
+    const isStationsPage = location.pathname === '/stations'
     const isHomePage = location.pathname === '/'
-    const headerClass = isHomePage ? 'intersected' : isSearchPage || isCategoryPage ? 'bgBlack' : ''
+    const headerClass = isHomePage ? 'intersected' : isSearchPage || isCategoryPage || isStationsPage ? 'bgBlack' : ''
     const matchesMobile = useMediaQuery('(max-width: 480px)')
 
 
@@ -158,7 +159,7 @@ export function AppHeader() {
                             <div>
                                 {matchesMobile ? (
                                     <div className="station-name mobile">
-                                        {currViewedStation.name} 
+                                        {currViewedStation.name}
                                     </div>
                                 ) : (
                                     <div className="station-name">
@@ -176,8 +177,11 @@ export function AppHeader() {
                                 style={matchesMobile ? { width: '92vw' } : {}}
                             />
                         </form>}
-
                     </div>
+
+                    {isStationsPage &&
+                        <h1>Your Library</h1>
+                    }
 
                 </section>
                 {!matchesMobile &&
