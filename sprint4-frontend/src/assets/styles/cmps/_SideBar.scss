@@ -14,7 +14,8 @@
         grid-area: side-bar;
         gap: 0px;
         grid-template-rows: auto;
-        grid-template-columns: (2, auto);
+        // grid-template-columns: (2, auto);
+        grid-template-columns: 2fr 1fr;
         grid-template-areas:
             "h l";
         height: 50px;
@@ -25,11 +26,12 @@
             display: flex;
             // grid-template-columns: repeat(auto);
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: space-around;
             height: 50px;
             border-radius: 0px;
 
             .home-link {
+                grid-area: h;
 
                 text-decoration: none;
                 color: $clr3;
@@ -41,14 +43,13 @@
 
                 .home-btn-container {
                     // grid-column: 1;
-                    grid-area: h;
                     margin: 0px;
 
                     .home-btn {
                         background-color: $clr8;
                         text-decoration: none;
                         margin: 0px;
-                        padding-left: 55px;
+                        padding-left: 40px;
                     }
 
                 }
@@ -60,10 +61,10 @@
             }
 
             .search-link {
+                grid-area: s;
 
                 .search-btn-container {
                     // grid-column: 2;
-                    grid-area: s;
 
 
                     .search-btn {

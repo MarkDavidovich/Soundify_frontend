@@ -5,7 +5,9 @@
     overflow-y: auto;
 
     &.mobile {
-        display: none;
+        // grid-area: main-view;
+        display: flex;
+        flex-direction: column;
     }
 
     &::-webkit-scrollbar {

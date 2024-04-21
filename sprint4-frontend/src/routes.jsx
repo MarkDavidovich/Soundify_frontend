@@ -8,6 +8,7 @@ import { StationDetails } from './cmps/StationDetails.jsx'
 import { SidePreview } from './cmps/sideMenu/SidePreview.jsx'
 import { CategoryStations } from './pages/CategoryStations.jsx'
 import { LoginSignup } from './cmps/LoginSignup.jsx'
+import { LibraryPage } from './pages/LibraryPage.jsx'
 
 // Routes accesible from the main navigation (in AppHeader)
 
@@ -34,15 +35,15 @@ const routes = [
     },
     {
         path: '/login',
-        component: <LoginSignup/>,
+        component: <LoginSignup />,
         label: 'Login'
     },
 
-    // {
-    //     path: 'stations',
-    //     component: <StationsPage />,
-    //     label: 'Stations'
-    // },
+    {
+        path: 'stations',
+        component: <LibraryPage />,
+        label: 'Stations'
+    },
 
     // {
     //     path: 'review',

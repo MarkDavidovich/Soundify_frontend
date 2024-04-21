@@ -94,6 +94,7 @@ export function SideBar() {
 
                 <SideIndex toggleLibrary={toggleLibrary} onToggleLibrary={handleToggleLibraryClick} />
             </div>
+
         </>
     )
 }
