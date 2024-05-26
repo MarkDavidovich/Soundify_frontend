@@ -17,17 +17,16 @@ you can visit our live app at https://soundify-ro88.onrender.com/.
 ## Installation
 To get started with Soundify, follow these steps:
 
-1. Clone the repository:
- ```sh
+1. Clone the repositories:
+    ```sh
     git clone https://github.com/MarkDavidovich/sprint_4.git
     git clone https://github.com/Haim-Braunstein/sprint_4_backend.git
     ```
-  
-2. Navigate to the project directory:
-
+2. Navigate to the project directory
+   
 3. Install dependencies:
     ```sh
-    npm i
+    npm install
     ```
 4. Start the development server:
     ```sh
