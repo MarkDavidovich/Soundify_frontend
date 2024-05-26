@@ -5,7 +5,7 @@ Soundify is a music app inspired by Spotify to provide users with an immersive a
 
 you can visit our live app at https://soundify-ro88.onrender.com/.
 
-![Soundify Screenshot](src/assets/screenshot.png)
+![Soundify Screenshot](sprint-frontend/src/assets/screenshot.png)
 
 ## Features
 - **Single Page Application**: Built using React for a dynamic and responsive user interface.
