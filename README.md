@@ -26,7 +26,7 @@ To get started with Soundify, follow these steps:
    
 3. Install dependencies:
     ```sh
-    npm install
+    npm i
     ```
 4. Start the development server:
     ```sh
