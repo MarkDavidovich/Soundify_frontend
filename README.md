@@ -21,6 +21,7 @@ To get started with Soundify, follow these steps:
     ```sh
   git clone https://github.com/MarkDavidovich/sprint_4.git
   git clone https://github.com/Haim-Braunstein/sprint_4_backend.git
+      ```
   
 2. Navigate to the project directory:
 
