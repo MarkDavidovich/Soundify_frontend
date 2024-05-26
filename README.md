@@ -10,7 +10,7 @@ you can visit our live app at https://soundify-ro88.onrender.com/.
 ## Features
 - **Single Page Application**: Built using React for a dynamic and responsive user interface.
 - **Drag and Drop**: You can easily organize your music library and create user playlists using drag-and-drop functionality.
-- **API Integration:**: We've incorporated YouTube API to enhance your music discovery and listening experience..
+- **API Integration:** We've incorporated YouTube API to enhance your music discovery and listening experience.
 - **ES6**: Utilizes modern JavaScript features for cleaner and more efficient code.
 - **User-Friendly Interface**: Designed with the user in mind, ensuring an intuitive and enjoyable experience.
 
