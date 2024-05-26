@@ -18,10 +18,10 @@ you can visit our live app at https://soundify-ro88.onrender.com/.
 To get started with Soundify, follow these steps:
 
 1. Clone the repository:
-    ```sh
-  git clone https://github.com/MarkDavidovich/sprint_4.git
-  git clone https://github.com/Haim-Braunstein/sprint_4_backend.git
-      ```
+ ```sh
+    git clone https://github.com/MarkDavidovich/sprint_4.git
+    git clone https://github.com/Haim-Braunstein/sprint_4_backend.git
+    ```
   
 2. Navigate to the project directory:
 
